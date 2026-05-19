@@ -772,7 +772,7 @@ def main():
     if "nothing to commit" in r.stdout:
         print("✓ 无变更，无需推送")
     else:
-        subprocess.run(["git", "-C", repo, "push"], check=False)
+        subprocess.run(["git", "-C", repo, "push", "--set-upstream", "origin", "main"], check=False)
         print("✓ 已推送到 GitHub Pages")
 
 
