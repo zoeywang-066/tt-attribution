@@ -9,6 +9,39 @@
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; background: #f4f6f9; color: #1a1a2e; }
   .page { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
+  /* Password gate */
+  #pw-gate {
+    position: fixed; inset: 0; z-index: 9999;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #pw-box {
+    background: white; border-radius: 16px; padding: 36px 40px; width: 320px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5); text-align: center;
+  }
+  #pw-box .lock { font-size: 36px; margin-bottom: 12px; }
+  #pw-box h2 { font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+  #pw-box p { font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+  #pw-input {
+    width: 100%; padding: 11px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px;
+    font-size: 15px; letter-spacing: 4px; text-align: center; outline: none;
+    transition: border-color 0.2s;
+  }
+  #pw-input:focus { border-color: #6366f1; }
+  #pw-input.error { border-color: #ef4444; animation: shake 0.3s; }
+  #pw-err { font-size: 12px; color: #ef4444; margin-top: 8px; min-height: 16px; }
+  #pw-btn {
+    margin-top: 16px; width: 100%; padding: 11px; background: #6366f1;
+    color: white; border: none; border-radius: 8px; font-size: 14px;
+    font-weight: 600; cursor: pointer; transition: background 0.2s;
+  }
+  #pw-btn:hover { background: #4f46e5; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+
   .report-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; border-radius: 12px; padding: 22px 28px; margin-bottom: 16px; }
   .report-header h1 { font-size: 20px; font-weight: 700; }
   .report-header .period { margin-top: 8px; font-size: 13px; opacity: 0.9; }
@@ -90,6 +123,20 @@
 </style>
 </head>
 <body>
+
+<!-- Password gate -->
+<div id="pw-gate">
+  <div id="pw-box">
+    <div class="lock">🔒</div>
+    <h2>TikTok 投放数据归因</h2>
+    <p>请输入访问密码</p>
+    <input id="pw-input" type="password" placeholder="密码" autocomplete="off"
+           onkeydown="if(event.key==='Enter')checkPw()">
+    <div id="pw-err"></div>
+    <button id="pw-btn" onclick="checkPw()">进入</button>
+  </div>
+</div>
+
 <div class="page">
 
 <div class="report-header">
@@ -1003,6 +1050,27 @@
 <button class="copy-btn" onclick="copyText()">📋 复制摘要</button>
 
 <script>
+(function() {
+  if (sessionStorage.getItem('tt_auth') === '1') {
+    document.getElementById('pw-gate').style.display = 'none';
+  }
+})();
+
+function checkPw() {
+  const val = document.getElementById('pw-input').value;
+  if (val === 'TT') {
+    sessionStorage.setItem('tt_auth', '1');
+    document.getElementById('pw-gate').style.display = 'none';
+  } else {
+    const inp = document.getElementById('pw-input');
+    inp.classList.remove('error');
+    void inp.offsetWidth;
+    inp.classList.add('error');
+    document.getElementById('pw-err').textContent = '密码错误，请重试';
+    inp.value = '';
+  }
+}
+
 function switchTab(id) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
