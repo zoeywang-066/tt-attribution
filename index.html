@@ -7,7 +7,7 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; background: #f4f6f9; color: #1a1a2e; }
-  .page { max-width: 1200px; margin: 0 auto; padding: 20px; }
+  .page { max-width: 1280px; margin: 0 auto; padding: 20px; }
 
   /* Password gate */
   #pw-gate {
@@ -49,29 +49,41 @@
   .report-header .period .prev { opacity: 0.6; font-size: 12px; }
   .report-header .meta { margin-top: 8px; font-size: 11px; opacity: 0.55; }
 
-  /* Tabs */
-  .tabs { display: flex; gap: 4px; margin-bottom: 16px; }
-  .tab-btn { padding: 9px 20px; border-radius: 8px 8px 0 0; border: 1px solid #e2e8f0; border-bottom: none; background: #f1f5f9; cursor: pointer; font-size: 13px; font-weight: 600; color: #64748b; transition: all 0.15s; }
+  /* Tab groups */
+  .tab-groups { display: flex; flex-direction: column; gap: 0; margin-bottom: 0; }
+  .tab-group { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; background: #f8fafc; border: 1px solid #e2e8f0; border-bottom: none; border-radius: 10px 10px 0 0; padding: 8px 12px 0; }
+  .tab-group:not(:first-child) { border-top: none; border-radius: 0; }
+  .tab-group-label { font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; padding: 0 6px 8px 0; border-right: 1px solid #e2e8f0; margin-right: 4px; }
+  .acc-id { font-weight: 400; color: #cbd5e1; }
+  .tab-btns { display: flex; gap: 3px; flex-wrap: wrap; padding-bottom: 0; }
+  .tab-btn { padding: 6px 12px; border-radius: 6px 6px 0 0; border: 1px solid #e2e8f0; border-bottom: none; background: #f1f5f9; cursor: pointer; font-size: 12px; font-weight: 600; color: #64748b; transition: all 0.15s; display: flex; align-items: center; gap: 4px; margin-bottom: 0; }
   .tab-btn:hover { background: #e8edf5; }
-  .tab-btn.active { background: white; color: #1e293b; border-color: #e2e8f0; }
-  .tab-btn .badge { display: inline-block; background: #ef4444; color: white; border-radius: 10px; padding: 1px 7px; font-size: 10px; margin-left: 5px; }
-  .tab-btn .badge.ok { background: #22c55e; }
-  .tab-content { display: none; background: white; border-radius: 0 12px 12px 12px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .tab-btn.active { background: white; color: #1e293b; border-color: #e2e8f0; position: relative; z-index: 1; }
+  .badge { display: inline-block; background: #ef4444; color: white; border-radius: 10px; padding: 1px 6px; font-size: 10px; }
+  .badge.ok { background: #22c55e; }
+  .badge.pending { background: #94a3b8; }
+
+  /* OS badges */
+  .os-badge { border-radius: 4px; padding: 1px 5px; font-size: 10px; font-weight: 700; }
+  .os-badge-sm { border-radius: 3px; padding: 0px 4px; font-size: 9px; font-weight: 700; }
+  .os-and { background: #dcfce7; color: #15803d; }
+  .os-ios { background: #dbeafe; color: #1d4ed8; }
+
+  .tab-content { display: none; background: white; border-radius: 0 0 12px 12px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
   .tab-content.active { display: block; }
 
-  /* Product header */
-  .product-header { padding: 14px 20px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px; }
+  .product-header { padding: 14px 20px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .product-id-badge { background: #1e293b; color: white; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 700; }
-  .product-header h2 { font-size: 14px; font-weight: 600; color: #334155; }
+  .product-header h2 { font-size: 13px; font-weight: 600; color: #334155; }
   .alert-count { margin-left: auto; font-size: 12px; background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; border-radius: 20px; padding: 2px 10px; }
 
-  /* Country block */
   .country-block { border-bottom: 1px solid #f1f5f9; }
   .country-block:last-child { border-bottom: none; }
-  .country-header { padding: 12px 20px; display: flex; align-items: center; gap: 10px; }
+  .country-header { padding: 12px 20px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .country-name { font-size: 14px; font-weight: 600; }
   .cpi-badge { border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; }
   .cpi-up { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+  .cpi-down { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
   .attr-badge { border-radius: 20px; padding: 3px 10px; font-size: 11px; margin-left: 4px; }
   .attr-media { background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
   .attr-creative { background: #fdf4ff; color: #9333ea; border: 1px solid #e9d5ff; }
@@ -91,16 +103,17 @@
   .metric-pill .m-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; }
   .metric-pill .m-val { font-size: 12px; font-weight: 600; margin: 2px 0; }
   .metric-pill .m-chg { font-size: 11px; }
-  .up { color: #dc2626; } .down { color: #16a34a; } .flat { color: #94a3b8; }
   .chg-up { color: #dc2626; font-weight: 600; }
   .chg-down { color: #16a34a; font-weight: 600; }
   .chg-flat { color: #94a3b8; }
 
   .table-section { padding: 0 20px 16px; }
-  .table-title { font-size: 11px; font-weight: 600; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin: 10px 0 6px; display: flex; align-items: center; gap: 5px; }
-  .icon { width: 16px; height: 16px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; }
+  .table-title { font-size: 11px; font-weight: 600; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin: 12px 0 6px; display: flex; align-items: center; gap: 5px; }
+  .icon { width: 16px; height: 16px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
   .icon-media { background: #fff7ed; color: #ea580c; }
   .icon-creative { background: #fdf4ff; color: #9333ea; }
+  .icon-pub { background: #eff6ff; color: #2563eb; }
+  .icon-fmt { background: #f0fdf4; color: #16a34a; }
   table { width: 100%; border-collapse: collapse; font-size: 12px; }
   th { background: #f8fafc; color: #64748b; font-size: 11px; font-weight: 600; padding: 7px 10px; text-align: left; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
   td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; white-space: nowrap; }
@@ -112,13 +125,14 @@
   .tag { font-size: 10px; border-radius: 3px; padding: 1px 5px; }
   .tag-warn { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
   .tag-ok { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+  .fmt-badge { background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; border-radius: 4px; padding: 1px 6px; font-size: 11px; font-weight: 600; }
+  .pending-msg { background: #fafafa; border: 1px dashed #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #94a3b8; margin: 8px 0; }
 
   .conclusion { margin: 0 20px 16px; background: #f8fafc; border-left: 3px solid #6366f1; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 12px; color: #334155; line-height: 1.6; }
   .conclusion strong { color: #1e293b; }
 
   .copy-btn { position: fixed; bottom: 24px; right: 24px; background: #6366f1; color: white; border: none; border-radius: 50px; padding: 11px 20px; font-size: 13px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px rgba(99,102,241,0.4); z-index: 100; }
   .copy-btn:hover { background: #4f46e5; }
-
   @media print { .copy-btn { display: none; } }
 </style>
 </head>
@@ -145,21 +159,36 @@
     <span class="curr">📅 本期：2026-05-10 ~ 2026-05-16</span>
     <span class="prev">对比上期：2026-05-03 ~ 2026-05-09</span>
   </div>
-  <div class="meta">账户 ly4znbvROd2ny068 · 筛选条件：CPI 上涨 ≥10% · 数据源：fact_dsp_core (gross_spend_usd) · 生成于 2026-05-19</div>
+  <div class="meta">筛选条件：CPI 涨跌幅 ≥10% · 数据源：fact_dsp_core (gross_spend_usd) · 生成于 2026-05-19</div>
 </div>
 
-<div class="tabs">
-  <button class="tab-btn active" onclick="switchTab('t1340')">1340 TikTok Lite <span class="badge">1</span></button>
-  <button class="tab-btn" onclick="switchTab('t1180')">1180 <span class="badge ok">✓</span></button>
-  <button class="tab-btn" onclick="switchTab('t1233')">1233 <span class="badge">7</span></button>
+<div class="tab-groups">
+
+    <div class="tab-group">
+      <div class="tab-group-label">主账户 <span class="acc-id">ly4znbvROd2ny068</span></div>
+      <div class="tab-btns"><button class="tab-btn" id="btn-p1340_and" onclick="switchTab('p1340_and')">1340 <span class="os-and os-badge-sm">Android</span> <span class="badge"><span style="color:#fecaca">↑1</span></span></button>
+<button class="tab-btn" id="btn-p1180_and" onclick="switchTab('p1180_and')">1180 <span class="os-and os-badge-sm">Android</span> <span class="badge ok">✓</span></button>
+<button class="tab-btn" id="btn-p1180_ios" onclick="switchTab('p1180_ios')">1180 <span class="os-ios os-badge-sm">iOS</span> <span class="badge pending">—</span></button>
+<button class="tab-btn" id="btn-p1233_and" onclick="switchTab('p1233_and')">1233 <span class="os-and os-badge-sm">Android</span> <span class="badge"><span style="color:#fecaca">↑7</span></span></button>
+<button class="tab-btn" id="btn-p1233_ios" onclick="switchTab('p1233_ios')">1233 <span class="os-ios os-badge-sm">iOS</span> <span class="badge pending">—</span></button>
+</div>
+    </div>
+    <div class="tab-group">
+      <div class="tab-group-label">TikTok US <span class="acc-id">fH0s5ileTls1I5dI</span></div>
+      <div class="tab-btns"><button class="tab-btn" id="btn-us_p1340" onclick="switchTab('us_p1340')">US1340 <span class="os-and os-badge-sm">Android</span> <span class="badge pending">—</span></button>
+<button class="tab-btn" id="btn-us_p1233" onclick="switchTab('us_p1233')">US1233 <span class="os-and os-badge-sm">Android</span> <span class="badge pending">—</span></button>
+<button class="tab-btn" id="btn-us_p1233_ios" onclick="switchTab('us_p1233_ios')">US1233 <span class="os-ios os-badge-sm">iOS</span> <span class="badge pending">—</span></button>
+</div>
+    </div>
 </div>
 
-<!-- Tab 1340 -->
-<div id="t1340" class="tab-content active">
+
+<div id="p1340_and" class="tab-content">
   <div class="product-header">
     <span class="product-id-badge">1340</span>
+    <span class="os-and os-badge">Android</span>
     <h2>TikTok Lite · dP2o4r09cpwZxpzy</h2>
-    <span class="alert-count">1 个国家预警</span>
+    <span class="alert-count"><span style="color:#dc2626">↑1</span> 国家预警</span>
   </div>
   
   <div class="country-block">
@@ -196,7 +225,8 @@
       
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+              <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td class="name-cell" title="TikTokLite CPA_tt_d2_retention_user">TikTokLite CPA_tt_d2_retention_user</td>
@@ -218,7 +248,8 @@
       
         <div class="table-title"><span class="icon icon-media">M</span>Exchange 明细（媒体侧）</div>
         <table>
-          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th>
+              <th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td>MOLOCO_SDK_MAX</td>
@@ -275,85 +306,98 @@
               <td><span class="tag tag-ok">正常/改善</span></td>
             </tr>
         </table>
+      <div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>
+      <div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>
     </div>
     <div class="conclusion"><strong>结论：</strong>CPM 全面上涨是主因（贡献70%），叠加 IPM 轻微下滑。MOLOCO_SDK_MAX 的 CPM 暴涨 +55.5% 且花费占比扩大至12.4%，是最大成本拖累。install campaign 的 CVR 从1.09%降至0.94%，需检查素材是否疲劳。建议：审视 SDK_MAX 出价策略，排查 ADX_RTB/INMOBI 流量质量下滑原因。</div>
   </div>
 </div>
 
-<!-- Tab 1180 -->
-<div id="t1180" class="tab-content">
+<div id="p1180_and" class="tab-content">
   <div class="product-header">
     <span class="product-id-badge">1180</span>
-    <h2>OK9ZHF0eYCoGIUfq</h2>
+    <span class="os-and os-badge">Android</span>
+    <h2>TikTok SEA · OK9ZHF0eYCoGIUfq</h2>
     <span style="margin-left:auto;font-size:12px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0;border-radius:20px;padding:2px 10px;">✓ 无预警</span>
   </div>
   
     <div style="padding:16px 20px 8px;">
-      <div style="display:inline-block;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:20px;padding:4px 14px;font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">✓ 本周期无国家 CPI 上涨 ≥10%，整体表现良好</div>
-      <div style="font-size:12px;color:#64748b;margin-bottom:12px;">最大上涨：IDN +5.21%（未达阈值）· 多国 CPI 大幅改善（KHM -17.9%、VNM -14.2%、MYS -10.8%）</div>
+      <div style="display:inline-block;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:20px;padding:4px 14px;font-size:12px;color:#16a34a;font-weight:600;margin-bottom:12px;">✓ 本周期无国家 CPI 涨跌幅 ≥10%，整体表现良好</div>
     </div>
     <div style="padding:0 20px 16px;">
       <table>
         <tr><th>国家</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM</th><th>IPM</th></tr>
         <tr>
-          <td>🇮🇩 IDN</td>
-          <td>$2.10</td><td>$2.21</td>
-          <td class="chg-up"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca">+5.2%</span></td>
-          <td class="chg-down">$4.26→$4.14</td>
-          <td class="chg-down">2.03→1.87</td>
-        </tr><tr>
-          <td>🇵🇭 PHL</td>
-          <td>$2.70</td><td>$2.73</td>
-          <td class="chg-up"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca">+1.2%</span></td>
-          <td class="chg-down">$7.37→$7.23</td>
-          <td class="chg-down">2.73→2.65</td>
-        </tr><tr>
-          <td>🇯🇵 JPN</td>
-          <td>$7.96</td><td>$7.43</td>
-          <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-6.6%</span></td>
-          <td class="chg-up">$1.26→$1.27</td>
-          <td class="chg-up">0.16→0.17</td>
-        </tr><tr>
-          <td>🇰🇷 KOR</td>
-          <td>$7.63</td><td>$7.09</td>
-          <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-7.0%</span></td>
-          <td class="chg-up">$1.94→$2.02</td>
-          <td class="chg-up">0.25→0.29</td>
-        </tr><tr>
-          <td>🇹🇭 THA</td>
-          <td>$5.00</td><td>$4.62</td>
-          <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-7.6%</span></td>
-          <td class="chg-down">$10.94→$10.65</td>
-          <td class="chg-up">2.19→2.31</td>
-        </tr><tr>
-          <td>🇲🇾 MYS</td>
-          <td>$3.17</td><td>$2.83</td>
-          <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-10.8%</span></td>
-          <td class="chg-down">$7.86→$7.75</td>
-          <td class="chg-up">2.48→2.74</td>
-        </tr><tr>
-          <td>🇻🇳 VNM</td>
-          <td>$5.72</td><td>$4.90</td>
-          <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-14.2%</span></td>
-          <td class="chg-down">$10.12→$9.68</td>
-          <td class="chg-up">1.77→1.97</td>
-        </tr><tr>
-          <td>🇰🇭 KHM</td>
-          <td>$1.09</td><td>$0.89</td>
-          <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-17.9%</span></td>
-          <td class="chg-down">$3.22→$3.08</td>
-          <td class="chg-up">2.96→3.45</td>
-        </tr>
+              <td>🇮🇩 IDN</td>
+              <td>$2.10</td><td>$2.21</td>
+              <td class="chg-up"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca">+5.2%</span></td>
+              <td class="chg-down">$4.26→$4.14</td>
+              <td class="chg-down">2.03→1.87</td>
+            </tr><tr>
+              <td>🇵🇭 PHL</td>
+              <td>$2.70</td><td>$2.73</td>
+              <td class="chg-up"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca">+1.2%</span></td>
+              <td class="chg-down">$7.37→$7.23</td>
+              <td class="chg-down">2.73→2.65</td>
+            </tr><tr>
+              <td>🇯🇵 JPN</td>
+              <td>$7.96</td><td>$7.43</td>
+              <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-6.6%</span></td>
+              <td class="chg-up">$1.26→$1.27</td>
+              <td class="chg-up">0.16→0.17</td>
+            </tr><tr>
+              <td>🇰🇷 KOR</td>
+              <td>$7.63</td><td>$7.09</td>
+              <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-7.0%</span></td>
+              <td class="chg-up">$1.94→$2.02</td>
+              <td class="chg-up">0.25→0.29</td>
+            </tr><tr>
+              <td>🇹🇭 THA</td>
+              <td>$5.00</td><td>$4.62</td>
+              <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-7.6%</span></td>
+              <td class="chg-down">$10.94→$10.65</td>
+              <td class="chg-up">2.19→2.31</td>
+            </tr><tr>
+              <td>🇲🇾 MYS</td>
+              <td>$3.17</td><td>$2.83</td>
+              <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-10.8%</span></td>
+              <td class="chg-down">$7.86→$7.75</td>
+              <td class="chg-up">2.48→2.74</td>
+            </tr><tr>
+              <td>🇻🇳 VNM</td>
+              <td>$5.72</td><td>$4.90</td>
+              <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-14.2%</span></td>
+              <td class="chg-down">$10.12→$9.68</td>
+              <td class="chg-up">1.77→1.97</td>
+            </tr><tr>
+              <td>🇰🇭 KHM</td>
+              <td>$1.09</td><td>$0.89</td>
+              <td class="chg-down"><span style="font-size:11px;padding:1px 6px;border-radius:10px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0">-17.9%</span></td>
+              <td class="chg-down">$3.22→$3.08</td>
+              <td class="chg-up">2.96→3.45</td>
+            </tr>
       </table>
     </div>
 </div>
 
-<!-- Tab 1233 -->
-<div id="t1233" class="tab-content">
+<div id="p1180_ios" class="tab-content">
+  <div class="product-header">
+    <span class="product-id-badge">1180</span>
+    <span class="os-ios os-badge">iOS</span>
+    <h2>TikTok SEA · UAyypa71GkjbUNIp</h2>
+    <span style="margin-left:auto;font-size:12px;background:#fef9c3;color:#854d0e;border:1px solid #fde68a;border-radius:20px;padding:2px 10px;">⏳ 数据待查</span>
+  </div>
+  <div style="padding:40px;text-align:center;color:#94a3b8;font-size:13px;">
+    本产品数据将在下次周报更新时填入
+  </div>
+</div>
+
+<div id="p1233_and" class="tab-content">
   <div class="product-header">
     <span class="product-id-badge">1233</span>
-    <h2>IP3KqTHC6BNDf4CT</h2>
-    <span class="alert-count">7 个国家预警</span>
+    <span class="os-and os-badge">Android</span>
+    <h2>1233 · IP3KqTHC6BNDf4CT</h2>
+    <span class="alert-count"><span style="color:#dc2626">↑7</span> 国家预警</span>
   </div>
   
   <div class="country-block">
@@ -390,7 +434,8 @@
       
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+              <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td class="name-cell" title="DNU">DNU</td>
@@ -420,7 +465,8 @@
       
         <div class="table-title"><span class="icon icon-media">M</span>Exchange 明细（媒体侧）</div>
         <table>
-          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th>
+              <th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td>VUNGLE</td>
@@ -459,6 +505,8 @@
               <td><span class="tag tag-warn">创意侧IPM↓</span></td>
             </tr>
         </table>
+      <div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>
+      <div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>
     </div>
     <div class="conclusion"><strong>结论：</strong>CVR 下降 -18.6% 是核心，用户点击后安装率大幅降低，属于创意/落地页效率下降信号。DNU 和 bs_conversion_0330 两个 campaign CPI 近乎翻倍，bs_conversion_0429 表现正常。INMOBI 和 SDK_ADMOB 的 IPM 大幅崩塌，与 campaign 恶化趋势一致。建议：优先排查 DNU 和 0330 campaign 素材是否疲劳。</div>
   </div>
@@ -496,7 +544,8 @@
       
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+              <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td class="name-cell" title="bs_conversion">bs_conversion</td>
@@ -518,7 +567,8 @@
       
         <div class="table-title"><span class="icon icon-media">M</span>Exchange 明细（媒体侧）</div>
         <table>
-          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th>
+              <th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td>VUNGLE</td>
@@ -557,6 +607,8 @@
               <td><span class="tag tag-ok">正常/改善</span></td>
             </tr>
         </table>
+      <div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>
+      <div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>
     </div>
     <div class="conclusion"><strong>结论：</strong>CTR 大幅下滑（27.1%→22.8%），用户点击意愿降低，是典型的创意疲劳信号。VUNGLE 份额扩大 +7.5pp 但 IPM 同时暴跌 -31.7%，双重恶化。IRONSOURCE 和 SDK_MAX 表现优秀（IPM 大幅提升），但预算流向了低效渠道。建议：更换素材，将预算从 VUNGLE 转至 IRONSOURCE/SDK_MAX。</div>
   </div>
@@ -594,7 +646,8 @@
       
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+              <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td class="name-cell" title="af_bs_conversion">af_bs_conversion</td>
@@ -632,7 +685,8 @@
       
         <div class="table-title"><span class="icon icon-media">M</span>Exchange 明细（媒体侧）</div>
         <table>
-          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th>
+              <th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td>IRONSOURCE</td>
@@ -680,6 +734,8 @@
               <td><span class="tag tag-ok">正常/改善</span></td>
             </tr>
         </table>
+      <div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>
+      <div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>
     </div>
     <div class="conclusion"><strong>结论：</strong>CPM 下降（买量变便宜）但 CPI 仍涨 19%，完全由 IPM 下滑驱动。主力 campaign af_bs_conversion IPM 跌 -35%，而 Playable 素材 campaign 表现良好甚至改善，印证是素材/创意问题而非媒体竞价问题。IRONSOURCE 和 UNITY 的 IPM 几乎归零，建议暂停或大幅降低这两个渠道出价。</div>
   </div>
@@ -717,7 +773,8 @@
       
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+              <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td class="name-cell" title="bs_conversion_0330">bs_conversion_0330</td>
@@ -747,7 +804,8 @@
       
         <div class="table-title"><span class="icon icon-media">M</span>Exchange 明细（媒体侧）</div>
         <table>
-          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th>
+              <th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td>INMOBI</td>
@@ -795,6 +853,8 @@
               <td><span class="tag tag-ok">正常/改善</span></td>
             </tr>
         </table>
+      <div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>
+      <div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>
     </div>
     <div class="conclusion"><strong>结论：</strong>三个 campaign 全部恶化，CVR 均有下滑，是系统性创意转化问题。FYBER 效率最好（IPM +13%）但份额反而缩减了 -2pp。XIAOMI 的 IPM 暴跌 -37%。建议：增加 FYBER 预算配比，排查 XIAOMI 渠道流量质量，检查三个 campaign 是否素材需要更新。</div>
   </div>
@@ -832,7 +892,8 @@
       
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+              <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td class="name-cell" title="bs_conversion_0513">bs_conversion_0513</td>
@@ -846,7 +907,8 @@
       
         <div class="table-title"><span class="icon icon-media">M</span>Exchange 明细（媒体侧）</div>
         <table>
-          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th>
+              <th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td>INMOBI</td>
@@ -885,6 +947,8 @@
               <td><span class="tag tag-ok">正常/改善</span></td>
             </tr>
         </table>
+      <div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>
+      <div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>
     </div>
     <div class="conclusion"><strong>结论：</strong>CPM 下降（利好）但 CPI 仍涨 19%，证明是纯粹创意转化问题。MOLOCO_SDK_MAX 效率大幅提升（IPM +25%）但份额反而降了 3.7pp，INMOBI（CPI +90%，IPM -46%）和 ADX_RTB（CPI +44%）低效扩张。建议：大幅增加 SDK_MAX 预算，压缩 INMOBI 投放，并检查 CTR 下降是否为素材问题。</div>
   </div>
@@ -922,7 +986,8 @@
       
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+              <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td class="name-cell" title="pltv_lt7_deeplt">pltv_lt7_deeplt</td>
@@ -942,6 +1007,8 @@
             </tr>
         </table>
       
+      <div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>
+      <div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>
     </div>
     <div class="conclusion"><strong>结论：</strong>SAU 是本周唯一以媒体成本上涨为主因的国家（CPM 贡献70%）。pltv_lt7_deeplt campaign 的 CPM 暴涨 +25.3%，可能与出价策略或市场竞价加剧有关。af_bs_conversion_rt 表现正常（CPI +4.4%）。建议：重点检查 pltv campaign 的 TKPI 目标出价设置。</div>
   </div>
@@ -979,7 +1046,8 @@
       
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+              <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td class="name-cell" title="bs_conversion">bs_conversion</td>
@@ -1001,7 +1069,8 @@
       
         <div class="table-title"><span class="icon icon-media">M</span>Exchange 明细（媒体侧）</div>
         <table>
-          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th><th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
+          <tr><th>Exchange</th><th>上期占比</th><th>本期占比</th><th>占比变化</th>
+              <th>CPI 变化</th><th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           
             <tr>
               <td>INMOBI</td>
@@ -1040,8 +1109,58 @@
               <td><span class="tag tag-ok">正常/改善</span></td>
             </tr>
         </table>
+      <div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>
+      <div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>
     </div>
     <div class="conclusion"><strong>结论：</strong>媒体侧（VUNGLE CPM +23%）和创意侧（CTR -8.3%）各贡献约一半。高效渠道（SDK_MAX、UNITY）份额缩减，低效渠道（INMOBI+VUNGLE）份额合计扩大 +7.2pp，形成结构性成本压力。建议：将部分预算从 VUNGLE 转向 SDK_MAX 和 UNITY。</div>
+  </div>
+</div>
+
+<div id="p1233_ios" class="tab-content">
+  <div class="product-header">
+    <span class="product-id-badge">1233</span>
+    <span class="os-ios os-badge">iOS</span>
+    <h2>TT iOS · eCGvYKnyj8IFBAol</h2>
+    <span style="margin-left:auto;font-size:12px;background:#fef9c3;color:#854d0e;border:1px solid #fde68a;border-radius:20px;padding:2px 10px;">⏳ 数据待查</span>
+  </div>
+  <div style="padding:40px;text-align:center;color:#94a3b8;font-size:13px;">
+    本产品数据将在下次周报更新时填入
+  </div>
+</div>
+
+<div id="us_p1340" class="tab-content">
+  <div class="product-header">
+    <span class="product-id-badge">US1340</span>
+    <span class="os-and os-badge">Android</span>
+    <h2>TikTok US · EXCjjhNVZOYnhEQT</h2>
+    <span style="margin-left:auto;font-size:12px;background:#fef9c3;color:#854d0e;border:1px solid #fde68a;border-radius:20px;padding:2px 10px;">⏳ 数据待查</span>
+  </div>
+  <div style="padding:40px;text-align:center;color:#94a3b8;font-size:13px;">
+    本产品数据将在下次周报更新时填入
+  </div>
+</div>
+
+<div id="us_p1233" class="tab-content">
+  <div class="product-header">
+    <span class="product-id-badge">US1233</span>
+    <span class="os-and os-badge">Android</span>
+    <h2>US 1233 · tMNBQlClO6gB98zS</h2>
+    <span style="margin-left:auto;font-size:12px;background:#fef9c3;color:#854d0e;border:1px solid #fde68a;border-radius:20px;padding:2px 10px;">⏳ 数据待查</span>
+  </div>
+  <div style="padding:40px;text-align:center;color:#94a3b8;font-size:13px;">
+    本产品数据将在下次周报更新时填入
+  </div>
+</div>
+
+<div id="us_p1233_ios" class="tab-content">
+  <div class="product-header">
+    <span class="product-id-badge">US1233</span>
+    <span class="os-ios os-badge">iOS</span>
+    <h2>US 1233 · TJg724pubHpsEq3R</h2>
+    <span style="margin-left:auto;font-size:12px;background:#fef9c3;color:#854d0e;border:1px solid #fde68a;border-radius:20px;padding:2px 10px;">⏳ 数据待查</span>
+  </div>
+  <div style="padding:40px;text-align:center;color:#94a3b8;font-size:13px;">
+    本产品数据将在下次周报更新时填入
   </div>
 </div>
 
@@ -1063,47 +1182,35 @@ function checkPw() {
     document.getElementById('pw-gate').style.display = 'none';
   } else {
     const inp = document.getElementById('pw-input');
-    inp.classList.remove('error');
-    void inp.offsetWidth;
-    inp.classList.add('error');
+    inp.classList.remove('error'); void inp.offsetWidth; inp.classList.add('error');
     document.getElementById('pw-err').textContent = '密码错误，请重试';
     inp.value = '';
   }
 }
 
+const ALL_KEYS = ['p1340_and','p1180_and','p1180_ios','p1233_and','p1233_ios','us_p1340','us_p1233','us_p1233_ios'];
+
 function switchTab(id) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  const idx = {'t1340':0,'t1180':1,'t1233':2};
-  document.querySelectorAll('.tab-btn')[idx[id]].classList.add('active');
+  ALL_KEYS.forEach(k => {
+    const el = document.getElementById(k);
+    const btn = document.getElementById('btn-' + k);
+    if (el) el.classList.remove('active');
+    if (btn) btn.classList.remove('active');
+  });
+  const el = document.getElementById(id);
+  const btn = document.getElementById('btn-' + id);
+  if (el) el.classList.add('active');
+  if (btn) btn.classList.add('active');
 }
 
+// Init first tab
+switchTab('p1340_and');
+
 function copyText() {
-  const lines = [
-    'TikTok 投放数据归因周报',
-    '本期：2026-05-10 ~ 2026-05-16 vs 上期：2026-05-03 ~ 2026-05-09',
-    '账户 ly4znbvROd2ny068 | CPI 上涨 ≥10%',
-    '',
-    '【产品 1340 TikTok Lite】预警 1 个国家',
-    '  BRA（巴西）: CPI +32.6%（$0.45→$0.59）',
-    '  归因：媒体侧70%（CPM +21.7%）+ 创意侧30%（IPM -8.2%）',
-    '  核心：SDK_MAX CPM +55.5%；install campaign CVR下降',
-    '',
-    '【产品 1180】✓ 无预警（IDN 最高 +5.2%，未达阈值）',
-    '',
-    '【产品 1233】预警 7 个国家',
-    '  PRY +31.2% | 创意侧83% | CVR -18.6%，DNU/0330 IPM崩塌',
-    '  MOZ +20.1% | 创意侧97% | CTR -15.7pp，VUNGLE份额+7.5pp',
-    '  DEU +19.2% | 创意侧100% | af_bs_conversion IPM -35%，Playable正常',
-    '  IRQ +19.2% | 创意侧73% | 三campaign全部恶化，XIAOMI IPM -37%',
-    '  NLD +18.9% | 创意侧100% | SDK_MAX效率+25%但份额缩减',
-    '  SAU +18.1% | 媒体侧70% | pltv CPM +25.3%，唯一媒体侧驱动',
-    '  BGD +10.1% | 各半 | VUNGLE CPM +23%，高效渠道缩量',
-    '',
-    '跨国共性：INMOBI/VUNGLE 在多国 CPM↑+IPM↓；高效渠道(SDK_MAX/FYBER)份额持续缩减',
-  ];
-  navigator.clipboard.writeText(lines.join('\n')).then(() => {
+  const active = document.querySelector('.tab-content.active');
+  if (!active) return;
+  const text = active.innerText.replace(/\n{3,}/g, '\n\n');
+  navigator.clipboard.writeText(text).then(() => {
     const btn = document.querySelector('.copy-btn');
     btn.textContent = '✓ 已复制';
     btn.style.background = '#22c55e';
