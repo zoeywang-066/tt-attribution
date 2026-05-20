@@ -87,8 +87,33 @@ REPORT_DATA = {
                                  "prev_cpi": 0.55, "curr_cpi": 0.60, "cpi_chg": 9.7,
                                  "prev_cpm_chg": 25.0, "ipm_chg": 14.0, "type": "ok"},
                             ],
-                            "publishers": [],   # 待查
-                            "formats": [],      # 待查
+                            "publishers": [
+                                {"name": "com.Gamnest.CandyRace", "prev_share": 5.96, "curr_share": 7.82, "share_chg": 1.86, "cpi_chg": 30.9, "cpm_chg": 26.5, "ipm_chg": -3.3, "type": "media"},
+                                {"name": "com.miui.videoplayer", "prev_share": 6.52, "curr_share": 5.40, "share_chg": -1.13, "cpi_chg": 24.1, "cpm_chg": 2.0, "ipm_chg": -17.8, "type": "creative"},
+                                {"name": "com.dywx.larkplayer", "prev_share": 4.65, "curr_share": 4.48, "share_chg": -0.18, "cpi_chg": 15.2, "cpm_chg": 22.2, "ipm_chg": 6.0, "type": "media"},
+                                {"name": "com.android.thememanager", "prev_share": 3.51, "curr_share": 3.94, "share_chg": 0.43, "cpi_chg": 31.9, "cpm_chg": 29.2, "ipm_chg": -2.1, "type": "media"},
+                                {"name": "com.block.juggle", "prev_share": 1.97, "curr_share": 3.02, "share_chg": 1.06, "cpi_chg": 70.5, "cpm_chg": 27.2, "ipm_chg": -25.4, "type": "both"},
+                                {"name": "com.mi.globalbrowser", "prev_share": 2.10, "curr_share": 2.49, "share_chg": 0.39, "cpi_chg": 6.5, "cpm_chg": 9.9, "ipm_chg": 3.2, "type": "ok"},
+                                {"name": "com.Hadiz.Pillowchase", "prev_share": 1.27, "curr_share": 1.52, "share_chg": 0.24, "cpi_chg": 64.1, "cpm_chg": 14.7, "ipm_chg": -30.1, "type": "creative"},
+                                {"name": "com.storymatrix.drama", "prev_share": 1.17, "curr_share": 1.23, "share_chg": 0.05, "cpi_chg": 62.9, "cpm_chg": 6.1, "ipm_chg": -34.9, "type": "creative"},
+                                {"name": "com.vitastudio.mahjong", "prev_share": 1.29, "curr_share": 1.18, "share_chg": -0.12, "cpi_chg": 2.2, "cpm_chg": 31.1, "ipm_chg": 28.3, "type": "ok"},
+                                {"name": "com.herofightinggames.makeup.challenge", "prev_share": 0.96, "curr_share": 1.15, "share_chg": 0.19, "cpi_chg": 43.2, "cpm_chg": 12.0, "ipm_chg": -21.8, "type": "creative"},
+                                {"name": "com.Gamnest.BarberSalon", "prev_share": 1.64, "curr_share": 1.04, "share_chg": -0.60, "cpi_chg": 23.2, "cpm_chg": 8.5, "ipm_chg": -11.9, "type": "creative"},
+                                {"name": "com.oakever.tiletrip", "prev_share": 0.70, "curr_share": 1.03, "share_chg": 0.33, "cpi_chg": 103.0, "cpm_chg": 39.3, "ipm_chg": -31.4, "type": "both"},
+                                {"name": "com.Hadiz.Yogaflex", "prev_share": 0.64, "curr_share": 1.01, "share_chg": 0.37, "cpi_chg": 37.3, "cpm_chg": 20.1, "ipm_chg": -12.6, "type": "both"},
+                                {"name": "com.firsttouchgames.dls7", "prev_share": 2.96, "curr_share": 0.93, "share_chg": -2.02, "cpi_chg": -13.0, "cpm_chg": 12.2, "ipm_chg": 29.0, "type": "ok"},
+                                {"name": "ai.socialapps.speakmaster", "prev_share": 2.11, "curr_share": 0.91, "share_chg": -1.20, "cpi_chg": -9.3, "cpm_chg": 2.2, "ipm_chg": 12.7, "type": "ok"},
+                                {"name": "com.herofightinggames.duck.blast", "prev_share": 1.20, "curr_share": 0.90, "share_chg": -0.30, "cpi_chg": -26.2, "cpm_chg": 6.3, "ipm_chg": 44.0, "type": "ok"},
+                                {"name": "com.kiloo.subwaysurf", "prev_share": 0.88, "curr_share": 0.87, "share_chg": -0.02, "cpi_chg": -2.2, "cpm_chg": 30.4, "ipm_chg": 33.3, "type": "ok"},
+                                {"name": "com.Hadiz.Holeucaneat", "prev_share": 0.89, "curr_share": 0.86, "share_chg": -0.03, "cpi_chg": 23.5, "cpm_chg": 8.2, "ipm_chg": -12.4, "type": "creative"},
+                                {"name": "com.bj.game.fkdgd.mihw", "prev_share": 0.82, "curr_share": 0.78, "share_chg": -0.04, "cpi_chg": 120.6, "cpm_chg": 2.6, "ipm_chg": -53.5, "type": "creative"},
+                                {"name": "com.puppet.bang.relieve.stress", "prev_share": 0.16, "curr_share": 0.76, "share_chg": 0.61, "cpi_chg": 82.6, "cpm_chg": 16.0, "ipm_chg": -36.5, "type": "creative"},
+                            ],
+                            "formats": [
+                                {"name": "Video Interstitial (vi)", "prev_share": 98.8, "curr_share": 98.1, "share_chg": -0.7, "cpi_chg": 32.1, "ipm_chg": -5.9, "ctr_chg": 0.65, "type": "creative"},
+                                {"name": "Video Banner (vb)", "prev_share": 0.6, "curr_share": 1.1, "share_chg": 0.5, "cpi_chg": 74.4, "ipm_chg": -13.7, "ctr_chg": 0.01, "type": "creative"},
+                                {"name": "Native Video (nv)", "prev_share": 0.6, "curr_share": 0.8, "share_chg": 0.2, "cpi_chg": 104.6, "ipm_chg": -25.8, "ctr_chg": 0.01, "type": "creative"},
+                            ],
                         },
                     ],
                 },
@@ -129,8 +154,34 @@ REPORT_DATA = {
                     "label": "1180",
                     "name": "TikTok SEA",
                     "os": "iOS",
-                    "no_data": True,
-                    "countries": [],
+                    "countries": [
+                        {
+                            "code": "VNM", "flag": "🇻🇳", "name": "VNM（越南）",
+                            "prev_cpi": 2.09, "curr_cpi": 3.41, "cpi_chg": 63.6,
+                            "prev_cpm": 1.00, "curr_cpm": 1.49, "cpm_chg": 49.1,
+                            "prev_ipm": 0.48, "curr_ipm": 0.44, "ipm_chg": -8.9,
+                            "prev_ctr": None, "curr_ctr": None,
+                            "prev_cvr": None, "curr_cvr": None,
+                            "prev_spend": 6039.80, "curr_spend": 14158.99,
+                            "prev_installs": 2890, "curr_installs": 4152,
+                            "media_pct": 82, "creative_pct": 18,
+                            "conclusion": "花费大幅扩量（$6K→$14K），CPM 暴涨 +49.1% 是主因（媒体侧贡献82%），IPM 轻微下滑 -8.9% 为次要因素。快速 scale-up 导致媒体成本飙升，建议控制扩量节奏，检查出价上限是否过高。",
+                            "campaigns": [], "exchanges": [], "publishers": [], "formats": [],
+                        },
+                        {
+                            "code": "IDN", "flag": "🇮🇩", "name": "IDN（印尼）",
+                            "prev_cpi": 1.62, "curr_cpi": 1.97, "cpi_chg": 21.4,
+                            "prev_cpm": 1.47, "curr_cpm": 1.86, "cpm_chg": 26.6,
+                            "prev_ipm": 0.91, "curr_ipm": 0.95, "ipm_chg": 4.2,
+                            "prev_ctr": None, "curr_ctr": None,
+                            "prev_cvr": None, "curr_cvr": None,
+                            "prev_spend": 5540.22, "curr_spend": 5561.33,
+                            "prev_installs": 3420, "curr_installs": 2824,
+                            "media_pct": 100, "creative_pct": 0,
+                            "conclusion": "CPM +26.6% 完全主导 CPI 上涨（媒体成本侧），IPM 轻微改善 (+4.2%) 部分对冲但不足以抵消。花费规模稳定，纯媒体竞价成本问题。建议审查 IDN 市场出价策略，检查是否存在竞价过热。",
+                            "campaigns": [], "exchanges": [], "publishers": [], "formats": [],
+                        },
+                    ],
                 },
 
                 # ── 1233 Android ─────────────────────────────────────────
@@ -186,8 +237,23 @@ REPORT_DATA = {
                                  "prev_cpi": None, "curr_cpi": None, "cpi_chg": 56.3,
                                  "prev_cpm_chg": 0, "ipm_chg": -33.4, "type": "creative"},
                             ],
-                            "publishers": [],
-                            "formats": [],
+                            "publishers": [
+                                {"name": "com.pinterest", "prev_share": 5.4, "curr_share": 5.0, "share_chg": -0.4, "cpi_chg": -15.5, "cpm_chg": 9.7, "ipm_chg": 29.9, "type": "ok"},
+                                {"name": "com.dywx.larkplayer", "prev_share": 4.4, "curr_share": 4.5, "share_chg": 0.0, "cpi_chg": -18.2, "cpm_chg": 9.9, "ipm_chg": 34.3, "type": "ok"},
+                                {"name": "com.kiloo.subwaysurf", "prev_share": 2.4, "curr_share": 2.6, "share_chg": 0.3, "cpi_chg": 28.6, "cpm_chg": 19.2, "ipm_chg": -7.3, "type": "media"},
+                                {"name": "com.vitastudio.mahjong", "prev_share": 2.5, "curr_share": 2.4, "share_chg": -0.1, "cpi_chg": -42.4, "cpm_chg": 24.7, "ipm_chg": 116.6, "type": "ok"},
+                                {"name": "com.firsttouchgames.dls7", "prev_share": 2.1, "curr_share": 2.4, "share_chg": 0.4, "cpi_chg": -38.5, "cpm_chg": 19.7, "ipm_chg": 94.5, "type": "ok"},
+                                {"name": "com.puzzlegames.puzzlebrickslegend", "prev_share": 1.6, "curr_share": 1.9, "share_chg": 0.3, "cpi_chg": -67.1, "cpm_chg": 14.8, "ipm_chg": 249.4, "type": "ok"},
+                                {"name": "com.resultadosfutbol.mobile", "prev_share": 2.5, "curr_share": 1.8, "share_chg": -0.7, "cpi_chg": -12.4, "cpm_chg": 8.1, "ipm_chg": 23.4, "type": "ok"},
+                                {"name": "com.king.candycrushsaga", "prev_share": 2.0, "curr_share": 1.8, "share_chg": -0.2, "cpi_chg": -33.7, "cpm_chg": 16.9, "ipm_chg": 76.4, "type": "ok"},
+                                {"name": "com.grindrapp.android", "prev_share": 1.5, "curr_share": 1.3, "share_chg": -0.2, "cpi_chg": -19.0, "cpm_chg": -5.4, "ipm_chg": 16.8, "type": "ok"},
+                                {"name": "com.macrovideo.v380pro", "prev_share": 1.2, "curr_share": 1.2, "share_chg": 0.0, "cpi_chg": 77.0, "cpm_chg": 21.8, "ipm_chg": -31.2, "type": "both"},
+                            ],
+                            "formats": [
+                                {"name": "vi", "prev_share": 94.0, "curr_share": 94.5, "share_chg": 0.4, "cpi_chg": 2.6, "ipm_chg": 11.0, "ctr_chg": 1.53, "type": "ok"},
+                                {"name": "nv", "prev_share": 5.8, "curr_share": 5.3, "share_chg": -0.4, "cpi_chg": -1.6, "ipm_chg": 12.8, "ctr_chg": -0.01, "type": "ok"},
+                                {"name": "vb", "prev_share": 0.2, "curr_share": 0.2, "share_chg": 0.0, "cpi_chg": -64.6, "ipm_chg": 243.8, "ctr_chg": -0.02, "type": "ok"},
+                            ],
                         },
                         {
                             "code": "MOZ", "flag": "🇲🇿", "name": "MOZ（莫桑比克）",
@@ -228,8 +294,23 @@ REPORT_DATA = {
                                  "prev_cpi": None, "curr_cpi": None, "cpi_chg": -84.3,
                                  "prev_cpm_chg": 0, "ipm_chg": 478.0, "type": "ok"},
                             ],
-                            "publishers": [],
-                            "formats": [],
+                            "publishers": [
+                                {"name": "com.resultadosfutbol.mobile", "prev_share": 19.3, "curr_share": 19.6, "share_chg": 0.4, "cpi_chg": -13.0, "cpm_chg": -2.5, "ipm_chg": 12.1, "type": "ok"},
+                                {"name": "videoplayer.videodownloader", "prev_share": 11.2, "curr_share": 10.1, "share_chg": -1.1, "cpi_chg": -17.7, "cpm_chg": 2.9, "ipm_chg": 25.0, "type": "ok"},
+                                {"name": "shareit.lite", "prev_share": 8.7, "curr_share": 9.9, "share_chg": 1.2, "cpi_chg": 30.6, "cpm_chg": 29.3, "ipm_chg": -1.0, "type": "media"},
+                                {"name": "video.downloader.videodownloader", "prev_share": 1.6, "curr_share": 1.6, "share_chg": 0.0, "cpi_chg": 0.7, "cpm_chg": 7.3, "ipm_chg": 6.6, "type": "ok"},
+                                {"name": "musicplayer.playmusic.audioplayer", "prev_share": 1.3, "curr_share": 1.3, "share_chg": 0.1, "cpi_chg": 29.6, "cpm_chg": 10.5, "ipm_chg": -14.7, "type": "both"},
+                                {"name": "com.truecaller", "prev_share": 1.3, "curr_share": 1.2, "share_chg": 0.0, "cpi_chg": -34.5, "cpm_chg": -3.8, "ipm_chg": 46.9, "type": "ok"},
+                                {"name": "com.dywx.larkplayer", "prev_share": 1.5, "curr_share": 1.2, "share_chg": -0.2, "cpi_chg": 59.0, "cpm_chg": -3.1, "ipm_chg": -39.0, "type": "creative"},
+                                {"name": "calculator.currencyconverter", "prev_share": 1.2, "curr_share": 1.2, "share_chg": 0.0, "cpi_chg": 57.7, "cpm_chg": 4.8, "ipm_chg": -33.5, "type": "creative"},
+                                {"name": "com.kiloo.subwaysurf", "prev_share": 1.2, "curr_share": 1.1, "share_chg": 0.0, "cpi_chg": -67.2, "cpm_chg": 23.7, "ipm_chg": 277.2, "type": "ok"},
+                                {"name": "com.outfit7.mytalkingangelafree", "prev_share": 0.9, "curr_share": 1.0, "share_chg": 0.2, "cpi_chg": 23.6, "cpm_chg": 11.4, "ipm_chg": -9.9, "type": "both"},
+                            ],
+                            "formats": [
+                                {"name": "vi", "prev_share": 98.1, "curr_share": 98.0, "share_chg": -0.1, "cpi_chg": 2.6, "ipm_chg": 3.7, "ctr_chg": -1.44, "type": "ok"},
+                                {"name": "nv", "prev_share": 1.6, "curr_share": 1.6, "share_chg": 0.0, "cpi_chg": -38.7, "ipm_chg": 62.1, "ctr_chg": -0.02, "type": "ok"},
+                                {"name": "vb", "prev_share": 0.3, "curr_share": 0.4, "share_chg": 0.1, "cpi_chg": None, "ipm_chg": None, "ctr_chg": -0.16, "type": "ok"},
+                            ],
                         },
                         {
                             "code": "DEU", "flag": "🇩🇪", "name": "DEU（德国）",
@@ -285,8 +366,24 @@ REPORT_DATA = {
                                  "prev_cpi": None, "curr_cpi": None, "cpi_chg": -3.0,
                                  "prev_cpm_chg": 0, "ipm_chg": 0, "type": "ok"},
                             ],
-                            "publishers": [],
-                            "formats": [],
+                            "publishers": [
+                                {"name": "com.miui.global.packageinstaller", "prev_share": 5.7, "curr_share": 5.3, "share_chg": -0.4, "cpi_chg": -77.6, "cpm_chg": -0.1, "ipm_chg": 346.9, "type": "ok"},
+                                {"name": "com.android.thememanager", "prev_share": 2.3, "curr_share": 3.0, "share_chg": 0.7, "cpi_chg": -58.2, "cpm_chg": 17.7, "ipm_chg": 181.7, "type": "ok"},
+                                {"name": "ai.socialapps.speakmaster", "prev_share": 2.8, "curr_share": 2.8, "share_chg": 0.1, "cpi_chg": -19.7, "cpm_chg": -8.2, "ipm_chg": 14.3, "type": "ok"},
+                                {"name": "com.robtopx.geometryjumplite", "prev_share": 1.8, "curr_share": 1.6, "share_chg": -0.1, "cpi_chg": -30.6, "cpm_chg": -0.9, "ipm_chg": 42.8, "type": "ok"},
+                                {"name": "com.miui.cleaner", "prev_share": 1.8, "curr_share": 1.5, "share_chg": -0.2, "cpi_chg": None, "cpm_chg": 12.1, "ipm_chg": None, "type": "ok"},
+                                {"name": "com.miui.videoplayer", "prev_share": 1.6, "curr_share": 1.5, "share_chg": -0.1, "cpi_chg": None, "cpm_chg": -3.8, "ipm_chg": None, "type": "ok"},
+                                {"name": "net.zedge.android", "prev_share": 1.1, "curr_share": 1.1, "share_chg": 0.1, "cpi_chg": 42.0, "cpm_chg": -9.3, "ipm_chg": -36.1, "type": "creative"},
+                                {"name": "com.imo.android.imoim", "prev_share": 1.1, "curr_share": 1.1, "share_chg": -0.1, "cpi_chg": -43.6, "cpm_chg": -17.8, "ipm_chg": 45.8, "type": "ok"},
+                                {"name": "com.Gamnest.CandyRace", "prev_share": 1.2, "curr_share": 1.0, "share_chg": -0.3, "cpi_chg": -50.7, "cpm_chg": -10.6, "ipm_chg": 81.1, "type": "ok"},
+                                {"name": "com.newleaf.app.android.victor", "prev_share": 1.0, "curr_share": 0.9, "share_chg": 0.0, "cpi_chg": 84.6, "cpm_chg": 18.9, "ipm_chg": -35.6, "type": "creative"},
+                            ],
+                            "formats": [
+                                {"name": "vi", "prev_share": 77.7, "curr_share": 74.1, "share_chg": -3.6, "cpi_chg": -15.8, "ipm_chg": 33.3, "ctr_chg": -0.71, "type": "ok"},
+                                {"name": "ri", "prev_share": 20.4, "curr_share": 24.3, "share_chg": 3.8, "cpi_chg": -8.9, "ipm_chg": 22.5, "ctr_chg": 0.48, "type": "ok"},
+                                {"name": "nv", "prev_share": 1.4, "curr_share": 1.1, "share_chg": -0.3, "cpi_chg": -8.5, "ipm_chg": 19.6, "ctr_chg": 0.05, "type": "ok"},
+                                {"name": "vb", "prev_share": 0.3, "curr_share": 0.4, "share_chg": 0.1, "cpi_chg": 19.7, "ipm_chg": 5.4, "ctr_chg": 0.06, "type": "ok"},
+                            ],
                         },
                         {
                             "code": "IRQ", "flag": "🇮🇶", "name": "IRQ（伊拉克）",
@@ -336,8 +433,22 @@ REPORT_DATA = {
                                  "prev_cpi": None, "curr_cpi": None, "cpi_chg": 1.5,
                                  "prev_cpm_chg": 0, "ipm_chg": 0, "type": "ok"},
                             ],
-                            "publishers": [],
-                            "formats": [],
+                            "publishers": [
+                                {"name": "com.videoeditorpro.android", "prev_share": 4.5, "curr_share": 3.6, "share_chg": -0.9, "cpi_chg": -11.9, "cpm_chg": -3.3, "ipm_chg": 9.8, "type": "ok"},
+                                {"name": "com.gofiveglobal.fashion.dress.up", "prev_share": 2.4, "curr_share": 2.5, "share_chg": 0.2, "cpi_chg": 0.0, "cpm_chg": 3.5, "ipm_chg": 3.5, "type": "ok"},
+                                {"name": "com.miui.global.packageinstaller", "prev_share": 2.8, "curr_share": 1.9, "share_chg": -0.9, "cpi_chg": 20.5, "cpm_chg": -30.3, "ipm_chg": -42.1, "type": "creative"},
+                                {"name": "com.mrbunn.its.pee.time", "prev_share": 0.6, "curr_share": 1.4, "share_chg": 0.8, "cpi_chg": 32.6, "cpm_chg": -10.0, "ipm_chg": -32.1, "type": "creative"},
+                                {"name": "com.outfit7.mytalkingtom2", "prev_share": 1.3, "curr_share": 1.3, "share_chg": -0.1, "cpi_chg": -10.8, "cpm_chg": 2.0, "ipm_chg": 14.3, "type": "ok"},
+                                {"name": "com.oakever.tiletrip", "prev_share": 1.2, "curr_share": 1.2, "share_chg": 0.0, "cpi_chg": -42.0, "cpm_chg": 5.0, "ipm_chg": 81.2, "type": "ok"},
+                                {"name": "com.zytoona.wordscrush", "prev_share": 1.1, "curr_share": 1.1, "share_chg": 0.0, "cpi_chg": 28.2, "cpm_chg": -9.5, "ipm_chg": -29.4, "type": "creative"},
+                                {"name": "com.CAYN.TowerOfHellObby", "prev_share": 0.9, "curr_share": 1.1, "share_chg": 0.1, "cpi_chg": 2.0, "cpm_chg": 2.9, "ipm_chg": 0.9, "type": "ok"},
+                                {"name": "com.football.soccer.league", "prev_share": 1.0, "curr_share": 1.0, "share_chg": 0.1, "cpi_chg": -16.7, "cpm_chg": 7.2, "ipm_chg": 28.6, "type": "ok"},
+                                {"name": "com.tfgco.apps.coloring.free.color.by.number", "prev_share": 0.9, "curr_share": 0.9, "share_chg": 0.1, "cpi_chg": 117.5, "cpm_chg": -1.6, "ipm_chg": -54.7, "type": "creative"},
+                            ],
+                            "formats": [
+                                {"name": "vi", "prev_share": 99.9, "curr_share": 99.8, "share_chg": -0.1, "cpi_chg": 2.5, "ipm_chg": -4.6, "ctr_chg": -1.17, "type": "ok"},
+                                {"name": "vb", "prev_share": 0.1, "curr_share": 0.2, "share_chg": 0.1, "cpi_chg": 55.9, "ipm_chg": -50.4, "ctr_chg": -0.11, "type": "creative"},
+                            ],
                         },
                         {
                             "code": "NLD", "flag": "🇳🇱", "name": "NLD（荷兰）",
@@ -372,8 +483,24 @@ REPORT_DATA = {
                                  "prev_cpi": None, "curr_cpi": None, "cpi_chg": -29.8,
                                  "prev_cpm_chg": 0, "ipm_chg": 25.0, "type": "ok"},
                             ],
-                            "publishers": [],
-                            "formats": [],
+                            "publishers": [
+                                {"name": "com.block.juggle", "prev_share": 0.0, "curr_share": 10.0, "share_chg": 10.0, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "com.robtopx.geometryjumplite", "prev_share": 0.0, "curr_share": 2.4, "share_chg": 2.4, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "net.zedge.android", "prev_share": 0.0, "curr_share": 2.2, "share_chg": 2.2, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "com.weaver.app.prod", "prev_share": 0.0, "curr_share": 1.9, "share_chg": 1.9, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "fr.vinted", "prev_share": 0.0, "curr_share": 1.7, "share_chg": 1.7, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "com.playit.videoplayer", "prev_share": 0.0, "curr_share": 1.7, "share_chg": 1.7, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "com.lenovo.anyshare.gps", "prev_share": 0.0, "curr_share": 1.4, "share_chg": 1.4, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "com.annandroid.netron2", "prev_share": 0.0, "curr_share": 1.3, "share_chg": 1.3, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "com.kiloo.subwaysurf", "prev_share": 0.0, "curr_share": 1.3, "share_chg": 1.3, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                                {"name": "com.vitastudio.mahjong", "prev_share": 0.0, "curr_share": 1.2, "share_chg": 1.2, "cpi_chg": None, "cpm_chg": None, "ipm_chg": None, "type": "ok"},
+                            ],
+                            "formats": [
+                                {"name": "vi", "prev_share": 0.0, "curr_share": 95.2, "share_chg": None, "cpi_chg": None, "ipm_chg": None, "ctr_chg": None, "type": "ok"},
+                                {"name": "nv", "prev_share": 0.0, "curr_share": 2.7, "share_chg": None, "cpi_chg": None, "ipm_chg": None, "ctr_chg": None, "type": "ok"},
+                                {"name": "ib", "prev_share": 0.0, "curr_share": 0.8, "share_chg": None, "cpi_chg": None, "ipm_chg": None, "ctr_chg": None, "type": "ok"},
+                                {"name": "vb", "prev_share": 0.0, "curr_share": 0.6, "share_chg": None, "cpi_chg": None, "ipm_chg": None, "ctr_chg": None, "type": "ok"},
+                            ],
                         },
                         {
                             "code": "SAU", "flag": "🇸🇦", "name": "SAU（沙特）",
@@ -401,8 +528,23 @@ REPORT_DATA = {
                                  "type": "ok"},
                             ],
                             "exchanges": [],
-                            "publishers": [],
-                            "formats": [],
+                            "publishers": [
+                                {"name": "com.imo.android.imoim", "prev_share": 23.9, "curr_share": 21.5, "share_chg": -2.4, "cpi_chg": 1.0, "cpm_chg": 4.3, "ipm_chg": 3.3, "type": "ok"},
+                                {"name": "com.imo.android.imoimhd", "prev_share": 4.3, "curr_share": 4.0, "share_chg": -0.3, "cpi_chg": -2.8, "cpm_chg": -3.2, "ipm_chg": -0.4, "type": "ok"},
+                                {"name": "com.imo.android.imoimbeta", "prev_share": 3.5, "curr_share": 3.2, "share_chg": -0.3, "cpi_chg": -20.9, "cpm_chg": -0.6, "ipm_chg": 25.7, "type": "ok"},
+                                {"name": "com.iosgalleryigallery.iphonegallery", "prev_share": 0.6, "curr_share": 1.0, "share_chg": 0.4, "cpi_chg": -21.7, "cpm_chg": 1.5, "ipm_chg": 29.5, "type": "ok"},
+                                {"name": "com.domobile.applockwatcher", "prev_share": 1.0, "curr_share": 1.0, "share_chg": -0.1, "cpi_chg": -7.0, "cpm_chg": 23.4, "ipm_chg": 32.7, "type": "ok"},
+                                {"name": "com.Hadiz.Pillowchase", "prev_share": 0.7, "curr_share": 0.8, "share_chg": 0.1, "cpi_chg": 43.7, "cpm_chg": 6.4, "ipm_chg": -26.0, "type": "creative"},
+                                {"name": "com.scores365", "prev_share": 1.0, "curr_share": 0.8, "share_chg": -0.2, "cpi_chg": 22.9, "cpm_chg": 6.8, "ipm_chg": -13.1, "type": "creative"},
+                                {"name": "com.dywx.larkplayer", "prev_share": 0.8, "curr_share": 0.8, "share_chg": 0.0, "cpi_chg": 3.5, "cpm_chg": 4.2, "ipm_chg": 0.6, "type": "ok"},
+                                {"name": "com.amelosinteractive.snake", "prev_share": 1.1, "curr_share": 0.8, "share_chg": -0.3, "cpi_chg": 21.6, "cpm_chg": 4.2, "ipm_chg": -14.3, "type": "creative"},
+                                {"name": "com.mxtech.videoplayer.ad", "prev_share": 0.8, "curr_share": 0.7, "share_chg": -0.1, "cpi_chg": -17.8, "cpm_chg": -2.1, "ipm_chg": 19.1, "type": "ok"},
+                            ],
+                            "formats": [
+                                {"name": "vi", "prev_share": 98.6, "curr_share": 98.6, "share_chg": 0.0, "cpi_chg": 3.9, "ipm_chg": -0.6, "ctr_chg": 0.01, "type": "ok"},
+                                {"name": "nv", "prev_share": 1.0, "curr_share": 0.9, "share_chg": -0.1, "cpi_chg": 23.1, "ipm_chg": -6.7, "ctr_chg": -0.50, "type": "creative"},
+                                {"name": "vb", "prev_share": 0.4, "curr_share": 0.5, "share_chg": 0.1, "cpi_chg": -18.2, "ipm_chg": 23.6, "ctr_chg": 0.02, "type": "ok"},
+                            ],
                         },
                         {
                             "code": "BGD", "flag": "🇧🇩", "name": "BGD（孟加拉）",
@@ -443,8 +585,23 @@ REPORT_DATA = {
                                  "prev_cpi": None, "curr_cpi": None, "cpi_chg": -12.9,
                                  "prev_cpm_chg": 0, "ipm_chg": 11.0, "type": "ok"},
                             ],
-                            "publishers": [],
-                            "formats": [],
+                            "publishers": [
+                                {"name": "com.lemon.lvoverseas", "prev_share": 5.3, "curr_share": 6.5, "share_chg": 1.2, "cpi_chg": 37.0, "cpm_chg": 20.5, "ipm_chg": -12.0, "type": "both"},
+                                {"name": "com.lenovo.anyshare.gps", "prev_share": 6.0, "curr_share": 6.3, "share_chg": 0.3, "cpi_chg": 14.4, "cpm_chg": 8.2, "ipm_chg": -5.4, "type": "both"},
+                                {"name": "ridmik.keyboard", "prev_share": 7.1, "curr_share": 5.2, "share_chg": -2.0, "cpi_chg": -11.9, "cpm_chg": -11.0, "ipm_chg": 1.0, "type": "ok"},
+                                {"name": "com.miui.global.packageinstaller", "prev_share": 4.8, "curr_share": 3.8, "share_chg": -1.0, "cpi_chg": 83.2, "cpm_chg": 5.8, "ipm_chg": -42.3, "type": "creative"},
+                                {"name": "com.Gamnest.CandyRace", "prev_share": 5.0, "curr_share": 3.4, "share_chg": -1.5, "cpi_chg": 25.1, "cpm_chg": 17.1, "ipm_chg": -6.4, "type": "both"},
+                                {"name": "com.playit.videoplayer", "prev_share": 3.2, "curr_share": 3.4, "share_chg": 0.2, "cpi_chg": 24.0, "cpm_chg": 0.3, "ipm_chg": -19.1, "type": "creative"},
+                                {"name": "com.eyecon.global", "prev_share": 6.0, "curr_share": 3.0, "share_chg": -3.0, "cpi_chg": -1.3, "cpm_chg": -13.5, "ipm_chg": -12.4, "type": "ok"},
+                                {"name": "com.android.thememanager", "prev_share": 2.4, "curr_share": 2.5, "share_chg": 0.2, "cpi_chg": 38.4, "cpm_chg": 38.9, "ipm_chg": 0.4, "type": "media"},
+                                {"name": "com.miniclip.carrom", "prev_share": 1.9, "curr_share": 2.3, "share_chg": 0.4, "cpi_chg": 66.9, "cpm_chg": 28.5, "ipm_chg": -23.0, "type": "both"},
+                                {"name": "com.bigwinepot.nwdn.international", "prev_share": 2.2, "curr_share": 2.1, "share_chg": -0.2, "cpi_chg": 20.1, "cpm_chg": 22.4, "ipm_chg": 2.0, "type": "media"},
+                            ],
+                            "formats": [
+                                {"name": "vi", "prev_share": 97.9, "curr_share": 97.0, "share_chg": -0.9, "cpi_chg": 26.7, "ipm_chg": -5.4, "ctr_chg": 2.94, "type": "creative"},
+                                {"name": "nv", "prev_share": 1.4, "curr_share": 2.1, "share_chg": 0.7, "cpi_chg": 21.0, "ipm_chg": -13.6, "ctr_chg": -0.06, "type": "creative"},
+                                {"name": "vb", "prev_share": 0.7, "curr_share": 1.0, "share_chg": 0.2, "cpi_chg": 54.2, "ipm_chg": -39.9, "ctr_chg": -0.31, "type": "creative"},
+                            ],
                         },
                     ],
                 },
@@ -456,8 +613,47 @@ REPORT_DATA = {
                     "label": "1233",
                     "name": "TT iOS",
                     "os": "iOS",
-                    "no_data": True,
-                    "countries": [],
+                    "countries": [
+                        {
+                            "code": "BRA", "flag": "🇧🇷", "name": "BRA（巴西）",
+                            "prev_cpi": 2.26, "curr_cpi": 3.14, "cpi_chg": 38.8,
+                            "prev_cpm": 0.85, "curr_cpm": 0.89, "cpm_chg": 5.1,
+                            "prev_ipm": 0.38, "curr_ipm": 0.28, "ipm_chg": -24.3,
+                            "prev_ctr": None, "curr_ctr": None,
+                            "prev_cvr": None, "curr_cvr": None,
+                            "prev_spend": 6381.85, "curr_spend": 12896.85,
+                            "prev_installs": 2823, "curr_installs": 4107,
+                            "media_pct": 15, "creative_pct": 85,
+                            "conclusion": "快速扩量（花费翻倍 $6.4K→$12.9K）导致进入低效流量，IPM 大幅下滑 -24.3% 是主因（创意侧贡献85%）。CPM 仅小幅上涨 +5.1%，说明问题在受众/创意效率而非媒体竞价。建议收紧受众定向，优先优化高 IPM 素材后再扩量。",
+                            "campaigns": [], "exchanges": [], "publishers": [], "formats": [],
+                        },
+                        {
+                            "code": "DEU", "flag": "🇩🇪", "name": "DEU（德国）",
+                            "prev_cpi": 5.38, "curr_cpi": 6.86, "cpi_chg": 27.7,
+                            "prev_cpm": 4.22, "curr_cpm": 4.82, "cpm_chg": 14.1,
+                            "prev_ipm": 0.79, "curr_ipm": 0.70, "ipm_chg": -10.6,
+                            "prev_ctr": None, "curr_ctr": None,
+                            "prev_cvr": None, "curr_cvr": None,
+                            "prev_spend": 13902.86, "curr_spend": 24702.37,
+                            "prev_installs": 2585, "curr_installs": 3601,
+                            "media_pct": 54, "creative_pct": 46,
+                            "conclusion": "花费大幅扩量（$13.9K→$24.7K），CPM (+14.1%) 和 IPM (-10.6%) 同步恶化，媒体侧和创意侧各贡献约一半。扩量进入新流量时同时带来了成本上升和转化率下降的双重压力。建议：阶段性控制扩量速度，检查德国受众定向和素材组合。",
+                            "campaigns": [], "exchanges": [], "publishers": [], "formats": [],
+                        },
+                        {
+                            "code": "AUS", "flag": "🇦🇺", "name": "AUS（澳大利亚）",
+                            "prev_cpi": 23.10, "curr_cpi": 20.16, "cpi_chg": -12.8,
+                            "prev_cpm": 4.32, "curr_cpm": 4.09, "cpm_chg": -5.3,
+                            "prev_ipm": 0.19, "curr_ipm": 0.20, "ipm_chg": 8.5,
+                            "prev_ctr": None, "curr_ctr": None,
+                            "prev_cvr": None, "curr_cvr": None,
+                            "prev_spend": 20863.68, "curr_spend": 21204.13,
+                            "prev_installs": 903, "curr_installs": 1052,
+                            "media_pct": 40, "creative_pct": 60,
+                            "conclusion": "CPI 下降 -12.8%（利好）：CPM 下降 -5.3% 贡献约40%，IPM 提升 +8.5% 贡献约60%，媒体成本和创意效率双重改善。澳大利亚是本产品效率最高市场，本周继续优化，建议维持当前策略并适度扩量。",
+                            "campaigns": [], "exchanges": [], "publishers": [], "formats": [],
+                        },
+                    ],
                 },
             ],
         },
@@ -475,7 +671,13 @@ REPORT_DATA = {
                     "label": "US1340",
                     "name": "TikTok US",
                     "os": "Android",
-                    "no_data": True,
+                    "no_alert": True,
+                    "all_countries": [
+                        {"code": "USA", "flag": "🇺🇸", "name": "USA",
+                         "prev_cpi": 5.50, "curr_cpi": 5.95, "cpi_chg": 8.1,
+                         "prev_cpm": None, "curr_cpm": None, "cpm_chg": 2.1,
+                         "prev_ipm": None, "curr_ipm": None, "ipm_chg": -5.6},
+                    ],
                     "countries": [],
                 },
                 {
@@ -484,7 +686,13 @@ REPORT_DATA = {
                     "label": "US1233",
                     "name": "US 1233",
                     "os": "Android",
-                    "no_data": True,
+                    "no_alert": True,
+                    "all_countries": [
+                        {"code": "USA", "flag": "🇺🇸", "name": "USA",
+                         "prev_cpi": 33.31, "curr_cpi": 34.61, "cpi_chg": 3.9,
+                         "prev_cpm": None, "curr_cpm": None, "cpm_chg": 18.63,
+                         "prev_ipm": None, "curr_ipm": None, "ipm_chg": 14.18},
+                    ],
                     "countries": [],
                 },
                 {
@@ -493,7 +701,13 @@ REPORT_DATA = {
                     "label": "US1233",
                     "name": "US 1233",
                     "os": "iOS",
-                    "no_data": True,
+                    "no_alert": True,
+                    "all_countries": [
+                        {"code": "USA", "flag": "🇺🇸", "name": "USA",
+                         "prev_cpi": 8.56, "curr_cpi": 7.77, "cpi_chg": -9.3,
+                         "prev_cpm": None, "curr_cpm": None, "cpm_chg": -4.4,
+                         "prev_ipm": None, "curr_ipm": None, "ipm_chg": 5.4},
+                    ],
                     "countries": [],
                 },
             ],
@@ -536,9 +750,9 @@ def render_publishers(pubs):
         return '<div class="pending-msg">📊 Publisher 数据待查（下次更新补充）</div>'
     rows = ""
     for p in pubs:
-        share_chg = p.get("share_chg", 0)
-        share_cls = "share-up" if share_chg > 1 else ("share-down" if share_chg < -1 else "chg-flat")
-        share_str = chg_str(share_chg, suffix="pp") if share_chg != 0 else "—"
+        share_chg = p.get("share_chg")
+        share_cls = "share-up" if (share_chg or 0) > 1 else ("share-down" if (share_chg or 0) < -1 else "chg-flat")
+        share_str = chg_str(share_chg, suffix="pp") if share_chg else "—"
         rows += f"""
         <tr>
           <td class="name-cell" title="{p['name']}">{p['name'][:35]}{'…' if len(p['name'])>35 else ''}</td>
@@ -563,9 +777,9 @@ def render_formats(fmts):
         return '<div class="pending-msg">🎨 Creative Format 数据待查（下次更新补充）</div>'
     rows = ""
     for f in fmts:
-        share_chg = f.get("share_chg", 0)
-        share_cls = "share-up" if share_chg > 1 else ("share-down" if share_chg < -1 else "chg-flat")
-        share_str = chg_str(share_chg, suffix="pp") if share_chg != 0 else "—"
+        share_chg = f.get("share_chg")
+        share_cls = "share-up" if (share_chg or 0) > 1 else ("share-down" if (share_chg or 0) < -1 else "chg-flat")
+        share_str = chg_str(share_chg, suffix="pp") if share_chg else "—"
         rows += f"""
         <tr>
           <td><span class="fmt-badge">{f['name']}</span></td>
@@ -729,12 +943,24 @@ def render_product_tab(prod):
             badge_col = "#dc2626" if c["cpi_chg"] > 0 else "#16a34a"
             badge_border = "#fecaca" if c["cpi_chg"] > 0 else "#bbf7d0"
             badge = f'<span style="font-size:11px;padding:1px 6px;border-radius:10px;background:{badge_bg};color:{badge_col};border:1px solid {badge_border}">{chg_str(c["cpi_chg"])}</span>'
+            if c.get("prev_cpm") is not None and c.get("curr_cpm") is not None:
+                cpm_v = c["curr_cpm"] - c["prev_cpm"]
+                cpm_display = f"${c['prev_cpm']:.2f}→${c['curr_cpm']:.2f}"
+            else:
+                cpm_v = c.get("cpm_chg")
+                cpm_display = chg_str(c.get("cpm_chg"))
+            if c.get("prev_ipm") is not None and c.get("curr_ipm") is not None:
+                ipm_v = c["curr_ipm"] - c["prev_ipm"]
+                ipm_display = f"{c['prev_ipm']:.2f}→{c['curr_ipm']:.2f}"
+            else:
+                ipm_v = c.get("ipm_chg")
+                ipm_display = chg_str(c.get("ipm_chg"))
             rows += f"""<tr>
               <td>{c['flag']} {c['name']}</td>
               <td>${c['prev_cpi']:.2f}</td><td>${c['curr_cpi']:.2f}</td>
               <td class="{cls}">{badge}</td>
-              <td class="{chg_class(c['curr_cpm']-c['prev_cpm'])}">${c['prev_cpm']:.2f}→${c['curr_cpm']:.2f}</td>
-              <td class="{chg_class(c['curr_ipm']-c['prev_ipm'])}">{c['prev_ipm']:.2f}→{c['curr_ipm']:.2f}</td>
+              <td class="{chg_class(cpm_v)}">{cpm_display}</td>
+              <td class="{chg_class(ipm_v)}">{ipm_display}</td>
             </tr>"""
         body = f"""
     <div style="padding:16px 20px 8px;">
