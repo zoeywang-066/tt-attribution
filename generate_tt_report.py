@@ -8685,12 +8685,19 @@ def main():
     repo = str(REPO_DIR)
     period = REPORT_DATA["period_curr"].replace(" ", "").replace("~", "-")
     msg = f"report: {period} CPI归因报告"
-    subprocess.run(["git", "-C", repo, "add", "index.html", "generate_tt_report.py"], check=False)
+    subprocess.run(["git", "-C", repo, "add", "index.html", "generate_tt_report.py"], check=True)
     r = subprocess.run(["git", "-C", repo, "commit", "-m", msg], capture_output=True, text=True)
-    if "nothing to commit" in r.stdout:
+    commit_output = (r.stdout or "") + (r.stderr or "")
+    if "nothing to commit" in commit_output:
         print("✓ 无变更，无需推送")
     else:
-        subprocess.run(["git", "-C", repo, "push", "--set-upstream", "origin", "main"], check=False)
+        if r.returncode != 0:
+            print(commit_output, end="")
+            raise SystemExit(r.returncode)
+        p = subprocess.run(["git", "-C", repo, "push", "--set-upstream", "origin", "main"], capture_output=True, text=True)
+        if p.returncode != 0:
+            print((p.stdout or "") + (p.stderr or ""), end="")
+            raise SystemExit(p.returncode)
         print("✓ 已推送到 GitHub Pages")
 
 
