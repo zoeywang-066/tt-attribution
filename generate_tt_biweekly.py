@@ -83,6 +83,12 @@ def cpi(v) -> str:
     return f"${fnum(v):.2f}"
 
 
+def pp(v) -> str:
+    x = fnum(v)
+    sign = "+" if x > 0 else ""
+    return f"{sign}{x:.1f}pp"
+
+
 def cls_change(v) -> str:
     x = fnum(v)
     if x >= 10:
@@ -468,6 +474,216 @@ def top_driver(rows: list[dict[str, str]]) -> dict[str, str] | None:
     return sorted(rows, key=lambda x: fnum(x.get("curr_spend")), reverse=True)[0]
 
 
+def driver_score(row: dict[str, str], mode: str) -> float:
+    share = fnum(row.get("curr_share"))
+    share_chg = fnum(row.get("share_chg_pp"))
+    cpi_chg = fnum(row.get("cpi_chg_pct"))
+    cpm_chg = fnum(row.get("cpm_chg_pct"))
+    ipm_chg = fnum(row.get("ipm_chg_pct"))
+    if mode == "up":
+        return (
+            share * 2
+            + max(share_chg, 0) * 3
+            + max(cpi_chg, 0) * 0.45
+            + max(cpm_chg, 0) * 0.35
+            + max(-ipm_chg, 0) * 0.35
+        )
+    if mode == "down":
+        return (
+            share * 2
+            + max(-share_chg, 0) * 1.5
+            + max(-cpi_chg, 0) * 0.45
+            + max(-cpm_chg, 0) * 0.35
+            + max(ipm_chg, 0) * 0.35
+        )
+    return share + abs(share_chg) * 2
+
+
+def best_driver(rows: list[dict[str, str]], mode: str) -> dict[str, str] | None:
+    usable = [r for r in rows if fnum(r.get("curr_spend")) > 0]
+    if not usable:
+        usable = [r for r in rows if fnum(r.get("prev_spend")) > 0]
+    if not usable:
+        return None
+    return sorted(usable, key=lambda r: driver_score(r, mode), reverse=True)[0]
+
+
+def aggregate_event_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    buckets: dict[str, dict[str, float | str]] = {}
+    for row in rows:
+        event = row.get("dim_sub") or "n/a"
+        if event in ("", "NULL"):
+            event = "n/a"
+        b = buckets.setdefault(
+            event,
+            {
+                "dim_name": event,
+                "dim_sub": "event",
+                "dim_extra": "",
+                "prev_spend": 0.0,
+                "curr_spend": 0.0,
+                "prev_installs": 0.0,
+                "curr_installs": 0.0,
+                "prev_impressions": 0.0,
+                "curr_impressions": 0.0,
+            },
+        )
+        for key in ("prev_spend", "curr_spend", "prev_installs", "curr_installs", "prev_impressions", "curr_impressions"):
+            b[key] = fnum(b[key]) + fnum(row.get(key))
+
+    total_curr = sum(fnum(b["curr_spend"]) for b in buckets.values())
+    total_prev = sum(fnum(b["prev_spend"]) for b in buckets.values())
+    out = []
+    for b in buckets.values():
+        prev_spend = fnum(b["prev_spend"])
+        curr_spend = fnum(b["curr_spend"])
+        prev_installs = fnum(b["prev_installs"])
+        curr_installs = fnum(b["curr_installs"])
+        prev_impressions = fnum(b["prev_impressions"])
+        curr_impressions = fnum(b["curr_impressions"])
+        prev_cpi = prev_spend / prev_installs if prev_installs else 0
+        curr_cpi = curr_spend / curr_installs if curr_installs else 0
+        prev_cpm = prev_spend / prev_impressions * 1000 if prev_impressions else 0
+        curr_cpm = curr_spend / curr_impressions * 1000 if curr_impressions else 0
+        prev_ipm = prev_installs / prev_impressions * 1000 if prev_impressions else 0
+        curr_ipm = curr_installs / curr_impressions * 1000 if curr_impressions else 0
+        curr_share = curr_spend / total_curr * 100 if total_curr else 0
+        prev_share = prev_spend / total_prev * 100 if total_prev else 0
+        out.append(
+            {
+                **{k: str(v) for k, v in b.items()},
+                "curr_share": str(curr_share),
+                "share_chg_pp": str(curr_share - prev_share),
+                "prev_cpi": str(prev_cpi),
+                "curr_cpi": str(curr_cpi),
+                "cpi_chg_pct": str((curr_cpi / prev_cpi - 1) * 100) if prev_cpi else "",
+                "prev_cpm": str(prev_cpm),
+                "curr_cpm": str(curr_cpm),
+                "cpm_chg_pct": str((curr_cpm / prev_cpm - 1) * 100) if prev_cpm else "",
+                "prev_ipm": str(prev_ipm),
+                "curr_ipm": str(curr_ipm),
+                "ipm_chg_pct": str((curr_ipm / prev_ipm - 1) * 100) if prev_ipm else "",
+            }
+        )
+    return out
+
+
+def mechanic(row: dict[str, str]) -> str:
+    cpi_chg = fnum(row.get("cpi_chg_pct"))
+    cpm_chg = fnum(row.get("cpm_chg_pct"))
+    ipm_chg = fnum(row.get("ipm_chg_pct"))
+    if cpi_chg >= 10:
+        if cpm_chg >= 10 and ipm_chg <= -10:
+            return "CPM上涨且IPM下滑，媒体价格和转化效率同时恶化"
+        if cpm_chg >= 10:
+            return "主要体现为CPM上涨，媒体采购成本变贵"
+        if ipm_chg <= -10:
+            return "主要体现为IPM下滑，流量/创意转化效率下降"
+        return "CPI上行更多来自投放结构切换，需要结合占比变化看"
+    if cpi_chg <= -10:
+        if cpm_chg <= -10 and ipm_chg >= 10:
+            return "CPM下降且IPM提升，成本和效率双向改善"
+        if cpm_chg <= -10:
+            return "主要受益于CPM下降"
+        if ipm_chg >= 10:
+            return "主要受益于IPM提升"
+        return "CPI下降更多来自结构切换"
+    if abs(fnum(row.get("share_chg_pp"))) >= 5:
+        return "CPI本身变化不大，但流量占比发生明显迁移"
+    return "该维度是当前主要流量承载，但不是单独的异常来源"
+
+
+def render_diagnosis(flag: dict[str, str], seg: dict[str, list[dict[str, str]]]) -> str:
+    cpi_chg = fnum(flag["cpi_chg_pct"])
+    dnu_chg = fnum(flag["dnu_chg_pct"])
+    mode = "up" if cpi_chg >= 10 else "down" if cpi_chg <= -10 else "volume"
+    event_rows = aggregate_event_rows(seg.get("campaign", []))
+    event = best_driver(event_rows, mode)
+    campaign = best_driver(seg.get("campaign", []), mode)
+    media = best_driver(seg.get("media", []), mode)
+    creative = best_driver(seg.get("creative", []), mode)
+    bundle = best_driver(seg.get("bundle", []), mode)
+
+    if mode == "up":
+        headline = (
+            f"结论：{esc(flag['region'])} · {esc(flag['os'])} · App {esc(flag['app_id'])} 的 Blackswan CPI "
+            f"从 {cpi(flag['prev_cpi'])} 上升到 {cpi(flag['curr_cpi'])}（{pct(flag['cpi_chg_pct'])}）。"
+        )
+    elif mode == "down":
+        headline = (
+            f"结论：{esc(flag['region'])} · {esc(flag['os'])} · App {esc(flag['app_id'])} 的 Blackswan CPI "
+            f"从 {cpi(flag['prev_cpi'])} 降到 {cpi(flag['curr_cpi'])}（{pct(flag['cpi_chg_pct'])}），属于成本改善项。"
+        )
+    else:
+        direction = "增加" if dnu_chg > 0 else "下降"
+        headline = (
+            f"结论：{esc(flag['region'])} · {esc(flag['os'])} · App {esc(flag['app_id'])} 主要触发 DNU {direction}"
+            f"（{num(flag['prev_dnu'])} → {num(flag['curr_dnu'])}，{pct(flag['dnu_chg_pct'])}），CPI变化未超过10%。"
+        )
+
+    reasons = []
+    if campaign:
+        camp_cpi = fnum(campaign.get("cpi_chg_pct"))
+        if (mode == "up" and camp_cpi >= 10) or (mode == "down" and camp_cpi <= -10) or mode == "volume":
+            reasons.append(f"主要 campaign {esc(campaign['dim_name'])}（投放事件：{esc(campaign.get('dim_sub') or 'n/a')}）")
+    if media:
+        if mode == "up" and (fnum(media.get("cpm_chg_pct")) >= 10 or fnum(media.get("ipm_chg_pct")) <= -10 or fnum(media.get("share_chg_pp")) >= 3):
+            reasons.append(f"{esc(media['dim_name'])} 媒体成本/效率变化")
+        elif mode == "down" and (fnum(media.get("cpm_chg_pct")) <= -10 or fnum(media.get("ipm_chg_pct")) >= 10):
+            reasons.append(f"{esc(media['dim_name'])} 媒体成本改善或效率提升")
+    if creative:
+        creative_cpi = fnum(creative.get("cpi_chg_pct"))
+        if ((mode == "up" and creative_cpi >= 10) or (mode == "down" and creative_cpi <= -10)) and fnum(creative.get("curr_share")) >= 5:
+            reasons.append(f"{esc(creative['dim_name'])} 创意/版位表现变化")
+    if bundle:
+        bundle_cpi = fnum(bundle.get("cpi_chg_pct"))
+        if ((mode == "up" and bundle_cpi >= 10) or (mode == "down" and bundle_cpi <= -10)) and fnum(bundle.get("curr_share")) >= 5:
+            reasons.append(f"{esc(bundle['dim_name'])} bundle 子渠道变化")
+
+    if reasons:
+        reason_line = "主要原因判断：" + "；".join(reasons[:3]) + "。"
+    else:
+        reason_line = "主要原因判断：当前更像整体结构/规模变化，单一 campaign、媒体或创意未形成足够明确的主因。"
+
+    evidence = []
+    if event and (len(event_rows) > 1 or abs(fnum(event.get("share_chg_pp"))) >= 2):
+        evidence.append(
+            f"事件/投放：{esc(event['dim_name'])} 事件本期承载约 {fnum(event['curr_share']):.1f}% 消耗，"
+            f"占比变化 {pp(event['share_chg_pp'])}，CPI {cpi(event['curr_cpi'])}（{pct(event['cpi_chg_pct'])}）。"
+        )
+    if campaign:
+        evidence.append(
+            f"主要 campaign：{esc(campaign['dim_name'])}，事件 {esc(campaign.get('dim_sub') or 'n/a')}，"
+            f"本期消耗 {money(campaign['curr_spend'])}、占比 {fnum(campaign['curr_share']):.1f}%、CPI {cpi(campaign['curr_cpi'])}（{pct(campaign['cpi_chg_pct'])}）。"
+        )
+    if media:
+        evidence.append(
+            f"媒体侧关键项：{esc(media['dim_name'])} 本期占比 {fnum(media['curr_share']):.1f}%（{pp(media['share_chg_pp'])}），"
+            f"CPM {cpi(media['curr_cpm'])}（{pct(media['cpm_chg_pct'])}）、IPM {fnum(media['curr_ipm']):.2f}（{pct(media['ipm_chg_pct'])}），{mechanic(media)}。"
+        )
+    if creative:
+        evidence.append(
+            f"创意/版位关键项：{esc(creative['dim_name'])} / {esc(creative.get('dim_sub') or '')}，"
+            f"本期占比 {fnum(creative['curr_share']):.1f}%（{pp(creative['share_chg_pp'])}），CPI {cpi(creative['curr_cpi'])}（{pct(creative['cpi_chg_pct'])}）。"
+        )
+    if bundle:
+        evidence.append(
+            f"Bundle侧关键项：{esc(bundle['dim_name'])} 本期占比 {fnum(bundle['curr_share']):.1f}%（{pp(bundle['share_chg_pp'])}），"
+            f"CPI {cpi(bundle['curr_cpi'])}（{pct(bundle['cpi_chg_pct'])}），用于判断是否需要子渠道屏蔽或降量。"
+        )
+
+    if not evidence:
+        evidence.append("Moloco 明细未匹配到足够数据，当前只能用 sandbox benchmark 标记波动，不能给出可靠驱动归因。")
+
+    return f"""
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">{headline}<span>{reason_line}</span></p>
+      <ul>{''.join(f'<li>{x}</li>' for x in evidence[:5])}</ul>
+    </div>
+    """
+
+
 def render_detail_table(rows: list[dict[str, str]], label: str) -> str:
     if not rows:
         return '<div class="empty">Moloco 明细暂无匹配数据</div>'
@@ -511,27 +727,6 @@ def render_detail_blocks(flags: list[dict[str, str]], grouped) -> str:
         if r["segment_key"] not in top_keys:
             continue
         seg = grouped.get(r["segment_key"], {})
-        media = top_driver(seg.get("media", []))
-        campaign = top_driver(seg.get("campaign", []))
-        creative = top_driver(seg.get("creative", []))
-        bundle = top_driver(seg.get("bundle", []))
-        bullets = []
-        if media:
-            bullets.append(
-                f"媒体侧：{esc(media['dim_name'])} 本期占比 {fnum(media['curr_share']):.1f}%，CPI {cpi(media['curr_cpi'])}，CPM变化 {pct(media['cpm_chg_pct'])}。"
-            )
-        if campaign:
-            bullets.append(
-                f"Campaign：{esc(campaign['dim_name'])} 本期消耗 {money(campaign['curr_spend'])}，事件 {esc(campaign.get('dim_sub') or 'n/a')}，CPI {cpi(campaign['curr_cpi'])}。"
-            )
-        if creative:
-            bullets.append(
-                f"创意侧：{esc(creative['dim_name'])} / {esc(creative.get('dim_sub') or '')} 本期消耗 {money(creative['curr_spend'])}，CPI {cpi(creative['curr_cpi'])}。"
-            )
-        if bundle:
-            bullets.append(
-                f"Bundle：{esc(bundle['dim_name'])} 本期占比 {fnum(bundle['curr_share']):.1f}%，CPI {cpi(bundle['curr_cpi'])}。"
-            )
         blocks.append(
             f"""
             <section class="seg-block" id="seg-{esc(r['segment_key']).replace('|','-')}">
@@ -542,7 +737,7 @@ def render_detail_blocks(flags: list[dict[str, str]], grouped) -> str:
                 </div>
                 <span class="pill {cls_change(r['cpi_chg_pct'])}">{esc(r['trigger_metric'])}</span>
               </div>
-              <div class="why">{''.join(f'<p>{b}</p>' for b in bullets) or '<p>Moloco 明细未匹配到足够数据。</p>'}</div>
+              {render_diagnosis(r, seg)}
               {render_detail_table(seg.get('campaign', []), '投放 Campaign / 事件')}
               {render_detail_table(seg.get('media', []), '媒体渠道 / Exchange')}
               {render_detail_table(seg.get('creative', []), '创意组 / 版位')}
@@ -600,15 +795,19 @@ a {{ color:#2563eb; text-decoration:none; font-weight:700; }}
 .seg-head h3 {{ margin:0; font-size:16px; }}
 .seg-head p {{ margin:6px 0 0; color:#64748b; }}
 .pill {{ display:inline-flex; padding:4px 10px; border-radius:999px; background:#eef2ff; }}
-.why {{ padding:12px 18px; background:#f8fafc; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 18px; }}
-.why p {{ margin:0; color:#334155; line-height:1.45; }}
+.diagnosis {{ margin:14px 18px 4px; padding:14px 16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; }}
+.diagnosis h4 {{ margin:0 0 8px; font-size:13px; color:#0f172a; }}
+.diagnosis .headline {{ margin:0 0 8px; color:#111827; font-weight:800; line-height:1.55; }}
+.diagnosis .headline span {{ display:block; margin-top:4px; color:#334155; font-weight:700; }}
+.diagnosis ul {{ margin:0; padding-left:18px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 22px; }}
+.diagnosis li {{ color:#334155; line-height:1.5; }}
 .detail-table {{ padding:12px 18px 16px; }}
 .detail-table h4 {{ margin:0 0 8px; color:#334155; font-size:13px; }}
 .name {{ max-width:360px; overflow:hidden; text-overflow:ellipsis; }}
 .name span {{ display:block; color:#94a3b8; font-size:11px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; }}
 .empty {{ padding:10px 12px; background:#f8fafc; border:1px dashed #d6dce8; color:#94a3b8; border-radius:8px; }}
 .source {{ margin-top:16px; color:#64748b; font-size:12px; line-height:1.6; }}
-@media(max-width:900px) {{ .cards {{ grid-template-columns:1fr 1fr; }} .why {{ grid-template-columns:1fr; }} .page {{ padding:12px; }} table {{ font-size:11px; }} }}
+@media(max-width:900px) {{ .cards {{ grid-template-columns:1fr 1fr; }} .diagnosis ul {{ grid-template-columns:1fr; }} .page {{ padding:12px; }} table {{ font-size:11px; }} }}
 </style>
 </head>
 <body>

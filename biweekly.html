@@ -38,15 +38,19 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
 .seg-head h3 { margin:0; font-size:16px; }
 .seg-head p { margin:6px 0 0; color:#64748b; }
 .pill { display:inline-flex; padding:4px 10px; border-radius:999px; background:#eef2ff; }
-.why { padding:12px 18px; background:#f8fafc; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 18px; }
-.why p { margin:0; color:#334155; line-height:1.45; }
+.diagnosis { margin:14px 18px 4px; padding:14px 16px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; }
+.diagnosis h4 { margin:0 0 8px; font-size:13px; color:#0f172a; }
+.diagnosis .headline { margin:0 0 8px; color:#111827; font-weight:800; line-height:1.55; }
+.diagnosis .headline span { display:block; margin-top:4px; color:#334155; font-weight:700; }
+.diagnosis ul { margin:0; padding-left:18px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 22px; }
+.diagnosis li { color:#334155; line-height:1.5; }
 .detail-table { padding:12px 18px 16px; }
 .detail-table h4 { margin:0 0 8px; color:#334155; font-size:13px; }
 .name { max-width:360px; overflow:hidden; text-overflow:ellipsis; }
 .name span { display:block; color:#94a3b8; font-size:11px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; }
 .empty { padding:10px 12px; background:#f8fafc; border:1px dashed #d6dce8; color:#94a3b8; border-radius:8px; }
 .source { margin-top:16px; color:#64748b; font-size:12px; line-height:1.6; }
-@media(max-width:900px) { .cards { grid-template-columns:1fr 1fr; } .why { grid-template-columns:1fr; } .page { padding:12px; } table { font-size:11px; } }
+@media(max-width:900px) { .cards { grid-template-columns:1fr 1fr; } .diagnosis ul { grid-template-columns:1fr; } .page { padding:12px; } table { font-size:11px; } }
 </style>
 </head>
 <body>
@@ -54,7 +58,7 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
 <div class="page">
   <section class="hero">
     <h1>TT 双周波动归因看板</h1>
-    <p>Benchmark: sandbox.sherry · 明细支撑: Moloco BQ Agent / athena fact 表 · 本期 2026-06-15 ~ 2026-06-28 · 对比 2026-06-01 ~ 2026-06-14 · 生成 2026-07-03 18:59</p>
+    <p>Benchmark: sandbox.sherry · 明细支撑: Moloco BQ Agent / athena fact 表 · 本期 2026-06-15 ~ 2026-06-28 · 对比 2026-06-01 ~ 2026-06-14 · 生成 2026-07-03 19:12</p>
   </section>
   <div class="nav"><button id="btn-overview" onclick="showTab('overview')">双周纵览</button><button id="btn-detail" onclick="showTab('detail')">归因详情</button><a style="margin-left:auto;align-self:center;" href="./index.html">返回周报</a></div>
 
@@ -431,7 +435,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill flat">DNU</span>
               </div>
-              <div class="why"><p>媒体侧：ADX_RTB 本期占比 27.1%，CPI $3.74，CPM变化 +11.6%。</p><p>Campaign：Bytedance_1233_BR_AND_20251029 _Owen_UserAcquisition_af_bs_conversion 本期消耗 $39.2K，事件 spending，CPI $5.94。</p><p>创意侧：TT_NW_Aqc_0225_video_BR_Moloco_UGC_top_similar_batch1_ACO / vi 本期消耗 $21.1K，CPI $6.90。</p><p>Bundle：com.pinterest 本期占比 8.9%，CPI $1.21。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：br · Android · App 1233 主要触发 DNU 下降（32.1K → 28.7K，-10.6%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_BR_AND_20251029 _Owen_UserAcquisition_af_bs_conversion（投放事件：spending）。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_BR_AND_20251029 _Owen_UserAcquisition_af_bs_conversion，事件 spending，本期消耗 $39.2K、占比 30.2%、CPI $5.94（+8.7%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 27.1%（+3.1pp），CPM $5.90（+11.6%）、IPM 1.58（+1.0%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_Aqc_0225_video_BR_Moloco_UGC_top_similar_batch1_ACO / vi，本期占比 16.3%（-2.7pp），CPI $6.90（+8.1%）。</li><li>Bundle侧关键项：com.dywx.larkplayer 本期占比 6.9%（-3.8pp），CPI $8.36（+25.0%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -973,7 +983,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
-              <div class="why"><p>媒体侧：MOLOCO_SDK_MAX 本期占比 34.4%，CPI $5.31，CPM变化 -90.2%。</p><p>Campaign：Bytedance_1180_JP_iOS_20260415_Moloco_UserAcquisition_ios_dc_new_user_video 本期消耗 $42.0K，事件 spending，CPI $5.62。</p><p>创意侧：JP_Main_Recall_Top_ASMR_Q4_2025_ACO / nv 本期消耗 $36.9K，CPI $4.83。</p><p>Bundle：1459645446 本期占比 32.4%，CPI $5.72。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：jp · iOS · App 1180 的 Blackswan CPI 从 $48.27 降到 $4.63（-90.4%），属于成本改善项。<span>主要原因判断：VUNGLE 媒体成本改善或效率提升。</span></p>
+      <ul><li>主要 campaign：Bytedance_1180_JP_iOS_20260415_Moloco_UserAcquisition_ios_dc_new_user_video，事件 spending，本期消耗 $42.0K、占比 48.8%、CPI $5.62（-）。</li><li>媒体侧关键项：VUNGLE 本期占比 8.2%（+2.4pp），CPM $0.69（-79.5%）、IPM 0.10（+292.2%），CPM下降且IPM提升，成本和效率双向改善。</li><li>创意/版位关键项：JP_Main_Recall_Top_ASMR_Q4_2025_ACO / nv，本期占比 42.9%（+42.9pp），CPI $4.83（-）。</li><li>Bundle侧关键项：1459645446 本期占比 32.4%（+32.2pp），CPI $5.72（-），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -1463,7 +1479,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill up">CPI</span>
               </div>
-              <div class="why"><p>媒体侧：FIVE 本期占比 23.2%，CPI $5.97，CPM变化 +8.6%。</p><p>Campaign：Bytedance_1180_JP_Android_20251226_Moloco_UserAcquisition_bs_conversion 本期消耗 $30.6K，事件 spending，CPI $11.51。</p><p>创意侧：TT_JP_video_resize_0408_APX / nv 本期消耗 $20.9K，CPI $5.71。</p><p>Bundle：wni.WeathernewsTouch.jp 本期占比 15.2%，CPI $6.27。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：jp · Android · App 1180 的 Blackswan CPI 从 $7.31 上升到 $8.88（+21.4%）。<span>主要原因判断：主要 campaign Bytedance_1180_JP_Android_20251226_Moloco_UserAcquisition_bs_conversion（投放事件：spending）；FIVE 媒体成本/效率变化；wni.WeathernewsTouch.jp bundle 子渠道变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1180_JP_Android_20251226_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $30.6K、占比 41.0%、CPI $11.51（+32.4%）。</li><li>媒体侧关键项：FIVE 本期占比 23.2%（+2.0pp），CPM $1.56（+8.6%）、IPM 0.26（-20.2%），主要体现为IPM下滑，流量/创意转化效率下降。</li><li>创意/版位关键项：TT_NW_JP_1225_Video_16x9_JP-moloco169_ACO / vi，本期占比 3.3%（-0.7pp），CPI $16.68（+54.4%）。</li><li>Bundle侧关键项：wni.WeathernewsTouch.jp 本期占比 15.2%（+3.2pp），CPI $6.27（+49.6%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -1953,7 +1975,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill flat">DNU</span>
               </div>
-              <div class="why"><p>媒体侧：ADX_RTB 本期占比 27.1%，CPI $1.06，CPM变化 +1.1%。</p><p>Campaign：Bytedance_1233_MX_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt 本期消耗 $22.5K，事件 spending，CPI $1.35。</p><p>创意侧：TT_NW_MX_1128_Video_mix_ACO / vi 本期消耗 $36.1K，CPI $1.66。</p><p>Bundle：com.dywx.larkplayer 本期占比 16.1%，CPI $1.67。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：mx · Android · App 1233 主要触发 DNU 下降（40.8K → 35.6K，-12.6%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_MX_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt（投放事件：spending）。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_MX_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $22.5K、占比 36.7%、CPI $1.35（+11.4%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 27.1%（+2.0pp），CPM $7.37（+1.1%）、IPM 6.98（-1.6%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_MX_1128_Video_mix_ACO / vi，本期占比 59.1%（-1.2pp），CPI $1.66（+10.2%）。</li><li>Bundle侧关键项：com.dywx.larkplayer 本期占比 16.1%（-2.7pp），CPI $1.67（+20.2%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -2443,7 +2471,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
-              <div class="why"><p>媒体侧：MOLOCO_SDK_MAX 本期占比 22.5%，CPI $4.99，CPM变化 +5.7%。</p><p>Campaign：Bytedance_1233_DE_iOS_20260421_Moloco_UserAcquisition_ios_dc_new_didrt 本期消耗 $22.4K，事件 spending，CPI $5.55。</p><p>创意侧：TT_NW_Aqc_DE_0129_video_mix_Live_DNU_reuse_ACO / vi 本期消耗 $26.4K，CPI $5.72。</p><p>Bundle：545993260 本期占比 17.2%，CPI $3.16。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：de · iOS · App 1233 的 Blackswan CPI 从 $12.68 降到 $10.29（-18.9%），属于成本改善项。<span>主要原因判断：当前更像整体结构/规模变化，单一 campaign、媒体或创意未形成足够明确的主因。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_DE_iOS_20260421_Moloco_UserAcquisition_ios_dc_new_didrt，事件 spending，本期消耗 $22.4K、占比 40.0%、CPI $5.55（+8.4%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 22.5%（-3.0pp），CPM $3.11（+5.7%）、IPM 0.62（+9.3%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_Aqc_DE_0129_video_mix_Live_DNU_reuse_ACO / vi，本期占比 47.2%（+1.8pp），CPI $5.72（+0.9%）。</li><li>Bundle侧关键项：545993260 本期占比 17.2%（+10.2pp），CPI $3.16（+29.4%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -2933,7 +2967,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill flat">DNU</span>
               </div>
-              <div class="why"><p>媒体侧：MOLOCO_SDK_MAX 本期占比 23.3%，CPI $26.88，CPM变化 -2.6%。</p><p>Campaign：Bytedance_1233_DE_Android_20251029_Moloco_UserAcquisition_af_bs_conversion 本期消耗 $21.0K，事件 spending，CPI $20.85。</p><p>创意侧：TT_NW_Aqc_1233_DE_0930_video_mix_mix_DNU_reuse_Aqc_ACO / vi 本期消耗 $9.1K，CPI $35.36。</p><p>Bundle：com.miui.global.packageinstaller 本期占比 7.1%，CPI $93.92。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：de · Android · App 1233 主要触发 DNU 下降（3.1K → 2.7K，-12.7%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_DE_Android_20251029_Moloco_UserAcquisition_af_bs_conversion（投放事件：spending）。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_DE_Android_20251029_Moloco_UserAcquisition_af_bs_conversion，事件 spending，本期消耗 $21.0K、占比 38.9%、CPI $20.85（+16.6%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 23.3%（+0.4pp），CPM $9.67（-2.6%）、IPM 0.36（-7.0%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_Aqc_1233_DE_0930_video_mix_mix_DNU_reuse_Aqc_ACO / vi，本期占比 16.9%（-2.7pp），CPI $35.36（+20.9%）。</li><li>Bundle侧关键项：com.miui.global.packageinstaller 本期占比 7.1%（-3.3pp），CPI $93.92（-28.5%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -3449,7 +3489,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
-              <div class="why"><p>媒体侧：VUNGLE 本期占比 26.6%，CPI $5.61，CPM变化 -81.1%。</p><p>Campaign：USUG_1233_US_IOS_0415_Moloco_Pro User Acquisition_tiktok_dc_new_user 本期消耗 $20.0K，事件 spending，CPI $6.99。</p><p>创意侧：TT_NW_Aqc_US_0922_UGC_video_9×16_scenario_test_ACO / vi 本期消耗 $18.1K，CPI $6.40。</p><p>Bundle：295646461 本期占比 16.9%，CPI $6.45。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：us · iOS · App 1233 的 Blackswan CPI 从 $17.48 降到 $7.15（-59.1%），属于成本改善项。<span>主要原因判断：ADX_RTB 媒体成本改善或效率提升；1617391485 bundle 子渠道变化。</span></p>
+      <ul><li>主要 campaign：USUG_1233_US_IOS_0415_Moloco_Pro User Acquisition_tiktok_dc_new_user，事件 spending，本期消耗 $20.0K、占比 40.0%、CPI $6.99（-）。</li><li>媒体侧关键项：ADX_RTB 本期占比 8.5%（+7.7pp），CPM $3.00（-10.7%）、IPM 0.89（+2454.9%），CPM下降且IPM提升，成本和效率双向改善。</li><li>创意/版位关键项：TT_NW_Aqc_US_0922_UGC_video_9×16_scenario_test_ACO / vi，本期占比 36.2%（+36.2pp），CPI $6.40（-）。</li><li>Bundle侧关键项：1617391485 本期占比 5.8%（-1.1pp），CPI $7.53（-94.4%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -3939,7 +3985,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
-              <div class="why"><p>媒体侧：MOLOCO_SDK_MAX 本期占比 24.8%，CPI $3.35，CPM变化 -4.5%。</p><p>Campaign：Bytedance_1180_ID_iOS_20260331_Moloco_UserAcquisition_DNU 本期消耗 $11.2K，事件 spending，CPI $2.14。</p><p>创意侧：ID_ios_优质_ACO_Video / vi 本期消耗 $19.2K，CPI $3.24。</p><p>Bundle：429047995 本期占比 13.7%，CPI $0.76。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：id · iOS · App 1180 的 Blackswan CPI 从 $3.73 降到 $2.40（-35.5%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1180_ID_iOS_20260331_Moloco_UserAcquisition_DNU（投放事件：spending）；ADX_RTB 媒体成本改善或效率提升。</span></p>
+      <ul><li>主要 campaign：Bytedance_1180_ID_iOS_20260331_Moloco_UserAcquisition_DNU，事件 spending，本期消耗 $11.2K、占比 40.0%、CPI $2.14（-32.8%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 9.9%（+8.4pp），CPM $0.42（-17.8%）、IPM 0.49（+52.7%），CPM下降且IPM提升，成本和效率双向改善。</li><li>创意/版位关键项：ID_ios_优质_ACO_Video / vi，本期占比 68.6%（-6.8pp），CPI $3.24（-8.6%）。</li><li>Bundle侧关键项：1600525061 本期占比 2.8%（+1.5pp），CPI $1.88（-38.6%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -4338,7 +4390,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI</span>
               </div>
-              <div class="why"><p>媒体侧：APPODEAL 本期占比 31.8%，CPI $10.82，CPM变化 +17.0%。</p><p>Campaign：Bytedance_1233_GB_iOS_20260421_Moloco_UserAcquisition_ios_dc_new_didrt 本期消耗 $9.8K，事件 spending，CPI $5.82。</p><p>创意侧：TT_NW_Aqc_GB_1017_TTS_image_320×480_premiumoffers_ACO / ii 本期消耗 $13.2K，CPI $11.34。</p><p>Bundle：6468921495 本期占比 10.1%，CPI $9.06。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：gb · iOS · App 1233 的 Blackswan CPI 从 $8.89 降到 $7.96（-10.5%），属于成本改善项。<span>主要原因判断：APPODEAL 媒体成本改善或效率提升；TT_NW_Aqc_GB_1017_TTS_image_320×480_premiumoffers_ACO 创意/版位表现变化；1617391485 bundle 子渠道变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_GB_iOS_20260415_Moloco_UserAcquisition_ios_dc_new_user，事件 spending，本期消耗 $8.4K、占比 29.9%、CPI $6.04（-9.4%）。</li><li>媒体侧关键项：APPODEAL 本期占比 31.8%（+5.6pp），CPM $12.71（+17.0%）、IPM 1.17（+31.2%），主要受益于IPM提升。</li><li>创意/版位关键项：TT_NW_Aqc_GB_1017_TTS_image_320×480_premiumoffers_ACO / ii，本期占比 47.0%（+4.3pp），CPI $11.34（-11.3%）。</li><li>Bundle侧关键项：1617391485 本期占比 8.3%（-0.8pp），CPI $7.33（-23.1%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -4828,7 +4886,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
-              <div class="why"><p>媒体侧：ADX_RTB 本期占比 17.6%，CPI $1.40，CPM变化 +6.7%。</p><p>Campaign：Bytedance_1180_VN_iOS_20260331_Moloco_UserAcquisition_DNU 本期消耗 $7.0K，事件 spending，CPI $1.25。</p><p>创意侧：VN_ios_优质_ACO_Video / vi 本期消耗 $15.4K，CPI $1.78。</p><p>Bundle：1600525061 本期占比 31.4%，CPI $1.48。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：vn · iOS · App 1180 的 Blackswan CPI 从 $3.85 降到 $2.80（-27.3%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1180_VN_iOS_20260331_Moloco_UserAcquisition_DNU（投放事件：spending）；MOLOCO_SDK_MAX 媒体成本改善或效率提升；VN_ios_优质_ACO_Video 创意/版位表现变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1180_VN_iOS_20260331_Moloco_UserAcquisition_DNU，事件 spending，本期消耗 $7.0K、占比 33.4%、CPI $1.25（-40.7%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 14.6%（-6.8pp），CPM $1.87（-14.0%）、IPM 0.92（+30.8%），CPM下降且IPM提升，成本和效率双向改善。</li><li>创意/版位关键项：VN_ios_优质_ACO_Video / vi，本期占比 73.5%（+1.1pp），CPI $1.78（-28.1%）。</li><li>Bundle侧关键项：1600525061 本期占比 31.4%（+14.8pp），CPI $1.48（-25.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -5227,7 +5291,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI</span>
               </div>
-              <div class="why"><p>媒体侧：MOLOCO_SDK_MAX 本期占比 18.3%，CPI $45.45，CPM变化 -4.0%。</p><p>Campaign：Bytedance_1233_AU_Android_20251225_Moloco_UserAcquisition_bs_conversion 本期消耗 $9.4K，事件 spending，CPI $29.74。</p><p>创意侧：TT_NW_Aqc_US_0922_Live_video_9×16_scenario_test_ACO / vi 本期消耗 $7.0K，CPI $42.22。</p><p>Bundle：net.zedge.android 本期占比 10.1%，CPI $35.21。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：au · Android · App 1233 的 Blackswan CPI 从 $26.40 降到 $20.36（-22.9%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1233_AU_Android_20251225_Moloco_UserAcquisition_bs_conversion（投放事件：spending）；INMOBI 媒体成本改善或效率提升。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_AU_Android_20251225_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $9.4K、占比 46.5%、CPI $29.74（-27.6%）。</li><li>媒体侧关键项：INMOBI 本期占比 17.6%（+1.2pp），CPM $19.25（+9.1%）、IPM 0.48（+48.3%），主要受益于IPM提升。</li><li>创意/版位关键项：TT_NW_Aqc_US_0922_Live_video_9×16_scenario_test_ACO / nv，本期占比 1.4%（+0.2pp），CPI $6.35（-69.6%）。</li><li>Bundle侧关键项：com.teslacoilsw.launcher 本期占比 2.3%（-0.4pp），CPI $8.53（-58.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -5704,7 +5774,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI</span>
               </div>
-              <div class="why"><p>媒体侧：ADX_RTB 本期占比 32.8%，CPI $1.94，CPM变化 +2.3%。</p><p>Campaign：Bytedance_1233_SA_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt 本期消耗 $9.8K，事件 spending，CPI $1.83。</p><p>创意侧：TT_NW_SA_1128_Video_mix_ACO / vi 本期消耗 $13.0K，CPI $1.95。</p><p>Bundle：com.imo.android.imoim 本期占比 42.5%，CPI $1.70。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：sa · Android · App 1233 的 Blackswan CPI 从 $1.77 降到 $1.50（-15.2%），属于成本改善项。<span>主要原因判断：com.imo.android.imoim bundle 子渠道变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_SA_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $9.8K、占比 58.3%、CPI $1.83（-5.7%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 32.8%（-6.8pp），CPM $5.46（+2.3%）、IPM 2.82（+9.2%），CPI本身变化不大，但流量占比发生明显迁移。</li><li>创意/版位关键项：TT_NW_SA_1128_Video_mix_ACO / vi，本期占比 77.8%（-1.1pp），CPI $1.95（-4.8%）。</li><li>Bundle侧关键项：com.imo.android.imoim 本期占比 42.5%（+4.7pp），CPI $1.70（-10.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -6168,7 +6244,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill flat">DNU</span>
               </div>
-              <div class="why"><p>媒体侧：MOLOCO_SDK_MAX 本期占比 26.6%，CPI $6.49，CPM变化 -2.0%。</p><p>Campaign：Bytedance_1233_ES_Android_20260330_Moloco_UserAcquisition_bs_conversion 本期消耗 $11.5K，事件 spending，CPI $5.13。</p><p>创意侧：TT_ES_SceneUG_Automation_Video_0104-Moloco_ACO / vi 本期消耗 $12.7K，CPI $5.30。</p><p>Bundle：com.block.juggle 本期占比 17.2%，CPI $7.76。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：es · Android · App 1233 主要触发 DNU 下降（6.0K → 4.9K，-18.3%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_ES_Android_20260330_Moloco_UserAcquisition_bs_conversion（投放事件：spending）。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_ES_Android_20260330_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $11.5K、占比 72.0%、CPI $5.13（-15.8%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 26.6%（-2.3pp），CPM $7.44（-2.0%）、IPM 1.15（+4.7%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_ES_SceneUG_Automation_Video_0104-Moloco_ACO / vi，本期占比 79.6%（-1.9pp），CPI $5.30（-10.9%）。</li><li>Bundle侧关键项：com.pixel.art.coloring.color.number 本期占比 11.1%（+8.9pp），CPI $3.42（-65.0%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -6593,7 +6675,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI</span>
               </div>
-              <div class="why"><p>媒体侧：ADX_RTB 本期占比 33.3%，CPI $5.29，CPM变化 -6.2%。</p><p>Campaign：Bytedance_1233_AE_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt 本期消耗 $8.4K，事件 spending，CPI $4.43。</p><p>创意侧：TT_NW_AE_1128_Video_mix_ACO / vi 本期消耗 $8.2K，CPI $5.05。</p><p>Bundle：com.imo.android.imoim 本期占比 46.1%，CPI $4.43。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：ae · Android · App 1233 的 Blackswan CPI 从 $4.50 降到 $3.82（-15.1%），属于成本改善项。<span>主要原因判断：MOLOCO_SDK_LEVELPLAY 媒体成本改善或效率提升。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_AE_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $8.4K、占比 54.1%、CPI $4.43（-8.8%）。</li><li>媒体侧关键项：MOLOCO_SDK_LEVELPLAY 本期占比 0.5%（-0.1pp），CPM $9.29（+5.5%）、IPM 2.08（+287.5%），主要受益于IPM提升。</li><li>创意/版位关键项：TT_NW_AE_1128_Video_mix_ACO / vi，本期占比 53.1%（+8.8pp），CPI $5.05（-3.2%）。</li><li>Bundle侧关键项：com.imo.android.imoim 本期占比 46.1%（+5.8pp），CPI $4.43（-7.3%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -7070,7 +7158,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
-              <div class="why"><p>媒体侧：ADX_RTB 本期占比 60.0%，CPI $0.61，CPM变化 -5.8%。</p><p>Campaign：Bytedance_1233_MX_iOS_20260415_Moloco_UserAcquisition_DNU 本期消耗 $5.6K，事件 spending，CPI $0.63。</p><p>创意侧：TT_NW_MX_0106_Video_16X9_ACO / nv 本期消耗 $6.2K，CPI $0.67。</p><p>Bundle：429047995 本期占比 84.5%，CPI $0.62。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：mx · iOS · App 1233 的 Blackswan CPI 从 $1.00 降到 $0.90（-10.2%），属于成本改善项。<span>主要原因判断：当前更像整体结构/规模变化，单一 campaign、媒体或创意未形成足够明确的主因。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_MX_iOS_20260415_Moloco_UserAcquisition_DNU，事件 spending，本期消耗 $5.6K、占比 40.0%、CPI $0.63（-8.6%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 60.0%（-8.7pp），CPM $0.42（-5.8%）、IPM 0.68（+7.7%），CPI下降更多来自结构切换。</li><li>创意/版位关键项：TT_NW_MX_0106_Video_16X9_ACO / nv，本期占比 44.2%（-3.8pp），CPI $0.67（-4.1%）。</li><li>Bundle侧关键项：429047995 本期占比 84.5%（-0.5pp），CPI $0.62（-6.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -7547,7 +7641,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill up">CPI &amp; DNU</span>
               </div>
-              <div class="why"><p>媒体侧：XIAOMI 本期占比 33.5%，CPI $5.70，CPM变化 +24.6%。</p><p>Campaign：0526-TikTokPro-DE-Moloco-UA-FreeToUse-login 本期消耗 $8.6K，事件 spending，CPI $10.68。</p><p>创意侧：1012-DE-TTPro-videos-Miyi-Freetouse_ACO / vi 本期消耗 $4.5K，CPI $9.47。</p><p>Bundle：com.xiaomi.mipicks 本期占比 31.2%，CPI $5.17。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：de · Android · App 473824 的 Blackswan CPI 从 $9.77 上升到 $11.89（+21.7%）。<span>主要原因判断：主要 campaign 0526-TikTokPro-DE-Moloco-UA-FreeToUse-login（投放事件：spending）；XIAOMI 媒体成本/效率变化；DE-TTPro-Miyi-25Q3-Generic_ACO 创意/版位表现变化。</span></p>
+      <ul><li>主要 campaign：0526-TikTokPro-DE-Moloco-UA-FreeToUse-login，事件 spending，本期消耗 $8.6K、占比 65.1%、CPI $10.68（+31.8%）。</li><li>媒体侧关键项：XIAOMI 本期占比 33.5%（+12.4pp），CPM $0.24（+24.6%）、IPM 0.04（-36.9%），CPM上涨且IPM下滑，媒体价格和转化效率同时恶化。</li><li>创意/版位关键项：DE-TTPro-Miyi-25Q3-Generic_ACO / ni，本期占比 12.2%（+10.7pp），CPI $8.77（+115.5%）。</li><li>Bundle侧关键项：com.xiaomi.mipicks 本期占比 31.2%（+23.2pp），CPI $5.17（+166.4%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -8037,7 +8137,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill flat">DNU</span>
               </div>
-              <div class="why"><p>媒体侧：ADX_RTB 本期占比 27.5%，CPI $1.62，CPM变化 -27.3%。</p><p>Campaign：Bytedance_1233_CL_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt 本期消耗 $3.8K，事件 spending，CPI $2.15。</p><p>创意侧：TT_NW_CL_1128_Video_mix_ACO / vi 本期消耗 $4.2K，CPI $2.53。</p><p>Bundle：com.grindrapp.android 本期占比 21.3%，CPI $2.42。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：cl · Android · App 1233 主要触发 DNU 下降（7.2K → 5.3K，-26.9%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_CL_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt（投放事件：spending）。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_CL_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $3.8K、占比 45.7%、CPI $2.15（+11.1%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 27.5%（+1.2pp），CPM $4.42（-27.3%）、IPM 2.74（-31.1%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_CL_1128_Video_mix_ACO / vi，本期占比 50.6%（-6.8pp），CPI $2.53（+13.0%）。</li><li>Bundle侧关键项：com.grindrapp.android 本期占比 21.3%（+5.2pp），CPI $2.42（+36.0%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -8514,7 +8620,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill down">CPI</span>
               </div>
-              <div class="why"><p>媒体侧：XIAOMI 本期占比 35.9%，CPI $0.37，CPM变化 -36.8%。</p><p>Campaign：Bytedance_1340_BR_Android_0402_Moloco_TikTokLite CPA_tt_d2_retention_user 本期消耗 $3.7K，事件 spending，CPI $0.83。</p><p>创意侧：TT_Lite_BR_Liftoff_coldstart_0401_ACO / vi 本期消耗 $4.0K，CPI $0.79。</p><p>Bundle：com.xiaomi.mipicks 本期占比 42.2%，CPI $0.34。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：br · Android · App 1340 的 Blackswan CPI 从 $0.75 降到 $0.65（-13.3%），属于成本改善项。<span>主要原因判断：XIAOMI 媒体成本改善或效率提升。</span></p>
+      <ul><li>主要 campaign：Bytedance_1340_BR_Android_0402_Moloco_TikTokLite CPA_tt_d2_retention_user，事件 spending，本期消耗 $3.7K、占比 55.8%、CPI $0.83（+14.3%）。</li><li>媒体侧关键项：XIAOMI 本期占比 35.9%（+2.2pp），CPM $0.34（-36.8%）、IPM 0.93（-30.0%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_Lite_BR_Liftoff_coldstart_0401_ACO / vi，本期占比 61.0%（-4.7pp），CPI $0.79（+6.0%）。</li><li>Bundle侧关键项：com.xiaomi.mipicks 本期占比 42.2%（+5.5pp），CPI $0.34（-4.6%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -8991,7 +9103,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill flat">DNU</span>
               </div>
-              <div class="why"><p>媒体侧：INMOBI 本期占比 30.2%，CPI $0.64，CPM变化 +3.4%。</p><p>Campaign：Bytedance_1233_KE_Android_20260330_Moloco_UserAcquisition_bs_conversion 本期消耗 $2.0K，事件 spending，CPI $0.52。</p><p>创意侧：TT_NW_Aqc_KE_video_coldstart_0326_ACO / vi 本期消耗 $2.0K，CPI $0.62。</p><p>Bundle：com.truecaller 本期占比 27.0%，CPI $0.28。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：ke · Android · App 1233 主要触发 DNU 下降（5.9K → 5.2K，-11.9%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_KE_Android_20260330_Moloco_UserAcquisition_bs_conversion（投放事件：spending）。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_KE_Android_20260330_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $2.0K、占比 74.2%、CPI $0.52（+7.9%）。</li><li>媒体侧关键项：INMOBI 本期占比 30.2%（-1.6pp），CPM $1.90（+3.4%）、IPM 2.98（-1.1%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_Aqc_KE_video_coldstart_0326_ACO / vi，本期占比 73.5%（-0.6pp），CPI $0.62（+2.6%）。</li><li>Bundle侧关键项：com.truecaller 本期占比 27.0%（-1.3pp），CPI $0.28（+15.1%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
@@ -9377,7 +9495,13 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
                 </div>
                 <span class="pill flat">DNU</span>
               </div>
-              <div class="why"><p>媒体侧：VUNGLE 本期占比 31.1%，CPI $0.26，CPM变化 +40.1%。</p><p>Campaign：Bytedance_1233_DZ_Android_20260330_Moloco_UserAcquisition_bs_conversion 本期消耗 $1.1K，事件 spending，CPI $0.22。</p><p>创意侧：TT_NW_Aqc_DZ_video_coldstart_0326_ACO / vi 本期消耗 $2.0K，CPI $0.25。</p><p>Bundle：com.lenovo.anyshare.gps 本期占比 31.0%，CPI $0.25。</p></div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：dz · Android · App 1233 主要触发 DNU 增加（11.8K → 13.4K，+13.7%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_DZ_Android_20260330_Moloco_UserAcquisition_bs_conversion（投放事件：spending）。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_DZ_Android_20260330_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $1.1K、占比 45.2%、CPI $0.22（+18.4%）。</li><li>媒体侧关键项：VUNGLE 本期占比 31.1%（+2.0pp），CPM $2.57（+40.1%）、IPM 10.05（+25.5%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_Aqc_DZ_video_coldstart_0326_ACO / vi，本期占比 78.9%（+0.7pp），CPI $0.25（+15.6%）。</li><li>Bundle侧关键项：com.lenovo.anyshare.gps 本期占比 31.0%（+4.2pp），CPI $0.25（+4.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
               
     <div class="detail-table">
       <h4>投放 Campaign / 事件</h4>
