@@ -83,6 +83,13 @@ def cpi(v) -> str:
     return f"${fnum(v):.2f}"
 
 
+def rel_chg(curr, prev) -> float | None:
+    prev_v = fnum(prev)
+    if prev_v == 0:
+        return None
+    return (fnum(curr) / prev_v - 1) * 100
+
+
 def pp(v) -> str:
     x = fnum(v)
     sign = "+" if x > 0 else ""
@@ -593,6 +600,32 @@ def mechanic(row: dict[str, str]) -> str:
     return "该维度是当前主要流量承载，但不是单独的异常来源"
 
 
+def dnu_mechanic(flag: dict[str, str]) -> str:
+    spend_chg = rel_chg(flag.get("curr_spend"), flag.get("prev_spend"))
+    cpi_chg = fnum(flag.get("cpi_chg_pct"))
+    dnu_chg = fnum(flag.get("dnu_chg_pct"))
+    spend_txt = pct(spend_chg) if spend_chg is not None else "新增/缺少上期基数"
+    if dnu_chg < 0:
+        if spend_chg is not None and spend_chg <= -10:
+            if cpi_chg >= 5:
+                return f"DNU下降主要来自国家消耗/预算下降（消耗 {spend_txt}），同时CPI上涨 {pct(cpi_chg)} 进一步压低获量。"
+            return f"DNU下降主要来自国家消耗/预算下降（消耗 {spend_txt}），CPI没有同步显著恶化。"
+        if cpi_chg >= 10:
+            return f"DNU下降主要来自CPI成本上涨（{pct(cpi_chg)}），同等预算可获得的新增用户减少。"
+        if spend_chg is not None and spend_chg > 0:
+            return f"DNU下降发生在消耗增加（{spend_txt}）的情况下，说明预算增量被成本/效率恶化抵消。"
+        return "DNU下降未完全由预算或CPI单项解释，需要结合campaign、媒体和bundle结构迁移判断。"
+    if dnu_chg > 0:
+        if spend_chg is not None and spend_chg >= 10 and cpi_chg <= 5:
+            return f"DNU增长主要来自国家消耗/预算增加（消耗 {spend_txt}），CPI未明显恶化。"
+        if cpi_chg <= -10:
+            return f"DNU增长主要来自CPI下降（{pct(cpi_chg)}），同等预算获量效率提升。"
+        if spend_chg is not None and spend_chg >= 10 and cpi_chg > 5:
+            return f"DNU增长由预算增加拉动（消耗 {spend_txt}），但CPI同步上涨，后续需要防止增量变贵。"
+        return "DNU增长更多来自预算和效率的共同变化，需结合campaign和媒体结构确认增量来源。"
+    return "DNU变化不明显。"
+
+
 def render_diagnosis(flag: dict[str, str], seg: dict[str, list[dict[str, str]]]) -> str:
     cpi_chg = fnum(flag["cpi_chg_pct"])
     dnu_chg = fnum(flag["dnu_chg_pct"])
@@ -616,9 +649,10 @@ def render_diagnosis(flag: dict[str, str], seg: dict[str, list[dict[str, str]]])
         )
     else:
         direction = "增加" if dnu_chg > 0 else "下降"
+        dnu_reason = dnu_mechanic(flag)
         headline = (
             f"结论：{esc(flag['region'])} · {esc(flag['os'])} · App {esc(flag['app_id'])} 主要触发 DNU {direction}"
-            f"（{num(flag['prev_dnu'])} → {num(flag['curr_dnu'])}，{pct(flag['dnu_chg_pct'])}），CPI变化未超过10%。"
+            f"（{num(flag['prev_dnu'])} → {num(flag['curr_dnu'])}，{pct(flag['dnu_chg_pct'])}），CPI变化未超过10%。{dnu_reason}"
         )
 
     reasons = []
@@ -646,6 +680,13 @@ def render_diagnosis(flag: dict[str, str], seg: dict[str, list[dict[str, str]]])
         reason_line = "主要原因判断：当前更像整体结构/规模变化，单一 campaign、媒体或创意未形成足够明确的主因。"
 
     evidence = []
+    if mode == "volume":
+        spend_chg = rel_chg(flag.get("curr_spend"), flag.get("prev_spend"))
+        evidence.append(
+            f"预算/规模：国家消耗 {money(flag['prev_spend'])} → {money(flag['curr_spend'])}（{pct(spend_chg) if spend_chg is not None else '新增/缺少上期基数'}），"
+            f"DNU {num(flag['prev_dnu'])} → {num(flag['curr_dnu'])}（{pct(flag['dnu_chg_pct'])}），"
+            f"BI CPI {cpi(flag['prev_cpi'])} → {cpi(flag['curr_cpi'])}（{pct(flag['cpi_chg_pct'])}）。"
+        )
     if event and (len(event_rows) > 1 or abs(fnum(event.get("share_chg_pp"))) >= 2):
         evidence.append(
             f"事件/投放：{esc(event['dim_name'])} 事件本期承载约 {fnum(event['curr_share']):.1f}% 消耗，"

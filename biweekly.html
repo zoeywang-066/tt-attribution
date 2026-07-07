@@ -58,16 +58,16 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
 <div class="page">
   <section class="hero">
     <h1>TT 双周波动归因看板</h1>
-    <p>Benchmark: sandbox.sherry · 明细支撑: Moloco BQ Agent / athena fact 表 · 本期 2026-06-15 ~ 2026-06-28 · 对比 2026-06-01 ~ 2026-06-14 · 生成 2026-07-03 19:12</p>
+    <p>Benchmark: sandbox.sherry · 明细支撑: Moloco BQ Agent / athena fact 表 · 本期 2026-06-15 ~ 2026-06-28 · 对比 2026-06-01 ~ 2026-06-14 · 生成 2026-07-07 18:13</p>
   </section>
   <div class="nav"><button id="btn-overview" onclick="showTab('overview')">双周纵览</button><button id="btn-detail" onclick="showTab('detail')">归因详情</button><a style="margin-left:auto;align-self:center;" href="./index.html">返回周报</a></div>
 
   <section id="overview" class="tab">
     <div class="cards">
-      <div class="card"><div class="label">触发波动 Segment</div><div class="value">25</div></div>
-      <div class="card"><div class="label">CPI 上升 ≥10%</div><div class="value up">2</div></div>
-      <div class="card"><div class="label">CPI 下降 ≥10%</div><div class="value down">15</div></div>
-      <div class="card"><div class="label">DNU 波动 ≥10%</div><div class="value">18</div></div>
+      <div class="card"><div class="label">触发波动 Segment</div><div class="value">26</div></div>
+      <div class="card"><div class="label">CPI 上升 ≥10%</div><div class="value up">14</div></div>
+      <div class="card"><div class="label">CPI 下降 ≥10%</div><div class="value down">9</div></div>
+      <div class="card"><div class="label">DNU 波动 ≥10%</div><div class="value">19</div></div>
     </div>
     <div class="note">决策口径：先用 sandbox 的国家 × OS × app_id 双周 DNU / Blackswan CPI 波动做 benchmark 触发，再用 Moloco 明细解释媒体、campaign/事件、创意、bundle 结构变化。试跑版详情展开当前双周消耗 Top 20 的波动项。</div>
     <table>
@@ -77,12 +77,12 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>br</strong></td>
               <td>Android</td>
               <td>1233</td>
-              <td>DNU</td>
-              <td>$119.8K</td>
+              <td>CPI &amp; DNU</td>
+              <td>$129.8K</td>
               <td>28.7K</td>
-              <td>$4.00 → <strong>$4.17</strong></td>
-              <td class="flat">+4.2%</td>
-              <td class="down">-10.6%</td>
+              <td>$4.00 → <strong>$4.52</strong></td>
+              <td class="up">+13.1%</td>
+              <td class="down">-10.8%</td>
               <td><a href="#seg-br-Android-1233">查看归因</a></td>
             </tr>
             
@@ -92,11 +92,11 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>iOS</td>
               <td>1180</td>
               <td>CPI &amp; DNU</td>
-              <td>$73.9K</td>
-              <td>15.9K</td>
-              <td>$48.27 → <strong>$4.63</strong></td>
-              <td class="down">-90.4%</td>
-              <td class="up">+33829.8%</td>
+              <td>$86.1K</td>
+              <td>16.0K</td>
+              <td>$48.27 → <strong>$5.38</strong></td>
+              <td class="down">-88.9%</td>
+              <td class="up">+33987.2%</td>
               <td><a href="#seg-jp-iOS-1180">查看归因</a></td>
             </tr>
             
@@ -106,11 +106,11 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>Android</td>
               <td>1180</td>
               <td>CPI</td>
-              <td>$68.4K</td>
+              <td>$74.7K</td>
               <td>7.7K</td>
-              <td>$7.31 → <strong>$8.88</strong></td>
-              <td class="up">+21.4%</td>
-              <td class="flat">+0.6%</td>
+              <td>$7.31 → <strong>$9.67</strong></td>
+              <td class="up">+32.2%</td>
+              <td class="flat">+0.8%</td>
               <td><a href="#seg-jp-Android-1180">查看归因</a></td>
             </tr>
             
@@ -119,11 +119,11 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>mx</strong></td>
               <td>Android</td>
               <td>1233</td>
-              <td>DNU</td>
-              <td>$57.0K</td>
+              <td>CPI &amp; DNU</td>
+              <td>$61.4K</td>
               <td>35.6K</td>
-              <td>$1.51 → <strong>$1.60</strong></td>
-              <td class="flat">+6.2%</td>
+              <td>$1.51 → <strong>$1.72</strong></td>
+              <td class="up">+14.4%</td>
               <td class="down">-12.6%</td>
               <td><a href="#seg-mx-Android-1233">查看归因</a></td>
             </tr>
@@ -134,11 +134,11 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>iOS</td>
               <td>1233</td>
               <td>CPI &amp; DNU</td>
-              <td>$51.7K</td>
+              <td>$56.0K</td>
               <td>5.0K</td>
-              <td>$12.68 → <strong>$10.29</strong></td>
-              <td class="down">-18.9%</td>
-              <td class="up">+11.7%</td>
+              <td>$12.68 → <strong>$11.10</strong></td>
+              <td class="down">-12.4%</td>
+              <td class="up">+12.2%</td>
               <td><a href="#seg-de-iOS-1233">查看归因</a></td>
             </tr>
             
@@ -147,13 +147,27 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>de</strong></td>
               <td>Android</td>
               <td>1233</td>
-              <td>DNU</td>
-              <td>$50.2K</td>
+              <td>CPI &amp; DNU</td>
+              <td>$54.2K</td>
               <td>2.7K</td>
-              <td>$17.68 → <strong>$18.66</strong></td>
-              <td class="flat">+5.5%</td>
-              <td class="down">-12.7%</td>
+              <td>$17.68 → <strong>$20.05</strong></td>
+              <td class="up">+13.4%</td>
+              <td class="down">-12.4%</td>
               <td><a href="#seg-de-Android-1233">查看归因</a></td>
+            </tr>
+            
+
+            <tr>
+              <td><strong>vn</strong></td>
+              <td>Android</td>
+              <td>1180</td>
+              <td>CPI</td>
+              <td>$52.2K</td>
+              <td>10.5K</td>
+              <td>$4.44 → <strong>$4.99</strong></td>
+              <td class="up">+12.4%</td>
+              <td class="flat">+5.5%</td>
+              <td><a href="#seg-vn-Android-1180">查看归因</a></td>
             </tr>
             
 
@@ -164,10 +178,38 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>CPI &amp; DNU</td>
               <td>$50.1K</td>
               <td>7.0K</td>
-              <td>$17.48 → <strong>$7.15</strong></td>
-              <td class="down">-59.1%</td>
-              <td class="up">+444.0%</td>
+              <td>$17.48 → <strong>$7.11</strong></td>
+              <td class="down">-59.3%</td>
+              <td class="up">+447.1%</td>
               <td><a href="#seg-us-iOS-1233">查看归因</a></td>
+            </tr>
+            
+
+            <tr>
+              <td><strong>kr</strong></td>
+              <td>Android</td>
+              <td>1180</td>
+              <td>CPI</td>
+              <td>$37.8K</td>
+              <td>4.3K</td>
+              <td>$8.04 → <strong>$8.89</strong></td>
+              <td class="up">+10.7%</td>
+              <td class="flat">-9.7%</td>
+              <td><a href="#seg-kr-Android-1180">查看归因</a></td>
+            </tr>
+            
+
+            <tr>
+              <td><strong>ca</strong></td>
+              <td>Android</td>
+              <td>1233</td>
+              <td>CPI</td>
+              <td>$31.5K</td>
+              <td>2.0K</td>
+              <td>$14.16 → <strong>$15.94</strong></td>
+              <td class="up">+12.6%</td>
+              <td class="flat">-9.2%</td>
+              <td><a href="#seg-ca-Android-1233">查看归因</a></td>
             </tr>
             
 
@@ -176,26 +218,12 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>iOS</td>
               <td>1180</td>
               <td>CPI &amp; DNU</td>
-              <td>$26.0K</td>
+              <td>$28.0K</td>
               <td>10.8K</td>
-              <td>$3.73 → <strong>$2.40</strong></td>
-              <td class="down">-35.5%</td>
-              <td class="up">+61.5%</td>
+              <td>$3.73 → <strong>$2.58</strong></td>
+              <td class="down">-30.7%</td>
+              <td class="up">+61.6%</td>
               <td><a href="#seg-id-iOS-1180">查看归因</a></td>
-            </tr>
-            
-
-            <tr>
-              <td><strong>gb</strong></td>
-              <td>iOS</td>
-              <td>1233</td>
-              <td>CPI</td>
-              <td>$25.9K</td>
-              <td>3.3K</td>
-              <td>$8.89 → <strong>$7.96</strong></td>
-              <td class="down">-10.5%</td>
-              <td class="flat">-0.8%</td>
-              <td><a href="#seg-gb-iOS-1233">查看归因</a></td>
             </tr>
             
 
@@ -204,11 +232,11 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>iOS</td>
               <td>1180</td>
               <td>CPI &amp; DNU</td>
-              <td>$19.6K</td>
+              <td>$21.0K</td>
               <td>7.0K</td>
-              <td>$3.85 → <strong>$2.80</strong></td>
-              <td class="down">-27.3%</td>
-              <td class="up">+41.0%</td>
+              <td>$3.85 → <strong>$3.00</strong></td>
+              <td class="down">-22.3%</td>
+              <td class="up">+41.2%</td>
               <td><a href="#seg-vn-iOS-1180">查看归因</a></td>
             </tr>
             
@@ -218,26 +246,12 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>Android</td>
               <td>1233</td>
               <td>CPI</td>
-              <td>$18.2K</td>
-              <td>895</td>
-              <td>$26.40 → <strong>$20.36</strong></td>
-              <td class="down">-22.9%</td>
-              <td class="flat">+4.9%</td>
+              <td>$20.2K</td>
+              <td>897</td>
+              <td>$26.40 → <strong>$22.48</strong></td>
+              <td class="down">-14.9%</td>
+              <td class="flat">+5.2%</td>
               <td><a href="#seg-au-Android-1233">查看归因</a></td>
-            </tr>
-            
-
-            <tr>
-              <td><strong>sa</strong></td>
-              <td>Android</td>
-              <td>1233</td>
-              <td>CPI</td>
-              <td>$15.5K</td>
-              <td>10.4K</td>
-              <td>$1.77 → <strong>$1.50</strong></td>
-              <td class="down">-15.2%</td>
-              <td class="flat">+8.9%</td>
-              <td><a href="#seg-sa-Android-1233">查看归因</a></td>
             </tr>
             
 
@@ -246,11 +260,11 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>Android</td>
               <td>1233</td>
               <td>DNU</td>
-              <td>$14.9K</td>
-              <td>4.9K</td>
-              <td>$3.24 → <strong>$3.02</strong></td>
-              <td class="flat">-6.8%</td>
-              <td class="down">-18.3%</td>
+              <td>$16.0K</td>
+              <td>5.0K</td>
+              <td>$3.24 → <strong>$3.23</strong></td>
+              <td class="flat">-0.4%</td>
+              <td class="down">-17.8%</td>
               <td><a href="#seg-es-Android-1233">查看归因</a></td>
             </tr>
             
@@ -259,12 +273,12 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>ae</strong></td>
               <td>Android</td>
               <td>1233</td>
-              <td>CPI</td>
-              <td>$14.5K</td>
+              <td>DNU</td>
+              <td>$15.5K</td>
               <td>3.8K</td>
-              <td>$4.50 → <strong>$3.82</strong></td>
-              <td class="down">-15.1%</td>
-              <td class="flat">+9.9%</td>
+              <td>$4.50 → <strong>$4.09</strong></td>
+              <td class="flat">-9.0%</td>
+              <td class="up">+10.0%</td>
               <td><a href="#seg-ae-Android-1233">查看归因</a></td>
             </tr>
             
@@ -273,12 +287,12 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>mx</strong></td>
               <td>iOS</td>
               <td>1233</td>
-              <td>CPI &amp; DNU</td>
-              <td>$13.0K</td>
+              <td>DNU</td>
+              <td>$14.0K</td>
               <td>14.4K</td>
-              <td>$1.00 → <strong>$0.90</strong></td>
-              <td class="down">-10.2%</td>
-              <td class="up">+15.4%</td>
+              <td>$1.00 → <strong>$0.97</strong></td>
+              <td class="flat">-3.4%</td>
+              <td class="up">+15.9%</td>
               <td><a href="#seg-mx-iOS-1233">查看归因</a></td>
             </tr>
             
@@ -288,11 +302,11 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>Android</td>
               <td>473824</td>
               <td>CPI &amp; DNU</td>
-              <td>$12.2K</td>
-              <td>1.0K</td>
-              <td>$9.77 → <strong>$11.89</strong></td>
-              <td class="up">+21.7%</td>
-              <td class="up">+20.9%</td>
+              <td>$13.2K</td>
+              <td>976</td>
+              <td>$10.11 → <strong>$13.53</strong></td>
+              <td class="up">+33.8%</td>
+              <td class="up">+19.3%</td>
               <td><a href="#seg-de-Android-473824">查看归因</a></td>
             </tr>
             
@@ -301,27 +315,27 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>cl</strong></td>
               <td>Android</td>
               <td>1233</td>
-              <td>DNU</td>
-              <td>$7.7K</td>
+              <td>CPI &amp; DNU</td>
+              <td>$8.4K</td>
               <td>5.3K</td>
-              <td>$1.39 → <strong>$1.47</strong></td>
-              <td class="flat">+5.3%</td>
-              <td class="down">-26.9%</td>
+              <td>$1.39 → <strong>$1.59</strong></td>
+              <td class="up">+14.5%</td>
+              <td class="down">-27.1%</td>
               <td><a href="#seg-cl-Android-1233">查看归因</a></td>
             </tr>
             
 
             <tr>
-              <td><strong>br</strong></td>
+              <td><strong>pe</strong></td>
               <td>Android</td>
-              <td>1340</td>
+              <td>1233</td>
               <td>CPI</td>
-              <td>$6.0K</td>
-              <td>9.2K</td>
-              <td>$0.75 → <strong>$0.65</strong></td>
-              <td class="down">-13.3%</td>
-              <td class="flat">+5.3%</td>
-              <td><a href="#seg-br-Android-1340">查看归因</a></td>
+              <td>$6.8K</td>
+              <td>5.4K</td>
+              <td>$1.11 → <strong>$1.25</strong></td>
+              <td class="up">+12.9%</td>
+              <td class="flat">-2.2%</td>
+              <td><a href="#seg-pe-Android-1233">查看归因</a></td>
             </tr>
             
 
@@ -329,12 +343,12 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>ke</strong></td>
               <td>Android</td>
               <td>1233</td>
-              <td>DNU</td>
-              <td>$2.5K</td>
+              <td>CPI &amp; DNU</td>
+              <td>$2.7K</td>
               <td>5.2K</td>
-              <td>$0.47 → <strong>$0.49</strong></td>
-              <td class="flat">+4.0%</td>
-              <td class="down">-11.9%</td>
+              <td>$0.47 → <strong>$0.52</strong></td>
+              <td class="up">+10.6%</td>
+              <td class="down">-11.6%</td>
               <td><a href="#seg-ke-Android-1233">查看归因</a></td>
             </tr>
             
@@ -343,12 +357,12 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>dz</strong></td>
               <td>Android</td>
               <td>1233</td>
-              <td>DNU</td>
-              <td>$2.3K</td>
-              <td>13.4K</td>
-              <td>$0.16 → <strong>$0.17</strong></td>
-              <td class="flat">+8.2%</td>
-              <td class="up">+13.7%</td>
+              <td>CPI &amp; DNU</td>
+              <td>$2.5K</td>
+              <td>13.5K</td>
+              <td>$0.16 → <strong>$0.19</strong></td>
+              <td class="up">+18.3%</td>
+              <td class="up">+14.4%</td>
               <td><a href="#seg-dz-Android-1233">查看归因</a></td>
             </tr>
             
@@ -357,12 +371,12 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td><strong>do</strong></td>
               <td>Android</td>
               <td>1233</td>
-              <td>DNU</td>
-              <td>$2.1K</td>
+              <td>CPI &amp; DNU</td>
+              <td>$2.3K</td>
               <td>1.9K</td>
-              <td>$1.05 → <strong>$1.13</strong></td>
-              <td class="flat">+7.4%</td>
-              <td class="down">-13.8%</td>
+              <td>$1.05 → <strong>$1.22</strong></td>
+              <td class="up">+15.5%</td>
+              <td class="down">-13.3%</td>
               <td><a href="#seg-do-Android-1233">查看归因</a></td>
             </tr>
             
@@ -372,10 +386,10 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td>Android</td>
               <td>1233</td>
               <td>CPI &amp; DNU</td>
-              <td>$1.6K</td>
+              <td>$1.7K</td>
               <td>1.5K</td>
-              <td>$1.31 → <strong>$1.10</strong></td>
-              <td class="down">-15.8%</td>
+              <td>$1.31 → <strong>$1.16</strong></td>
+              <td class="down">-11.7%</td>
               <td class="down">-28.4%</td>
               <td><a href="#seg-iq-Android-1233">查看归因</a></td>
             </tr>
@@ -396,30 +410,30 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
             
 
             <tr>
-              <td><strong>kh</strong></td>
-              <td>Android</td>
-              <td>1180</td>
-              <td>CPI</td>
-              <td>$1.3K</td>
-              <td>1.6K</td>
-              <td>$0.91 → <strong>$0.78</strong></td>
-              <td class="down">-14.2%</td>
-              <td class="flat">+8.3%</td>
-              <td><a href="#seg-kh-Android-1180">查看归因</a></td>
-            </tr>
-            
-
-            <tr>
               <td><strong>ma</strong></td>
               <td>Android</td>
               <td>1233</td>
               <td>CPI &amp; DNU</td>
-              <td>$816</td>
+              <td>$912</td>
               <td>3.8K</td>
-              <td>$0.31 → <strong>$0.22</strong></td>
-              <td class="down">-30.2%</td>
-              <td class="down">-27.1%</td>
+              <td>$0.31 → <strong>$0.24</strong></td>
+              <td class="down">-22.0%</td>
+              <td class="down">-27.2%</td>
               <td><a href="#seg-ma-Android-1233">查看归因</a></td>
+            </tr>
+            
+
+            <tr>
+              <td><strong>az</strong></td>
+              <td>Android</td>
+              <td>1233</td>
+              <td>CPI</td>
+              <td>$654</td>
+              <td>1.1K</td>
+              <td>$0.56 → <strong>$0.61</strong></td>
+              <td class="up">+10.4%</td>
+              <td class="flat">-4.0%</td>
+              <td><a href="#seg-az-Android-1233">查看归因</a></td>
             </tr>
             </tbody>
     </table>
@@ -431,15 +445,15 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>br · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $4.00 → $4.17 (+4.2%); DNU 32.1K → 28.7K (-10.6%)</p>
+                  <p>Sandbox benchmark: CPI $4.00 → $4.52 (+13.1%); DNU 32.1K → 28.7K (-10.8%)</p>
                 </div>
-                <span class="pill flat">DNU</span>
+                <span class="pill up">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：br · Android · App 1233 主要触发 DNU 下降（32.1K → 28.7K，-10.6%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_BR_AND_20251029 _Owen_UserAcquisition_af_bs_conversion（投放事件：spending）。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_BR_AND_20251029 _Owen_UserAcquisition_af_bs_conversion，事件 spending，本期消耗 $39.2K、占比 30.2%、CPI $5.94（+8.7%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 27.1%（+3.1pp），CPM $5.90（+11.6%）、IPM 1.58（+1.0%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_Aqc_0225_video_BR_Moloco_UGC_top_similar_batch1_ACO / vi，本期占比 16.3%（-2.7pp），CPI $6.90（+8.1%）。</li><li>Bundle侧关键项：com.dywx.larkplayer 本期占比 6.9%（-3.8pp），CPI $8.36（+25.0%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+      <p class="headline">结论：br · Android · App 1233 的 Blackswan CPI 从 $4.00 上升到 $4.52（+13.1%）。<span>主要原因判断：ADX_RTB 媒体成本/效率变化；TT_NW_Aqc_BR_0114_mix_video_16×9_DNU_reuse_ACO 创意/版位表现变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_BR_AND_20251029 _Owen_UserAcquisition_af_bs_conversion，事件 spending，本期消耗 $39.2K、占比 30.2%、CPI $5.94（+8.7%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 27.1%（+3.1pp），CPM $5.90（+11.6%）、IPM 1.58（+1.0%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_Aqc_BR_0114_mix_video_16×9_DNU_reuse_ACO / vi，本期占比 15.1%（-2.0pp），CPI $9.26（+16.0%）。</li><li>Bundle侧关键项：gallery.photogallery.pictures.vault.album 本期占比 3.7%（+2.4pp），CPI $7.82（+29.3%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
               
@@ -979,14 +993,14 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>jp · iOS · App 1180</h3>
-                  <p>Sandbox benchmark: CPI $48.27 → $4.63 (-90.4%); DNU 47 → 15.9K (+33829.8%)</p>
+                  <p>Sandbox benchmark: CPI $48.27 → $5.38 (-88.9%); DNU 47 → 16.0K (+33987.2%)</p>
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：jp · iOS · App 1180 的 Blackswan CPI 从 $48.27 降到 $4.63（-90.4%），属于成本改善项。<span>主要原因判断：VUNGLE 媒体成本改善或效率提升。</span></p>
+      <p class="headline">结论：jp · iOS · App 1180 的 Blackswan CPI 从 $48.27 降到 $5.38（-88.9%），属于成本改善项。<span>主要原因判断：VUNGLE 媒体成本改善或效率提升。</span></p>
       <ul><li>主要 campaign：Bytedance_1180_JP_iOS_20260415_Moloco_UserAcquisition_ios_dc_new_user_video，事件 spending，本期消耗 $42.0K、占比 48.8%、CPI $5.62（-）。</li><li>媒体侧关键项：VUNGLE 本期占比 8.2%（+2.4pp），CPM $0.69（-79.5%）、IPM 0.10（+292.2%），CPM下降且IPM提升，成本和效率双向改善。</li><li>创意/版位关键项：JP_Main_Recall_Top_ASMR_Q4_2025_ACO / nv，本期占比 42.9%（+42.9pp），CPI $4.83（-）。</li><li>Bundle侧关键项：1459645446 本期占比 32.4%（+32.2pp），CPI $5.72（-），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -1475,14 +1489,14 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>jp · Android · App 1180</h3>
-                  <p>Sandbox benchmark: CPI $7.31 → $8.88 (+21.4%); DNU 7.7K → 7.7K (+0.6%)</p>
+                  <p>Sandbox benchmark: CPI $7.31 → $9.67 (+32.2%); DNU 7.7K → 7.7K (+0.8%)</p>
                 </div>
                 <span class="pill up">CPI</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：jp · Android · App 1180 的 Blackswan CPI 从 $7.31 上升到 $8.88（+21.4%）。<span>主要原因判断：主要 campaign Bytedance_1180_JP_Android_20251226_Moloco_UserAcquisition_bs_conversion（投放事件：spending）；FIVE 媒体成本/效率变化；wni.WeathernewsTouch.jp bundle 子渠道变化。</span></p>
+      <p class="headline">结论：jp · Android · App 1180 的 Blackswan CPI 从 $7.31 上升到 $9.67（+32.2%）。<span>主要原因判断：主要 campaign Bytedance_1180_JP_Android_20251226_Moloco_UserAcquisition_bs_conversion（投放事件：spending）；FIVE 媒体成本/效率变化；wni.WeathernewsTouch.jp bundle 子渠道变化。</span></p>
       <ul><li>主要 campaign：Bytedance_1180_JP_Android_20251226_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $30.6K、占比 41.0%、CPI $11.51（+32.4%）。</li><li>媒体侧关键项：FIVE 本期占比 23.2%（+2.0pp），CPM $1.56（+8.6%）、IPM 0.26（-20.2%），主要体现为IPM下滑，流量/创意转化效率下降。</li><li>创意/版位关键项：TT_NW_JP_1225_Video_16x9_JP-moloco169_ACO / vi，本期占比 3.3%（-0.7pp），CPI $16.68（+54.4%）。</li><li>Bundle侧关键项：wni.WeathernewsTouch.jp 本期占比 15.2%（+3.2pp），CPI $6.27（+49.6%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -1971,15 +1985,15 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>mx · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $1.51 → $1.60 (+6.2%); DNU 40.8K → 35.6K (-12.6%)</p>
+                  <p>Sandbox benchmark: CPI $1.51 → $1.72 (+14.4%); DNU 40.8K → 35.6K (-12.6%)</p>
                 </div>
-                <span class="pill flat">DNU</span>
+                <span class="pill up">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：mx · Android · App 1233 主要触发 DNU 下降（40.8K → 35.6K，-12.6%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_MX_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt（投放事件：spending）。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_MX_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $22.5K、占比 36.7%、CPI $1.35（+11.4%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 27.1%（+2.0pp），CPM $7.37（+1.1%）、IPM 6.98（-1.6%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_MX_1128_Video_mix_ACO / vi，本期占比 59.1%（-1.2pp），CPI $1.66（+10.2%）。</li><li>Bundle侧关键项：com.dywx.larkplayer 本期占比 16.1%（-2.7pp），CPI $1.67（+20.2%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+      <p class="headline">结论：mx · Android · App 1233 的 Blackswan CPI 从 $1.51 上升到 $1.72（+14.4%）。<span>主要原因判断：主要 campaign Bytedance_1233_MX_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt（投放事件：spending）；VUNGLE 媒体成本/效率变化；TT_NW_MX_1128_Video_mix_ACO 创意/版位表现变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_MX_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $22.5K、占比 36.7%、CPI $1.35（+11.4%）。</li><li>媒体侧关键项：VUNGLE 本期占比 19.1%（-5.0pp），CPM $9.64（+60.8%）、IPM 5.58（+28.1%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_MX_1128_Video_mix_ACO / vi，本期占比 59.1%（-1.2pp），CPI $1.66（+10.2%）。</li><li>Bundle侧关键项：com.mmm.trebelmusic 本期占比 2.9%（-0.5pp），CPI $1.12（+31.7%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
               
@@ -2467,14 +2481,14 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>de · iOS · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $12.68 → $10.29 (-18.9%); DNU 4.5K → 5.0K (+11.7%)</p>
+                  <p>Sandbox benchmark: CPI $12.68 → $11.10 (-12.4%); DNU 4.5K → 5.0K (+12.2%)</p>
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：de · iOS · App 1233 的 Blackswan CPI 从 $12.68 降到 $10.29（-18.9%），属于成本改善项。<span>主要原因判断：当前更像整体结构/规模变化，单一 campaign、媒体或创意未形成足够明确的主因。</span></p>
+      <p class="headline">结论：de · iOS · App 1233 的 Blackswan CPI 从 $12.68 降到 $11.10（-12.4%），属于成本改善项。<span>主要原因判断：当前更像整体结构/规模变化，单一 campaign、媒体或创意未形成足够明确的主因。</span></p>
       <ul><li>主要 campaign：Bytedance_1233_DE_iOS_20260421_Moloco_UserAcquisition_ios_dc_new_didrt，事件 spending，本期消耗 $22.4K、占比 40.0%、CPI $5.55（+8.4%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 22.5%（-3.0pp），CPM $3.11（+5.7%）、IPM 0.62（+9.3%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_Aqc_DE_0129_video_mix_Live_DNU_reuse_ACO / vi，本期占比 47.2%（+1.8pp），CPI $5.72（+0.9%）。</li><li>Bundle侧关键项：545993260 本期占比 17.2%（+10.2pp），CPI $3.16（+29.4%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -2963,15 +2977,15 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>de · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $17.68 → $18.66 (+5.5%); DNU 3.1K → 2.7K (-12.7%)</p>
+                  <p>Sandbox benchmark: CPI $17.68 → $20.05 (+13.4%); DNU 3.1K → 2.7K (-12.4%)</p>
                 </div>
-                <span class="pill flat">DNU</span>
+                <span class="pill up">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：de · Android · App 1233 主要触发 DNU 下降（3.1K → 2.7K，-12.7%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_DE_Android_20251029_Moloco_UserAcquisition_af_bs_conversion（投放事件：spending）。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_DE_Android_20251029_Moloco_UserAcquisition_af_bs_conversion，事件 spending，本期消耗 $21.0K、占比 38.9%、CPI $20.85（+16.6%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 23.3%（+0.4pp），CPM $9.67（-2.6%）、IPM 0.36（-7.0%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_Aqc_1233_DE_0930_video_mix_mix_DNU_reuse_Aqc_ACO / vi，本期占比 16.9%（-2.7pp），CPI $35.36（+20.9%）。</li><li>Bundle侧关键项：com.miui.global.packageinstaller 本期占比 7.1%（-3.3pp），CPI $93.92（-28.5%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+      <p class="headline">结论：de · Android · App 1233 的 Blackswan CPI 从 $17.68 上升到 $20.05（+13.4%）。<span>主要原因判断：主要 campaign Bytedance_1233_DE_Android_20251029_Moloco_UserAcquisition_af_bs_conversion（投放事件：spending）。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_DE_Android_20251029_Moloco_UserAcquisition_af_bs_conversion，事件 spending，本期消耗 $21.0K、占比 38.9%、CPI $20.85（+16.6%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 23.3%（+0.4pp），CPM $9.67（-2.6%）、IPM 0.36（-7.0%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_Aqc_DE_0202_video_mix_UGC_DNU_reuse_ACO / vi，本期占比 3.8%（+1.3pp），CPI $33.67（+59.4%）。</li><li>Bundle侧关键项：com.xiaomi.mipicks 本期占比 3.4%（+2.1pp），CPI $226.89（+67.7%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
               
@@ -3481,18 +3495,527 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
             </section>
             
 
+            <section class="seg-block" id="seg-vn-Android-1180">
+              <div class="seg-head">
+                <div>
+                  <h3>vn · Android · App 1180</h3>
+                  <p>Sandbox benchmark: CPI $4.44 → $4.99 (+12.4%); DNU 9.9K → 10.5K (+5.5%)</p>
+                </div>
+                <span class="pill up">CPI</span>
+              </div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：vn · Android · App 1180 的 Blackswan CPI 从 $4.44 上升到 $4.99（+12.4%）。<span>主要原因判断：主要 campaign Bytedance_1180_VN_Android_20251127_Moloco_UserAcquisition_af_bs_conversion_rt（投放事件：spending）；MOLOCO_SDK_MAX 媒体成本/效率变化；TT_NW_VN_1128_Video_mix_ACO 创意/版位表现变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1180_VN_Android_20251127_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $23.5K、占比 45.1%、CPI $5.11（+12.2%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 25.2%（+1.0pp），CPM $10.69（-6.1%）、IPM 1.38（-17.1%），主要体现为IPM下滑，流量/创意转化效率下降。</li><li>创意/版位关键项：TT_NW_VN_1128_Video_mix_ACO / vi，本期占比 31.4%（+3.6pp），CPI $5.39（+13.3%）。</li><li>Bundle侧关键项：com.blockblast.vn 本期占比 21.5%（+0.8pp），CPI $9.47（+11.1%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>投放 Campaign / 事件</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>Bytedance_1180_VN_Android_20251127_Moloco_UserAcquisition_af_bs_conversion_rt</strong><span>spending</span></td>
+              <td>$23.5K</td>
+              <td>45.1%</td>
+              <td class="flat">+1.2pp</td>
+              <td>$5.11</td>
+              <td class="up">+12.2%</td>
+              <td>$6.15</td>
+              <td class="flat">+3.4%</td>
+              <td>1.20</td>
+              <td class="flat">-7.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1180_VN_Android_20251219_Moloco_UserAcquisition_pltv_lt7_deeplt</strong><span>spending</span></td>
+              <td>$13.2K</td>
+              <td>25.3%</td>
+              <td class="flat">-3.4pp</td>
+              <td>$5.97</td>
+              <td class="up">+14.9%</td>
+              <td>$22.21</td>
+              <td class="down">-19.3%</td>
+              <td>3.72</td>
+              <td class="down">-29.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1180_VN_Android_20260319_Moloco_UserAcquisition_webcast_gift</strong><span>spending</span></td>
+              <td>$11.5K</td>
+              <td>22.1%</td>
+              <td class="flat">+1.1pp</td>
+              <td>$5.94</td>
+              <td class="up">+12.9%</td>
+              <td>$18.43</td>
+              <td class="flat">-1.1%</td>
+              <td>3.10</td>
+              <td class="down">-12.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1180_VN_Android_20260527_Moloco_UserAcquisition_af_bs_conversion_dptest</strong><span>spending</span></td>
+              <td>$3.1K</td>
+              <td>5.9%</td>
+              <td class="flat">-0.4pp</td>
+              <td>$7.23</td>
+              <td class="flat">-0.2%</td>
+              <td>$5.07</td>
+              <td class="flat">+0.7%</td>
+              <td>0.70</td>
+              <td class="flat">+0.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1180_VN_Android_20260625_Moloco_UserAcquisition_d2_rr_user_rt</strong><span>spending</span></td>
+              <td>$800</td>
+              <td>1.5%</td>
+              <td class="flat">+1.5pp</td>
+              <td>$5.03</td>
+              <td class="flat">-</td>
+              <td>$10.67</td>
+              <td class="flat">-</td>
+              <td>2.12</td>
+              <td class="flat">-</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>媒体渠道 / Exchange</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>MOLOCO_SDK_MAX</strong><span>exchange</span></td>
+              <td>$13.2K</td>
+              <td>25.2%</td>
+              <td class="flat">+1.0pp</td>
+              <td>$7.76</td>
+              <td class="up">+13.4%</td>
+              <td>$10.69</td>
+              <td class="flat">-6.1%</td>
+              <td>1.38</td>
+              <td class="down">-17.1%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>ADX_RTB</strong><span>exchange</span></td>
+              <td>$13.0K</td>
+              <td>24.9%</td>
+              <td class="flat">+0.2pp</td>
+              <td>$4.25</td>
+              <td class="up">+16.8%</td>
+              <td>$9.14</td>
+              <td class="flat">-2.1%</td>
+              <td>2.15</td>
+              <td class="down">-16.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>INMOBI</strong><span>exchange</span></td>
+              <td>$7.0K</td>
+              <td>13.3%</td>
+              <td class="flat">+2.0pp</td>
+              <td>$6.40</td>
+              <td class="flat">+1.9%</td>
+              <td>$10.07</td>
+              <td class="down">-12.9%</td>
+              <td>1.57</td>
+              <td class="down">-14.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>VUNGLE</strong><span>exchange</span></td>
+              <td>$5.8K</td>
+              <td>11.1%</td>
+              <td class="flat">-1.0pp</td>
+              <td>$7.16</td>
+              <td class="up">+17.0%</td>
+              <td>$10.48</td>
+              <td class="up">+16.9%</td>
+              <td>1.47</td>
+              <td class="flat">-0.1%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>APPLOVIN</strong><span>exchange</span></td>
+              <td>$4.7K</td>
+              <td>9.0%</td>
+              <td class="flat">-1.1pp</td>
+              <td>$5.11</td>
+              <td class="flat">+7.0%</td>
+              <td>$8.37</td>
+              <td class="flat">-1.0%</td>
+              <td>1.64</td>
+              <td class="flat">-7.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>UNITY</strong><span>exchange</span></td>
+              <td>$2.2K</td>
+              <td>4.3%</td>
+              <td class="flat">-0.6pp</td>
+              <td>$6.96</td>
+              <td class="flat">+8.8%</td>
+              <td>$8.69</td>
+              <td class="flat">-2.7%</td>
+              <td>1.25</td>
+              <td class="down">-10.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>IRONSOURCE</strong><span>exchange</span></td>
+              <td>$1.8K</td>
+              <td>3.4%</td>
+              <td class="flat">-0.8pp</td>
+              <td>$6.65</td>
+              <td class="up">+22.8%</td>
+              <td>$6.60</td>
+              <td class="flat">-1.4%</td>
+              <td>0.99</td>
+              <td class="down">-19.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>MOLOCO_SDK_ADMOB_MEDIATION</strong><span>exchange</span></td>
+              <td>$1.2K</td>
+              <td>2.2%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$5.55</td>
+              <td class="flat">+6.4%</td>
+              <td>$7.40</td>
+              <td class="flat">+0.4%</td>
+              <td>1.33</td>
+              <td class="flat">-5.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>FYBER</strong><span>exchange</span></td>
+              <td>$897</td>
+              <td>1.7%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$4.01</td>
+              <td class="flat">+4.3%</td>
+              <td>$7.87</td>
+              <td class="flat">-3.4%</td>
+              <td>1.97</td>
+              <td class="flat">-7.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>NIMBUS</strong><span>exchange</span></td>
+              <td>$781</td>
+              <td>1.5%</td>
+              <td class="flat">-0.0pp</td>
+              <td>$3.39</td>
+              <td class="up">+11.8%</td>
+              <td>$11.23</td>
+              <td class="flat">-0.5%</td>
+              <td>3.31</td>
+              <td class="down">-11.0%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>创意组 / 版位</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_0306_video_VN_Moloco_UGC_top_similar_batch1_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$17.1K</td>
+              <td>32.7%</td>
+              <td class="flat">-2.7pp</td>
+              <td>$6.34</td>
+              <td class="up">+18.6%</td>
+              <td>$14.87</td>
+              <td class="flat">-9.6%</td>
+              <td>2.35</td>
+              <td class="down">-23.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_VN_1128_Video_mix_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$16.4K</td>
+              <td>31.4%</td>
+              <td class="flat">+3.6pp</td>
+              <td>$5.39</td>
+              <td class="up">+13.3%</td>
+              <td>$8.11</td>
+              <td class="flat">-2.9%</td>
+              <td>1.50</td>
+              <td class="down">-14.3%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_VN_0109_Video_9x16_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$7.1K</td>
+              <td>13.6%</td>
+              <td class="flat">-2.3pp</td>
+              <td>$5.69</td>
+              <td class="up">+18.2%</td>
+              <td>$9.67</td>
+              <td class="up">+16.2%</td>
+              <td>1.70</td>
+              <td class="flat">-1.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_VN_1128_Video_mix_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$4.6K</td>
+              <td>8.9%</td>
+              <td class="flat">+0.6pp</td>
+              <td>$6.24</td>
+              <td class="flat">+6.5%</td>
+              <td>$7.05</td>
+              <td class="flat">+3.5%</td>
+              <td>1.13</td>
+              <td class="flat">-2.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_0306_video_VN_Moloco_UGC_top_similar_batch1_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$3.7K</td>
+              <td>7.1%</td>
+              <td class="flat">+0.5pp</td>
+              <td>$7.08</td>
+              <td class="up">+11.3%</td>
+              <td>$11.69</td>
+              <td class="down">-15.8%</td>
+              <td>1.65</td>
+              <td class="down">-24.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_VN_0109_Video_9x16_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$2.2K</td>
+              <td>4.1%</td>
+              <td class="flat">+0.2pp</td>
+              <td>$6.70</td>
+              <td class="up">+18.0%</td>
+              <td>$7.95</td>
+              <td class="flat">+5.4%</td>
+              <td>1.19</td>
+              <td class="down">-10.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_VN_0109_Video_9x16_ACO</strong><span>nv · Native</span></td>
+              <td>$344</td>
+              <td>0.7%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$1.27</td>
+              <td class="down">-20.0%</td>
+              <td>$1.99</td>
+              <td class="flat">+5.5%</td>
+              <td>1.57</td>
+              <td class="up">+31.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_VN_1128_Video_mix_ACO</strong><span>nv · Native</span></td>
+              <td>$329</td>
+              <td>0.6%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$1.31</td>
+              <td class="down">-15.2%</td>
+              <td>$1.99</td>
+              <td class="flat">+9.6%</td>
+              <td>1.51</td>
+              <td class="up">+29.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_0306_video_VN_Moloco_UGC_top_similar_batch1_ACO</strong><span>nv · Native</span></td>
+              <td>$299</td>
+              <td>0.6%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$1.48</td>
+              <td class="down">-26.8%</td>
+              <td>$2.33</td>
+              <td class="flat">+9.4%</td>
+              <td>1.58</td>
+              <td class="up">+49.5%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_VN_1128_Video_mix_ACO</strong><span>vb · Instream Video</span></td>
+              <td>$80</td>
+              <td>0.1%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$2.85</td>
+              <td class="down">-48.4%</td>
+              <td>$1.41</td>
+              <td class="flat">+5.0%</td>
+              <td>0.49</td>
+              <td class="up">+103.5%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>Bundle ID / 子渠道</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>com.blockblast.vn</strong><span>bundle</span></td>
+              <td>$6.8K</td>
+              <td>21.5%</td>
+              <td class="flat">+0.8pp</td>
+              <td>$9.47</td>
+              <td class="up">+11.1%</td>
+              <td>$39.31</td>
+              <td class="down">-18.1%</td>
+              <td>4.15</td>
+              <td class="down">-26.3%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.locket.Locket</strong><span>bundle</span></td>
+              <td>$864</td>
+              <td>2.7%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$3.19</td>
+              <td class="up">+11.5%</td>
+              <td>$12.15</td>
+              <td class="flat">-4.8%</td>
+              <td>3.81</td>
+              <td class="down">-14.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>free.tube.premium.advanced.tuber</strong><span>bundle</span></td>
+              <td>$802</td>
+              <td>2.5%</td>
+              <td class="flat">-0.8pp</td>
+              <td>$7.64</td>
+              <td class="flat">+5.9%</td>
+              <td>$5.13</td>
+              <td class="flat">+4.1%</td>
+              <td>0.67</td>
+              <td class="flat">-1.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.pinterest</strong><span>bundle</span></td>
+              <td>$696</td>
+              <td>2.2%</td>
+              <td class="flat">+0.4pp</td>
+              <td>$1.27</td>
+              <td class="down">-25.0%</td>
+              <td>$2.41</td>
+              <td class="flat">+7.2%</td>
+              <td>1.90</td>
+              <td class="up">+42.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.vng.playtogether</strong><span>bundle</span></td>
+              <td>$692</td>
+              <td>2.2%</td>
+              <td class="flat">+0.3pp</td>
+              <td>$5.67</td>
+              <td class="up">+14.3%</td>
+              <td>$4.80</td>
+              <td class="up">+15.3%</td>
+              <td>0.85</td>
+              <td class="flat">+0.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>ziga.cotuong.coup</strong><span>bundle</span></td>
+              <td>$395</td>
+              <td>1.2%</td>
+              <td class="flat">-0.1pp</td>
+              <td>$5.07</td>
+              <td class="up">+40.1%</td>
+              <td>$4.11</td>
+              <td class="flat">+3.7%</td>
+              <td>0.81</td>
+              <td class="down">-26.0%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.outfit7.talkingtomgoldrun</strong><span>bundle</span></td>
+              <td>$317</td>
+              <td>1.0%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$5.11</td>
+              <td class="down">-16.2%</td>
+              <td>$13.93</td>
+              <td class="down">-15.6%</td>
+              <td>2.73</td>
+              <td class="flat">+0.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>io.voodoo.holeio</strong><span>bundle</span></td>
+              <td>$309</td>
+              <td>1.0%</td>
+              <td class="flat">-0.1pp</td>
+              <td>$7.02</td>
+              <td class="down">-11.6%</td>
+              <td>$16.11</td>
+              <td class="up">+17.0%</td>
+              <td>2.29</td>
+              <td class="up">+32.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.outfit7.mytalkingtom2</strong><span>bundle</span></td>
+              <td>$306</td>
+              <td>1.0%</td>
+              <td class="flat">-0.1pp</td>
+              <td>$5.46</td>
+              <td class="flat">-4.4%</td>
+              <td>$11.42</td>
+              <td class="flat">-3.9%</td>
+              <td>2.09</td>
+              <td class="flat">+0.5%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.block.juggle</strong><span>bundle</span></td>
+              <td>$282</td>
+              <td>0.9%</td>
+              <td class="flat">-0.2pp</td>
+              <td>$9.11</td>
+              <td class="up">+56.6%</td>
+              <td>$11.93</td>
+              <td class="down">-21.3%</td>
+              <td>1.31</td>
+              <td class="down">-49.7%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+            </section>
+            
+
             <section class="seg-block" id="seg-us-iOS-1233">
               <div class="seg-head">
                 <div>
                   <h3>us · iOS · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $17.48 → $7.15 (-59.1%); DNU 1.3K → 7.0K (+444.0%)</p>
+                  <p>Sandbox benchmark: CPI $17.48 → $7.11 (-59.3%); DNU 1.3K → 7.0K (+447.1%)</p>
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：us · iOS · App 1233 的 Blackswan CPI 从 $17.48 降到 $7.15（-59.1%），属于成本改善项。<span>主要原因判断：ADX_RTB 媒体成本改善或效率提升；1617391485 bundle 子渠道变化。</span></p>
+      <p class="headline">结论：us · iOS · App 1233 的 Blackswan CPI 从 $17.48 降到 $7.11（-59.3%），属于成本改善项。<span>主要原因判断：ADX_RTB 媒体成本改善或效率提升；1617391485 bundle 子渠道变化。</span></p>
       <ul><li>主要 campaign：USUG_1233_US_IOS_0415_Moloco_Pro User Acquisition_tiktok_dc_new_user，事件 spending，本期消耗 $20.0K、占比 40.0%、CPI $6.99（-）。</li><li>媒体侧关键项：ADX_RTB 本期占比 8.5%（+7.7pp），CPM $3.00（-10.7%）、IPM 0.89（+2454.9%），CPM下降且IPM提升，成本和效率双向改善。</li><li>创意/版位关键项：TT_NW_Aqc_US_0922_UGC_video_9×16_scenario_test_ACO / vi，本期占比 36.2%（+36.2pp），CPI $6.40（-）。</li><li>Bundle侧关键项：1617391485 本期占比 5.8%（-1.1pp），CPI $7.53（-94.4%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -3977,18 +4500,997 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
             </section>
             
 
+            <section class="seg-block" id="seg-kr-Android-1180">
+              <div class="seg-head">
+                <div>
+                  <h3>kr · Android · App 1180</h3>
+                  <p>Sandbox benchmark: CPI $8.04 → $8.89 (+10.7%); DNU 4.7K → 4.3K (-9.7%)</p>
+                </div>
+                <span class="pill up">CPI</span>
+              </div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：kr · Android · App 1180 的 Blackswan CPI 从 $8.04 上升到 $8.89（+10.7%）。<span>主要原因判断：ADX_RTB 媒体成本/效率变化；TT_NW_KR_1225_Video_9x16_KR-moloco916_ACO 创意/版位表现变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1180_KR_Android_20251226_Moloco_UserAcquisition_ lt7_pltv，事件 spending，本期消耗 $21.0K、占比 55.5%、CPI $8.68（+4.2%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 27.1%（+5.3pp），CPM $3.29（+30.1%）、IPM 0.46（+11.0%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_KR_1225_Video_9x16_KR-moloco916_ACO / vi，本期占比 43.6%（+5.7pp），CPI $8.79（+11.8%）。</li><li>Bundle侧关键项：autoclicker.clicker.autoclickerapp.autoclickerforgames 本期占比 4.8%（+1.8pp），CPI $6.74（+28.8%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>投放 Campaign / 事件</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>Bytedance_1180_KR_Android_20251226_Moloco_UserAcquisition_ lt7_pltv</strong><span>spending</span></td>
+              <td>$21.0K</td>
+              <td>55.5%</td>
+              <td class="flat">-0.0pp</td>
+              <td>$8.68</td>
+              <td class="flat">+4.2%</td>
+              <td>$2.76</td>
+              <td class="flat">+4.0%</td>
+              <td>0.32</td>
+              <td class="flat">-0.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1180_KR_Android_20251226_Moloco_UserAcquisition_DNU</strong><span>spending</span></td>
+              <td>$8.4K</td>
+              <td>22.2%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$7.44</td>
+              <td class="up">+13.2%</td>
+              <td>$1.09</td>
+              <td class="flat">+2.2%</td>
+              <td>0.15</td>
+              <td class="flat">-9.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1180_KR_Android_20251226_Moloco_UserAcquisition_bs_conversion</strong><span>spending</span></td>
+              <td>$8.4K</td>
+              <td>22.2%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$6.73</td>
+              <td class="up">+17.8%</td>
+              <td>$1.90</td>
+              <td class="flat">+4.6%</td>
+              <td>0.28</td>
+              <td class="down">-11.2%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>媒体渠道 / Exchange</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>ADX_RTB</strong><span>exchange</span></td>
+              <td>$10.2K</td>
+              <td>27.1%</td>
+              <td class="flat">+5.3pp</td>
+              <td>$7.16</td>
+              <td class="up">+17.2%</td>
+              <td>$3.29</td>
+              <td class="up">+30.1%</td>
+              <td>0.46</td>
+              <td class="up">+11.0%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>MOLOCO_SDK_MAX</strong><span>exchange</span></td>
+              <td>$8.5K</td>
+              <td>22.5%</td>
+              <td class="flat">-1.9pp</td>
+              <td>$7.20</td>
+              <td class="flat">+1.1%</td>
+              <td>$1.45</td>
+              <td class="flat">-8.0%</td>
+              <td>0.20</td>
+              <td class="flat">-9.0%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>MOLOCO_SDK_ADMOB_MEDIATION</strong><span>exchange</span></td>
+              <td>$4.1K</td>
+              <td>10.9%</td>
+              <td class="flat">-1.8pp</td>
+              <td>$8.08</td>
+              <td class="up">+18.5%</td>
+              <td>$1.16</td>
+              <td class="flat">-5.0%</td>
+              <td>0.14</td>
+              <td class="down">-19.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>INMOBI</strong><span>exchange</span></td>
+              <td>$3.3K</td>
+              <td>8.7%</td>
+              <td class="flat">+0.6pp</td>
+              <td>$9.04</td>
+              <td class="up">+19.4%</td>
+              <td>$3.02</td>
+              <td class="up">+12.3%</td>
+              <td>0.33</td>
+              <td class="flat">-5.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>ADPIE</strong><span>exchange</span></td>
+              <td>$2.5K</td>
+              <td>6.5%</td>
+              <td class="flat">+0.5pp</td>
+              <td>$10.02</td>
+              <td class="up">+28.0%</td>
+              <td>$1.55</td>
+              <td class="flat">-7.5%</td>
+              <td>0.15</td>
+              <td class="down">-27.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>APPLOVIN</strong><span>exchange</span></td>
+              <td>$1.9K</td>
+              <td>5.1%</td>
+              <td class="flat">+0.7pp</td>
+              <td>$8.75</td>
+              <td class="flat">+6.4%</td>
+              <td>$2.79</td>
+              <td class="up">+18.3%</td>
+              <td>0.32</td>
+              <td class="up">+11.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>VUNGLE</strong><span>exchange</span></td>
+              <td>$1.6K</td>
+              <td>4.1%</td>
+              <td class="flat">-1.8pp</td>
+              <td>$9.47</td>
+              <td class="flat">+9.9%</td>
+              <td>$3.90</td>
+              <td class="flat">-4.8%</td>
+              <td>0.41</td>
+              <td class="down">-13.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>UNITY</strong><span>exchange</span></td>
+              <td>$1.3K</td>
+              <td>3.4%</td>
+              <td class="flat">-0.5pp</td>
+              <td>$10.52</td>
+              <td class="down">-16.8%</td>
+              <td>$3.34</td>
+              <td class="flat">-8.2%</td>
+              <td>0.32</td>
+              <td class="up">+10.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>IRONSOURCE</strong><span>exchange</span></td>
+              <td>$1.3K</td>
+              <td>3.4%</td>
+              <td class="flat">-2.7pp</td>
+              <td>$11.60</td>
+              <td class="up">+37.7%</td>
+              <td>$2.45</td>
+              <td class="up">+13.1%</td>
+              <td>0.21</td>
+              <td class="down">-17.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>APPODEAL</strong><span>exchange</span></td>
+              <td>$636</td>
+              <td>1.7%</td>
+              <td class="flat">+0.5pp</td>
+              <td>$17.20</td>
+              <td class="up">+59.6%</td>
+              <td>$3.03</td>
+              <td class="flat">-1.4%</td>
+              <td>0.18</td>
+              <td class="down">-38.3%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>创意组 / 版位</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>TT_NW_KR_1225_Video_9x16_KR-moloco916_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$16.5K</td>
+              <td>43.6%</td>
+              <td class="flat">+5.7pp</td>
+              <td>$8.79</td>
+              <td class="up">+11.8%</td>
+              <td>$3.30</td>
+              <td class="flat">+6.0%</td>
+              <td>0.38</td>
+              <td class="flat">-5.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_KR_1225_Video_9x16_KR-moloco916_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$4.3K</td>
+              <td>11.4%</td>
+              <td class="flat">+2.0pp</td>
+              <td>$7.96</td>
+              <td class="up">+20.4%</td>
+              <td>$1.94</td>
+              <td class="flat">+3.3%</td>
+              <td>0.24</td>
+              <td class="down">-14.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_KR_0211_video_mix_DNU_reuse_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$3.2K</td>
+              <td>8.4%</td>
+              <td class="flat">-1.3pp</td>
+              <td>$7.50</td>
+              <td class="up">+15.7%</td>
+              <td>$3.12</td>
+              <td class="up">+18.8%</td>
+              <td>0.42</td>
+              <td class="flat">+2.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_KR_1225_Video_1x1_KR-moloco11_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$3.1K</td>
+              <td>8.1%</td>
+              <td class="flat">-2.7pp</td>
+              <td>$11.50</td>
+              <td class="up">+11.0%</td>
+              <td>$4.81</td>
+              <td class="up">+29.4%</td>
+              <td>0.42</td>
+              <td class="up">+16.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_KR_1225_Video_16x9_KR-moloco169_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$2.8K</td>
+              <td>7.3%</td>
+              <td class="flat">-1.5pp</td>
+              <td>$10.23</td>
+              <td class="up">+26.5%</td>
+              <td>$5.92</td>
+              <td class="flat">+0.2%</td>
+              <td>0.58</td>
+              <td class="down">-20.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_KR_1225_Image_1200x628_KR-molocoimage1200_ACO</strong><span>ni · Native</span></td>
+              <td>$1.1K</td>
+              <td>2.9%</td>
+              <td class="flat">+0.6pp</td>
+              <td>$7.55</td>
+              <td class="flat">+1.2%</td>
+              <td>$0.54</td>
+              <td class="up">+11.6%</td>
+              <td>0.07</td>
+              <td class="up">+10.3%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_KR_1225_Video_1x1_KR-moloco11_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$1.0K</td>
+              <td>2.8%</td>
+              <td class="flat">-0.8pp</td>
+              <td>$9.86</td>
+              <td class="flat">-5.0%</td>
+              <td>$2.26</td>
+              <td class="up">+12.0%</td>
+              <td>0.23</td>
+              <td class="up">+18.0%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_KR_1225_Video_1x1_KR-moloco11_ACO</strong><span>nv · Native</span></td>
+              <td>$1.0K</td>
+              <td>2.7%</td>
+              <td class="flat">-0.4pp</td>
+              <td>$3.43</td>
+              <td class="flat">+4.7%</td>
+              <td>$0.50</td>
+              <td class="flat">+0.1%</td>
+              <td>0.14</td>
+              <td class="flat">-4.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_KR_0211_video_mix_DNU_reuse_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$996</td>
+              <td>2.6%</td>
+              <td class="flat">-0.2pp</td>
+              <td>$6.38</td>
+              <td class="flat">+3.8%</td>
+              <td>$1.99</td>
+              <td class="up">+12.5%</td>
+              <td>0.31</td>
+              <td class="flat">+8.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_KR_1225_Video_16x9_KR-moloco169_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$896</td>
+              <td>2.4%</td>
+              <td class="flat">-2.6pp</td>
+              <td>$7.92</td>
+              <td class="flat">+8.4%</td>
+              <td>$2.78</td>
+              <td class="up">+21.2%</td>
+              <td>0.35</td>
+              <td class="up">+11.8%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>Bundle ID / 子渠道</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>com.cashwalk.cashwalk</strong><span>bundle</span></td>
+              <td>$2.5K</td>
+              <td>9.2%</td>
+              <td class="flat">-1.6pp</td>
+              <td>$7.42</td>
+              <td class="up">+21.8%</td>
+              <td>$0.89</td>
+              <td class="down">-11.8%</td>
+              <td>0.12</td>
+              <td class="down">-27.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.tracerofficial</strong><span>bundle</span></td>
+              <td>$1.9K</td>
+              <td>6.8%</td>
+              <td class="flat">-0.3pp</td>
+              <td>$4.82</td>
+              <td class="flat">+3.2%</td>
+              <td>$0.48</td>
+              <td class="flat">-3.5%</td>
+              <td>0.10</td>
+              <td class="flat">-6.5%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.scatterlab.messenger</strong><span>bundle</span></td>
+              <td>$1.5K</td>
+              <td>5.4%</td>
+              <td class="flat">+0.5pp</td>
+              <td>$14.52</td>
+              <td class="up">+18.8%</td>
+              <td>$3.03</td>
+              <td class="down">-13.2%</td>
+              <td>0.21</td>
+              <td class="down">-26.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>autoclicker.clicker.autoclickerapp.autoclickerforgames</strong><span>bundle</span></td>
+              <td>$1.3K</td>
+              <td>4.8%</td>
+              <td class="flat">+1.8pp</td>
+              <td>$6.74</td>
+              <td class="up">+28.8%</td>
+              <td>$48.99</td>
+              <td class="up">+49.3%</td>
+              <td>7.27</td>
+              <td class="up">+15.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.block.juggle</strong><span>bundle</span></td>
+              <td>$1.3K</td>
+              <td>4.8%</td>
+              <td class="flat">-1.6pp</td>
+              <td>$11.95</td>
+              <td class="down">-15.1%</td>
+              <td>$9.55</td>
+              <td class="down">-24.5%</td>
+              <td>0.80</td>
+              <td class="down">-11.1%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.pinterest</strong><span>bundle</span></td>
+              <td>$1.2K</td>
+              <td>4.4%</td>
+              <td class="flat">+1.1pp</td>
+              <td>$3.97</td>
+              <td class="flat">-0.4%</td>
+              <td>$1.19</td>
+              <td class="down">-12.6%</td>
+              <td>0.30</td>
+              <td class="down">-12.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.wisetoto</strong><span>bundle</span></td>
+              <td>$1.1K</td>
+              <td>4.0%</td>
+              <td class="flat">+0.3pp</td>
+              <td>$9.76</td>
+              <td class="up">+24.3%</td>
+              <td>$1.79</td>
+              <td class="flat">-2.8%</td>
+              <td>0.18</td>
+              <td class="down">-21.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.skmc.okcashbag.home_google</strong><span>bundle</span></td>
+              <td>$957</td>
+              <td>3.5%</td>
+              <td class="flat">-0.6pp</td>
+              <td>$8.62</td>
+              <td class="up">+26.4%</td>
+              <td>$0.91</td>
+              <td class="flat">+1.4%</td>
+              <td>0.11</td>
+              <td class="down">-19.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>kr.encom.gostop_p</strong><span>bundle</span></td>
+              <td>$795</td>
+              <td>2.9%</td>
+              <td class="flat">+0.9pp</td>
+              <td>$6.41</td>
+              <td class="up">+19.0%</td>
+              <td>$1.60</td>
+              <td class="up">+23.6%</td>
+              <td>0.25</td>
+              <td class="flat">+3.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.neowiz.games.newmatgo</strong><span>bundle</span></td>
+              <td>$768</td>
+              <td>2.8%</td>
+              <td class="flat">-0.7pp</td>
+              <td>$7.84</td>
+              <td class="flat">-3.3%</td>
+              <td>$7.27</td>
+              <td class="flat">+9.7%</td>
+              <td>0.93</td>
+              <td class="up">+13.4%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+            </section>
+            
+
+            <section class="seg-block" id="seg-ca-Android-1233">
+              <div class="seg-head">
+                <div>
+                  <h3>ca · Android · App 1233</h3>
+                  <p>Sandbox benchmark: CPI $14.16 → $15.94 (+12.6%); DNU 2.2K → 2.0K (-9.2%)</p>
+                </div>
+                <span class="pill up">CPI</span>
+              </div>
+              
+    <div class="diagnosis">
+      <h4>归因结论</h4>
+      <p class="headline">结论：ca · Android · App 1233 的 Blackswan CPI 从 $14.16 上升到 $15.94（+12.6%）。<span>主要原因判断：主要 campaign Bytedance_1233_CA_AND_20260427 _UserAcquisition_af_bs_conversion（投放事件：spending）；MAGNITE 媒体成本/效率变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_CA_AND_20260427 _UserAcquisition_af_bs_conversion，事件 spending，本期消耗 $7.7K、占比 24.4%、CPI $27.82（+34.0%）。</li><li>媒体侧关键项：MAGNITE 本期占比 7.1%（-8.1pp），CPM $11.74（+114.6%）、IPM 0.96（+50.8%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_Aqc_US_0922_Live_video_9×16_scenario_test_ACO / vi，本期占比 37.5%（+17.4pp），CPI $32.03（-22.7%）。</li><li>Bundle侧关键项：com.duolingo 本期占比 1.2%（+0.1pp），CPI $91.12（+203.0%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>投放 Campaign / 事件</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>Bytedance_1233_CA_AND_20251029 _Owen_UserAcquisition_af_bs_conversion</strong><span>spending</span></td>
+              <td>$9.8K</td>
+              <td>31.1%</td>
+              <td class="flat">-2.1pp</td>
+              <td>$29.67</td>
+              <td class="up">+18.2%</td>
+              <td>$11.23</td>
+              <td class="up">+28.7%</td>
+              <td>0.38</td>
+              <td class="flat">+8.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1233_CA_AND_20260427 _UserAcquisition_af_bs_conversion</strong><span>spending</span></td>
+              <td>$7.7K</td>
+              <td>24.4%</td>
+              <td class="flat">+6.2pp</td>
+              <td>$27.82</td>
+              <td class="up">+34.0%</td>
+              <td>$12.48</td>
+              <td class="up">+54.9%</td>
+              <td>0.45</td>
+              <td class="up">+15.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1233_CA_AND_20251029 _Owen_UserAcquisition_pltv_lt7_deeplt</strong><span>spending</span></td>
+              <td>$7.7K</td>
+              <td>24.4%</td>
+              <td class="flat">-1.4pp</td>
+              <td>$30.63</td>
+              <td class="up">+46.8%</td>
+              <td>$38.93</td>
+              <td class="up">+78.9%</td>
+              <td>1.27</td>
+              <td class="up">+21.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>Bytedance_1233_CA_AND_20260319_UserAcquisition_webcast_gift</strong><span>spending</span></td>
+              <td>$6.3K</td>
+              <td>20.1%</td>
+              <td class="flat">-2.7pp</td>
+              <td>$34.77</td>
+              <td class="up">+31.0%</td>
+              <td>$58.26</td>
+              <td class="up">+29.1%</td>
+              <td>1.68</td>
+              <td class="flat">-1.5%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>媒体渠道 / Exchange</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>ADX_RTB</strong><span>exchange</span></td>
+              <td>$6.9K</td>
+              <td>22.0%</td>
+              <td class="flat">+1.9pp</td>
+              <td>$24.60</td>
+              <td class="flat">+1.4%</td>
+              <td>$22.06</td>
+              <td class="down">-17.2%</td>
+              <td>0.90</td>
+              <td class="down">-18.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>MOLOCO_SDK_MAX</strong><span>exchange</span></td>
+              <td>$5.3K</td>
+              <td>16.9%</td>
+              <td class="flat">+1.7pp</td>
+              <td>$50.56</td>
+              <td class="flat">-3.7%</td>
+              <td>$16.27</td>
+              <td class="up">+12.4%</td>
+              <td>0.32</td>
+              <td class="up">+16.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>INMOBI</strong><span>exchange</span></td>
+              <td>$3.5K</td>
+              <td>11.3%</td>
+              <td class="flat">+0.4pp</td>
+              <td>$36.89</td>
+              <td class="down">-18.2%</td>
+              <td>$16.66</td>
+              <td class="flat">-1.0%</td>
+              <td>0.45</td>
+              <td class="up">+21.0%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>VUNGLE</strong><span>exchange</span></td>
+              <td>$3.4K</td>
+              <td>10.7%</td>
+              <td class="flat">-0.6pp</td>
+              <td>$32.93</td>
+              <td class="flat">+3.8%</td>
+              <td>$18.32</td>
+              <td class="up">+32.9%</td>
+              <td>0.56</td>
+              <td class="up">+28.1%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>APPLOVIN</strong><span>exchange</span></td>
+              <td>$2.4K</td>
+              <td>7.7%</td>
+              <td class="flat">+1.7pp</td>
+              <td>$27.74</td>
+              <td class="down">-13.7%</td>
+              <td>$32.13</td>
+              <td class="down">-13.0%</td>
+              <td>1.16</td>
+              <td class="flat">+0.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>UNITY</strong><span>exchange</span></td>
+              <td>$2.3K</td>
+              <td>7.3%</td>
+              <td class="flat">+1.3pp</td>
+              <td>$56.30</td>
+              <td class="up">+30.6%</td>
+              <td>$34.00</td>
+              <td class="flat">+1.0%</td>
+              <td>0.60</td>
+              <td class="down">-22.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>MAGNITE</strong><span>exchange</span></td>
+              <td>$2.2K</td>
+              <td>7.1%</td>
+              <td class="flat">-8.1pp</td>
+              <td>$12.28</td>
+              <td class="up">+42.4%</td>
+              <td>$11.74</td>
+              <td class="up">+114.6%</td>
+              <td>0.96</td>
+              <td class="up">+50.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>FYBER</strong><span>exchange</span></td>
+              <td>$1.3K</td>
+              <td>4.0%</td>
+              <td class="flat">+0.6pp</td>
+              <td>$35.30</td>
+              <td class="up">+31.5%</td>
+              <td>$24.70</td>
+              <td class="up">+10.8%</td>
+              <td>0.70</td>
+              <td class="down">-15.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>MOLOCO_SDK_ADMOB_MEDIATION</strong><span>exchange</span></td>
+              <td>$1.2K</td>
+              <td>3.9%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$49.57</td>
+              <td class="up">+74.7%</td>
+              <td>$19.59</td>
+              <td class="down">-16.7%</td>
+              <td>0.40</td>
+              <td class="down">-52.3%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>IRONSOURCE</strong><span>exchange</span></td>
+              <td>$1.0K</td>
+              <td>3.3%</td>
+              <td class="flat">+0.7pp</td>
+              <td>$35.41</td>
+              <td class="down">-41.0%</td>
+              <td>$30.59</td>
+              <td class="flat">-0.4%</td>
+              <td>0.86</td>
+              <td class="up">+68.8%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>创意组 / 版位</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0922_Live_video_9×16_scenario_test_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$11.8K</td>
+              <td>37.5%</td>
+              <td class="up">+17.4pp</td>
+              <td>$32.03</td>
+              <td class="down">-22.7%</td>
+              <td>$43.72</td>
+              <td class="down">-21.4%</td>
+              <td>1.36</td>
+              <td class="flat">+1.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0427_UGC_video_9×16_size_test_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$6.4K</td>
+              <td>20.6%</td>
+              <td class="flat">-7.2pp</td>
+              <td>$35.43</td>
+              <td class="flat">+8.1%</td>
+              <td>$32.87</td>
+              <td class="flat">+2.9%</td>
+              <td>0.93</td>
+              <td class="flat">-4.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0112_video_mix_Live_CTR_reuse_new_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$5.4K</td>
+              <td>17.4%</td>
+              <td class="flat">-5.0pp</td>
+              <td>$34.26</td>
+              <td class="up">+24.7%</td>
+              <td>$21.45</td>
+              <td class="up">+23.8%</td>
+              <td>0.63</td>
+              <td class="flat">-0.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0922_Live_video_9×16_scenario_test_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$2.6K</td>
+              <td>8.4%</td>
+              <td class="flat">+1.9pp</td>
+              <td>$59.74</td>
+              <td class="down">-18.5%</td>
+              <td>$53.41</td>
+              <td class="down">-26.8%</td>
+              <td>0.89</td>
+              <td class="down">-10.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0427_UGC_video_9×16_size_test_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$1.1K</td>
+              <td>3.4%</td>
+              <td class="flat">-0.6pp</td>
+              <td>$56.20</td>
+              <td class="flat">+5.0%</td>
+              <td>$40.20</td>
+              <td class="flat">+5.4%</td>
+              <td>0.72</td>
+              <td class="flat">+0.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0112_video_mix_Live_CTR_reuse_new_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$951</td>
+              <td>3.0%</td>
+              <td class="flat">-0.5pp</td>
+              <td>$43.22</td>
+              <td class="up">+19.5%</td>
+              <td>$22.83</td>
+              <td class="flat">+9.0%</td>
+              <td>0.53</td>
+              <td class="flat">-8.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0922_Live_video_9×16_scenario_test_ACO</strong><span>nv · Native</span></td>
+              <td>$749</td>
+              <td>2.4%</td>
+              <td class="flat">-2.7pp</td>
+              <td>$7.14</td>
+              <td class="up">+41.2%</td>
+              <td>$3.49</td>
+              <td class="flat">-4.6%</td>
+              <td>0.49</td>
+              <td class="down">-32.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0112_video_mix_Live_CTR_reuse_new_ACO</strong><span>vb · Instream Video</span></td>
+              <td>$506</td>
+              <td>1.6%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$36.13</td>
+              <td class="down">-30.5%</td>
+              <td>$3.11</td>
+              <td class="flat">+8.8%</td>
+              <td>0.09</td>
+              <td class="up">+56.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_CA_0225_video_mix_UGC_Native_US&amp;GB_ACO</strong><span>nv · Native</span></td>
+              <td>$315</td>
+              <td>1.0%</td>
+              <td class="flat">-0.8pp</td>
+              <td>$12.11</td>
+              <td class="flat">+7.6%</td>
+              <td>$1.97</td>
+              <td class="flat">-9.8%</td>
+              <td>0.16</td>
+              <td class="down">-16.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>TT_NW_Aqc_US_0427_UGC_video_9×16_size_test_ACO</strong><span>vb · Instream Video</span></td>
+              <td>$284</td>
+              <td>0.9%</td>
+              <td class="flat">-0.3pp</td>
+              <td>$40.58</td>
+              <td class="down">-22.7%</td>
+              <td>$6.44</td>
+              <td class="flat">-3.1%</td>
+              <td>0.16</td>
+              <td class="up">+25.4%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+              
+    <div class="detail-table">
+      <h4>Bundle ID / 子渠道</h4>
+      <table>
+        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <tbody>
+            <tr>
+              <td class="name"><strong>com.pelmorex.WeatherEyeAndroid</strong><span>bundle</span></td>
+              <td>$1.7K</td>
+              <td>11.9%</td>
+              <td class="flat">-0.4pp</td>
+              <td>$19.01</td>
+              <td class="down">-32.1%</td>
+              <td>$25.51</td>
+              <td class="up">+41.2%</td>
+              <td>1.34</td>
+              <td class="up">+107.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.pinterest</strong><span>bundle</span></td>
+              <td>$662</td>
+              <td>4.5%</td>
+              <td class="down">-11.6pp</td>
+              <td>$4.90</td>
+              <td class="flat">-9.6%</td>
+              <td>$3.36</td>
+              <td class="flat">-1.8%</td>
+              <td>0.69</td>
+              <td class="flat">+8.5%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.grindrapp.android</strong><span>bundle</span></td>
+              <td>$465</td>
+              <td>3.2%</td>
+              <td class="flat">+0.6pp</td>
+              <td>$38.75</td>
+              <td class="up">+32.7%</td>
+              <td>$4.20</td>
+              <td class="up">+30.0%</td>
+              <td>0.11</td>
+              <td class="flat">-2.0%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.tumblr</strong><span>bundle</span></td>
+              <td>$314</td>
+              <td>2.2%</td>
+              <td class="flat">-0.0pp</td>
+              <td>$52.30</td>
+              <td class="up">+22.5%</td>
+              <td>$4.00</td>
+              <td class="flat">+4.6%</td>
+              <td>0.08</td>
+              <td class="down">-14.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.soccer.score.star</strong><span>bundle</span></td>
+              <td>$204</td>
+              <td>1.4%</td>
+              <td class="flat">+0.8pp</td>
+              <td>$22.63</td>
+              <td class="down">-55.9%</td>
+              <td>$37.56</td>
+              <td class="up">+14.4%</td>
+              <td>1.66</td>
+              <td class="up">+159.2%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>io.voodoo.paper2</strong><span>bundle</span></td>
+              <td>$203</td>
+              <td>1.4%</td>
+              <td class="flat">+0.3pp</td>
+              <td>$50.76</td>
+              <td class="down">-69.2%</td>
+              <td>$39.04</td>
+              <td class="up">+21.0%</td>
+              <td>0.77</td>
+              <td class="up">+293.5%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.imo.android.imoim</strong><span>bundle</span></td>
+              <td>$202</td>
+              <td>1.4%</td>
+              <td class="flat">+0.7pp</td>
+              <td>$28.87</td>
+              <td class="up">+11.8%</td>
+              <td>$9.82</td>
+              <td class="flat">-0.1%</td>
+              <td>0.34</td>
+              <td class="down">-10.7%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.textmeinc.textme</strong><span>bundle</span></td>
+              <td>$195</td>
+              <td>1.3%</td>
+              <td class="flat">+0.2pp</td>
+              <td>$32.44</td>
+              <td class="down">-43.8%</td>
+              <td>$11.19</td>
+              <td class="down">-16.9%</td>
+              <td>0.34</td>
+              <td class="up">+47.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.audiomack</strong><span>bundle</span></td>
+              <td>$186</td>
+              <td>1.3%</td>
+              <td class="flat">-0.0pp</td>
+              <td>$92.77</td>
+              <td class="up">+36.3%</td>
+              <td>$48.96</td>
+              <td class="up">+11.0%</td>
+              <td>0.53</td>
+              <td class="down">-18.6%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.teslacoilsw.launcher</strong><span>bundle</span></td>
+              <td>$183</td>
+              <td>1.3%</td>
+              <td class="flat">+0.2pp</td>
+              <td>$16.62</td>
+              <td class="up">+96.1%</td>
+              <td>$4.85</td>
+              <td class="down">-26.1%</td>
+              <td>0.29</td>
+              <td class="down">-62.3%</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+            </section>
+            
+
             <section class="seg-block" id="seg-id-iOS-1180">
               <div class="seg-head">
                 <div>
                   <h3>id · iOS · App 1180</h3>
-                  <p>Sandbox benchmark: CPI $3.73 → $2.40 (-35.5%); DNU 6.7K → 10.8K (+61.5%)</p>
+                  <p>Sandbox benchmark: CPI $3.73 → $2.58 (-30.7%); DNU 6.7K → 10.8K (+61.6%)</p>
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：id · iOS · App 1180 的 Blackswan CPI 从 $3.73 降到 $2.40（-35.5%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1180_ID_iOS_20260331_Moloco_UserAcquisition_DNU（投放事件：spending）；ADX_RTB 媒体成本改善或效率提升。</span></p>
+      <p class="headline">结论：id · iOS · App 1180 的 Blackswan CPI 从 $3.73 降到 $2.58（-30.7%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1180_ID_iOS_20260331_Moloco_UserAcquisition_DNU（投放事件：spending）；ADX_RTB 媒体成本改善或效率提升。</span></p>
       <ul><li>主要 campaign：Bytedance_1180_ID_iOS_20260331_Moloco_UserAcquisition_DNU，事件 spending，本期消耗 $11.2K、占比 40.0%、CPI $2.14（-32.8%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 9.9%（+8.4pp），CPM $0.42（-17.8%）、IPM 0.49（+52.7%），CPM下降且IPM提升，成本和效率双向改善。</li><li>创意/版位关键项：ID_ios_优质_ACO_Video / vi，本期占比 68.6%（-6.8pp），CPI $3.24（-8.6%）。</li><li>Bundle侧关键项：1600525061 本期占比 2.8%（+1.5pp），CPI $1.88（-38.6%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -4382,514 +5884,18 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
             </section>
             
 
-            <section class="seg-block" id="seg-gb-iOS-1233">
-              <div class="seg-head">
-                <div>
-                  <h3>gb · iOS · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $8.89 → $7.96 (-10.5%); DNU 3.3K → 3.3K (-0.8%)</p>
-                </div>
-                <span class="pill down">CPI</span>
-              </div>
-              
-    <div class="diagnosis">
-      <h4>归因结论</h4>
-      <p class="headline">结论：gb · iOS · App 1233 的 Blackswan CPI 从 $8.89 降到 $7.96（-10.5%），属于成本改善项。<span>主要原因判断：APPODEAL 媒体成本改善或效率提升；TT_NW_Aqc_GB_1017_TTS_image_320×480_premiumoffers_ACO 创意/版位表现变化；1617391485 bundle 子渠道变化。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_GB_iOS_20260415_Moloco_UserAcquisition_ios_dc_new_user，事件 spending，本期消耗 $8.4K、占比 29.9%、CPI $6.04（-9.4%）。</li><li>媒体侧关键项：APPODEAL 本期占比 31.8%（+5.6pp），CPM $12.71（+17.0%）、IPM 1.17（+31.2%），主要受益于IPM提升。</li><li>创意/版位关键项：TT_NW_Aqc_GB_1017_TTS_image_320×480_premiumoffers_ACO / ii，本期占比 47.0%（+4.3pp），CPI $11.34（-11.3%）。</li><li>Bundle侧关键项：1617391485 本期占比 8.3%（-0.8pp），CPI $7.33（-23.1%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>投放 Campaign / 事件</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>Bytedance_1233_GB_iOS_20260421_Moloco_UserAcquisition_ios_dc_new_didrt</strong><span>spending</span></td>
-              <td>$9.8K</td>
-              <td>35.0%</td>
-              <td class="flat">+1.4pp</td>
-              <td>$5.82</td>
-              <td class="flat">+3.2%</td>
-              <td>$4.13</td>
-              <td class="up">+13.1%</td>
-              <td>0.71</td>
-              <td class="flat">+9.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>Bytedance_1233_GB_iOS_20260415_Moloco_UserAcquisition_DNU</strong><span>spending</span></td>
-              <td>$9.8K</td>
-              <td>35.0%</td>
-              <td class="flat">+1.4pp</td>
-              <td>$3.48</td>
-              <td class="up">+17.4%</td>
-              <td>$5.15</td>
-              <td class="flat">-5.1%</td>
-              <td>1.48</td>
-              <td class="down">-19.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>Bytedance_1233_GB_iOS_20260415_Moloco_UserAcquisition_ios_dc_new_user</strong><span>spending</span></td>
-              <td>$8.4K</td>
-              <td>29.9%</td>
-              <td class="flat">+1.1pp</td>
-              <td>$6.04</td>
-              <td class="flat">-9.4%</td>
-              <td>$5.50</td>
-              <td class="up">+32.8%</td>
-              <td>0.91</td>
-              <td class="up">+46.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_IOS_engagement_1233_GB_Re-engagement_L30DLost_Moloco_20260525_app_opened</strong><span>spending</span></td>
-              <td>$0</td>
-              <td>0.0%</td>
-              <td class="flat">-3.9pp</td>
-              <td>$0.00</td>
-              <td class="flat">-</td>
-              <td>$0.00</td>
-              <td class="flat">-</td>
-              <td>0.00</td>
-              <td class="flat">-</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>媒体渠道 / Exchange</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>APPODEAL</strong><span>exchange</span></td>
-              <td>$8.9K</td>
-              <td>31.8%</td>
-              <td class="flat">+5.6pp</td>
-              <td>$10.82</td>
-              <td class="down">-10.8%</td>
-              <td>$12.71</td>
-              <td class="up">+17.0%</td>
-              <td>1.17</td>
-              <td class="up">+31.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>MOLOCO_SDK_MAX</strong><span>exchange</span></td>
-              <td>$6.7K</td>
-              <td>23.8%</td>
-              <td class="flat">-1.9pp</td>
-              <td>$3.73</td>
-              <td class="flat">-8.1%</td>
-              <td>$2.97</td>
-              <td class="up">+15.2%</td>
-              <td>0.80</td>
-              <td class="up">+25.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>VUNGLE</strong><span>exchange</span></td>
-              <td>$3.6K</td>
-              <td>12.9%</td>
-              <td class="flat">-2.2pp</td>
-              <td>$3.66</td>
-              <td class="up">+20.2%</td>
-              <td>$5.41</td>
-              <td class="flat">-0.4%</td>
-              <td>1.48</td>
-              <td class="down">-17.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>ADX_RTB</strong><span>exchange</span></td>
-              <td>$3.3K</td>
-              <td>11.9%</td>
-              <td class="flat">-1.8pp</td>
-              <td>$3.03</td>
-              <td class="flat">+1.3%</td>
-              <td>$3.85</td>
-              <td class="flat">+6.0%</td>
-              <td>1.27</td>
-              <td class="flat">+4.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>INMOBI</strong><span>exchange</span></td>
-              <td>$1.4K</td>
-              <td>5.0%</td>
-              <td class="flat">+1.3pp</td>
-              <td>$3.92</td>
-              <td class="down">-22.3%</td>
-              <td>$4.31</td>
-              <td class="up">+18.0%</td>
-              <td>1.10</td>
-              <td class="up">+52.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>MOLOCO_SDK_IN_HOUSE_MEDIATION</strong><span>exchange</span></td>
-              <td>$882</td>
-              <td>3.2%</td>
-              <td class="flat">+0.1pp</td>
-              <td>$5.13</td>
-              <td class="flat">-3.3%</td>
-              <td>$2.55</td>
-              <td class="up">+16.0%</td>
-              <td>0.50</td>
-              <td class="up">+19.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>UNITY</strong><span>exchange</span></td>
-              <td>$735</td>
-              <td>2.6%</td>
-              <td class="flat">+0.1pp</td>
-              <td>$6.13</td>
-              <td class="up">+50.9%</td>
-              <td>$7.64</td>
-              <td class="down">-40.3%</td>
-              <td>1.25</td>
-              <td class="down">-60.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>FYBER</strong><span>exchange</span></td>
-              <td>$710</td>
-              <td>2.5%</td>
-              <td class="flat">-0.6pp</td>
-              <td>$6.69</td>
-              <td class="down">-52.9%</td>
-              <td>$6.29</td>
-              <td class="down">-36.7%</td>
-              <td>0.94</td>
-              <td class="up">+34.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>PUBMATIC</strong><span>exchange</span></td>
-              <td>$549</td>
-              <td>2.0%</td>
-              <td class="flat">-0.3pp</td>
-              <td>$2.79</td>
-              <td class="up">+10.4%</td>
-              <td>$3.30</td>
-              <td class="down">-33.0%</td>
-              <td>1.18</td>
-              <td class="down">-39.3%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>APPLOVIN</strong><span>exchange</span></td>
-              <td>$363</td>
-              <td>1.3%</td>
-              <td class="flat">-0.4pp</td>
-              <td>$5.26</td>
-              <td class="flat">-6.2%</td>
-              <td>$9.75</td>
-              <td class="flat">-7.5%</td>
-              <td>1.85</td>
-              <td class="flat">-1.4%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>创意组 / 版位</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>TT_NW_Aqc_GB_1017_TTS_image_320×480_premiumoffers_ACO</strong><span>ii · Interstitial</span></td>
-              <td>$13.2K</td>
-              <td>47.0%</td>
-              <td class="flat">+4.3pp</td>
-              <td>$11.34</td>
-              <td class="down">-11.3%</td>
-              <td>$10.72</td>
-              <td class="up">+11.4%</td>
-              <td>0.95</td>
-              <td class="up">+25.5%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_Aqc_CA_0225_video_mix_UGC_Native_US&amp;GB_ACO</strong><span>nv · Native</span></td>
-              <td>$5.0K</td>
-              <td>18.0%</td>
-              <td class="flat">-1.8pp</td>
-              <td>$2.63</td>
-              <td class="flat">-7.6%</td>
-              <td>$1.88</td>
-              <td class="up">+11.8%</td>
-              <td>0.72</td>
-              <td class="up">+21.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>GB_SceneUG_live_video_shopping_0121_9x16_ACO</strong><span>vi · Interstitial</span></td>
-              <td>$3.6K</td>
-              <td>12.9%</td>
-              <td class="flat">-8.1pp</td>
-              <td>$4.02</td>
-              <td class="up">+32.4%</td>
-              <td>$6.62</td>
-              <td class="flat">+9.6%</td>
-              <td>1.65</td>
-              <td class="down">-17.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>GB_tt_meta_gi_general_video_1225_batch5</strong><span>vi · Interstitial</span></td>
-              <td>$2.8K</td>
-              <td>10.0%</td>
-              <td class="flat">+4.1pp</td>
-              <td>$3.33</td>
-              <td class="up">+13.7%</td>
-              <td>$6.02</td>
-              <td class="flat">-6.7%</td>
-              <td>1.81</td>
-              <td class="down">-17.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>GB_SceneUG_live_video_shopping_0121_9x16_ACO</strong><span>vb · Instream Video</span></td>
-              <td>$1.1K</td>
-              <td>3.9%</td>
-              <td class="flat">+2.6pp</td>
-              <td>$3.04</td>
-              <td class="up">+36.2%</td>
-              <td>$3.04</td>
-              <td class="up">+53.6%</td>
-              <td>1.00</td>
-              <td class="up">+12.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>GB_SceneUG_live_video_shopping_0121_9x16_ACO</strong><span>vi · Rewarded Video</span></td>
-              <td>$915</td>
-              <td>3.3%</td>
-              <td class="flat">-0.5pp</td>
-              <td>$3.84</td>
-              <td class="up">+10.0%</td>
-              <td>$7.07</td>
-              <td class="flat">-6.1%</td>
-              <td>1.84</td>
-              <td class="down">-14.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>GB_tt_meta_gi_general_video_1225_batch5</strong><span>vb · Instream Video</span></td>
-              <td>$802</td>
-              <td>2.9%</td>
-              <td class="flat">+2.5pp</td>
-              <td>$3.08</td>
-              <td class="up">+46.3%</td>
-              <td>$3.31</td>
-              <td class="up">+77.0%</td>
-              <td>1.07</td>
-              <td class="up">+20.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>GB_tt_meta_gi_general_video_1225_batch5</strong><span>vi · Rewarded Video</span></td>
-              <td>$426</td>
-              <td>1.5%</td>
-              <td class="flat">+0.7pp</td>
-              <td>$3.84</td>
-              <td class="up">+18.1%</td>
-              <td>$10.85</td>
-              <td class="flat">-2.2%</td>
-              <td>2.82</td>
-              <td class="down">-17.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>GB_SceneUG_live_video_shopping_0121_9x16_ACO</strong><span>nv · Native</span></td>
-              <td>$49</td>
-              <td>0.2%</td>
-              <td class="flat">+0.0pp</td>
-              <td>$1.25</td>
-              <td class="down">-34.7%</td>
-              <td>$1.14</td>
-              <td class="flat">0.0%</td>
-              <td>0.92</td>
-              <td class="up">+53.3%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>GB_tt_meta_gi_general_video_1225_batch5</strong><span>nv · Native</span></td>
-              <td>$47</td>
-              <td>0.2%</td>
-              <td class="flat">+0.0pp</td>
-              <td>$1.24</td>
-              <td class="flat">+9.1%</td>
-              <td>$1.20</td>
-              <td class="flat">+2.5%</td>
-              <td>0.96</td>
-              <td class="flat">-6.1%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>Bundle ID / 子渠道</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>6468921495</strong><span>bundle</span></td>
-              <td>$2.2K</td>
-              <td>10.1%</td>
-              <td class="flat">+3.9pp</td>
-              <td>$9.06</td>
-              <td class="down">-12.8%</td>
-              <td>$13.41</td>
-              <td class="up">+12.3%</td>
-              <td>1.48</td>
-              <td class="up">+28.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>1617391485</strong><span>bundle</span></td>
-              <td>$1.8K</td>
-              <td>8.3%</td>
-              <td class="flat">-0.8pp</td>
-              <td>$7.33</td>
-              <td class="down">-23.1%</td>
-              <td>$11.09</td>
-              <td class="up">+30.0%</td>
-              <td>1.51</td>
-              <td class="up">+69.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>1459645446</strong><span>bundle</span></td>
-              <td>$1.5K</td>
-              <td>6.7%</td>
-              <td class="flat">-1.6pp</td>
-              <td>$2.50</td>
-              <td class="flat">-6.7%</td>
-              <td>$2.03</td>
-              <td class="up">+13.9%</td>
-              <td>0.81</td>
-              <td class="up">+22.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>305343404</strong><span>bundle</span></td>
-              <td>$1.0K</td>
-              <td>4.6%</td>
-              <td class="flat">-0.4pp</td>
-              <td>$4.34</td>
-              <td class="down">-17.5%</td>
-              <td>$2.18</td>
-              <td class="up">+21.0%</td>
-              <td>0.50</td>
-              <td class="up">+46.7%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>357218860</strong><span>bundle</span></td>
-              <td>$696</td>
-              <td>3.2%</td>
-              <td class="flat">-0.9pp</td>
-              <td>$2.37</td>
-              <td class="down">-16.6%</td>
-              <td>$1.29</td>
-              <td class="flat">-5.1%</td>
-              <td>0.54</td>
-              <td class="up">+13.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>336435697</strong><span>bundle</span></td>
-              <td>$625</td>
-              <td>2.8%</td>
-              <td class="flat">-0.1pp</td>
-              <td>$3.45</td>
-              <td class="flat">+3.5%</td>
-              <td>$7.09</td>
-              <td class="flat">+6.2%</td>
-              <td>2.05</td>
-              <td class="flat">+2.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>475360935</strong><span>bundle</span></td>
-              <td>$607</td>
-              <td>2.8%</td>
-              <td class="flat">+0.4pp</td>
-              <td>$3.26</td>
-              <td class="up">+86.5%</td>
-              <td>$3.90</td>
-              <td class="up">+26.4%</td>
-              <td>1.19</td>
-              <td class="down">-32.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>6748950306</strong><span>bundle</span></td>
-              <td>$497</td>
-              <td>2.3%</td>
-              <td class="flat">+0.2pp</td>
-              <td>$14.21</td>
-              <td class="up">+50.4%</td>
-              <td>$17.34</td>
-              <td class="flat">+9.1%</td>
-              <td>1.22</td>
-              <td class="down">-27.5%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>698255242</strong><span>bundle</span></td>
-              <td>$461</td>
-              <td>2.1%</td>
-              <td class="flat">-0.8pp</td>
-              <td>$8.08</td>
-              <td class="down">-21.3%</td>
-              <td>$8.34</td>
-              <td class="flat">+2.4%</td>
-              <td>1.03</td>
-              <td class="up">+30.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>469463298</strong><span>bundle</span></td>
-              <td>$430</td>
-              <td>2.0%</td>
-              <td class="flat">-0.1pp</td>
-              <td>$4.57</td>
-              <td class="up">+99.7%</td>
-              <td>$4.52</td>
-              <td class="down">-23.6%</td>
-              <td>0.99</td>
-              <td class="down">-61.7%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-            </section>
-            
-
             <section class="seg-block" id="seg-vn-iOS-1180">
               <div class="seg-head">
                 <div>
                   <h3>vn · iOS · App 1180</h3>
-                  <p>Sandbox benchmark: CPI $3.85 → $2.80 (-27.3%); DNU 5.0K → 7.0K (+41.0%)</p>
+                  <p>Sandbox benchmark: CPI $3.85 → $3.00 (-22.3%); DNU 5.0K → 7.0K (+41.2%)</p>
                 </div>
                 <span class="pill down">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：vn · iOS · App 1180 的 Blackswan CPI 从 $3.85 降到 $2.80（-27.3%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1180_VN_iOS_20260331_Moloco_UserAcquisition_DNU（投放事件：spending）；MOLOCO_SDK_MAX 媒体成本改善或效率提升；VN_ios_优质_ACO_Video 创意/版位表现变化。</span></p>
+      <p class="headline">结论：vn · iOS · App 1180 的 Blackswan CPI 从 $3.85 降到 $3.00（-22.3%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1180_VN_iOS_20260331_Moloco_UserAcquisition_DNU（投放事件：spending）；MOLOCO_SDK_MAX 媒体成本改善或效率提升；VN_ios_优质_ACO_Video 创意/版位表现变化。</span></p>
       <ul><li>主要 campaign：Bytedance_1180_VN_iOS_20260331_Moloco_UserAcquisition_DNU，事件 spending，本期消耗 $7.0K、占比 33.4%、CPI $1.25（-40.7%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 14.6%（-6.8pp），CPM $1.87（-14.0%）、IPM 0.92（+30.8%），CPM下降且IPM提升，成本和效率双向改善。</li><li>创意/版位关键项：VN_ios_优质_ACO_Video / vi，本期占比 73.5%（+1.1pp），CPI $1.78（-28.1%）。</li><li>Bundle侧关键项：1600525061 本期占比 31.4%（+14.8pp），CPI $1.48（-25.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -5287,14 +6293,14 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>au · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $26.40 → $20.36 (-22.9%); DNU 853 → 895 (+4.9%)</p>
+                  <p>Sandbox benchmark: CPI $26.40 → $22.48 (-14.9%); DNU 853 → 897 (+5.2%)</p>
                 </div>
                 <span class="pill down">CPI</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：au · Android · App 1233 的 Blackswan CPI 从 $26.40 降到 $20.36（-22.9%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1233_AU_Android_20251225_Moloco_UserAcquisition_bs_conversion（投放事件：spending）；INMOBI 媒体成本改善或效率提升。</span></p>
+      <p class="headline">结论：au · Android · App 1233 的 Blackswan CPI 从 $26.40 降到 $22.48（-14.9%），属于成本改善项。<span>主要原因判断：主要 campaign Bytedance_1233_AU_Android_20251225_Moloco_UserAcquisition_bs_conversion（投放事件：spending）；INMOBI 媒体成本改善或效率提升。</span></p>
       <ul><li>主要 campaign：Bytedance_1233_AU_Android_20251225_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $9.4K、占比 46.5%、CPI $29.74（-27.6%）。</li><li>媒体侧关键项：INMOBI 本期占比 17.6%（+1.2pp），CPM $19.25（+9.1%）、IPM 0.48（+48.3%），主要受益于IPM提升。</li><li>创意/版位关键项：TT_NW_Aqc_US_0922_Live_video_9×16_scenario_test_ACO / nv，本期占比 1.4%（+0.2pp），CPI $6.35（-69.6%）。</li><li>Bundle侧关键项：com.teslacoilsw.launcher 本期占比 2.3%（-0.4pp），CPI $8.53（-58.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -5766,489 +6772,19 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
             </section>
             
 
-            <section class="seg-block" id="seg-sa-Android-1233">
-              <div class="seg-head">
-                <div>
-                  <h3>sa · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $1.77 → $1.50 (-15.2%); DNU 9.5K → 10.4K (+8.9%)</p>
-                </div>
-                <span class="pill down">CPI</span>
-              </div>
-              
-    <div class="diagnosis">
-      <h4>归因结论</h4>
-      <p class="headline">结论：sa · Android · App 1233 的 Blackswan CPI 从 $1.77 降到 $1.50（-15.2%），属于成本改善项。<span>主要原因判断：com.imo.android.imoim bundle 子渠道变化。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_SA_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $9.8K、占比 58.3%、CPI $1.83（-5.7%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 32.8%（-6.8pp），CPM $5.46（+2.3%）、IPM 2.82（+9.2%），CPI本身变化不大，但流量占比发生明显迁移。</li><li>创意/版位关键项：TT_NW_SA_1128_Video_mix_ACO / vi，本期占比 77.8%（-1.1pp），CPI $1.95（-4.8%）。</li><li>Bundle侧关键项：com.imo.android.imoim 本期占比 42.5%（+4.7pp），CPI $1.70（-10.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>投放 Campaign / 事件</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>Bytedance_1233_SA_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt</strong><span>spending</span></td>
-              <td>$9.8K</td>
-              <td>58.3%</td>
-              <td class="flat">-0.0pp</td>
-              <td>$1.83</td>
-              <td class="flat">-5.7%</td>
-              <td>$2.52</td>
-              <td class="down">-26.2%</td>
-              <td>1.38</td>
-              <td class="down">-21.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>Bytedance_1233_SA_Android_20251216_Moloco_UserAcquisition_pltv_lt7_deeplt</strong><span>spending</span></td>
-              <td>$7.0K</td>
-              <td>41.7%</td>
-              <td class="flat">+0.0pp</td>
-              <td>$1.89</td>
-              <td class="flat">-8.8%</td>
-              <td>$4.79</td>
-              <td class="down">-34.2%</td>
-              <td>2.54</td>
-              <td class="down">-27.8%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>媒体渠道 / Exchange</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>ADX_RTB</strong><span>exchange</span></td>
-              <td>$5.5K</td>
-              <td>32.8%</td>
-              <td class="flat">-6.8pp</td>
-              <td>$1.94</td>
-              <td class="flat">-6.3%</td>
-              <td>$5.46</td>
-              <td class="flat">+2.3%</td>
-              <td>2.82</td>
-              <td class="flat">+9.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>MOLOCO_SDK_IN_HOUSE_MEDIATION</strong><span>exchange</span></td>
-              <td>$2.9K</td>
-              <td>17.2%</td>
-              <td class="up">+11.2pp</td>
-              <td>$1.59</td>
-              <td class="down">-14.9%</td>
-              <td>$1.10</td>
-              <td class="down">-31.0%</td>
-              <td>0.69</td>
-              <td class="down">-19.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>INMOBI</strong><span>exchange</span></td>
-              <td>$1.9K</td>
-              <td>11.4%</td>
-              <td class="flat">-0.2pp</td>
-              <td>$2.20</td>
-              <td class="flat">-7.3%</td>
-              <td>$6.26</td>
-              <td class="flat">+0.3%</td>
-              <td>2.85</td>
-              <td class="flat">+8.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>APPLOVIN</strong><span>exchange</span></td>
-              <td>$1.5K</td>
-              <td>9.0%</td>
-              <td class="flat">-0.1pp</td>
-              <td>$1.96</td>
-              <td class="flat">-4.6%</td>
-              <td>$8.67</td>
-              <td class="flat">+2.8%</td>
-              <td>4.42</td>
-              <td class="flat">+7.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>MOLOCO_SDK_MAX</strong><span>exchange</span></td>
-              <td>$1.4K</td>
-              <td>8.3%</td>
-              <td class="flat">+0.5pp</td>
-              <td>$2.05</td>
-              <td class="flat">+4.9%</td>
-              <td>$4.90</td>
-              <td class="flat">+7.9%</td>
-              <td>2.39</td>
-              <td class="flat">+2.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>FYBER</strong><span>exchange</span></td>
-              <td>$1.1K</td>
-              <td>6.3%</td>
-              <td class="flat">-2.4pp</td>
-              <td>$1.52</td>
-              <td class="flat">-0.9%</td>
-              <td>$3.38</td>
-              <td class="up">+12.6%</td>
-              <td>2.22</td>
-              <td class="up">+13.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>VUNGLE</strong><span>exchange</span></td>
-              <td>$935</td>
-              <td>5.6%</td>
-              <td class="flat">-1.4pp</td>
-              <td>$2.16</td>
-              <td class="flat">-4.1%</td>
-              <td>$7.69</td>
-              <td class="up">+18.0%</td>
-              <td>3.55</td>
-              <td class="up">+23.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>UNITY</strong><span>exchange</span></td>
-              <td>$419</td>
-              <td>2.5%</td>
-              <td class="flat">-0.2pp</td>
-              <td>$1.98</td>
-              <td class="down">-14.5%</td>
-              <td>$5.42</td>
-              <td class="flat">-2.6%</td>
-              <td>2.74</td>
-              <td class="up">+14.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>IRONSOURCE</strong><span>exchange</span></td>
-              <td>$324</td>
-              <td>1.9%</td>
-              <td class="flat">-0.7pp</td>
-              <td>$1.76</td>
-              <td class="flat">-9.0%</td>
-              <td>$5.41</td>
-              <td class="flat">-9.5%</td>
-              <td>3.08</td>
-              <td class="flat">-0.5%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>MOLOCO_SDK_ADMOB_MEDIATION</strong><span>exchange</span></td>
-              <td>$320</td>
-              <td>1.9%</td>
-              <td class="flat">-0.2pp</td>
-              <td>$2.19</td>
-              <td class="flat">-9.3%</td>
-              <td>$3.60</td>
-              <td class="flat">+3.7%</td>
-              <td>1.65</td>
-              <td class="up">+14.3%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>创意组 / 版位</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>TT_NW_SA_1128_Video_mix_ACO</strong><span>vi · Interstitial</span></td>
-              <td>$13.0K</td>
-              <td>77.8%</td>
-              <td class="flat">-1.1pp</td>
-              <td>$1.95</td>
-              <td class="flat">-4.8%</td>
-              <td>$4.52</td>
-              <td class="down">-13.0%</td>
-              <td>2.32</td>
-              <td class="flat">-8.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_SA_1128_Video_mix_ACO</strong><span>vi · Rewarded Video</span></td>
-              <td>$937</td>
-              <td>5.6%</td>
-              <td class="flat">-0.4pp</td>
-              <td>$2.05</td>
-              <td class="down">-16.5%</td>
-              <td>$7.72</td>
-              <td class="flat">+9.1%</td>
-              <td>3.77</td>
-              <td class="up">+30.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>EG_TT_Google_SceneUG_IPresource_sports_WorldCup_0530_video_XB_01_ACO</strong><span>vi · Interstitial</span></td>
-              <td>$937</td>
-              <td>5.6%</td>
-              <td class="flat">+0.5pp</td>
-              <td>$1.76</td>
-              <td class="flat">-6.5%</td>
-              <td>$2.99</td>
-              <td class="flat">-4.6%</td>
-              <td>1.70</td>
-              <td class="flat">+2.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>EG_TT_Google_SceneUG_IPresource_sports_WorldCup_0530_video_XB_02_ACO</strong><span>vi · Interstitial</span></td>
-              <td>$574</td>
-              <td>3.4%</td>
-              <td class="flat">-0.4pp</td>
-              <td>$1.95</td>
-              <td class="flat">+0.8%</td>
-              <td>$2.40</td>
-              <td class="down">-20.1%</td>
-              <td>1.23</td>
-              <td class="down">-20.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_SA_1216_Video_mix_ACO</strong><span>vi · Interstitial</span></td>
-              <td>$495</td>
-              <td>3.0%</td>
-              <td class="flat">-0.4pp</td>
-              <td>$2.04</td>
-              <td class="flat">+0.8%</td>
-              <td>$3.26</td>
-              <td class="flat">+4.2%</td>
-              <td>1.60</td>
-              <td class="flat">+3.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_SA_1128_Video_mix_ACO</strong><span>nv · Native</span></td>
-              <td>$316</td>
-              <td>1.9%</td>
-              <td class="flat">+1.2pp</td>
-              <td>$0.63</td>
-              <td class="up">+35.6%</td>
-              <td>$0.34</td>
-              <td class="down">-63.6%</td>
-              <td>0.54</td>
-              <td class="down">-73.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>EG_TT_Google_SceneUG_IPresource_sports_WorldCup_0530_video_XB_01_ACO</strong><span>vi · Rewarded Video</span></td>
-              <td>$114</td>
-              <td>0.7%</td>
-              <td class="flat">+0.3pp</td>
-              <td>$2.04</td>
-              <td class="flat">+0.8%</td>
-              <td>$6.49</td>
-              <td class="flat">+4.3%</td>
-              <td>3.18</td>
-              <td class="flat">+3.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_SA_1128_Video_mix_ACO</strong><span>vb · Instream Video</span></td>
-              <td>$81</td>
-              <td>0.5%</td>
-              <td class="flat">+0.1pp</td>
-              <td>$1.92</td>
-              <td class="up">+22.5%</td>
-              <td>$1.48</td>
-              <td class="up">+22.6%</td>
-              <td>0.77</td>
-              <td class="flat">+0.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>EG_TT_Google_SceneUG_IPresource_sports_WorldCup_0530_video_XB_02_ACO</strong><span>vi · Rewarded Video</span></td>
-              <td>$61</td>
-              <td>0.4%</td>
-              <td class="flat">-0.1pp</td>
-              <td>$2.18</td>
-              <td class="flat">-6.0%</td>
-              <td>$5.97</td>
-              <td class="flat">+2.5%</td>
-              <td>2.74</td>
-              <td class="flat">+9.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_SA_1216_Video_mix_ACO</strong><span>vi · Rewarded Video</span></td>
-              <td>$44</td>
-              <td>0.3%</td>
-              <td class="flat">-0.1pp</td>
-              <td>$1.57</td>
-              <td class="down">-28.6%</td>
-              <td>$5.78</td>
-              <td class="flat">+7.2%</td>
-              <td>3.69</td>
-              <td class="up">+50.1%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>Bundle ID / 子渠道</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>com.imo.android.imoim</strong><span>bundle</span></td>
-              <td>$4.1K</td>
-              <td>42.5%</td>
-              <td class="flat">+4.7pp</td>
-              <td>$1.70</td>
-              <td class="down">-10.9%</td>
-              <td>$1.46</td>
-              <td class="down">-42.8%</td>
-              <td>0.86</td>
-              <td class="down">-35.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.imo.android.imoimhd</strong><span>bundle</span></td>
-              <td>$749</td>
-              <td>7.7%</td>
-              <td class="flat">+1.0pp</td>
-              <td>$1.53</td>
-              <td class="flat">-4.1%</td>
-              <td>$2.45</td>
-              <td class="down">-18.4%</td>
-              <td>1.60</td>
-              <td class="down">-15.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.imo.android.imoimbeta</strong><span>bundle</span></td>
-              <td>$536</td>
-              <td>5.5%</td>
-              <td class="flat">+0.8pp</td>
-              <td>$1.47</td>
-              <td class="flat">-1.8%</td>
-              <td>$1.97</td>
-              <td class="flat">-7.2%</td>
-              <td>1.34</td>
-              <td class="flat">-5.5%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.amelosinteractive.snake</strong><span>bundle</span></td>
-              <td>$207</td>
-              <td>2.1%</td>
-              <td class="flat">+0.4pp</td>
-              <td>$2.50</td>
-              <td class="up">+12.3%</td>
-              <td>$12.54</td>
-              <td class="up">+13.4%</td>
-              <td>5.02</td>
-              <td class="flat">+1.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.mxtech.videoplayer.ad</strong><span>bundle</span></td>
-              <td>$149</td>
-              <td>1.5%</td>
-              <td class="flat">-0.0pp</td>
-              <td>$2.57</td>
-              <td class="up">+41.3%</td>
-              <td>$4.74</td>
-              <td class="up">+24.9%</td>
-              <td>1.84</td>
-              <td class="down">-11.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>io.voodoo.paper2</strong><span>bundle</span></td>
-              <td>$141</td>
-              <td>1.4%</td>
-              <td class="flat">-0.2pp</td>
-              <td>$2.71</td>
-              <td class="up">+16.8%</td>
-              <td>$8.72</td>
-              <td class="up">+12.1%</td>
-              <td>3.22</td>
-              <td class="flat">-4.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.domobile.applockwatcher</strong><span>bundle</span></td>
-              <td>$122</td>
-              <td>1.3%</td>
-              <td class="flat">-0.3pp</td>
-              <td>$2.07</td>
-              <td class="flat">-3.1%</td>
-              <td>$7.08</td>
-              <td class="down">-19.6%</td>
-              <td>3.43</td>
-              <td class="down">-17.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.videoeditorpro.android</strong><span>bundle</span></td>
-              <td>$113</td>
-              <td>1.2%</td>
-              <td class="flat">-0.4pp</td>
-              <td>$2.02</td>
-              <td class="up">+35.2%</td>
-              <td>$7.55</td>
-              <td class="flat">+7.2%</td>
-              <td>3.73</td>
-              <td class="down">-20.7%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.murder.back.look.win</strong><span>bundle</span></td>
-              <td>$107</td>
-              <td>1.1%</td>
-              <td class="flat">-0.9pp</td>
-              <td>$2.06</td>
-              <td class="down">-31.7%</td>
-              <td>$3.14</td>
-              <td class="down">-12.1%</td>
-              <td>1.52</td>
-              <td class="up">+28.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.Gamnest.CandyRace</strong><span>bundle</span></td>
-              <td>$107</td>
-              <td>1.1%</td>
-              <td class="flat">-0.4pp</td>
-              <td>$2.13</td>
-              <td class="down">-40.1%</td>
-              <td>$5.17</td>
-              <td class="down">-21.3%</td>
-              <td>2.42</td>
-              <td class="up">+31.5%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-            </section>
-            
-
             <section class="seg-block" id="seg-es-Android-1233">
               <div class="seg-head">
                 <div>
                   <h3>es · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $3.24 → $3.02 (-6.8%); DNU 6.0K → 4.9K (-18.3%)</p>
+                  <p>Sandbox benchmark: CPI $3.24 → $3.23 (-0.4%); DNU 6.0K → 5.0K (-17.8%)</p>
                 </div>
                 <span class="pill flat">DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：es · Android · App 1233 主要触发 DNU 下降（6.0K → 4.9K，-18.3%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_ES_Android_20260330_Moloco_UserAcquisition_bs_conversion（投放事件：spending）。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_ES_Android_20260330_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $11.5K、占比 72.0%、CPI $5.13（-15.8%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 26.6%（-2.3pp），CPM $7.44（-2.0%）、IPM 1.15（+4.7%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_ES_SceneUG_Automation_Video_0104-Moloco_ACO / vi，本期占比 79.6%（-1.9pp），CPI $5.30（-10.9%）。</li><li>Bundle侧关键项：com.pixel.art.coloring.color.number 本期占比 11.1%（+8.9pp），CPI $3.42（-65.0%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+      <p class="headline">结论：es · Android · App 1233 主要触发 DNU 下降（6.0K → 5.0K，-17.8%），CPI变化未超过10%。DNU下降主要来自国家消耗/预算下降（消耗 -18.1%），CPI没有同步显著恶化。<span>主要原因判断：主要 campaign Bytedance_1233_ES_Android_20260330_Moloco_UserAcquisition_bs_conversion（投放事件：spending）。</span></p>
+      <ul><li>预算/规模：国家消耗 $19.5K → $16.0K（-18.1%），DNU 6.0K → 5.0K（-17.8%），BI CPI $3.24 → $3.23（-0.4%）。</li><li>主要 campaign：Bytedance_1233_ES_Android_20260330_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $11.5K、占比 72.0%、CPI $5.13（-15.8%）。</li><li>媒体侧关键项：MOLOCO_SDK_MAX 本期占比 26.6%（-2.3pp），CPM $7.44（-2.0%）、IPM 1.15（+4.7%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_ES_SceneUG_Automation_Video_0104-Moloco_ACO / vi，本期占比 79.6%（-1.9pp），CPI $5.30（-10.9%）。</li><li>Bundle侧关键项：com.pixel.art.coloring.color.number 本期占比 11.1%（+8.9pp），CPI $3.42（-65.0%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
               
@@ -6671,15 +7207,15 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>ae · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $4.50 → $3.82 (-15.1%); DNU 3.5K → 3.8K (+9.9%)</p>
+                  <p>Sandbox benchmark: CPI $4.50 → $4.09 (-9.0%); DNU 3.5K → 3.8K (+10.0%)</p>
                 </div>
-                <span class="pill down">CPI</span>
+                <span class="pill flat">DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：ae · Android · App 1233 的 Blackswan CPI 从 $4.50 降到 $3.82（-15.1%），属于成本改善项。<span>主要原因判断：MOLOCO_SDK_LEVELPLAY 媒体成本改善或效率提升。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_AE_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $8.4K、占比 54.1%、CPI $4.43（-8.8%）。</li><li>媒体侧关键项：MOLOCO_SDK_LEVELPLAY 本期占比 0.5%（-0.1pp），CPM $9.29（+5.5%）、IPM 2.08（+287.5%），主要受益于IPM提升。</li><li>创意/版位关键项：TT_NW_AE_1128_Video_mix_ACO / vi，本期占比 53.1%（+8.8pp），CPI $5.05（-3.2%）。</li><li>Bundle侧关键项：com.imo.android.imoim 本期占比 46.1%（+5.8pp），CPI $4.43（-7.3%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+      <p class="headline">结论：ae · Android · App 1233 主要触发 DNU 增加（3.5K → 3.8K，+10.0%），CPI变化未超过10%。DNU增长更多来自预算和效率的共同变化，需结合campaign和媒体结构确认增量来源。<span>主要原因判断：主要 campaign Bytedance_1233_AE_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt（投放事件：spending）。</span></p>
+      <ul><li>预算/规模：国家消耗 $15.5K → $15.5K（+0.1%），DNU 3.5K → 3.8K（+10.0%），BI CPI $4.50 → $4.09（-9.0%）。</li><li>主要 campaign：Bytedance_1233_AE_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $8.4K、占比 54.1%、CPI $4.43（-8.8%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 33.3%（-6.4pp），CPM $6.20（-6.2%）、IPM 1.17（-8.2%），CPI本身变化不大，但流量占比发生明显迁移。</li><li>创意/版位关键项：TT_NW_AE_1128_Video_mix_ACO / vi，本期占比 53.1%（+8.8pp），CPI $5.05（-3.2%）。</li><li>Bundle侧关键项：com.imo.android.imoim 本期占比 46.1%（+5.8pp），CPI $4.43（-7.3%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
               
@@ -7154,15 +7690,15 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>mx · iOS · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $1.00 → $0.90 (-10.2%); DNU 12.4K → 14.4K (+15.4%)</p>
+                  <p>Sandbox benchmark: CPI $1.00 → $0.97 (-3.4%); DNU 12.4K → 14.4K (+15.9%)</p>
                 </div>
-                <span class="pill down">CPI &amp; DNU</span>
+                <span class="pill flat">DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：mx · iOS · App 1233 的 Blackswan CPI 从 $1.00 降到 $0.90（-10.2%），属于成本改善项。<span>主要原因判断：当前更像整体结构/规模变化，单一 campaign、媒体或创意未形成足够明确的主因。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_MX_iOS_20260415_Moloco_UserAcquisition_DNU，事件 spending，本期消耗 $5.6K、占比 40.0%、CPI $0.63（-8.6%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 60.0%（-8.7pp），CPM $0.42（-5.8%）、IPM 0.68（+7.7%），CPI下降更多来自结构切换。</li><li>创意/版位关键项：TT_NW_MX_0106_Video_16X9_ACO / nv，本期占比 44.2%（-3.8pp），CPI $0.67（-4.1%）。</li><li>Bundle侧关键项：429047995 本期占比 84.5%（-0.5pp），CPI $0.62（-6.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+      <p class="headline">结论：mx · iOS · App 1233 主要触发 DNU 增加（12.4K → 14.4K，+15.9%），CPI变化未超过10%。DNU增长主要来自国家消耗/预算增加（消耗 +12.0%），CPI未明显恶化。<span>主要原因判断：主要 campaign Bytedance_1233_MX_iOS_20260415_Moloco_UserAcquisition_DNU（投放事件：spending）。</span></p>
+      <ul><li>预算/规模：国家消耗 $12.5K → $14.0K（+12.0%），DNU 12.4K → 14.4K（+15.9%），BI CPI $1.00 → $0.97（-3.4%）。</li><li>主要 campaign：Bytedance_1233_MX_iOS_20260415_Moloco_UserAcquisition_DNU，事件 spending，本期消耗 $5.6K、占比 40.0%、CPI $0.63（-8.6%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 60.0%（-8.7pp），CPM $0.42（-5.8%）、IPM 0.68（+7.7%），CPI下降更多来自结构切换。</li><li>创意/版位关键项：TT_NW_MX_0106_Video_16X9_ACO / nv，本期占比 44.2%（-3.8pp），CPI $0.67（-4.1%）。</li><li>Bundle侧关键项：429047995 本期占比 84.5%（-0.5pp），CPI $0.62（-6.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
               
@@ -7637,14 +8173,14 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>de · Android · App 473824</h3>
-                  <p>Sandbox benchmark: CPI $9.77 → $11.89 (+21.7%); DNU 846 → 1.0K (+20.9%)</p>
+                  <p>Sandbox benchmark: CPI $10.11 → $13.53 (+33.8%); DNU 818 → 976 (+19.3%)</p>
                 </div>
                 <span class="pill up">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：de · Android · App 473824 的 Blackswan CPI 从 $9.77 上升到 $11.89（+21.7%）。<span>主要原因判断：主要 campaign 0526-TikTokPro-DE-Moloco-UA-FreeToUse-login（投放事件：spending）；XIAOMI 媒体成本/效率变化；DE-TTPro-Miyi-25Q3-Generic_ACO 创意/版位表现变化。</span></p>
+      <p class="headline">结论：de · Android · App 473824 的 Blackswan CPI 从 $10.11 上升到 $13.53（+33.8%）。<span>主要原因判断：主要 campaign 0526-TikTokPro-DE-Moloco-UA-FreeToUse-login（投放事件：spending）；XIAOMI 媒体成本/效率变化；DE-TTPro-Miyi-25Q3-Generic_ACO 创意/版位表现变化。</span></p>
       <ul><li>主要 campaign：0526-TikTokPro-DE-Moloco-UA-FreeToUse-login，事件 spending，本期消耗 $8.6K、占比 65.1%、CPI $10.68（+31.8%）。</li><li>媒体侧关键项：XIAOMI 本期占比 33.5%（+12.4pp），CPM $0.24（+24.6%）、IPM 0.04（-36.9%），CPM上涨且IPM下滑，媒体价格和转化效率同时恶化。</li><li>创意/版位关键项：DE-TTPro-Miyi-25Q3-Generic_ACO / ni，本期占比 12.2%（+10.7pp），CPI $8.77（+115.5%）。</li><li>Bundle侧关键项：com.xiaomi.mipicks 本期占比 31.2%（+23.2pp），CPI $5.17（+166.4%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -8133,14 +8669,14 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>cl · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $1.39 → $1.47 (+5.3%); DNU 7.2K → 5.3K (-26.9%)</p>
+                  <p>Sandbox benchmark: CPI $1.39 → $1.59 (+14.5%); DNU 7.2K → 5.3K (-27.1%)</p>
                 </div>
-                <span class="pill flat">DNU</span>
+                <span class="pill up">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：cl · Android · App 1233 主要触发 DNU 下降（7.2K → 5.3K，-26.9%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_CL_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt（投放事件：spending）。</span></p>
+      <p class="headline">结论：cl · Android · App 1233 的 Blackswan CPI 从 $1.39 上升到 $1.59（+14.5%）。<span>主要原因判断：主要 campaign Bytedance_1233_CL_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt（投放事件：spending）；ADX_RTB 媒体成本/效率变化；TT_NW_CL_1128_Video_mix_ACO 创意/版位表现变化。</span></p>
       <ul><li>主要 campaign：Bytedance_1233_CL_Android_20251128_Moloco_UserAcquisition_af_bs_conversion_rt，事件 spending，本期消耗 $3.8K、占比 45.7%、CPI $2.15（+11.1%）。</li><li>媒体侧关键项：ADX_RTB 本期占比 27.5%（+1.2pp），CPM $4.42（-27.3%）、IPM 2.74（-31.1%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_CL_1128_Video_mix_ACO / vi，本期占比 50.6%（-6.8pp），CPI $2.53（+13.0%）。</li><li>Bundle侧关键项：com.grindrapp.android 本期占比 21.3%（+5.2pp），CPI $2.42（+36.0%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -8612,19 +9148,19 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
             </section>
             
 
-            <section class="seg-block" id="seg-br-Android-1340">
+            <section class="seg-block" id="seg-pe-Android-1233">
               <div class="seg-head">
                 <div>
-                  <h3>br · Android · App 1340</h3>
-                  <p>Sandbox benchmark: CPI $0.75 → $0.65 (-13.3%); DNU 8.8K → 9.2K (+5.3%)</p>
+                  <h3>pe · Android · App 1233</h3>
+                  <p>Sandbox benchmark: CPI $1.11 → $1.25 (+12.9%); DNU 5.5K → 5.4K (-2.2%)</p>
                 </div>
-                <span class="pill down">CPI</span>
+                <span class="pill up">CPI</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：br · Android · App 1340 的 Blackswan CPI 从 $0.75 降到 $0.65（-13.3%），属于成本改善项。<span>主要原因判断：XIAOMI 媒体成本改善或效率提升。</span></p>
-      <ul><li>主要 campaign：Bytedance_1340_BR_Android_0402_Moloco_TikTokLite CPA_tt_d2_retention_user，事件 spending，本期消耗 $3.7K、占比 55.8%、CPI $0.83（+14.3%）。</li><li>媒体侧关键项：XIAOMI 本期占比 35.9%（+2.2pp），CPM $0.34（-36.8%）、IPM 0.93（-30.0%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_Lite_BR_Liftoff_coldstart_0401_ACO / vi，本期占比 61.0%（-4.7pp），CPI $0.79（+6.0%）。</li><li>Bundle侧关键项：com.xiaomi.mipicks 本期占比 42.2%（+5.5pp），CPI $0.34（-4.6%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
+      <p class="headline">结论：pe · Android · App 1233 的 Blackswan CPI 从 $1.11 上升到 $1.25（+12.9%）。<span>主要原因判断：主要 campaign Bytedance_1233_PE_Android_20260330_Moloco_UserAcquisition_bs_conversion（投放事件：spending）；VUNGLE 媒体成本/效率变化；TT_NW_Aqc_PE_video_coldstart_0326_ACO 创意/版位表现变化。</span></p>
+      <ul><li>主要 campaign：Bytedance_1233_PE_Android_20260330_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $6.8K、占比 100.0%、CPI $1.35（+17.1%）。</li><li>媒体侧关键项：VUNGLE 本期占比 25.3%（-0.5pp），CPM $7.34（+41.3%）、IPM 4.49（+6.7%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_Aqc_PE_video_coldstart_0326_ACO / vi，本期占比 77.1%（-3.2pp），CPI $1.64（+19.2%）。</li><li>Bundle侧关键项：com.dywx.larkplayer 本期占比 8.8%（-1.7pp），CPI $1.54（+47.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
               
@@ -8634,42 +9170,16 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
         <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
         <tbody>
             <tr>
-              <td class="name"><strong>Bytedance_1340_BR_Android_0402_Moloco_TikTokLite CPA_tt_d2_retention_user</strong><span>spending</span></td>
-              <td>$3.7K</td>
-              <td>55.8%</td>
-              <td class="flat">+7.8pp</td>
-              <td>$0.83</td>
-              <td class="up">+14.3%</td>
-              <td>$3.40</td>
-              <td class="up">+16.7%</td>
-              <td>4.08</td>
-              <td class="flat">+2.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>Bytedance_1340_BR_Android_0402_Moloco_TikTokLite_install</strong><span>spending</span></td>
-              <td>$2.8K</td>
-              <td>43.4%</td>
-              <td class="flat">+0.3pp</td>
-              <td>$0.40</td>
-              <td class="flat">-7.7%</td>
-              <td>$0.39</td>
-              <td class="down">-36.7%</td>
-              <td>0.97</td>
-              <td class="down">-31.5%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>Bytedance_1340_BR_Android_0529_Moloco_TikTokLite_test_dual_account_install</strong><span>spending</span></td>
-              <td>$49</td>
-              <td>0.7%</td>
-              <td class="flat">-8.1pp</td>
-              <td>$0.90</td>
-              <td class="down">-63.0%</td>
-              <td>$5.70</td>
-              <td class="flat">+9.6%</td>
-              <td>6.33</td>
-              <td class="up">+196.4%</td>
+              <td class="name"><strong>Bytedance_1233_PE_Android_20260330_Moloco_UserAcquisition_bs_conversion</strong><span>spending</span></td>
+              <td>$6.8K</td>
+              <td>100.0%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$1.35</td>
+              <td class="up">+17.1%</td>
+              <td>$5.71</td>
+              <td class="flat">+9.5%</td>
+              <td>4.22</td>
+              <td class="flat">-6.5%</td>
             </tr>
             </tbody>
       </table>
@@ -8682,133 +9192,133 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
         <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
         <tbody>
             <tr>
-              <td class="name"><strong>XIAOMI</strong><span>exchange</span></td>
-              <td>$2.3K</td>
-              <td>35.9%</td>
-              <td class="flat">+2.2pp</td>
-              <td>$0.37</td>
-              <td class="flat">-9.6%</td>
-              <td>$0.34</td>
-              <td class="down">-36.8%</td>
-              <td>0.93</td>
-              <td class="down">-30.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>INMOBI</strong><span>exchange</span></td>
-              <td>$1.4K</td>
-              <td>20.8%</td>
-              <td class="flat">+1.1pp</td>
-              <td>$1.05</td>
-              <td class="up">+16.4%</td>
-              <td>$3.62</td>
-              <td class="up">+17.1%</td>
-              <td>3.45</td>
-              <td class="flat">+0.6%</td>
-            </tr>
-            
-            <tr>
               <td class="name"><strong>MOLOCO_SDK_MAX</strong><span>exchange</span></td>
-              <td>$562</td>
-              <td>8.7%</td>
-              <td class="flat">-1.3pp</td>
-              <td>$0.81</td>
-              <td class="flat">-7.2%</td>
-              <td>$2.23</td>
-              <td class="flat">+5.5%</td>
-              <td>2.75</td>
-              <td class="up">+13.7%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>ADX_RTB</strong><span>exchange</span></td>
-              <td>$511</td>
-              <td>7.9%</td>
-              <td class="flat">-0.2pp</td>
-              <td>$0.58</td>
-              <td class="flat">-2.6%</td>
-              <td>$3.06</td>
-              <td class="flat">+5.5%</td>
-              <td>5.28</td>
-              <td class="flat">+8.3%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>FYBER</strong><span>exchange</span></td>
-              <td>$431</td>
-              <td>6.6%</td>
-              <td class="flat">-1.1pp</td>
-              <td>$0.92</td>
-              <td class="flat">+8.0%</td>
-              <td>$4.03</td>
-              <td class="flat">+3.8%</td>
-              <td>4.37</td>
-              <td class="flat">-3.9%</td>
+              <td>$1.8K</td>
+              <td>26.6%</td>
+              <td class="flat">-2.1pp</td>
+              <td>$1.49</td>
+              <td class="flat">+6.3%</td>
+              <td>$8.14</td>
+              <td class="flat">-3.0%</td>
+              <td>5.47</td>
+              <td class="flat">-8.8%</td>
             </tr>
             
             <tr>
               <td class="name"><strong>VUNGLE</strong><span>exchange</span></td>
-              <td>$342</td>
-              <td>5.3%</td>
-              <td class="flat">+0.7pp</td>
-              <td>$0.75</td>
-              <td class="up">+14.6%</td>
-              <td>$1.83</td>
-              <td class="flat">+9.6%</td>
-              <td>2.44</td>
-              <td class="flat">-4.3%</td>
+              <td>$1.7K</td>
+              <td>25.3%</td>
+              <td class="flat">-0.5pp</td>
+              <td>$1.63</td>
+              <td class="up">+32.4%</td>
+              <td>$7.34</td>
+              <td class="up">+41.3%</td>
+              <td>4.49</td>
+              <td class="flat">+6.7%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>APPLOVIN</strong><span>exchange</span></td>
-              <td>$271</td>
-              <td>4.2%</td>
-              <td class="flat">+1.3pp</td>
-              <td>$1.00</td>
-              <td class="up">+18.6%</td>
-              <td>$4.58</td>
-              <td class="up">+30.7%</td>
-              <td>4.59</td>
-              <td class="up">+10.2%</td>
+              <td class="name"><strong>INMOBI</strong><span>exchange</span></td>
+              <td>$1.1K</td>
+              <td>16.7%</td>
+              <td class="flat">-0.4pp</td>
+              <td>$1.75</td>
+              <td class="up">+21.5%</td>
+              <td>$8.20</td>
+              <td class="flat">+4.7%</td>
+              <td>4.68</td>
+              <td class="down">-13.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>UNITY</strong><span>exchange</span></td>
+              <td>$762</td>
+              <td>11.3%</td>
+              <td class="flat">+1.1pp</td>
+              <td>$1.63</td>
+              <td class="flat">+0.2%</td>
+              <td>$5.28</td>
+              <td class="flat">-1.1%</td>
+              <td>3.23</td>
+              <td class="flat">-1.3%</td>
             </tr>
             
             <tr>
               <td class="name"><strong>IRONSOURCE</strong><span>exchange</span></td>
-              <td>$258</td>
-              <td>4.0%</td>
-              <td class="flat">-1.2pp</td>
-              <td>$0.65</td>
-              <td class="flat">+1.5%</td>
-              <td>$3.14</td>
-              <td class="flat">-0.5%</td>
-              <td>4.82</td>
-              <td class="flat">-1.9%</td>
+              <td>$466</td>
+              <td>6.9%</td>
+              <td class="flat">+1.4pp</td>
+              <td>$2.27</td>
+              <td class="up">+71.0%</td>
+              <td>$7.22</td>
+              <td class="flat">+9.2%</td>
+              <td>3.18</td>
+              <td class="down">-36.1%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>MOLOCO_SDK_IN_HOUSE_MEDIATION</strong><span>exchange</span></td>
-              <td>$231</td>
-              <td>3.5%</td>
-              <td class="flat">-0.9pp</td>
-              <td>$0.81</td>
-              <td class="flat">+3.4%</td>
-              <td>$1.65</td>
-              <td class="flat">+3.7%</td>
-              <td>2.02</td>
-              <td class="flat">+0.2%</td>
+              <td class="name"><strong>ADX_RTB</strong><span>exchange</span></td>
+              <td>$295</td>
+              <td>4.4%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$0.36</td>
+              <td class="up">+18.5%</td>
+              <td>$1.63</td>
+              <td class="flat">+8.8%</td>
+              <td>4.55</td>
+              <td class="flat">-8.2%</td>
             </tr>
             
             <tr>
               <td class="name"><strong>MOLOCO_SDK_ADMOB_MEDIATION</strong><span>exchange</span></td>
-              <td>$177</td>
-              <td>2.7%</td>
-              <td class="flat">-0.5pp</td>
-              <td>$0.69</td>
-              <td class="flat">+1.1%</td>
-              <td>$2.24</td>
-              <td class="flat">-0.6%</td>
-              <td>3.23</td>
-              <td class="flat">-1.7%</td>
+              <td>$215</td>
+              <td>3.2%</td>
+              <td class="flat">-0.1pp</td>
+              <td>$1.09</td>
+              <td class="flat">-2.5%</td>
+              <td>$3.45</td>
+              <td class="flat">+3.1%</td>
+              <td>3.15</td>
+              <td class="flat">+5.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>XIAOMI</strong><span>exchange</span></td>
+              <td>$211</td>
+              <td>3.1%</td>
+              <td class="flat">+0.3pp</td>
+              <td>$0.70</td>
+              <td class="flat">+9.0%</td>
+              <td>$3.75</td>
+              <td class="up">+27.4%</td>
+              <td>5.37</td>
+              <td class="up">+16.8%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>MOLOCO_SDK_IN_HOUSE_MEDIATION</strong><span>exchange</span></td>
+              <td>$75</td>
+              <td>1.1%</td>
+              <td class="flat">-0.0pp</td>
+              <td>$2.36</td>
+              <td class="up">+31.4%</td>
+              <td>$1.84</td>
+              <td class="flat">+7.1%</td>
+              <td>0.78</td>
+              <td class="down">-18.4%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>MOLOCO_SDK_LEVELPLAY</strong><span>exchange</span></td>
+              <td>$52</td>
+              <td>0.8%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$1.61</td>
+              <td class="flat">-3.2%</td>
+              <td>$5.45</td>
+              <td class="up">+12.2%</td>
+              <td>3.39</td>
+              <td class="up">+15.9%</td>
             </tr>
             </tbody>
       </table>
@@ -8821,133 +9331,55 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
         <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
         <tbody>
             <tr>
-              <td class="name"><strong>TT_Lite_BR_Liftoff_coldstart_0401_ACO</strong><span>vi · Interstitial</span></td>
-              <td>$4.0K</td>
-              <td>61.0%</td>
-              <td class="flat">-4.7pp</td>
-              <td>$0.79</td>
-              <td class="flat">+6.0%</td>
-              <td>$3.59</td>
+              <td class="name"><strong>TT_NW_Aqc_PE_video_coldstart_0326_ACO</strong><span>vi · Interstitial</span></td>
+              <td>$5.2K</td>
+              <td>77.1%</td>
+              <td class="flat">-3.2pp</td>
+              <td>$1.64</td>
               <td class="up">+19.2%</td>
-              <td>4.53</td>
-              <td class="up">+12.5%</td>
+              <td>$7.05</td>
+              <td class="up">+14.8%</td>
+              <td>4.30</td>
+              <td class="flat">-3.7%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>TT_Lite_BR_Liftoff_coldstart_0401_ACO</strong><span>vi · Rewarded Video</span></td>
-              <td>$749</td>
-              <td>11.5%</td>
-              <td class="flat">-0.6pp</td>
-              <td>$0.78</td>
-              <td class="flat">+1.3%</td>
-              <td>$4.45</td>
-              <td class="up">+23.7%</td>
-              <td>5.71</td>
+              <td class="name"><strong>TT_NW_Aqc_PE_video_coldstart_0326_ACO</strong><span>vi · Rewarded Video</span></td>
+              <td>$1.0K</td>
+              <td>15.4%</td>
+              <td class="flat">+1.8pp</td>
+              <td>$2.06</td>
               <td class="up">+22.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>BR_Lite_Google_SceneUG_IPresource_sports_WorldCup_0529_image_BD_03_ACO</strong><span>nl · Native</span></td>
-              <td>$594</td>
-              <td>9.1%</td>
-              <td class="flat">+2.5pp</td>
-              <td>$0.35</td>
-              <td class="flat">+0.7%</td>
-              <td>$0.53</td>
-              <td class="up">+19.1%</td>
-              <td>1.49</td>
-              <td class="up">+18.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>BR_Lite_Google_SceneUG_IPresource_sports_WorldCup_0529_image_BD_02_ACO</strong><span>nl · Native</span></td>
-              <td>$528</td>
-              <td>8.1%</td>
-              <td class="flat">-0.1pp</td>
-              <td>$0.30</td>
-              <td class="down">-11.7%</td>
-              <td>$0.35</td>
-              <td class="down">-31.1%</td>
-              <td>1.16</td>
-              <td class="down">-21.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>BR_Lite_Google_SceneUG_IPresource_sports_WorldCup_0529_image_XB_batch1_ACO</strong><span>nl · Native</span></td>
-              <td>$287</td>
-              <td>4.4%</td>
-              <td class="flat">+1.3pp</td>
-              <td>$0.31</td>
-              <td class="down">-11.5%</td>
-              <td>$0.39</td>
-              <td class="down">-18.4%</td>
-              <td>1.26</td>
-              <td class="flat">-7.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>BR_Lite_Google_SceneUG_IPresource_sports_WorldCup_0529_image_XB_batch2_ACO</strong><span>nl · Native</span></td>
-              <td>$179</td>
-              <td>2.7%</td>
-              <td class="flat">-0.1pp</td>
-              <td>$0.30</td>
-              <td class="flat">-9.5%</td>
-              <td>$0.36</td>
-              <td class="down">-18.6%</td>
-              <td>1.20</td>
-              <td class="down">-10.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_Lite_BR_Liftoff_coldstart_0401_ACO</strong><span>vb · Instream Video</span></td>
-              <td>$74</td>
-              <td>1.1%</td>
-              <td class="flat">+0.6pp</td>
-              <td>$0.37</td>
-              <td class="up">+51.4%</td>
-              <td>$0.41</td>
-              <td class="up">+22.3%</td>
-              <td>1.10</td>
-              <td class="down">-19.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>BR_Lite_Google_SceneUG_IPresource_sports_WorldCup_0529_image_BD_02_ACO</strong><span>ni · Native</span></td>
-              <td>$66</td>
-              <td>1.0%</td>
-              <td class="flat">+0.7pp</td>
-              <td>$0.51</td>
-              <td class="flat">+3.3%</td>
-              <td>$0.05</td>
-              <td class="flat">-5.5%</td>
-              <td>0.09</td>
+              <td>$7.70</td>
+              <td class="up">+11.8%</td>
+              <td>3.74</td>
               <td class="flat">-8.5%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>TT_Lite_BR_Liftoff_coldstart_0401_ACO</strong><span>nv · Native</span></td>
-              <td>$33</td>
-              <td>0.5%</td>
+              <td class="name"><strong>TT_NW_Aqc_PE_video_coldstart_0326_ACO</strong><span>nv · Native</span></td>
+              <td>$344</td>
+              <td>5.1%</td>
               <td class="flat">+0.1pp</td>
-              <td>$0.34</td>
-              <td class="flat">-6.3%</td>
-              <td>$0.20</td>
-              <td class="flat">+4.9%</td>
-              <td>0.59</td>
-              <td class="up">+12.0%</td>
+              <td>$0.31</td>
+              <td class="up">+13.2%</td>
+              <td>$1.54</td>
+              <td class="flat">+7.7%</td>
+              <td>5.01</td>
+              <td class="flat">-4.9%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>BR_Lite_Google_SceneUG_IPresource_sports_WorldCup_0529_image_BD_03_ACO</strong><span>ni · Native</span></td>
-              <td>$31</td>
-              <td>0.5%</td>
-              <td class="flat">+0.3pp</td>
-              <td>$0.54</td>
-              <td class="up">+12.1%</td>
-              <td>$0.04</td>
-              <td class="down">-12.9%</td>
-              <td>0.08</td>
-              <td class="down">-22.3%</td>
+              <td class="name"><strong>TT_NW_Aqc_PE_video_coldstart_0326_ACO</strong><span>vb · Instream Video</span></td>
+              <td>$165</td>
+              <td>2.4%</td>
+              <td class="flat">+1.4pp</td>
+              <td>$0.84</td>
+              <td class="up">+22.9%</td>
+              <td>$1.92</td>
+              <td class="flat">+6.6%</td>
+              <td>2.30</td>
+              <td class="down">-13.2%</td>
             </tr>
             </tbody>
       </table>
@@ -8960,133 +9392,133 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
         <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
         <tbody>
             <tr>
-              <td class="name"><strong>com.xiaomi.mipicks</strong><span>bundle</span></td>
-              <td>$1.6K</td>
-              <td>42.2%</td>
-              <td class="flat">+5.5pp</td>
-              <td>$0.34</td>
-              <td class="flat">-4.6%</td>
-              <td>$0.49</td>
-              <td class="down">-52.3%</td>
-              <td>1.46</td>
-              <td class="down">-50.0%</td>
+              <td class="name"><strong>com.block.juggle</strong><span>bundle</span></td>
+              <td>$633</td>
+              <td>17.3%</td>
+              <td class="flat">-7.4pp</td>
+              <td>$1.87</td>
+              <td class="flat">+1.1%</td>
+              <td>$22.65</td>
+              <td class="down">-16.4%</td>
+              <td>12.14</td>
+              <td class="down">-17.3%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>com.mrbunn.buns.and.bounce</strong><span>bundle</span></td>
-              <td>$242</td>
-              <td>6.4%</td>
-              <td class="flat">+5.8pp</td>
-              <td>$1.68</td>
-              <td class="down">-39.0%</td>
-              <td>$6.05</td>
-              <td class="up">+11.9%</td>
-              <td>3.60</td>
-              <td class="up">+83.4%</td>
+              <td class="name"><strong>com.dywx.larkplayer</strong><span>bundle</span></td>
+              <td>$322</td>
+              <td>8.8%</td>
+              <td class="flat">-1.7pp</td>
+              <td>$1.54</td>
+              <td class="up">+47.9%</td>
+              <td>$5.85</td>
+              <td class="up">+118.7%</td>
+              <td>3.79</td>
+              <td class="up">+47.8%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>com.Hadiz.Pillowchase</strong><span>bundle</span></td>
-              <td>$217</td>
-              <td>5.8%</td>
-              <td class="flat">+0.8pp</td>
-              <td>$1.52</td>
-              <td class="up">+23.5%</td>
-              <td>$4.21</td>
-              <td class="flat">+1.6%</td>
-              <td>2.77</td>
-              <td class="down">-17.7%</td>
+              <td class="name"><strong>com.pinterest</strong><span>bundle</span></td>
+              <td>$295</td>
+              <td>8.1%</td>
+              <td class="flat">+0.5pp</td>
+              <td>$0.36</td>
+              <td class="up">+18.5%</td>
+              <td>$1.63</td>
+              <td class="flat">+8.8%</td>
+              <td>4.55</td>
+              <td class="flat">-8.2%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>com.Gamnest.CandyRace</strong><span>bundle</span></td>
-              <td>$198</td>
+              <td class="name"><strong>net.zedge.android</strong><span>bundle</span></td>
+              <td>$193</td>
               <td>5.3%</td>
-              <td class="flat">-2.6pp</td>
-              <td>$1.38</td>
-              <td class="up">+15.7%</td>
-              <td>$4.39</td>
-              <td class="flat">+0.5%</td>
-              <td>3.19</td>
-              <td class="down">-13.2%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$0.57</td>
+              <td class="flat">+0.2%</td>
+              <td>$24.05</td>
+              <td class="up">+16.2%</td>
+              <td>42.17</td>
+              <td class="up">+16.0%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>com.miui.videoplayer</strong><span>bundle</span></td>
-              <td>$151</td>
+              <td class="name"><strong>com.grindrapp.android</strong><span>bundle</span></td>
+              <td>$187</td>
+              <td>5.1%</td>
+              <td class="flat">+1.1pp</td>
+              <td>$1.81</td>
+              <td class="up">+81.8%</td>
+              <td>$3.15</td>
+              <td class="flat">-9.6%</td>
+              <td>1.74</td>
+              <td class="down">-50.3%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.firsttouchgames.dls7</strong><span>bundle</span></td>
+              <td>$180</td>
+              <td>4.9%</td>
+              <td class="flat">+0.0pp</td>
+              <td>$1.75</td>
+              <td class="up">+19.4%</td>
+              <td>$2.78</td>
+              <td class="flat">+2.7%</td>
+              <td>1.59</td>
+              <td class="down">-13.9%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>com.robtopx.geometryjumplite</strong><span>bundle</span></td>
+              <td>$145</td>
               <td>4.0%</td>
-              <td class="flat">-2.8pp</td>
-              <td>$0.57</td>
-              <td class="flat">-6.1%</td>
-              <td>$3.00</td>
-              <td class="down">-11.4%</td>
-              <td>5.25</td>
-              <td class="flat">-5.7%</td>
+              <td class="flat">+1.3pp</td>
+              <td>$2.10</td>
+              <td class="up">+50.8%</td>
+              <td>$4.02</td>
+              <td class="up">+28.9%</td>
+              <td>1.91</td>
+              <td class="down">-14.5%</td>
+            </tr>
+            
+            <tr>
+              <td class="name"><strong>ball.sort.puzzle.color.sorting.bubble.games</strong><span>bundle</span></td>
+              <td>$119</td>
+              <td>3.3%</td>
+              <td class="flat">+0.1pp</td>
+              <td>$2.17</td>
+              <td class="up">+21.6%</td>
+              <td>$25.22</td>
+              <td class="up">+33.5%</td>
+              <td>11.61</td>
+              <td class="flat">+9.8%</td>
             </tr>
             
             <tr>
               <td class="name"><strong>com.android.thememanager</strong><span>bundle</span></td>
-              <td>$142</td>
-              <td>3.8%</td>
-              <td class="flat">-0.6pp</td>
-              <td>$0.62</td>
-              <td class="down">-29.0%</td>
-              <td>$1.37</td>
-              <td class="down">-26.7%</td>
-              <td>2.19</td>
-              <td class="flat">+3.2%</td>
+              <td>$111</td>
+              <td>3.0%</td>
+              <td class="flat">+0.6pp</td>
+              <td>$0.63</td>
+              <td class="flat">+1.2%</td>
+              <td>$12.83</td>
+              <td class="up">+33.0%</td>
+              <td>20.40</td>
+              <td class="up">+31.3%</td>
             </tr>
             
             <tr>
-              <td class="name"><strong>com.storymatrix.drama</strong><span>bundle</span></td>
-              <td>$105</td>
-              <td>2.8%</td>
-              <td class="flat">+0.8pp</td>
-              <td>$0.85</td>
-              <td class="up">+12.5%</td>
-              <td>$9.26</td>
-              <td class="up">+28.3%</td>
-              <td>10.83</td>
-              <td class="up">+14.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.herofightinggames.makeup.challenge</strong><span>bundle</span></td>
-              <td>$105</td>
-              <td>2.8%</td>
-              <td class="flat">-0.7pp</td>
-              <td>$1.56</td>
-              <td class="up">+39.7%</td>
-              <td>$6.27</td>
-              <td class="flat">0.0%</td>
-              <td>4.00</td>
-              <td class="down">-28.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.drama.reels.dramify</strong><span>bundle</span></td>
-              <td>$81</td>
-              <td>2.2%</td>
-              <td class="flat">+1.7pp</td>
-              <td>$1.27</td>
-              <td class="up">+111.5%</td>
-              <td>$14.71</td>
-              <td class="up">+35.7%</td>
-              <td>11.57</td>
-              <td class="down">-35.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.mi.globalbrowser</strong><span>bundle</span></td>
-              <td>$75</td>
-              <td>2.0%</td>
-              <td class="flat">-2.6pp</td>
-              <td>$0.52</td>
-              <td class="flat">-1.8%</td>
-              <td>$0.35</td>
-              <td class="down">-36.6%</td>
-              <td>0.67</td>
-              <td class="down">-35.5%</td>
+              <td class="name"><strong>com.lenovo.anyshare.gps</strong><span>bundle</span></td>
+              <td>$97</td>
+              <td>2.6%</td>
+              <td class="flat">-1.2pp</td>
+              <td>$1.83</td>
+              <td class="up">+29.6%</td>
+              <td>$30.70</td>
+              <td class="flat">-7.0%</td>
+              <td>16.80</td>
+              <td class="down">-28.2%</td>
             </tr>
             </tbody>
       </table>
@@ -9099,14 +9531,14 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <div class="seg-head">
                 <div>
                   <h3>ke · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $0.47 → $0.49 (+4.0%); DNU 5.9K → 5.2K (-11.9%)</p>
+                  <p>Sandbox benchmark: CPI $0.47 → $0.52 (+10.6%); DNU 5.9K → 5.2K (-11.6%)</p>
                 </div>
-                <span class="pill flat">DNU</span>
+                <span class="pill up">CPI &amp; DNU</span>
               </div>
               
     <div class="diagnosis">
       <h4>归因结论</h4>
-      <p class="headline">结论：ke · Android · App 1233 主要触发 DNU 下降（5.9K → 5.2K，-11.9%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_KE_Android_20260330_Moloco_UserAcquisition_bs_conversion（投放事件：spending）。</span></p>
+      <p class="headline">结论：ke · Android · App 1233 的 Blackswan CPI 从 $0.47 上升到 $0.52（+10.6%）。<span>主要原因判断：com.truecaller bundle 子渠道变化。</span></p>
       <ul><li>主要 campaign：Bytedance_1233_KE_Android_20260330_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $2.0K、占比 74.2%、CPI $0.52（+7.9%）。</li><li>媒体侧关键项：INMOBI 本期占比 30.2%（-1.6pp），CPM $1.90（+3.4%）、IPM 2.98（-1.1%），该维度是当前主要流量承载，但不是单独的异常来源。</li><li>创意/版位关键项：TT_NW_Aqc_KE_video_coldstart_0326_ACO / vi，本期占比 73.5%（-0.6pp），CPI $0.62（+2.6%）。</li><li>Bundle侧关键项：com.truecaller 本期占比 27.0%（-1.3pp），CPI $0.28（+15.1%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
     </div>
     
@@ -9479,411 +9911,6 @@ a { color:#2563eb; text-decoration:none; font-weight:700; }
               <td class="flat">-1.1%</td>
               <td>4.63</td>
               <td class="flat">-7.0%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-            </section>
-            
-
-            <section class="seg-block" id="seg-dz-Android-1233">
-              <div class="seg-head">
-                <div>
-                  <h3>dz · Android · App 1233</h3>
-                  <p>Sandbox benchmark: CPI $0.16 → $0.17 (+8.2%); DNU 11.8K → 13.4K (+13.7%)</p>
-                </div>
-                <span class="pill flat">DNU</span>
-              </div>
-              
-    <div class="diagnosis">
-      <h4>归因结论</h4>
-      <p class="headline">结论：dz · Android · App 1233 主要触发 DNU 增加（11.8K → 13.4K，+13.7%），CPI变化未超过10%。<span>主要原因判断：主要 campaign Bytedance_1233_DZ_Android_20260330_Moloco_UserAcquisition_bs_conversion（投放事件：spending）。</span></p>
-      <ul><li>主要 campaign：Bytedance_1233_DZ_Android_20260330_Moloco_UserAcquisition_bs_conversion，事件 spending，本期消耗 $1.1K、占比 45.2%、CPI $0.22（+18.4%）。</li><li>媒体侧关键项：VUNGLE 本期占比 31.1%（+2.0pp），CPM $2.57（+40.1%）、IPM 10.05（+25.5%），主要体现为CPM上涨，媒体采购成本变贵。</li><li>创意/版位关键项：TT_NW_Aqc_DZ_video_coldstart_0326_ACO / vi，本期占比 78.9%（+0.7pp），CPI $0.25（+15.6%）。</li><li>Bundle侧关键项：com.lenovo.anyshare.gps 本期占比 31.0%（+4.2pp），CPI $0.25（+4.9%），用于判断是否需要子渠道屏蔽或降量。</li></ul>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>投放 Campaign / 事件</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>Bytedance_1233_DZ_Android_20260330_Moloco_UserAcquisition_bs_conversion</strong><span>spending</span></td>
-              <td>$1.1K</td>
-              <td>45.2%</td>
-              <td class="down">-16.0pp</td>
-              <td>$0.22</td>
-              <td class="up">+18.4%</td>
-              <td>$0.59</td>
-              <td class="flat">+0.8%</td>
-              <td>2.66</td>
-              <td class="down">-14.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>Bytedance_1233_DZ_Android_20260523_Moloco_UserAcquisition_2d_rr_user</strong><span>spending</span></td>
-              <td>$961</td>
-              <td>37.8%</td>
-              <td class="up">+13.9pp</td>
-              <td>$0.21</td>
-              <td class="up">+13.1%</td>
-              <td>$0.91</td>
-              <td class="up">+10.2%</td>
-              <td>4.24</td>
-              <td class="flat">-2.6%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>Bytedance_1233_DZ_Android_20260330_Moloco_UserAcquisition_DNU</strong><span>spending</span></td>
-              <td>$432</td>
-              <td>17.0%</td>
-              <td class="flat">+2.1pp</td>
-              <td>$0.22</td>
-              <td class="up">+31.4%</td>
-              <td>$0.42</td>
-              <td class="up">+13.6%</td>
-              <td>1.85</td>
-              <td class="down">-13.6%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>媒体渠道 / Exchange</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>VUNGLE</strong><span>exchange</span></td>
-              <td>$790</td>
-              <td>31.1%</td>
-              <td class="flat">+2.0pp</td>
-              <td>$0.26</td>
-              <td class="up">+11.6%</td>
-              <td>$2.57</td>
-              <td class="up">+40.1%</td>
-              <td>10.05</td>
-              <td class="up">+25.5%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>INMOBI</strong><span>exchange</span></td>
-              <td>$441</td>
-              <td>17.4%</td>
-              <td class="flat">+2.1pp</td>
-              <td>$0.26</td>
-              <td class="up">+23.4%</td>
-              <td>$0.75</td>
-              <td class="flat">+6.0%</td>
-              <td>2.95</td>
-              <td class="down">-14.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>MOLOCO_SDK_MAX</strong><span>exchange</span></td>
-              <td>$292</td>
-              <td>11.5%</td>
-              <td class="flat">-3.1pp</td>
-              <td>$0.24</td>
-              <td class="flat">+9.4%</td>
-              <td>$0.87</td>
-              <td class="flat">-3.6%</td>
-              <td>3.58</td>
-              <td class="down">-11.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>FYBER</strong><span>exchange</span></td>
-              <td>$201</td>
-              <td>7.9%</td>
-              <td class="flat">+0.9pp</td>
-              <td>$0.26</td>
-              <td class="up">+23.7%</td>
-              <td>$1.31</td>
-              <td class="flat">+1.8%</td>
-              <td>5.11</td>
-              <td class="down">-17.7%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>UNITY</strong><span>exchange</span></td>
-              <td>$190</td>
-              <td>7.5%</td>
-              <td class="flat">+0.6pp</td>
-              <td>$0.25</td>
-              <td class="up">+17.6%</td>
-              <td>$1.14</td>
-              <td class="flat">+0.1%</td>
-              <td>4.63</td>
-              <td class="down">-14.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>MOLOCO_SDK_IN_HOUSE_MEDIATION</strong><span>exchange</span></td>
-              <td>$161</td>
-              <td>6.3%</td>
-              <td class="flat">-0.9pp</td>
-              <td>$0.13</td>
-              <td class="up">+30.7%</td>
-              <td>$0.11</td>
-              <td class="flat">-0.2%</td>
-              <td>0.84</td>
-              <td class="down">-23.7%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>ADX_RTB</strong><span>exchange</span></td>
-              <td>$144</td>
-              <td>5.7%</td>
-              <td class="flat">-0.3pp</td>
-              <td>$0.12</td>
-              <td class="up">+12.2%</td>
-              <td>$0.22</td>
-              <td class="flat">-3.6%</td>
-              <td>1.88</td>
-              <td class="down">-14.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>IRONSOURCE</strong><span>exchange</span></td>
-              <td>$139</td>
-              <td>5.5%</td>
-              <td class="flat">+0.1pp</td>
-              <td>$0.23</td>
-              <td class="up">+15.6%</td>
-              <td>$1.57</td>
-              <td class="up">+12.3%</td>
-              <td>6.94</td>
-              <td class="flat">-2.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>MOLOCO_SDK_ADMOB_MEDIATION</strong><span>exchange</span></td>
-              <td>$86</td>
-              <td>3.4%</td>
-              <td class="flat">-0.8pp</td>
-              <td>$0.27</td>
-              <td class="up">+18.2%</td>
-              <td>$0.70</td>
-              <td class="flat">-4.3%</td>
-              <td>2.64</td>
-              <td class="down">-19.0%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>XIAOMI</strong><span>exchange</span></td>
-              <td>$64</td>
-              <td>2.5%</td>
-              <td class="flat">-0.5pp</td>
-              <td>$0.13</td>
-              <td class="up">+12.5%</td>
-              <td>$0.47</td>
-              <td class="flat">+7.7%</td>
-              <td>3.67</td>
-              <td class="flat">-4.2%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>创意组 / 版位</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>TT_NW_Aqc_DZ_video_coldstart_0326_ACO</strong><span>vi · Interstitial</span></td>
-              <td>$2.0K</td>
-              <td>78.9%</td>
-              <td class="flat">+0.7pp</td>
-              <td>$0.25</td>
-              <td class="up">+15.6%</td>
-              <td>$1.48</td>
-              <td class="up">+18.9%</td>
-              <td>5.84</td>
-              <td class="flat">+2.8%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_Aqc_DZ_video_coldstart_0326_ACO</strong><span>nv · Native</span></td>
-              <td>$283</td>
-              <td>11.2%</td>
-              <td class="flat">-1.4pp</td>
-              <td>$0.11</td>
-              <td class="up">+21.7%</td>
-              <td>$0.14</td>
-              <td class="flat">-1.9%</td>
-              <td>1.22</td>
-              <td class="down">-19.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_Aqc_DZ_video_coldstart_0326_ACO</strong><span>vi · Rewarded Video</span></td>
-              <td>$217</td>
-              <td>8.5%</td>
-              <td class="flat">+0.4pp</td>
-              <td>$0.27</td>
-              <td class="up">+13.5%</td>
-              <td>$1.23</td>
-              <td class="flat">+5.7%</td>
-              <td>4.62</td>
-              <td class="flat">-6.9%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>TT_NW_Aqc_DZ_video_coldstart_0326_ACO</strong><span>vb · Instream Video</span></td>
-              <td>$35</td>
-              <td>1.4%</td>
-              <td class="flat">+0.3pp</td>
-              <td>$0.13</td>
-              <td class="up">+11.0%</td>
-              <td>$0.09</td>
-              <td class="flat">+2.7%</td>
-              <td>0.68</td>
-              <td class="flat">-7.4%</td>
-            </tr>
-            </tbody>
-      </table>
-    </div>
-    
-              
-    <div class="detail-table">
-      <h4>Bundle ID / 子渠道</h4>
-      <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
-        <tbody>
-            <tr>
-              <td class="name"><strong>com.lenovo.anyshare.gps</strong><span>bundle</span></td>
-              <td>$346</td>
-              <td>31.0%</td>
-              <td class="flat">+4.2pp</td>
-              <td>$0.25</td>
-              <td class="flat">+4.9%</td>
-              <td>$9.75</td>
-              <td class="up">+13.6%</td>
-              <td>38.76</td>
-              <td class="flat">+8.3%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.truecaller</strong><span>bundle</span></td>
-              <td>$149</td>
-              <td>13.3%</td>
-              <td class="flat">-3.0pp</td>
-              <td>$0.12</td>
-              <td class="up">+27.1%</td>
-              <td>$0.09</td>
-              <td class="flat">-6.4%</td>
-              <td>0.74</td>
-              <td class="down">-26.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.pinterest</strong><span>bundle</span></td>
-              <td>$144</td>
-              <td>12.9%</td>
-              <td class="flat">-1.3pp</td>
-              <td>$0.12</td>
-              <td class="up">+12.2%</td>
-              <td>$0.22</td>
-              <td class="flat">-3.6%</td>
-              <td>1.88</td>
-              <td class="down">-14.1%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.dywx.larkplayer</strong><span>bundle</span></td>
-              <td>$79</td>
-              <td>7.1%</td>
-              <td class="flat">-0.0pp</td>
-              <td>$0.27</td>
-              <td class="up">+52.9%</td>
-              <td>$1.29</td>
-              <td class="up">+80.8%</td>
-              <td>4.78</td>
-              <td class="up">+18.3%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.block.juggle</strong><span>bundle</span></td>
-              <td>$76</td>
-              <td>6.8%</td>
-              <td class="flat">-6.9pp</td>
-              <td>$0.31</td>
-              <td class="flat">+4.9%</td>
-              <td>$1.83</td>
-              <td class="down">-12.0%</td>
-              <td>5.83</td>
-              <td class="down">-16.2%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.mrbunn.buns.and.bounce</strong><span>bundle</span></td>
-              <td>$61</td>
-              <td>5.5%</td>
-              <td class="flat">+5.4pp</td>
-              <td>$0.28</td>
-              <td class="up">+78.6%</td>
-              <td>$1.54</td>
-              <td class="up">+54.1%</td>
-              <td>5.43</td>
-              <td class="down">-13.7%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.zytoona.wordscrush</strong><span>bundle</span></td>
-              <td>$59</td>
-              <td>5.2%</td>
-              <td class="flat">+0.7pp</td>
-              <td>$0.28</td>
-              <td class="up">+14.4%</td>
-              <td>$2.41</td>
-              <td class="flat">+5.9%</td>
-              <td>8.67</td>
-              <td class="flat">-7.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.Hadiz.Pillowchase</strong><span>bundle</span></td>
-              <td>$51</td>
-              <td>4.6%</td>
-              <td class="flat">+2.9pp</td>
-              <td>$0.34</td>
-              <td class="up">+53.2%</td>
-              <td>$1.01</td>
-              <td class="up">+72.3%</td>
-              <td>3.02</td>
-              <td class="up">+12.4%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.Gamnest.CandyRace</strong><span>bundle</span></td>
-              <td>$42</td>
-              <td>3.8%</td>
-              <td class="flat">+0.1pp</td>
-              <td>$0.26</td>
-              <td class="up">+35.3%</td>
-              <td>$1.02</td>
-              <td class="up">+27.9%</td>
-              <td>3.94</td>
-              <td class="flat">-5.5%</td>
-            </tr>
-            
-            <tr>
-              <td class="name"><strong>com.kiloo.subwaysurf</strong><span>bundle</span></td>
-              <td>$41</td>
-              <td>3.6%</td>
-              <td class="flat">-1.4pp</td>
-              <td>$0.31</td>
-              <td class="up">+10.8%</td>
-              <td>$1.09</td>
-              <td class="flat">-7.6%</td>
-              <td>3.46</td>
-              <td class="down">-16.6%</td>
             </tr>
             </tbody>
       </table>

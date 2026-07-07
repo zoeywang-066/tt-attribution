@@ -2,6 +2,7 @@
 """
 TikTok 投放数据 CPI 归因报告生成器
 每周一运行，覆盖上上周周日到上周周六 vs 前一个7天
+触发逻辑：国家 / OS / app id 维度下，BI CPI 或 DNU 波动超过 ±10% 均触发归因
 """
 
 import subprocess
@@ -17,6 +18,7 @@ OUTPUT_FILE = str(REPO_DIR / "index.html")
 #   formats:    list of creative formats, each: {name, prev_share, curr_share, share_chg,
 #               cpi_chg, ipm_chg, type}
 #   cpi_chg > 0 = 上涨, < 0 = 下跌; 阈值 ±10%
+#   DNU 使用 installs 作为近似，prev_installs/curr_installs 波动 ±10% 也触发
 
 REPORT_DATA = {'period_curr': '2026-06-28 ~ 2026-07-04',
  'period_prev': '2026-06-21 ~ 2026-06-27',
@@ -24518,12 +24520,23 @@ def fmt_summary_pct(v):
     return chg_str(v)
 
 
+def country_dnu_chg(c):
+    prev_v = c.get("prev_installs", 0) or 0
+    curr_v = c.get("curr_installs", 0) or 0
+    if prev_v <= 0:
+        return None
+    return (curr_v / prev_v - 1) * 100
+
+
 def summary_country_rows(prod):
     countries = prod.get("all_countries") or prod.get("countries", [])
     rows = []
     for c in countries:
         cpi_chg = c.get("cpi_chg")
-        if cpi_chg is None or abs(cpi_chg) < 8:
+        dnu_chg = country_dnu_chg(c)
+        cpi_trigger = cpi_chg is not None and abs(cpi_chg) >= 10
+        dnu_trigger = dnu_chg is not None and abs(dnu_chg) >= 10
+        if not cpi_trigger and not dnu_trigger:
             continue
         if max(c.get("prev_installs", 0), c.get("curr_installs", 0)) < 50:
             continue
@@ -24559,15 +24572,28 @@ def render_weekly_summary(d):
             if not rows_data:
                 continue
 
-            red_count = sum(1 for c in rows_data if abs(c["cpi_chg"]) >= 15)
-            yellow_count = sum(1 for c in rows_data if 8 <= abs(c["cpi_chg"]) < 15)
+            red_count = sum(
+                1 for c in rows_data
+                if max(abs(c.get("cpi_chg") or 0), abs(country_dnu_chg(c) or 0)) >= 15
+            )
+            yellow_count = sum(
+                1 for c in rows_data
+                if 10 <= max(abs(c.get("cpi_chg") or 0), abs(country_dnu_chg(c) or 0)) < 15
+            )
             red_total += red_count
             yellow_total += yellow_count
 
             rows = ""
             for c in rows_data:
-                cpi_chg = c["cpi_chg"]
-                red = abs(cpi_chg) >= 15
+                cpi_chg = c.get("cpi_chg") or 0
+                dnu_chg = country_dnu_chg(c)
+                trigger_parts = []
+                if abs(cpi_chg) >= 10:
+                    trigger_parts.append("CPI")
+                if dnu_chg is not None and abs(dnu_chg) >= 10:
+                    trigger_parts.append("DNU")
+                trigger_label = " & ".join(trigger_parts) or "—"
+                red = max(abs(cpi_chg), abs(dnu_chg or 0)) >= 15
                 flag = "🔴" if red else "🟡"
                 direction = "up" if cpi_chg > 0 else "down"
                 cpi_cls = f"cpi-{direction}-strong" if red else f"cpi-{direction}"
@@ -24581,7 +24607,9 @@ def render_weekly_summary(d):
           <td>{html_escape(c.get('code') or c.get('name'))}</td>
           <td><span class="os-badge {os_cls}">{html_escape(prod['os']).upper()}</span></td>
           <td>{html_escape(prod['label'].replace('US ', ''))}</td>
+          <td>{trigger_label}</td>
           <td class="num {cpi_cls}">{chg_str(cpi_chg)}</td>
+          <td class="num {chg_class(dnu_chg)}">{chg_str(dnu_chg)}</td>
           <td>{summary_driver(c)}</td>
           <td class="num">{fmt_summary_pct(c.get('cpm_chg'))}</td>
           <td class="num">{fmt_summary_pct(c.get('ctr_chg'))}</td>
@@ -24600,7 +24628,7 @@ def render_weekly_summary(d):
       <table class="seg-table">
         <thead><tr>
           <th>Flag</th><th>国家</th><th>OS</th><th>App</th>
-          <th class="num">CPI Δ</th><th>主导</th>
+          <th>触发</th><th class="num">CPI Δ</th><th class="num">DNU Δ</th><th>主导</th>
           <th class="num">CPM</th><th class="num">CTR</th><th class="num">I2C</th>
           <th class="num">当前 CPI</th>
         </tr></thead>
