@@ -20,7 +20,7 @@ CURR_START = "2026-06-28"
 CURR_END = "2026-07-11"
 PREV_START = "2026-06-14"
 PREV_END = "2026-06-27"
-MAX_DETAIL_SEGMENTS = 20
+MAX_DETAIL_SEGMENTS = 100
 
 
 def run_bq(sql: str, max_rows: int = 20000) -> list[dict[str, str]]:
@@ -477,9 +477,10 @@ def render_overview_rows(flags: list[dict[str, str]]) -> str:
     for r in flags:
         c = cls_change(r["cpi_chg_pct"])
         d = cls_change(r["dnu_chg_pct"])
+        seg_id = f"seg-{esc(r['segment_key']).replace('|','-')}"
         rows.append(
             f"""
-            <tr>
+            <tr class="overview-row" data-os="{esc(r['os'])}" data-app="{esc(r['app_id'])}" data-cpi="{esc(r['cpi_chg_pct'])}" data-dnu="{esc(r['dnu_chg_pct'])}">
               <td><strong>{esc(r['region'])}</strong></td>
               <td>{esc(r['os'])}</td>
               <td>{esc(r['app_id'])}</td>
@@ -489,11 +490,15 @@ def render_overview_rows(flags: list[dict[str, str]]) -> str:
               <td>{cpi(r['prev_cpi'])} → <strong>{cpi(r['curr_cpi'])}</strong></td>
               <td class="{c}">{pct(r['cpi_chg_pct'])}</td>
               <td class="{d}">{pct(r['dnu_chg_pct'])}</td>
-              <td><a href="#seg-{esc(r['segment_key']).replace('|','-')}">查看归因</a></td>
+              <td><a href="#{seg_id}" onclick="openDetail('{seg_id}'); return false;">查看归因</a></td>
             </tr>
             """
         )
     return "\n".join(rows)
+
+
+def select_options(values: list[str]) -> str:
+    return "".join(f'<option value="{esc(v)}">{esc(v)}</option>' for v in values)
 
 
 def top_driver(rows: list[dict[str, str]]) -> dict[str, str] | None:
@@ -784,10 +789,7 @@ def render_detail_table(rows: list[dict[str, str]], label: str) -> str:
 
 def render_detail_blocks(flags: list[dict[str, str]], grouped) -> str:
     blocks = []
-    top_keys = {r["segment_key"] for r in flags[:MAX_DETAIL_SEGMENTS]}
     for r in flags:
-        if r["segment_key"] not in top_keys:
-            continue
         seg = grouped.get(r["segment_key"], {})
         blocks.append(
             f"""
@@ -816,6 +818,8 @@ def render_html(flags: list[dict[str, str]], details) -> str:
     cpi_up = sum(1 for r in flags if fnum(r["cpi_chg_pct"]) >= 10)
     cpi_down = sum(1 for r in flags if fnum(r["cpi_chg_pct"]) <= -10)
     dnu_moves = sum(1 for r in flags if abs(fnum(r["dnu_chg_pct"])) >= 10)
+    os_values = sorted({r["os"] for r in flags})
+    app_values = sorted({r["app_id"] for r in flags})
     generated = datetime.now().strftime("%Y-%m-%d %H:%M")
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -839,6 +843,12 @@ body {{ margin:0; background:#f6f7fb; color:#172033; font-family:-apple-system,B
 .nav button.active {{ background:#253858; color:white; border-color:#253858; }}
 .tab {{ display:none; }}
 .tab.active {{ display:block; }}
+.filters {{ display:flex; align-items:end; gap:12px; background:white; border:1px solid #e3e8f2; border-radius:10px; padding:12px 14px; margin:14px 0; }}
+.filter-field {{ display:flex; flex-direction:column; gap:5px; min-width:180px; }}
+.filter-field label {{ font-size:11px; color:#64748b; font-weight:700; }}
+.filter-field select {{ border:1px solid #d6dce8; border-radius:8px; padding:8px 10px; background:white; color:#172033; }}
+.filter-reset {{ border:1px solid #d6dce8; border-radius:8px; padding:8px 12px; background:#f8fafc; color:#334155; cursor:pointer; font-weight:700; }}
+.filter-meta {{ margin-left:auto; color:#64748b; font-size:12px; padding-bottom:8px; }}
 .cards {{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:14px 0; }}
 .card {{ background:white; border:1px solid #e3e8f2; border-radius:10px; padding:14px 16px; }}
 .card .label {{ color:#64748b; font-size:12px; }}
@@ -869,7 +879,7 @@ a {{ color:#2563eb; text-decoration:none; font-weight:700; }}
 .name span {{ display:block; color:#94a3b8; font-size:11px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; }}
 .empty {{ padding:10px 12px; background:#f8fafc; border:1px dashed #d6dce8; color:#94a3b8; border-radius:8px; }}
 .source {{ margin-top:16px; color:#64748b; font-size:12px; line-height:1.6; }}
-@media(max-width:900px) {{ .cards {{ grid-template-columns:1fr 1fr; }} .diagnosis ul {{ grid-template-columns:1fr; }} .page {{ padding:12px; }} table {{ font-size:11px; }} }}
+@media(max-width:900px) {{ .cards {{ grid-template-columns:1fr 1fr; }} .filters {{ align-items:stretch; flex-direction:column; }} .filter-meta {{ margin-left:0; padding-bottom:0; }} .diagnosis ul {{ grid-template-columns:1fr; }} .page {{ padding:12px; }} table {{ font-size:11px; }} }}
 </style>
 </head>
 <body>
@@ -882,13 +892,31 @@ a {{ color:#2563eb; text-decoration:none; font-weight:700; }}
   <div class="nav"><button id="btn-overview" onclick="showTab('overview')">双周纵览</button><button id="btn-detail" onclick="showTab('detail')">归因详情</button><a style="margin-left:auto;align-self:center;" href="./index.html">返回周报</a></div>
 
   <section id="overview" class="tab">
-    <div class="cards">
-      <div class="card"><div class="label">触发波动 Segment</div><div class="value">{total}</div></div>
-      <div class="card"><div class="label">CPI 上升 ≥10%</div><div class="value up">{cpi_up}</div></div>
-      <div class="card"><div class="label">CPI 下降 ≥10%</div><div class="value down">{cpi_down}</div></div>
-      <div class="card"><div class="label">DNU 波动 ≥10%</div><div class="value">{dnu_moves}</div></div>
+    <div class="filters">
+      <div class="filter-field">
+        <label for="osFilter">OS</label>
+        <select id="osFilter" onchange="filterOverview()">
+          <option value="">全部 OS</option>
+          {select_options(os_values)}
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="appFilter">App ID</label>
+        <select id="appFilter" onchange="filterOverview()">
+          <option value="">全部 App ID</option>
+          {select_options(app_values)}
+        </select>
+      </div>
+      <button class="filter-reset" onclick="resetOverviewFilters()">重置</button>
+      <div class="filter-meta" id="filterMeta">显示全部 {total} 个 segment</div>
     </div>
-    <div class="note">决策口径：先用 sandbox 的国家 × OS × app_id 双周 DNU / Blackswan CPI 波动做 benchmark 触发，再用 Moloco 明细解释媒体、campaign/事件、创意、bundle 结构变化。试跑版详情展开当前双周消耗 Top {MAX_DETAIL_SEGMENTS} 的波动项。</div>
+    <div class="cards">
+      <div class="card"><div class="label">触发波动 Segment</div><div class="value" id="statTotal">{total}</div></div>
+      <div class="card"><div class="label">CPI 上升 ≥10%</div><div class="value up" id="statCpiUp">{cpi_up}</div></div>
+      <div class="card"><div class="label">CPI 下降 ≥10%</div><div class="value down" id="statCpiDown">{cpi_down}</div></div>
+      <div class="card"><div class="label">DNU 波动 ≥10%</div><div class="value" id="statDnu">{dnu_moves}</div></div>
+    </div>
+    <div class="note">决策口径：先用 sandbox 的国家 × OS × app_id 双周 DNU / Blackswan CPI 波动做 benchmark 触发，再用 Moloco 明细解释媒体、campaign/事件、创意、bundle 结构变化。首页“查看归因”可直接跳转到对应国家详情。</div>
     <table>
       <thead><tr><th>国家</th><th>OS</th><th>App ID</th><th>触发</th><th>本期消耗</th><th>本期 DNU</th><th>Blackswan CPI</th><th>CPI变化</th><th>DNU变化</th><th>详情</th></tr></thead>
       <tbody>{render_overview_rows(flags)}</tbody>
@@ -917,6 +945,48 @@ function checkPw() {{
   }}
 }}
 if (sessionStorage.getItem('tt_auth') === '1') document.getElementById('pw-gate').style.display='none';
+function parseNum(v) {{
+  const n = Number(v);
+  return Number.isFinite(n) ? n : 0;
+}}
+function filterOverview() {{
+  const os = document.getElementById('osFilter')?.value || '';
+  const app = document.getElementById('appFilter')?.value || '';
+  const rows = Array.from(document.querySelectorAll('.overview-row'));
+  let total = 0, cpiUp = 0, cpiDown = 0, dnu = 0;
+  for (const row of rows) {{
+    const show = (!os || row.dataset.os === os) && (!app || row.dataset.app === app);
+    row.style.display = show ? '' : 'none';
+    if (!show) continue;
+    total += 1;
+    const cpi = parseNum(row.dataset.cpi);
+    const dnuV = parseNum(row.dataset.dnu);
+    if (cpi >= 10) cpiUp += 1;
+    if (cpi <= -10) cpiDown += 1;
+    if (Math.abs(dnuV) >= 10) dnu += 1;
+  }}
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statCpiUp').textContent = cpiUp;
+  document.getElementById('statCpiDown').textContent = cpiDown;
+  document.getElementById('statDnu').textContent = dnu;
+  const parts = [];
+  if (os) parts.push('OS=' + os);
+  if (app) parts.push('App ID=' + app);
+  document.getElementById('filterMeta').textContent = (parts.length ? parts.join(' · ') : '全部') + '：' + total + ' 个 segment';
+}}
+function resetOverviewFilters() {{
+  document.getElementById('osFilter').value = '';
+  document.getElementById('appFilter').value = '';
+  filterOverview();
+}}
+function openDetail(segId) {{
+  showTab('detail');
+  window.location.hash = segId;
+  setTimeout(() => {{
+    const el = document.getElementById(segId);
+    if (el) el.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+  }}, 50);
+}}
 function showTab(id) {{
   for (const k of ['overview','detail']) {{
     document.getElementById(k).classList.remove('active');
@@ -926,6 +996,7 @@ function showTab(id) {{
   document.getElementById('btn-'+id).classList.add('active');
 }}
 showTab('overview');
+filterOverview();
 </script>
 </body>
 </html>"""
