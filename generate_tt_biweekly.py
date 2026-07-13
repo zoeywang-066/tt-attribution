@@ -16,10 +16,10 @@ REPO_DIR = Path("/Users/zoey.wang/Desktop/tt-report")
 OUTPUT_FILE = REPO_DIR / "biweekly.html"
 
 PROJECT = "ads-bpd-guard-sandbox"
-CURR_START = "2026-06-24"
-CURR_END = "2026-07-07"
-PREV_START = "2026-06-10"
-PREV_END = "2026-06-23"
+CURR_START = "2026-06-29"
+CURR_END = "2026-07-12"
+PREV_START = "2026-06-15"
+PREV_END = "2026-06-28"
 MAX_DETAIL_SEGMENTS = 20
 
 
@@ -42,6 +42,27 @@ def run_bq(sql: str, max_rows: int = 20000) -> list[dict[str, str]]:
     if not text:
         return []
     return list(csv.DictReader(StringIO(text)))
+
+
+def assert_data_coverage():
+    rows = run_bq(
+        """
+SELECT
+  MIN(max_date) AS max_common_date
+FROM (
+  SELECT MAX(p_date) AS max_date FROM `ads-bpd-guard-sandbox.sherry.tt_android_region_daily`
+  UNION ALL
+  SELECT MAX(p_date) AS max_date FROM `ads-bpd-guard-sandbox.sherry.tt_ios_region_daily`
+)
+""",
+        max_rows=10,
+    )
+    max_common = rows[0]["max_common_date"] if rows else ""
+    if max_common < CURR_END:
+        raise SystemExit(
+            f"Sandbox data incomplete: max common date is {max_common}, "
+            f"but current biweekly period requires data through {CURR_END}."
+        )
 
 
 def fnum(v, default=0.0) -> float:
@@ -911,6 +932,7 @@ showTab('overview');
 
 
 def main():
+    assert_data_coverage()
     flags, details = load_data()
     html_text = render_html(flags, details)
     OUTPUT_FILE.write_text(html_text, encoding="utf-8")
