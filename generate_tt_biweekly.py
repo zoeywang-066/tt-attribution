@@ -430,6 +430,7 @@ SELECT
   dim_extra,
   ROUND(prev_spend, 2) AS prev_spend,
   ROUND(curr_spend, 2) AS curr_spend,
+  ROUND(100 * SAFE_DIVIDE(prev_spend, NULLIF(SUM(prev_spend) OVER (PARTITION BY segment_key), 0)), 2) AS prev_share,
   ROUND(100 * SAFE_DIVIDE(curr_spend, SUM(curr_spend) OVER (PARTITION BY segment_key)), 2) AS curr_share,
   ROUND(100 * (SAFE_DIVIDE(curr_spend, SUM(curr_spend) OVER (PARTITION BY segment_key)) - SAFE_DIVIDE(prev_spend, NULLIF(SUM(prev_spend) OVER (PARTITION BY segment_key), 0))), 2) AS share_chg_pp,
   prev_installs,
@@ -446,9 +447,9 @@ SELECT
 FROM scored
 QUALIFY ROW_NUMBER() OVER (
   PARTITION BY segment_key
-  ORDER BY curr_spend DESC
+  ORDER BY GREATEST(curr_spend, prev_spend) DESC
 ) <= 12
-ORDER BY segment_key, curr_spend DESC
+ORDER BY segment_key, GREATEST(curr_spend, prev_spend) DESC
 """
     )
 
@@ -477,6 +478,7 @@ def render_overview_rows(flags: list[dict[str, str]]) -> str:
     for r in flags:
         c = cls_change(r["cpi_chg_pct"])
         d = cls_change(r["dnu_chg_pct"])
+        spend_chg = rel_chg(r.get("curr_spend"), r.get("prev_spend"))
         seg_id = f"seg-{esc(r['segment_key']).replace('|','-')}"
         rows.append(
             f"""
@@ -485,7 +487,8 @@ def render_overview_rows(flags: list[dict[str, str]]) -> str:
               <td>{esc(r['os'])}</td>
               <td>{esc(r['app_id'])}</td>
               <td>{esc(r['trigger_metric'])}</td>
-              <td>{money(r['curr_spend'])}</td>
+              <td>{money(r['prev_spend'])} → <strong>{money(r['curr_spend'])}</strong></td>
+              <td class="{cls_change(spend_chg)}">{pct(spend_chg) if spend_chg is not None else '新增/无基数'}</td>
               <td>{num(r['curr_dnu'])}</td>
               <td>{cpi(r['prev_cpi'])} → <strong>{cpi(r['curr_cpi'])}</strong></td>
               <td class="{c}">{pct(r['cpi_chg_pct'])}</td>
@@ -586,6 +589,7 @@ def aggregate_event_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
             {
                 **{k: str(v) for k, v in b.items()},
                 "curr_share": str(curr_share),
+                "prev_share": str(prev_share),
                 "share_chg_pp": str(curr_share - prev_share),
                 "prev_cpi": str(prev_cpi),
                 "curr_cpi": str(curr_cpi),
@@ -652,6 +656,75 @@ def dnu_mechanic(flag: dict[str, str]) -> str:
     return "DNU变化不明显。"
 
 
+def scale_mechanic(flag: dict[str, str], mode: str) -> str:
+    spend_chg = rel_chg(flag.get("curr_spend"), flag.get("prev_spend"))
+    if spend_chg is None or abs(spend_chg) < 10:
+        return ""
+    cpi_chg = fnum(flag.get("cpi_chg_pct"))
+    if spend_chg >= 10 and cpi_chg >= 10:
+        return f"国家消耗扩大 {pct(spend_chg)} 且 CPI 同步上涨，呈现放量后的边际成本上升；若期间确有加预算，可将其列为成本上涨的操作侧原因。"
+    if spend_chg <= -10 and cpi_chg <= -10:
+        return f"国家消耗收缩 {pct(spend_chg)} 且 CPI 同步下降，低效增量退出可能推动成本改善。"
+    if spend_chg <= -10 and cpi_chg >= 10:
+        return f"国家消耗已收缩 {pct(spend_chg)} 但 CPI 仍上涨，成本恶化不能仅用加预算解释，更可能来自剩余流量效率下降或低成本流量退出。"
+    if spend_chg >= 10 and cpi_chg <= -10:
+        return f"国家消耗扩大 {pct(spend_chg)} 的同时 CPI 下降，说明本期放量质量较好。"
+    if mode == "volume":
+        direction = "扩大" if spend_chg > 0 else "收缩"
+        return f"国家消耗{direction} {pct(spend_chg)}，是 DNU 波动的重要规模侧信号。"
+    return ""
+
+
+def suspected_exit(
+    rows: list[dict[str, str]],
+    overall_prev_cpi: float,
+    cost_mode: str,
+) -> dict[str, str] | None:
+    candidates = []
+    for row in rows:
+        prev_spend = fnum(row.get("prev_spend"))
+        curr_spend = fnum(row.get("curr_spend"))
+        prev_share = fnum(row.get("prev_share"))
+        prev_cpi = fnum(row.get("prev_cpi"))
+        nearly_zero = prev_spend >= 30 and curr_spend <= max(1.0, prev_spend * 0.05)
+        material = prev_share >= 1 or prev_spend >= 100
+        if not nearly_zero or not material or prev_cpi <= 0 or overall_prev_cpi <= 0:
+            continue
+        if cost_mode == "high" and prev_cpi < overall_prev_cpi * 1.10:
+            continue
+        if cost_mode == "low" and prev_cpi > overall_prev_cpi * 0.90:
+            continue
+        candidates.append(row)
+    if not candidates:
+        return None
+    return max(candidates, key=lambda r: fnum(r.get("prev_spend")))
+
+
+def operation_evidence(flag: dict[str, str], seg: dict[str, list[dict[str, str]]], mode: str) -> list[str]:
+    evidence = []
+    overall_prev_cpi = fnum(flag.get("prev_cpi"))
+    wanted_cost = "high" if mode == "down" else "low" if mode == "up" else "high"
+    labels = (("bundle", "媒体 bundle"), ("creative", "创意"), ("campaign", "campaign"))
+    for dtype, label in labels:
+        row = suspected_exit(seg.get(dtype, []), overall_prev_cpi, wanted_cost)
+        if not row:
+            continue
+        if mode == "down":
+            effect = "高成本流量退出与 CPI 改善方向一致"
+        elif mode == "up":
+            effect = "低成本流量退出可能抬高剩余流量 CPI"
+        else:
+            effect = "该流量退出可能影响 DNU 和剩余投放结构，方向需结合整体 CPI 判断"
+        evidence.append(
+            f"疑似操作影响：{label} {esc(row['dim_name'])} 上期消耗 {money(row['prev_spend'])}、"
+            f"占比 {fnum(row.get('prev_share')):.1f}%、CPI {cpi(row['prev_cpi'])}，本期消耗接近归零；{effect}。"
+            "当前由投放归零推断，需用 edit history 确认是否为人工屏蔽、移除或暂停。"
+        )
+        if len(evidence) >= 2:
+            break
+    return evidence
+
+
 def render_diagnosis(flag: dict[str, str], seg: dict[str, list[dict[str, str]]]) -> str:
     cpi_chg = fnum(flag["cpi_chg_pct"])
     dnu_chg = fnum(flag["dnu_chg_pct"])
@@ -662,6 +735,8 @@ def render_diagnosis(flag: dict[str, str], seg: dict[str, list[dict[str, str]]])
     media = best_driver(seg.get("media", []), mode)
     creative = best_driver(seg.get("creative", []), mode)
     bundle = best_driver(seg.get("bundle", []), mode)
+    scale_reason = scale_mechanic(flag, mode)
+    op_evidence = operation_evidence(flag, seg, mode)
 
     if mode == "up":
         headline = (
@@ -704,15 +779,18 @@ def render_diagnosis(flag: dict[str, str], seg: dict[str, list[dict[str, str]]])
         reason_line = "主要原因判断：" + "；".join(reasons[:3]) + "。"
     else:
         reason_line = "主要原因判断：当前更像整体结构/规模变化，单一 campaign、媒体或创意未形成足够明确的主因。"
+    if scale_reason:
+        reason_line += scale_reason
 
     evidence = []
-    if mode == "volume":
-        spend_chg = rel_chg(flag.get("curr_spend"), flag.get("prev_spend"))
+    spend_chg = rel_chg(flag.get("curr_spend"), flag.get("prev_spend"))
+    if spend_chg is not None:
         evidence.append(
             f"预算/规模：国家消耗 {money(flag['prev_spend'])} → {money(flag['curr_spend'])}（{pct(spend_chg) if spend_chg is not None else '新增/缺少上期基数'}），"
             f"DNU {num(flag['prev_dnu'])} → {num(flag['curr_dnu'])}（{pct(flag['dnu_chg_pct'])}），"
             f"BI CPI {cpi(flag['prev_cpi'])} → {cpi(flag['curr_cpi'])}（{pct(flag['cpi_chg_pct'])}）。"
         )
+    evidence.extend(op_evidence)
     if event and (len(event_rows) > 1 or abs(fnum(event.get("share_chg_pp"))) >= 2):
         evidence.append(
             f"事件/投放：{esc(event['dim_name'])} 事件本期承载约 {fnum(event['curr_share']):.1f}% 消耗，"
@@ -746,7 +824,7 @@ def render_diagnosis(flag: dict[str, str], seg: dict[str, list[dict[str, str]]])
     <div class="diagnosis">
       <h4>归因结论</h4>
       <p class="headline">{headline}<span>{reason_line}</span></p>
-      <ul>{''.join(f'<li>{x}</li>' for x in evidence[:5])}</ul>
+      <ul>{''.join(f'<li>{x}</li>' for x in evidence[:7])}</ul>
     </div>
     """
 
@@ -760,19 +838,46 @@ def render_detail_table(rows: list[dict[str, str]], label: str) -> str:
         sub = r.get("dim_sub") or ""
         extra = r.get("dim_extra") or ""
         subline = " · ".join(x for x in (sub, extra) if x and x != "NULL")
+        prev_spend = fnum(r.get("prev_spend"))
+        curr_spend = fnum(r.get("curr_spend"))
+        if prev_spend >= 30 and curr_spend <= max(1.0, prev_spend * 0.05):
+            status = '<span class="op-status op-exit">疑似暂停/移除</span>'
+            cpi_value = f"{cpi(r['prev_cpi'])} → 退出"
+            cpi_change = "-"
+            cpm_value = f"{cpi(r['prev_cpm'])} → 退出"
+            cpm_change = "-"
+            ipm_value = f"{fnum(r['prev_ipm']):.2f} → 退出"
+            ipm_change = "-"
+        elif curr_spend >= 30 and prev_spend <= max(1.0, curr_spend * 0.05):
+            status = '<span class="op-status op-new">新增/放量</span>'
+            cpi_value = cpi(r['curr_cpi'])
+            cpi_change = "新增"
+            cpm_value = cpi(r['curr_cpm'])
+            cpm_change = "新增"
+            ipm_value = f"{fnum(r['curr_ipm']):.2f}"
+            ipm_change = "新增"
+        else:
+            status = '<span class="op-status">持续投放</span>'
+            cpi_value = cpi(r['curr_cpi'])
+            cpi_change = pct(r['cpi_chg_pct'])
+            cpm_value = cpi(r['curr_cpm'])
+            cpm_change = pct(r['cpm_chg_pct'])
+            ipm_value = f"{fnum(r['curr_ipm']):.2f}"
+            ipm_change = pct(r['ipm_chg_pct'])
         trs.append(
             f"""
             <tr>
               <td class="name"><strong>{esc(name)}</strong><span>{esc(subline)}</span></td>
+              <td>{status}</td>
               <td>{money(r['curr_spend'])}</td>
               <td>{fnum(r['curr_share']):.1f}%</td>
               <td class="{cls_change(r['share_chg_pp'])}">{fnum(r['share_chg_pp']):+.1f}pp</td>
-              <td>{cpi(r['curr_cpi'])}</td>
-              <td class="{cls_change(r['cpi_chg_pct'])}">{pct(r['cpi_chg_pct'])}</td>
-              <td>{cpi(r['curr_cpm'])}</td>
-              <td class="{cls_change(r['cpm_chg_pct'])}">{pct(r['cpm_chg_pct'])}</td>
-              <td>{fnum(r['curr_ipm']):.2f}</td>
-              <td class="{cls_change(r['ipm_chg_pct'])}">{pct(r['ipm_chg_pct'])}</td>
+              <td>{cpi_value}</td>
+              <td class="{cls_change(r['cpi_chg_pct'])}">{cpi_change}</td>
+              <td>{cpm_value}</td>
+              <td class="{cls_change(r['cpm_chg_pct'])}">{cpm_change}</td>
+              <td>{ipm_value}</td>
+              <td class="{cls_change(r['ipm_chg_pct'])}">{ipm_change}</td>
             </tr>
             """
         )
@@ -780,7 +885,7 @@ def render_detail_table(rows: list[dict[str, str]], label: str) -> str:
     <div class="detail-table">
       <h4>{label}</h4>
       <table>
-        <thead><tr><th>维度</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
+        <thead><tr><th>维度</th><th>投放状态</th><th>本期消耗</th><th>占比</th><th>占比变化</th><th>CPI</th><th>CPI变化</th><th>CPM</th><th>CPM变化</th><th>IPM</th><th>IPM变化</th></tr></thead>
         <tbody>{''.join(trs)}</tbody>
       </table>
     </div>
@@ -797,7 +902,7 @@ def render_detail_blocks(flags: list[dict[str, str]], grouped) -> str:
               <div class="seg-head">
                 <div>
                   <h3>{esc(r['region'])} · {esc(r['os'])} · App {esc(r['app_id'])}</h3>
-                  <p>Sandbox benchmark: CPI {cpi(r['prev_cpi'])} → {cpi(r['curr_cpi'])} ({pct(r['cpi_chg_pct'])}); DNU {num(r['prev_dnu'])} → {num(r['curr_dnu'])} ({pct(r['dnu_chg_pct'])})</p>
+                  <p>Sandbox benchmark: CPI {cpi(r['prev_cpi'])} → {cpi(r['curr_cpi'])} ({pct(r['cpi_chg_pct'])}); DNU {num(r['prev_dnu'])} → {num(r['curr_dnu'])} ({pct(r['dnu_chg_pct'])}); 周期消耗 {money(r['prev_spend'])} → {money(r['curr_spend'])} ({pct(rel_chg(r.get('curr_spend'), r.get('prev_spend'))) if rel_chg(r.get('curr_spend'), r.get('prev_spend')) is not None else '新增/无基数'})</p>
                 </div>
                 <span class="pill {cls_change(r['cpi_chg_pct'])}">{esc(r['trigger_metric'])}</span>
               </div>
@@ -877,6 +982,9 @@ a {{ color:#2563eb; text-decoration:none; font-weight:700; }}
 .detail-table h4 {{ margin:0 0 8px; color:#334155; font-size:13px; }}
 .name {{ max-width:360px; overflow:hidden; text-overflow:ellipsis; }}
 .name span {{ display:block; color:#94a3b8; font-size:11px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; }}
+.op-status {{ display:inline-flex; padding:3px 7px; border-radius:999px; background:#f1f5f9; color:#64748b; font-size:10px; font-weight:700; }}
+.op-exit {{ background:#fff7ed; color:#c2410c; }}
+.op-new {{ background:#eff6ff; color:#1d4ed8; }}
 .empty {{ padding:10px 12px; background:#f8fafc; border:1px dashed #d6dce8; color:#94a3b8; border-radius:8px; }}
 .source {{ margin-top:16px; color:#64748b; font-size:12px; line-height:1.6; }}
 @media(max-width:900px) {{ .cards {{ grid-template-columns:1fr 1fr; }} .filters {{ align-items:stretch; flex-direction:column; }} .filter-meta {{ margin-left:0; padding-bottom:0; }} .diagnosis ul {{ grid-template-columns:1fr; }} .page {{ padding:12px; }} table {{ font-size:11px; }} }}
@@ -916,9 +1024,9 @@ a {{ color:#2563eb; text-decoration:none; font-weight:700; }}
       <div class="card"><div class="label">CPI 下降 ≥10%</div><div class="value down" id="statCpiDown">{cpi_down}</div></div>
       <div class="card"><div class="label">DNU 波动 ≥10%</div><div class="value" id="statDnu">{dnu_moves}</div></div>
     </div>
-    <div class="note">决策口径：先用 sandbox 的国家 × OS × app_id 双周 DNU / Blackswan CPI 波动做 benchmark 触发，再用 Moloco 明细解释媒体、campaign/事件、创意、bundle 结构变化。首页“查看归因”可直接跳转到对应国家详情。</div>
+    <div class="note">决策口径：先用 sandbox 的国家 × OS × app_id 双周 DNU / Blackswan CPI 波动做 benchmark 触发，再用 Moloco 明细解释预算/规模、媒体、campaign/事件、创意、bundle 结构变化。当前“预算/规模涨跌”使用周期实际消耗作为代理；媒体或创意本期归零会标记为“疑似操作影响”。只有匹配到 edit history 前后值，才可对外表述为已确认的屏蔽、移除或预算调整。</div>
     <table>
-      <thead><tr><th>国家</th><th>OS</th><th>App ID</th><th>触发</th><th>本期消耗</th><th>本期 DNU</th><th>Blackswan CPI</th><th>CPI变化</th><th>DNU变化</th><th>详情</th></tr></thead>
+      <thead><tr><th>国家</th><th>OS</th><th>App ID</th><th>触发</th><th>周期消耗</th><th>预算/规模涨跌*</th><th>本期 DNU</th><th>Blackswan CPI</th><th>CPI变化</th><th>DNU变化</th><th>详情</th></tr></thead>
       <tbody>{render_overview_rows(flags)}</tbody>
     </table>
   </section>
@@ -930,7 +1038,8 @@ a {{ color:#2563eb; text-decoration:none; font-weight:700; }}
   <div class="source">
     <strong>Source</strong><br>
     Benchmark: <code>ads-bpd-guard-sandbox.sherry.tt_android_region_daily</code>, <code>tt_ios_region_daily</code>, campaign bridge from <code>tt_android_campaign_daily</code>/<code>tt_ios_campaign_daily</code>.<br>
-    Moloco details: <code>ads-bpd-guard-china.athena.fact_dsp_core</code>, <code>fact_dsp_creative</code>, <code>fact_dsp_publisher</code>. CPI = spend / installs or spend / DNU; CPM = spend / impressions × 1000; IPM = installs / impressions × 1000.
+    Moloco details: <code>ads-bpd-guard-china.athena.fact_dsp_core</code>, <code>fact_dsp_creative</code>, <code>fact_dsp_publisher</code>. CPI = spend / installs or spend / DNU; CPM = spend / impressions × 1000; IPM = installs / impressions × 1000.<br>
+    Edit history: candidate source <code>prod.entity_change_log_last_180_days</code>; current TT entity records are not visible through the authorized view, so “屏蔽/移除/预算修改”暂按投放变化标记为疑似，不作为已确认事实。
   </div>
 </div>
 <script>
@@ -1006,6 +1115,7 @@ def main():
     assert_data_coverage()
     flags, details = load_data()
     html_text = render_html(flags, details)
+    html_text = "\n".join(line.rstrip() for line in html_text.splitlines()) + "\n"
     OUTPUT_FILE.write_text(html_text, encoding="utf-8")
     print(f"generated {OUTPUT_FILE}")
     print(f"flags={len(flags)} detail_rows={sum(len(v) for v in details.values())}")
