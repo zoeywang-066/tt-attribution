@@ -16,10 +16,10 @@ REPO_DIR = Path("/Users/zoey.wang/Desktop/tt-report")
 OUTPUT_FILE = REPO_DIR / "biweekly.html"
 
 PROJECT = "ads-bpd-guard-sandbox"
-CURR_START = "2026-06-15"
-CURR_END = "2026-06-28"
-PREV_START = "2026-06-01"
-PREV_END = "2026-06-14"
+CURR_START = "2026-06-24"
+CURR_END = "2026-07-07"
+PREV_START = "2026-06-10"
+PREV_END = "2026-06-23"
 MAX_DETAIL_SEGMENTS = 20
 
 
