@@ -950,6 +950,10 @@
 <button class="tab-btn" id="btn-p_us_ios" onclick="switchTab('p_us_ios')">US iOS <span class="os-ios os-badge-sm">iOS</span> <span class="badge ok">✓</span></button>
 </div>
     </div>
+    <div class="tab-group">
+      <div class="tab-group-label">素材专项</div>
+      <div class="tab-btns"><button class="tab-btn" id="btn-pine_drama" onclick="switchTab('pine_drama')">PineDrama素材分析 <span class="badge ok">2</span></button></div>
+    </div>
 </div>
 
 
@@ -16013,6 +16017,146 @@
     </div>
 </div>
 
+<div id="pine_drama" class="tab-content">
+  <style scoped>
+    .pine-wrap { padding:18px 20px 28px; }
+    .pine-note { background:#eff6ff;border-left:4px solid #2563eb;padding:10px 14px;margin-bottom:16px;color:#334155;line-height:1.5; }
+    .pine-overview { margin-bottom:20px; }
+    .pine-overview .num,.pine-creative-table .num { text-align:right;font-variant-numeric:tabular-nums; }
+    .pine-country { border-top:1px solid #e2e8f0;padding:18px 0 22px; }
+    .pine-country h3 { display:flex;align-items:center;gap:10px;font-size:16px;margin-bottom:10px;color:#1e293b; }
+    .pine-country h3 span { margin-left:auto;font-size:12px;font-weight:400;color:#64748b; }
+    .pine-summary-title { background:#f8fafc;border-left:3px solid #6366f1;padding:9px 12px;margin-bottom:8px; }
+    .pine-event-list { padding:2px 2px 12px; }
+    .pine-event-line { padding:7px 10px;border-bottom:1px dashed #e2e8f0;line-height:1.55; }
+    .pine-event-line:last-child { border-bottom:0; }
+    .pine-creative-table .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px; }
+    .pine-creative-table td { vertical-align:top;line-height:1.45; }
+  </style>
+  <div class="product-header">
+    <span class="product-id-badge">PINE</span><h2>PineDrama素材分析</h2>
+    <span style="margin-left:auto;font-size:12px;color:#64748b;">campaign name包含 pinereuse</span>
+  </div>
+  <div class="pine-wrap">
+    <div class="pine-note">DNU占比 = pinereuse campaign的沙盒DNU ÷ 该国家/OS/App整体沙盒DNU；campaign DNU缺失时留空。内容类型依据creative group命名与素材元数据（时长、画幅、版位）解析。</div>
+    <div class="table-title"><span class="icon icon-bench">D</span>分国家Pine DNU占比与整体表现</div>
+    <table class="pine-overview">
+      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine DNU</th><th>国家整体DNU</th><th>DNU占比</th>
+          <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家均值CPI</th></tr>
+      
+        <tr>
+          <td>🇮🇩 IDN</td><td>1180</td><td>Android</td>
+          <td class="num">3,880</td><td class="num">11,929</td><td class="num">32.5%</td>
+          <td class="num">$8,348</td><td class="num">$2.69</td>
+          <td class="num chg-up">+11.8%</td><td class="num">$2.44</td>
+        </tr>
+        <tr>
+          <td>🇲🇽 MEX</td><td>1233</td><td>Android</td>
+          <td class="num">1,499</td><td class="num">11,194</td><td class="num">13.4%</td>
+          <td class="num">$3,535</td><td class="num">$1.59</td>
+          <td class="num chg-up">+10.7%</td><td class="num">$1.72</td>
+        </tr>
+    </table>
+    
+        <section class="pine-country">
+          <h3>🇮🇩 IDN / 1180
+            <span>国家均值 $2.44 · Pine整体 CPI <b class="chg-up">+11.8%</b> · DNU占比 32.5%</span>
+          </h3>
+          <div class="pine-summary-title"><strong>IDN / 1180（国家均值 2.44；Pine整体 CPI +11.8%）</strong></div>
+          <div class="pine-event-list">
+            <div class="pine-event-line">
+              <strong>2d_rr_user：</strong>Pine CPI 2.69，周环比
+              <span class="chg-up">+11.8%</span>；
+              事件均值 2.69，国家均值 2.44，与事件均值持平、但高于国家均值，优势不足，建议限制放量并观察。
+            </div></div>
+          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
+          <table class="pine-creative-table">
+            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
+                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
+            
+            <tr>
+              <td class="num">1</td>
+              <td class="mono">gyR44lPxaKU6Do5F</td>
+              <td class="num">$138.11</td>
+              <td class="num">$0.85</td><td class="num">$2.44</td>
+              <td>短剧复用剪辑</td>
+              <td>方屏 · 插屏视频 · 9秒 · 超短版</td>
+              <td>超短强钩子型，快速呈现冲突点，适合低门槛转化。</td>
+              <td>优先保留并复用同类结构</td>
+            </tr>
+            <tr>
+              <td class="num">2</td>
+              <td class="mono">fTtOkOZthQfxG486</td>
+              <td class="num">$89.77</td>
+              <td class="num">$1.38</td><td class="num">$2.44</td>
+              <td>短剧复用剪辑</td>
+              <td>竖屏 · 原生视频 · 18秒 · 短版</td>
+              <td>竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。</td>
+              <td>优先保留并复用同类结构</td>
+            </tr>
+            <tr>
+              <td class="num">3</td>
+              <td class="mono">mdJBM8RRj571w0jE</td>
+              <td class="num">$83.05</td>
+              <td class="num">$1.30</td><td class="num">$2.44</td>
+              <td>短剧复用剪辑</td>
+              <td>方屏 · 原生视频 · 7秒 · 超短版</td>
+              <td>超短强钩子型，快速呈现冲突点，适合低门槛转化。</td>
+              <td>优先保留并复用同类结构</td>
+            </tr>
+          </table>
+        </section>
+        <section class="pine-country">
+          <h3>🇲🇽 MEX / 1233
+            <span>国家均值 $1.72 · Pine整体 CPI <b class="chg-up">+10.7%</b> · DNU占比 13.4%</span>
+          </h3>
+          <div class="pine-summary-title"><strong>MEX / 1233（国家均值 1.72；Pine整体 CPI +10.7%）</strong></div>
+          <div class="pine-event-list">
+            <div class="pine-event-line">
+              <strong>2d_rr_user：</strong>Pine CPI 1.59，周环比
+              <span class="chg-up">+10.7%</span>；
+              事件均值 1.59，国家均值 1.72，与事件均值持平、低于国家均值，仍有优势，建议持续测试。
+            </div></div>
+          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
+          <table class="pine-creative-table">
+            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
+                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
+            
+            <tr>
+              <td class="num">1</td>
+              <td class="mono">LY1pRrABpZgBMBrD</td>
+              <td class="num">$687.60</td>
+              <td class="num">$1.63</td><td class="num">$1.72</td>
+              <td>短剧剧情高光</td>
+              <td>竖屏 · 插屏视频 · 62秒 · 长版</td>
+              <td>长剧情承接型，依靠连续情节与高光片段维持转化。</td>
+              <td>低于国家均值，建议持续测试</td>
+            </tr>
+            <tr>
+              <td class="num">2</td>
+              <td class="mono">HAV6jBMtVO81Z5hA</td>
+              <td class="num">$609.64</td>
+              <td class="num">$1.54</td><td class="num">$1.72</td>
+              <td>短剧剧情高光</td>
+              <td>竖屏 · 激励视频 · 81秒 · 长版</td>
+              <td>长剧情承接型，依靠连续情节与高光片段维持转化。</td>
+              <td>低于国家均值，建议持续测试</td>
+            </tr>
+            <tr>
+              <td class="num">3</td>
+              <td class="mono">vbYG7Le4NKvSAcG5</td>
+              <td class="num">$405.39</td>
+              <td class="num">$1.55</td><td class="num">$1.72</td>
+              <td>短剧剧情高光</td>
+              <td>竖屏 · 激励视频 · 62秒 · 长版</td>
+              <td>长剧情承接型，依靠连续情节与高光片段维持转化。</td>
+              <td>低于国家均值，建议持续测试</td>
+            </tr>
+          </table>
+        </section>
+  </div>
+</div>
+
 </div>
 
 <button class="copy-btn" onclick="copyText()">📋 复制摘要</button>
@@ -16037,7 +16181,7 @@ function checkPw() {
   }
 }
 
-const ALL_KEYS = ['p_main_1340_and','p_main_1180_and','p_main_1233_and','p_main_1180_ios','p_main_1233_ios','p_us_1340_and','p_us_1233_and','p_us_ios'];
+const ALL_KEYS = ['p_main_1340_and','p_main_1180_and','p_main_1233_and','p_main_1180_ios','p_main_1233_ios','p_us_1340_and','p_us_1233_and','p_us_ios','pine_drama'];
 
 function switchTab(id) {
   ALL_KEYS.forEach(k => {

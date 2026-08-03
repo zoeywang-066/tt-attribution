@@ -37588,7 +37588,156 @@ REPORT_DATA = {'period_curr': '2026-07-26 ~ 2026-08-01',
                                                               '100.0%、CPI +1.1%；媒体侧 295646461 消耗占比 8.0%、CPI +15.9%、CPM '
                                                               '+4.9%。后续优化动作：屏蔽或降量295646461等高CPI媒体，移除CPI高于目标且IPM持续下降的创意。'}],
                              'countries': [],
-                             'no_alert': True}]}]}
+                             'no_alert': True}]}],
+ 'pine_drama': {'key': 'pine_drama',
+                'label': 'PineDrama素材分析',
+                'countries': [{'product_key': 'p_main_1180_and',
+                               'product_id': 'OK9ZHF0eYCoGIUfq',
+                               'app_code': '1180',
+                               'os': 'Android',
+                               'country': 'IDN',
+                               'flag': '🇮🇩',
+                               'country_name': '印度尼西亚 (IDN)',
+                               'country_avg_cpi': 2.4368,
+                               'prev_pine_spend': 5609.76,
+                               'curr_pine_spend': 8347.59,
+                               'prev_pine_cpi': 2.4035,
+                               'curr_pine_cpi': 2.6867,
+                               'pine_cpi_chg': 11.78,
+                               'pine_dnu': 3880.0,
+                               'country_dnu': 11929.0,
+                               'pine_dnu_share': 32.53,
+                               'events': [{'name': '2d_rr_user',
+                                           'prev_spend': 5609.76,
+                                           'curr_spend': 8347.59,
+                                           'spend_chg_pct': 48.8,
+                                           'prev_cpi': 2.4035,
+                                           'curr_cpi': 2.6867,
+                                           'wow_cpi_pct': 11.78,
+                                           'event_avg_cpi': 2.6867,
+                                           'recommendation': '与事件均值持平、但高于国家均值，优势不足，建议限制放量并观察。'}],
+                               'top_creatives': [{'rank': 1,
+                                                  'creative_id': 'gyR44lPxaKU6Do5F',
+                                                  'creative_name': 'cid=2a58d85b08c74d5853b84f820450f6c9.mp4',
+                                                  'creative_group_id': 'BK0hIxI2YMgNtQus',
+                                                  'creative_group_name': 'ID_TT_Shortplay-PineReuse-CPM-video-1x1-26Q3M7W1_ACO',
+                                                  'campaign_name': 'Bytedance_1180_ID_Android_20260702_Moloco_UserAcquisition_d2_rr_user_rt_pinereuse',
+                                                  'curr_spend': 138.11,
+                                                  'curr_installs': 162,
+                                                  'prev_cpi': 0.8148,
+                                                  'curr_cpi': 0.8525,
+                                                  'country_avg_cpi': 2.4368,
+                                                  'vs_country_avg_pct': -65.02,
+                                                  'content_type': '短剧复用剪辑',
+                                                  'style': '方屏 · 插屏视频 · 9秒 · 超短版',
+                                                  'interpretation': '超短强钩子型，快速呈现冲突点，适合低门槛转化。',
+                                                  'recommendation': '优先保留并复用同类结构'},
+                                                 {'rank': 2,
+                                                  'creative_id': 'fTtOkOZthQfxG486',
+                                                  'creative_name': 'cid=54b7b5712e2f444e3b5658152f53cf78.mp4',
+                                                  'creative_group_id': 'YSQwWYsgwpof4IPa',
+                                                  'creative_group_name': 'ID_TT_Shortplay-PineReuse-CPM-video-9x16-26Q3M7W1_ACO',
+                                                  'campaign_name': 'Bytedance_1180_ID_Android_20260702_Moloco_UserAcquisition_d2_rr_user_rt_pinereuse',
+                                                  'curr_spend': 89.77,
+                                                  'curr_installs': 65,
+                                                  'prev_cpi': 0.7137,
+                                                  'curr_cpi': 1.3811,
+                                                  'country_avg_cpi': 2.4368,
+                                                  'vs_country_avg_pct': -43.32,
+                                                  'content_type': '短剧复用剪辑',
+                                                  'style': '竖屏 · 原生视频 · 18秒 · 短版',
+                                                  'interpretation': '竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。',
+                                                  'recommendation': '优先保留并复用同类结构'},
+                                                 {'rank': 3,
+                                                  'creative_id': 'mdJBM8RRj571w0jE',
+                                                  'creative_name': 'cid=45b4155aabd9a7f011fe737ef218779c.mp4',
+                                                  'creative_group_id': 'BK0hIxI2YMgNtQus',
+                                                  'creative_group_name': 'ID_TT_Shortplay-PineReuse-CPM-video-1x1-26Q3M7W1_ACO',
+                                                  'campaign_name': 'Bytedance_1180_ID_Android_20260702_Moloco_UserAcquisition_d2_rr_user_rt_pinereuse',
+                                                  'curr_spend': 83.05,
+                                                  'curr_installs': 64,
+                                                  'prev_cpi': 0.8256,
+                                                  'curr_cpi': 1.2977,
+                                                  'country_avg_cpi': 2.4368,
+                                                  'vs_country_avg_pct': -46.75,
+                                                  'content_type': '短剧复用剪辑',
+                                                  'style': '方屏 · 原生视频 · 7秒 · 超短版',
+                                                  'interpretation': '超短强钩子型，快速呈现冲突点，适合低门槛转化。',
+                                                  'recommendation': '优先保留并复用同类结构'}]},
+                              {'product_key': 'p_main_1233_and',
+                               'product_id': 'IP3KqTHC6BNDf4CT',
+                               'app_code': '1233',
+                               'os': 'Android',
+                               'country': 'MEX',
+                               'flag': '🇲🇽',
+                               'country_name': '墨西哥 (MEX)',
+                               'country_avg_cpi': 1.7161,
+                               'prev_pine_spend': 3491.44,
+                               'curr_pine_spend': 3535.03,
+                               'prev_pine_cpi': 1.4321,
+                               'curr_pine_cpi': 1.5859,
+                               'pine_cpi_chg': 10.74,
+                               'pine_dnu': 1499.0,
+                               'country_dnu': 11194.0,
+                               'pine_dnu_share': 13.39,
+                               'events': [{'name': '2d_rr_user',
+                                           'prev_spend': 3491.44,
+                                           'curr_spend': 3535.03,
+                                           'spend_chg_pct': 1.25,
+                                           'prev_cpi': 1.4321,
+                                           'curr_cpi': 1.5859,
+                                           'wow_cpi_pct': 10.74,
+                                           'event_avg_cpi': 1.5859,
+                                           'recommendation': '与事件均值持平、低于国家均值，仍有优势，建议持续测试。'}],
+                               'top_creatives': [{'rank': 1,
+                                                  'creative_id': 'LY1pRrABpZgBMBrD',
+                                                  'creative_name': 'cid=4db0ce897d05b4495e558a2962bdc86d.mp4',
+                                                  'creative_group_id': 'No7XIDbYEv9fTts0',
+                                                  'creative_group_name': 'TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO',
+                                                  'campaign_name': 'Bytedance_1233_MX_Android_20260703_Moloco_UserAcquisition_2d_rr_user_pinereuse',
+                                                  'curr_spend': 687.6,
+                                                  'curr_installs': 422,
+                                                  'prev_cpi': 1.6988,
+                                                  'curr_cpi': 1.6294,
+                                                  'country_avg_cpi': 1.7161,
+                                                  'vs_country_avg_pct': -5.05,
+                                                  'content_type': '短剧剧情高光',
+                                                  'style': '竖屏 · 插屏视频 · 62秒 · 长版',
+                                                  'interpretation': '长剧情承接型，依靠连续情节与高光片段维持转化。',
+                                                  'recommendation': '低于国家均值，建议持续测试'},
+                                                 {'rank': 2,
+                                                  'creative_id': 'HAV6jBMtVO81Z5hA',
+                                                  'creative_name': 'cid=e5d4474abf87b4d393f256c7117361a6.mp4',
+                                                  'creative_group_id': 'No7XIDbYEv9fTts0',
+                                                  'creative_group_name': 'TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO',
+                                                  'campaign_name': 'Bytedance_1233_MX_Android_20260703_Moloco_UserAcquisition_2d_rr_user_pinereuse',
+                                                  'curr_spend': 609.64,
+                                                  'curr_installs': 395,
+                                                  'prev_cpi': 1.534,
+                                                  'curr_cpi': 1.5434,
+                                                  'country_avg_cpi': 1.7161,
+                                                  'vs_country_avg_pct': -10.06,
+                                                  'content_type': '短剧剧情高光',
+                                                  'style': '竖屏 · 激励视频 · 81秒 · 长版',
+                                                  'interpretation': '长剧情承接型，依靠连续情节与高光片段维持转化。',
+                                                  'recommendation': '低于国家均值，建议持续测试'},
+                                                 {'rank': 3,
+                                                  'creative_id': 'vbYG7Le4NKvSAcG5',
+                                                  'creative_name': 'cid=633363abf2dbfe33e4e4902e64cd3128.mp4',
+                                                  'creative_group_id': 'No7XIDbYEv9fTts0',
+                                                  'creative_group_name': 'TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO',
+                                                  'campaign_name': 'Bytedance_1233_MX_Android_20260703_Moloco_UserAcquisition_2d_rr_user_pinereuse',
+                                                  'curr_spend': 405.39,
+                                                  'curr_installs': 261,
+                                                  'prev_cpi': 1.7417,
+                                                  'curr_cpi': 1.5532,
+                                                  'country_avg_cpi': 1.7161,
+                                                  'vs_country_avg_pct': -9.49,
+                                                  'content_type': '短剧剧情高光',
+                                                  'style': '竖屏 · 激励视频 · 62秒 · 长版',
+                                                  'interpretation': '长剧情承接型，依靠连续情节与高光片段维持转化。',
+                                                  'recommendation': '低于国家均值，建议持续测试'}]}],
+                'content_method': '内容类型依据creative group命名与素材元数据（时长、画幅、版位）解析。'}}
 
 def chg_class(v):
     if v is None: return "chg-flat"
@@ -38206,6 +38355,110 @@ def render_weekly_summary(d):
 </section>"""
 
 
+def render_pine_drama_tab(pine):
+    countries = pine.get("countries", []) if pine else []
+    if not countries:
+        return """
+<div id="pine_drama" class="tab-content">
+  <div class="product-header"><span class="product-id-badge">PINE</span><h2>PineDrama素材分析</h2></div>
+  <div style="padding:40px;text-align:center;color:#94a3b8;">本周期没有campaign name含pinereuse的投放数据</div>
+</div>"""
+
+    overview_rows = ""
+    detail_blocks = ""
+    for c in countries:
+        pine_dnu = f"{c['pine_dnu']:,.0f}" if c.get("pine_dnu") is not None else "—"
+        country_dnu = f"{c['country_dnu']:,.0f}" if c.get("country_dnu") is not None else "—"
+        dnu_share = f"{c['pine_dnu_share']:.1f}%" if c.get("pine_dnu_share") is not None else "—"
+        curr_pine_cpi = f"${c['curr_pine_cpi']:.2f}" if c.get("curr_pine_cpi") is not None else "—"
+        country_avg = f"${c['country_avg_cpi']:.2f}" if c.get("country_avg_cpi") is not None else "—"
+        overview_rows += f"""
+        <tr>
+          <td>{c['flag']} {html_escape(c['country'])}</td><td>{html_escape(c['app_code'])}</td><td>{html_escape(c['os'])}</td>
+          <td class="num">{pine_dnu}</td><td class="num">{country_dnu}</td><td class="num">{dnu_share}</td>
+          <td class="num">${c.get('curr_pine_spend', 0):,.0f}</td><td class="num">{curr_pine_cpi}</td>
+          <td class="num {chg_class(c.get('pine_cpi_chg'))}">{chg_str(c.get('pine_cpi_chg'))}</td><td class="num">{country_avg}</td>
+        </tr>"""
+
+        event_lines = ""
+        for e in c.get("events", []):
+            curr_cpi = f"{e['curr_cpi']:.2f}" if e.get("curr_cpi") is not None else "—"
+            event_avg = f"{e['event_avg_cpi']:.2f}" if e.get("event_avg_cpi") is not None else "—"
+            event_lines += f"""
+            <div class="pine-event-line">
+              <strong>{html_escape(e['name'])}：</strong>Pine CPI {curr_cpi}，周环比
+              <span class="{chg_class(e.get('wow_cpi_pct'))}">{chg_str(e.get('wow_cpi_pct'))}</span>；
+              事件均值 {event_avg}，国家均值 {country_avg.replace('$','')}，{html_escape(e.get('recommendation', ''))}
+            </div>"""
+
+        creative_rows = ""
+        for cr in c.get("top_creatives", []):
+            curr_cpi = f"${cr['curr_cpi']:.2f}" if cr.get("curr_cpi") is not None else "—"
+            avg_cpi = f"${cr['country_avg_cpi']:.2f}" if cr.get("country_avg_cpi") is not None else "—"
+            creative_rows += f"""
+            <tr>
+              <td class="num">{cr.get('rank', '')}</td>
+              <td class="mono">{html_escape(cr.get('creative_id', ''))}</td>
+              <td class="num">${cr.get('curr_spend', 0):,.2f}</td>
+              <td class="num">{curr_cpi}</td><td class="num">{avg_cpi}</td>
+              <td>{html_escape(cr.get('content_type', ''))}</td>
+              <td>{html_escape(cr.get('style', ''))}</td>
+              <td>{html_escape(cr.get('interpretation', ''))}</td>
+              <td>{html_escape(cr.get('recommendation', ''))}</td>
+            </tr>"""
+        if not creative_rows:
+            creative_rows = '<tr><td colspan="9" style="text-align:center;color:#94a3b8;">没有CPI低于国家均值的有效单创意</td></tr>'
+
+        pine_chg = chg_str(c.get("pine_cpi_chg"))
+        detail_blocks += f"""
+        <section class="pine-country">
+          <h3>{c['flag']} {html_escape(c['country'])} / {html_escape(c['app_code'])}
+            <span>国家均值 {country_avg} · Pine整体 CPI <b class="{chg_class(c.get('pine_cpi_chg'))}">{pine_chg}</b> · DNU占比 {dnu_share}</span>
+          </h3>
+          <div class="pine-summary-title"><strong>{html_escape(c['country'])} / {html_escape(c['app_code'])}（国家均值 {country_avg.replace('$','')}；Pine整体 CPI {pine_chg}）</strong></div>
+          <div class="pine-event-list">{event_lines}</div>
+          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
+          <table class="pine-creative-table">
+            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
+                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
+            {creative_rows}
+          </table>
+        </section>"""
+
+    return f"""
+<div id="pine_drama" class="tab-content">
+  <style scoped>
+    .pine-wrap {{ padding:18px 20px 28px; }}
+    .pine-note {{ background:#eff6ff;border-left:4px solid #2563eb;padding:10px 14px;margin-bottom:16px;color:#334155;line-height:1.5; }}
+    .pine-overview {{ margin-bottom:20px; }}
+    .pine-overview .num,.pine-creative-table .num {{ text-align:right;font-variant-numeric:tabular-nums; }}
+    .pine-country {{ border-top:1px solid #e2e8f0;padding:18px 0 22px; }}
+    .pine-country h3 {{ display:flex;align-items:center;gap:10px;font-size:16px;margin-bottom:10px;color:#1e293b; }}
+    .pine-country h3 span {{ margin-left:auto;font-size:12px;font-weight:400;color:#64748b; }}
+    .pine-summary-title {{ background:#f8fafc;border-left:3px solid #6366f1;padding:9px 12px;margin-bottom:8px; }}
+    .pine-event-list {{ padding:2px 2px 12px; }}
+    .pine-event-line {{ padding:7px 10px;border-bottom:1px dashed #e2e8f0;line-height:1.55; }}
+    .pine-event-line:last-child {{ border-bottom:0; }}
+    .pine-creative-table .mono {{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px; }}
+    .pine-creative-table td {{ vertical-align:top;line-height:1.45; }}
+  </style>
+  <div class="product-header">
+    <span class="product-id-badge">PINE</span><h2>PineDrama素材分析</h2>
+    <span style="margin-left:auto;font-size:12px;color:#64748b;">campaign name包含 pinereuse</span>
+  </div>
+  <div class="pine-wrap">
+    <div class="pine-note">DNU占比 = pinereuse campaign的沙盒DNU ÷ 该国家/OS/App整体沙盒DNU；campaign DNU缺失时留空。{html_escape(pine.get('content_method', ''))}</div>
+    <div class="table-title"><span class="icon icon-bench">D</span>分国家Pine DNU占比与整体表现</div>
+    <table class="pine-overview">
+      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine DNU</th><th>国家整体DNU</th><th>DNU占比</th>
+          <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家均值CPI</th></tr>
+      {overview_rows}
+    </table>
+    {detail_blocks}
+  </div>
+</div>"""
+
+
 def generate_html(d):
     pc = d["period_curr"]
     pp = d["period_prev"]
@@ -38229,15 +38482,28 @@ def generate_html(d):
       <div class="tab-btns">{btns}</div>
     </div>"""
 
+    pine = d.get("pine_drama")
+    if pine:
+        tab_groups_html += f"""
+    <div class="tab-group">
+      <div class="tab-group-label">素材专项</div>
+      <div class="tab-btns"><button class="tab-btn" id="btn-pine_drama" onclick="switchTab('pine_drama')">PineDrama素材分析 <span class="badge ok">{len(pine.get('countries', []))}</span></button></div>
+    </div>"""
+
     # Tab contents
     tab_contents = "\n".join(render_product_tab(p) for p in all_products)
+    if pine:
+        tab_contents += "\n" + render_pine_drama_tab(pine)
     weekly_summary_html = render_weekly_summary(d)
 
     # First tab key for JS init
     first_key = all_products[0]["key"] if all_products else ""
 
     # All keys for JS
-    all_keys_js = "[" + ",".join(f"'{p['key']}'" for p in all_products) + "]"
+    all_keys = [p["key"] for p in all_products]
+    if pine:
+        all_keys.append("pine_drama")
+    all_keys_js = "[" + ",".join(f"'{key}'" for key in all_keys) + "]"
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
