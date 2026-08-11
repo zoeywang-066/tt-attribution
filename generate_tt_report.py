@@ -44151,7 +44151,7 @@ def render_pine_drama_tab(pine):
         country_source = html_escape(c.get("country_cpi_source", "—"))
         overview_rows += f"""
         <tr>
-          <td>{c['flag']} {html_escape(c['country'])}</td><td>{html_escape(c['app_code'])}</td><td>{html_escape(c['os'])}</td>
+          <td>{html_escape(c['country'])}</td><td>{html_escape(c['app_code'])}</td><td>{html_escape(c['os'])}</td>
           <td class="num">{pine_dnu}</td><td class="num">{country_dnu}</td><td class="num">{dnu_share}</td>
           <td class="num">${c.get('curr_pine_spend', 0):,.0f}</td><td class="num">{curr_pine_cpi}<small class="pine-source">{pine_source}</small></td>
           <td class="num {chg_class(c.get('pine_cpi_chg'))}">{chg_str(c.get('pine_cpi_chg'))}</td><td class="num">{country_avg}<small class="pine-source">{country_source}</small></td>
@@ -44197,7 +44197,7 @@ def render_pine_drama_tab(pine):
             </div>"""
         campaign_sections += f"""
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>{c['flag']} {html_escape(c['country'])} / {html_escape(c['app_code'])} / {html_escape(c['os'])}</strong><span>国家CPI {country_cpi}</span></div>
+          <div class="pine-country-title"><strong>{html_escape(c['country'])} / {html_escape(c['app_code'])} / {html_escape(c['os'])}</strong><span>国家CPI {country_cpi}</span></div>
           {group_tables}
         </section>"""
 
@@ -44208,7 +44208,7 @@ def render_pine_drama_tab(pine):
         <article class="pine-creative-card">
           <img src="{html_escape(cr['image'])}" alt="{html_escape(cr['creative_id'])} 创意截图" loading="lazy">
           <div class="pine-card-body">
-            <div class="pine-card-head"><strong>{cr['flag']} {html_escape(cr['country'])} / {html_escape(cr['app_code'])}</strong>{new_badge}</div>
+            <div class="pine-card-head"><strong>{html_escape(cr['country'])} / {html_escape(cr['app_code'])}</strong>{new_badge}</div>
             <div class="pine-theme">{html_escape(cr['theme'])}</div>
             <div class="pine-id">{html_escape(cr['creative_id'])}</div>
             <div class="pine-card-metrics"><span>消耗 ${cr['spend']:,.0f}</span><span>创意层暂无BI CPI</span></div>
