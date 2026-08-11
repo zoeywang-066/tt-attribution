@@ -13936,9 +13936,11 @@
     .pine-type-title.reuse { background:#ecfdf5;color:#047857; }
     .pine-campaign-table { table-layout:fixed;width:100%; }
     .pine-campaign-table th:first-child,.pine-campaign-table td:first-child { width:40%; }
-    .pine-campaign-table th:last-child,.pine-campaign-table td:last-child { width:22%; }
+    .pine-campaign-table th:last-child,.pine-campaign-table td:last-child { width:20%; }
     .pine-campaign-name { overflow-wrap:anywhere;line-height:1.45; }
     .pine-action { white-space:normal;line-height:1.45;color:#334155; }
+    .pine-source { display:block;color:#94a3b8;font-size:9px;font-weight:500;margin-top:2px; }
+    .pine-source-badge { display:inline-block;background:#f1f5f9;color:#475569;border-radius:4px;padding:2px 5px;font-size:9px;white-space:nowrap; }
     @media(max-width:680px) { .pine-grid { grid-template-columns:1fr; } .pine-overview { display:block;overflow-x:auto; } }
   </style>
   <div class="product-header">
@@ -13946,53 +13948,54 @@
     <span style="margin-left:auto;font-size:12px;color:#64748b;">Pine专项（pinereuse + pine_test）</span>
   </div>
   <div class="pine-wrap">
-    <div class="pine-note">国家数据仅统计campaign name中的pinereuse和pine_test，使用正式周报周期；分campaign明细将Pine Test与Pine Reuse分开。头部创意快照：2026-08-04 ~ 2026-08-11（8月11日为未完结日），题材基于实际视频画面解析。</div>
+    <div class="pine-note">国家数据仅统计campaign name中的pinereuse和pine_test。Pine CPI与国家CPI优先使用BI CPI；BI CPI缺失时使用Moloco Spend ÷ DNU，DNU也缺失则留空。分campaign明细将Pine Test与Pine Reuse分开。创意层无BI DNU，因此不展示创意CPI。</div>
     <div class="table-title"><span class="icon icon-bench">D</span>国家维度Pine整体表现</div>
     <table class="pine-overview">
       <tr><th>国家</th><th>App</th><th>OS</th><th>Pine DNU</th><th>国家整体DNU</th><th>DNU占比</th>
-          <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家均值CPI</th></tr>
+          <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家CPI</th></tr>
       
         <tr>
           <td>🇮🇩 IDN</td><td>1180</td><td>Android</td>
           <td class="num">1,804</td><td class="num">5,081</td><td class="num">35.5%</td>
-          <td class="num">$8,650</td><td class="num">$5.09</td>
-          <td class="num chg-up">+88.7%</td><td class="num">$4.80</td>
+          <td class="num">$8,650</td><td class="num">$4.79<small class="pine-source">BI CPI</small></td>
+          <td class="num chg-up">+119.9%</td><td class="num">$4.56<small class="pine-source">BI CPI</small></td>
         </tr>
         <tr>
           <td>🇧🇷 BRA</td><td>1233</td><td>Android</td>
           <td class="num">1,108</td><td class="num">17,583</td><td class="num">6.3%</td>
-          <td class="num">$5,157</td><td class="num">$4.69</td>
-          <td class="num chg-flat">—</td><td class="num">$4.17</td>
+          <td class="num">$5,157</td><td class="num">$4.65<small class="pine-source">BI CPI</small></td>
+          <td class="num chg-flat">—</td><td class="num">$4.24<small class="pine-source">BI CPI</small></td>
         </tr>
         <tr>
           <td>🇲🇽 MEX</td><td>1233</td><td>Android</td>
           <td class="num">1,531</td><td class="num">11,985</td><td class="num">12.8%</td>
-          <td class="num">$3,529</td><td class="num">$1.47</td>
-          <td class="num chg-down">-7.2%</td><td class="num">$1.54</td>
+          <td class="num">$3,529</td><td class="num">$2.31<small class="pine-source">BI CPI</small></td>
+          <td class="num chg-down">-1.0%</td><td class="num">$2.30<small class="pine-source">BI CPI</small></td>
         </tr>
         <tr>
           <td>🇧🇷 BRA</td><td>1340</td><td>Android</td>
           <td class="num">—</td><td class="num">996</td><td class="num">0.0%</td>
-          <td class="num">$170</td><td class="num">$0.40</td>
-          <td class="num chg-up">+38.7%</td><td class="num">$0.33</td>
+          <td class="num">$170</td><td class="num">—<small class="pine-source">No DNU</small></td>
+          <td class="num chg-flat">—</td><td class="num">$0.38<small class="pine-source">Moloco Spend / DNU</small></td>
         </tr>
     </table>
     <div class="table-title" style="margin-top:24px;"><span class="icon icon-campaign">C</span>分Campaign表现与建议</div>
     
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>🇮🇩 IDN / 1180 / Android</strong><span>国家CPI $4.80</span></div>
+          <div class="pine-country-title"><strong>🇮🇩 IDN / 1180 / Android</strong><span>国家CPI $4.56</span></div>
           
             <div class="pine-type-block">
               <div class="pine-type-title test">Pine Test</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1180_ID_Android_20260625_Moloco_UserAcquisition_ af_bs_conversion_rt_pine_test</td>
                   <td class="num">$194</td>
-                  <td class="num">$4.61</td>
-                  <td class="num chg-up">+46.8%</td>
-                  <td class="num">$4.80</td>
+                  <td class="num">$4.12</td>
+                  <td class="num chg-up">+27.3%</td>
+                  <td class="num">$4.56</td>
+                  <td><span class="pine-source-badge">BI CPI</span></td>
                   <td class="pine-action">成本环比明显上涨，限制放量并观察</td>
                 </tr>
               </table>
@@ -14000,33 +14003,35 @@
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1180_ID_Android_20260702_Moloco_UserAcquisition_d2_rr_user_rt_pinereuse</td>
                   <td class="num">$8,457</td>
-                  <td class="num">$5.10</td>
-                  <td class="num chg-up">+89.8%</td>
-                  <td class="num">$4.80</td>
+                  <td class="num">$4.81</td>
+                  <td class="num chg-up">+122.6%</td>
+                  <td class="num">$4.56</td>
+                  <td><span class="pine-source-badge">BI CPI</span></td>
                   <td class="pine-action">成本环比明显上涨，限制放量并观察</td>
                 </tr>
               </table>
             </div>
         </section>
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>🇧🇷 BRA / 1233 / Android</strong><span>国家CPI $4.17</span></div>
+          <div class="pine-country-title"><strong>🇧🇷 BRA / 1233 / Android</strong><span>国家CPI $4.24</span></div>
           
             <div class="pine-type-block">
               <div class="pine-type-title test">Pine Test</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_BR_AND_20260803 _UserAcquisition_retention_pine_test</td>
                   <td class="num">$1,532</td>
-                  <td class="num">$5.36</td>
+                  <td class="num">$5.16</td>
                   <td class="num chg-flat">—</td>
-                  <td class="num">$4.17</td>
+                  <td class="num">$4.24</td>
+                  <td><span class="pine-source-badge">BI CPI</span></td>
                   <td class="pine-action">新投成本高于国家均值，暂不放量并优化</td>
                 </tr>
               </table>
@@ -14034,53 +14039,56 @@
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_BR_AND_20260803_UserAcquisition_d2_rr_user_rt_pinereuse</td>
                   <td class="num">$3,625</td>
-                  <td class="num">$4.46</td>
+                  <td class="num">$4.47</td>
                   <td class="num chg-flat">—</td>
-                  <td class="num">$4.17</td>
+                  <td class="num">$4.24</td>
+                  <td><span class="pine-source-badge">BI CPI</span></td>
                   <td class="pine-action">新投成本接近国家均值，保持预算观察</td>
                 </tr>
               </table>
             </div>
         </section>
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>🇲🇽 MEX / 1233 / Android</strong><span>国家CPI $1.54</span></div>
+          <div class="pine-country-title"><strong>🇲🇽 MEX / 1233 / Android</strong><span>国家CPI $2.30</span></div>
           
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_MX_Android_20260703_Moloco_UserAcquisition_2d_rr_user_pinereuse</td>
                   <td class="num">$3,529</td>
-                  <td class="num">$1.47</td>
-                  <td class="num chg-down">-7.2%</td>
-                  <td class="num">$1.54</td>
-                  <td class="pine-action">成本可控，维持预算继续测试</td>
+                  <td class="num">$2.31</td>
+                  <td class="num chg-down">-1.0%</td>
+                  <td class="num">$2.30</td>
+                  <td><span class="pine-source-badge">BI CPI</span></td>
+                  <td class="pine-action">成本接近国家均值，维持预算观察</td>
                 </tr>
               </table>
             </div>
         </section>
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>🇧🇷 BRA / 1340 / Android</strong><span>国家CPI $0.33</span></div>
+          <div class="pine-country-title"><strong>🇧🇷 BRA / 1340 / Android</strong><span>国家CPI $0.38</span></div>
           
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1340_BR_Android_0402_Moloco_TikTokLite CPA_tt_d2_retention_user_pinereuse</td>
                   <td class="num">$170</td>
-                  <td class="num">$0.40</td>
-                  <td class="num chg-up">+38.7%</td>
-                  <td class="num">$0.33</td>
-                  <td class="pine-action">成本明显高于国家均值，建议降量或暂停优化</td>
+                  <td class="num">—</td>
+                  <td class="num chg-flat">—</td>
+                  <td class="num">$0.38</td>
+                  <td><span class="pine-source-badge">No DNU</span></td>
+                  <td class="pine-action">数据不足，保持观察</td>
                 </tr>
               </table>
             </div>
@@ -14093,7 +14101,7 @@
             <div class="pine-card-head"><strong>🇧🇷 BRA / 1233</strong></div>
             <div class="pine-theme">古装爱情 / 权谋</div>
             <div class="pine-id">aywxs25fmzAwg0Yg</div>
-            <div class="pine-card-metrics"><span>消耗 $1,318</span><span>CPI $4.64</span></div>
+            <div class="pine-card-metrics"><span>消耗 $1,318</span><span>创意层暂无BI CPI</span></div>
             <div class="pine-style">62秒 · 竖屏 · Interstitial</div>
             <div class="pine-analysis">古装人物关系与权力冲突驱动，依靠连续剧情和人物悬念承接转化。</div>
             <div class="pine-group" title="TT-BR-SceneUG_drama_video_aigc_PineReuse_highlight_0625-9x16_ACO">Group: ZodwBXPGNcjzV2kI</div>
@@ -14105,7 +14113,7 @@
             <div class="pine-card-head"><strong>🇧🇷 BRA / 1233</strong></div>
             <div class="pine-theme">AIGC荒诞喜剧</div>
             <div class="pine-id">ma88z2gzdORZIXQU</div>
-            <div class="pine-card-metrics"><span>消耗 $664</span><span>CPI $5.07</span></div>
+            <div class="pine-card-metrics"><span>消耗 $664</span><span>创意层暂无BI CPI</span></div>
             <div class="pine-style">13秒 · 竖屏 · Interstitial</div>
             <div class="pine-analysis">拟人水果与夸张冲突形成强视觉钩子，但当前成本高于BRA头部剧情素材。</div>
             <div class="pine-group" title="TT-BR-SceneUG_drama-跨国流转-0731_ACO_pinedrama">Group: RYJwVIFci8gwxTgN</div>
@@ -14117,7 +14125,7 @@
             <div class="pine-card-head"><strong>🇧🇷 BRA / 1233</strong><span class="pine-new">NEW</span></div>
             <div class="pine-theme">现代爱情 / 情侣冲突</div>
             <div class="pine-id">aKYAUijfFXaa7L3m</div>
-            <div class="pine-card-metrics"><span>消耗 $407</span><span>CPI $3.31</span></div>
+            <div class="pine-card-metrics"><span>消耗 $407</span><span>创意层暂无BI CPI</span></div>
             <div class="pine-style">28秒 · 方屏 · Instream Video</div>
             <div class="pine-analysis">情侣争执开场叠加产品解锁演示，是本批新素材中成本表现最好的头部创意。</div>
             <div class="pine-group" title="TT-BR-shortplay-SceneUG_drama-pinetop-Q3M8W1_ACO_pinedrama">Group: kCCwqHNzalUgRLmK</div>
@@ -14129,7 +14137,7 @@
             <div class="pine-card-head"><strong>🇲🇽 MEX / 1233</strong></div>
             <div class="pine-theme">豪门家庭 / 情感救赎</div>
             <div class="pine-id">LY1pRrABpZgBMBrD</div>
-            <div class="pine-card-metrics"><span>消耗 $1,718</span><span>CPI $1.59</span></div>
+            <div class="pine-card-metrics"><span>消耗 $1,718</span><span>创意层暂无BI CPI</span></div>
             <div class="pine-style">62秒 · 竖屏 · Interstitial</div>
             <div class="pine-analysis">受伤女主、男主救助及豪门家庭冲突构成连续悬念，量级与成本兼优。</div>
             <div class="pine-group" title="TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO">Group: No7XIDbYEv9fTts0</div>
@@ -14141,7 +14149,7 @@
             <div class="pine-card-head"><strong>🇲🇽 MEX / 1233</strong></div>
             <div class="pine-theme">婚恋 / 身份反转</div>
             <div class="pine-id">HAV6jBMtVO81Z5hA</div>
-            <div class="pine-card-metrics"><span>消耗 $643</span><span>CPI $1.34</span></div>
+            <div class="pine-card-metrics"><span>消耗 $643</span><span>创意层暂无BI CPI</span></div>
             <div class="pine-style">81秒 · 竖屏 · Interstitial</div>
             <div class="pine-analysis">婚恋关系、家庭对峙和身份揭露推动剧情，是当前截图样本中成本最低的1233素材。</div>
             <div class="pine-group" title="TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO">Group: No7XIDbYEv9fTts0</div>
@@ -14153,7 +14161,7 @@
             <div class="pine-card-head"><strong>🇮🇩 IDN / 1180</strong></div>
             <div class="pine-theme">弃女 / 女性复仇</div>
             <div class="pine-id">QPc7zweDmThHpjbu</div>
-            <div class="pine-card-metrics"><span>消耗 $1,362</span><span>CPI $4.71</span></div>
+            <div class="pine-card-metrics"><span>消耗 $1,362</span><span>创意层暂无BI CPI</span></div>
             <div class="pine-style">32秒 · 方屏 · Interstitial</div>
             <div class="pine-analysis">女性受害与身份冲突形成快速情绪钩子，方屏版本兼顾多类版位。</div>
             <div class="pine-group" title="ID_TT_Shortplay-PineReuse-CPM-video-1x1-26Q3M7W1_ACO">Group: BK0hIxI2YMgNtQus</div>
@@ -14165,7 +14173,7 @@
             <div class="pine-card-head"><strong>🇮🇩 IDN / 1180</strong></div>
             <div class="pine-theme">婆媳 / 家庭伦理</div>
             <div class="pine-id">NJHdgnbYvpSc4RKT</div>
-            <div class="pine-card-metrics"><span>消耗 $1,314</span><span>CPI $4.94</span></div>
+            <div class="pine-card-metrics"><span>消耗 $1,314</span><span>创意层暂无BI CPI</span></div>
             <div class="pine-style">60秒 · 竖屏 · Interstitial</div>
             <div class="pine-analysis">婆媳、私生子与家族冲突叠加，属于女性向家庭伦理长剧情。</div>
             <div class="pine-group" title="ID_TT_Shortplay-PineReuse-CPM-video-9x16-26Q3M7W1_ACO">Group: YSQwWYsgwpof4IPa</div>
@@ -14177,7 +14185,7 @@
             <div class="pine-card-head"><strong>🇮🇩 IDN / 1340</strong></div>
             <div class="pine-theme">豪门家庭 / 女性逆袭</div>
             <div class="pine-id">K5tUiqkMkQWJOCKm</div>
-            <div class="pine-card-metrics"><span>消耗 $85</span><span>CPI $0.21</span></div>
+            <div class="pine-card-metrics"><span>消耗 $85</span><span>创意层暂无BI CPI</span></div>
             <div class="pine-style">29秒 · 方屏 · Interstitial</div>
             <div class="pine-analysis">豪门争执与女性反击构成短钩子，成本突出但当前绝对消耗较小。</div>
             <div class="pine-group" title="ID_Lite_TT_Shortplay-PineReuse-CPM-video-1x1-26Q3M7W1_ACO">Group: AdYLPXYWAFPHY6SY</div>
