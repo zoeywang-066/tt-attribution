@@ -13914,23 +13914,28 @@
     .pine-note { background:#eff6ff;border-left:4px solid #2563eb;padding:10px 14px;margin-bottom:16px;color:#334155;line-height:1.5; }
     .pine-overview { margin-bottom:20px; }
     .pine-overview .num,.pine-creative-table .num { text-align:right;font-variant-numeric:tabular-nums; }
-    .pine-country { border-top:1px solid #e2e8f0;padding:18px 0 22px; }
-    .pine-country h3 { display:flex;align-items:center;gap:10px;font-size:16px;margin-bottom:10px;color:#1e293b; }
-    .pine-country h3 span { margin-left:auto;font-size:12px;font-weight:400;color:#64748b; }
-    .pine-summary-title { background:#f8fafc;border-left:3px solid #6366f1;padding:9px 12px;margin-bottom:8px; }
-    .pine-event-list { padding:2px 2px 12px; }
-    .pine-event-line { padding:7px 10px;border-bottom:1px dashed #e2e8f0;line-height:1.55; }
-    .pine-event-line:last-child { border-bottom:0; }
-    .pine-creative-table .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px; }
-    .pine-creative-table td { vertical-align:top;line-height:1.45; }
+    .pine-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:10px; }
+    .pine-creative-card { border:1px solid #dbe2ea;border-radius:8px;overflow:hidden;background:white;min-width:0; }
+    .pine-creative-card img { width:100%;aspect-ratio:1/1;object-fit:contain;background:#f8fafc;display:block; }
+    .pine-card-body { padding:12px 13px 14px; }
+    .pine-card-head { display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#334155; }
+    .pine-new { background:#dcfce7;color:#166534;border-radius:4px;padding:2px 6px;font-size:9px;font-weight:800; }
+    .pine-theme { font-size:16px;font-weight:750;color:#111827;margin:7px 0 4px; }
+    .pine-id,.pine-group { font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#64748b;overflow-wrap:anywhere; }
+    .pine-card-metrics { display:flex;gap:8px;margin:10px 0 7px; }
+    .pine-card-metrics span { background:#f1f5f9;border-radius:4px;padding:4px 7px;font-size:11px;font-weight:700;color:#334155; }
+    .pine-style { font-size:11px;color:#475569;margin-bottom:7px; }
+    .pine-analysis { font-size:12px;line-height:1.55;color:#334155;min-height:56px; }
+    .pine-group { border-top:1px solid #eef2f7;margin-top:9px;padding-top:8px; }
+    @media(max-width:680px) { .pine-grid { grid-template-columns:1fr; } .pine-overview { display:block;overflow-x:auto; } }
   </style>
   <div class="product-header">
     <span class="product-id-badge">PINE</span><h2>PineDrama素材分析</h2>
     <span style="margin-left:auto;font-size:12px;color:#64748b;">PineReuse素材专项</span>
   </div>
   <div class="pine-wrap">
-    <div class="pine-note">DNU占比仅按campaign name包含pinereuse计算；没有对应campaign时留空。事件与创意按creative group或campaign中的PineReuse标识识别；内容类型依据creative group命名与素材元数据（时长、画幅、版位）解析。</div>
-    <div class="table-title"><span class="icon icon-bench">D</span>分国家Pine DNU占比与整体表现</div>
+    <div class="pine-note">国家数据使用正式周报周期；不再拆分国家下的事件成本。头部创意快照：2026-08-04 ~ 2026-08-11（8月11日为未完结日），题材基于实际视频画面解析。</div>
+    <div class="table-title"><span class="icon icon-bench">D</span>国家维度Pine整体表现</div>
     <table class="pine-overview">
       <tr><th>国家</th><th>App</th><th>OS</th><th>Pine DNU</th><th>国家整体DNU</th><th>DNU占比</th>
           <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家均值CPI</th></tr>
@@ -13966,322 +13971,104 @@
           <td class="num chg-up">+38.7%</td><td class="num">$0.49</td>
         </tr>
     </table>
-    
-        <section class="pine-country">
-          <h3>🇮🇩 IDN / 1180
-            <span>国家均值 $5.38 · Pine整体 CPI <b class="chg-up">+99.3%</b> · DNU占比 34.6%</span>
-          </h3>
-          <div class="pine-summary-title"><strong>IDN / 1180（国家均值 5.38；Pine整体 CPI +99.3%）</strong></div>
-          <div class="pine-event-list">
-            <div class="pine-event-line">
-              <strong>2d_rr_user：</strong>Pine CPI 5.10，周环比
-              <span class="chg-up">+89.8%</span>；
-              事件均值 5.10，国家均值 5.38，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>af_pltv_lt7_ug_v2_deeplt：</strong>Pine CPI 4.88，周环比
-              <span class="chg-up">+117.0%</span>；
-              事件均值 4.97，国家均值 5.38，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>tt_d2_retention_user：</strong>Pine CPI 4.20，周环比
-              <span class="chg-up">+89.6%</span>；
-              事件均值 4.34，国家均值 5.38，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>af_bs_conversion_rt：</strong>Pine CPI 4.68，周环比
-              <span class="chg-up">+113.6%</span>；
-              事件均值 4.82，国家均值 5.38，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>tt_global_webcast_gift_14days：</strong>Pine CPI 4.66，周环比
-              <span class="chg-up">+106.5%</span>；
-              事件均值 4.45，国家均值 5.38，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>DNU：</strong>Pine CPI 3.82，周环比
-              <span class="chg-up">+92.9%</span>；
-              事件均值 4.42，国家均值 5.38，低于国家均值，建议持续测试
-            </div></div>
-          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
-          <table class="pine-creative-table">
-            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
-                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
-            
-            <tr>
-              <td class="num">1</td>
-              <td class="mono">QPc7zweDmThHpjbu</td>
-              <td class="num">$1,764.50</td>
-              <td class="num">$4.63</td><td class="num">$5.38</td>
-              <td>短剧复用剪辑</td>
-              <td>方屏 · Interstitial · 32秒 · 长版</td>
-              <td>方屏短剪型，兼顾多版位覆盖，信息表达更集中。</td>
-              <td>低于国家均值，建议持续测试</td>
-            </tr>
-            <tr>
-              <td class="num">2</td>
-              <td class="mono">o8qz0LBJsOWAyyDu</td>
-              <td class="num">$932.01</td>
-              <td class="num">$4.73</td><td class="num">$5.38</td>
-              <td>短剧复用剪辑</td>
-              <td>竖屏 · Interstitial · 55秒 · 长版</td>
-              <td>方屏短剪型，兼顾多版位覆盖，信息表达更集中。</td>
-              <td>低于国家均值，建议持续测试</td>
-            </tr>
-            <tr>
-              <td class="num">3</td>
-              <td class="mono">KA2ze2wFo4zzR8X2</td>
-              <td class="num">$623.21</td>
-              <td class="num">$4.36</td><td class="num">$5.38</td>
-              <td>短剧复用剪辑</td>
-              <td>横屏 · Rewarded Video · 30秒 · 短版</td>
-              <td>竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。</td>
-              <td>低于国家均值，建议持续测试</td>
-            </tr>
-          </table>
-        </section>
-        <section class="pine-country">
-          <h3>🇧🇷 BRA / 1233
-            <span>国家均值 $4.90 · Pine整体 CPI <b class="chg-down">-3.9%</b> · DNU占比 3.9%</span>
-          </h3>
-          <div class="pine-summary-title"><strong>BRA / 1233（国家均值 4.90；Pine整体 CPI -3.9%）</strong></div>
-          <div class="pine-event-list">
-            <div class="pine-event-line">
-              <strong>DNU：</strong>Pine CPI 4.88，周环比
-              <span class="chg-down">-1.1%</span>；
-              事件均值 4.78，国家均值 4.90，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>2d_rr_user：</strong>Pine CPI 4.46，周环比
-              <span class="chg-flat">—</span>；
-              事件均值 4.35，国家均值 4.90，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>tt_d2_retention_user：</strong>Pine CPI 4.00，周环比
-              <span class="chg-down">-4.0%</span>；
-              事件均值 3.84，国家均值 4.90，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>af_pltv_lt7_ug_v2_copear：</strong>Pine CPI 4.29，周环比
-              <span class="chg-up">+15.3%</span>；
-              事件均值 4.14，国家均值 4.90，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>af_bs_conversion_rt：</strong>Pine CPI 4.91，周环比
-              <span class="chg-down">-1.8%</span>；
-              事件均值 4.04，国家均值 4.90，高于国家均值，建议减少测试量或暂停
-            </div>
-            <div class="pine-event-line">
-              <strong>af_pltv_lt7_ug_v2_deeplt：</strong>Pine CPI 4.49，周环比
-              <span class="chg-down">-7.3%</span>；
-              事件均值 4.21，国家均值 4.90，高于国家均值，建议减少测试量或暂停
-            </div>
-            <div class="pine-event-line">
-              <strong>tt_global_webcast_gift_14days：</strong>Pine CPI —，周环比
-              <span class="chg-flat">—</span>；
-              事件均值 5.04，国家均值 4.90，建议持续观察
-            </div></div>
-          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
-          <table class="pine-creative-table">
-            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
-                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
-            
-            <tr>
-              <td class="num">1</td>
-              <td class="mono">mHvKUQmH0qanGlUX</td>
-              <td class="num">$466.21</td>
-              <td class="num">$4.02</td><td class="num">$4.90</td>
-              <td>AIGC短剧剧情高光</td>
-              <td>竖屏 · Interstitial · 62秒 · 长版</td>
-              <td>长剧情承接型，依靠连续情节与高光片段维持转化。</td>
-              <td>低于国家均值，建议持续测试</td>
-            </tr>
-            <tr>
-              <td class="num">2</td>
-              <td class="mono">FvhOmv1Rx27OtGAY</td>
-              <td class="num">$384.80</td>
-              <td class="num">$4.14</td><td class="num">$4.90</td>
-              <td>AIGC短剧剧情高光</td>
-              <td>竖屏 · Interstitial · 62秒 · 长版</td>
-              <td>长剧情承接型，依靠连续情节与高光片段维持转化。</td>
-              <td>低于国家均值，建议持续测试</td>
-            </tr>
-            <tr>
-              <td class="num">3</td>
-              <td class="mono">iYfkmCn5AvmDitid</td>
-              <td class="num">$339.29</td>
-              <td class="num">$3.95</td><td class="num">$4.90</td>
-              <td>AIGC短剧剧情高光</td>
-              <td>竖屏 · Rewarded Video · 62秒 · 长版</td>
-              <td>长剧情承接型，依靠连续情节与高光片段维持转化。</td>
-              <td>低于国家均值，建议持续测试</td>
-            </tr>
-          </table>
-        </section>
-        <section class="pine-country">
-          <h3>🇲🇽 MEX / 1233
-            <span>国家均值 $2.59 · Pine整体 CPI <b class="chg-down">-8.4%</b> · DNU占比 12.4%</span>
-          </h3>
-          <div class="pine-summary-title"><strong>MEX / 1233（国家均值 2.59；Pine整体 CPI -8.4%）</strong></div>
-          <div class="pine-event-list">
-            <div class="pine-event-line">
-              <strong>2d_rr_user：</strong>Pine CPI 1.47，周环比
-              <span class="chg-down">-7.2%</span>；
-              事件均值 1.47，国家均值 2.59，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>af_pltv_lt7_ug_v2_deeplt：</strong>Pine CPI 1.93，周环比
-              <span class="chg-down">-8.0%</span>；
-              事件均值 1.88，国家均值 2.59，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>tiktok_s2s_install_daily：</strong>Pine CPI 1.57，周环比
-              <span class="chg-down">-6.4%</span>；
-              事件均值 1.50，国家均值 2.59，与国家均值接近，建议限制放量并观察
-            </div>
-            <div class="pine-event-line">
-              <strong>af_bs_conversion_rt：</strong>Pine CPI 1.34，周环比
-              <span class="chg-down">-8.3%</span>；
-              事件均值 1.22，国家均值 2.59，高于国家均值，建议减少测试量或暂停
-            </div>
-            <div class="pine-event-line">
-              <strong>tt_global_webcast_gift_14days：</strong>Pine CPI 1.76，周环比
-              <span class="chg-down">-38.7%</span>；
-              事件均值 2.01，国家均值 2.59，低于国家均值，建议持续测试
-            </div></div>
-          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
-          <table class="pine-creative-table">
-            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
-                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
-            
-            <tr>
-              <td class="num">1</td>
-              <td class="mono">HAV6jBMtVO81Z5hA</td>
-              <td class="num">$1,276.25</td>
-              <td class="num">$1.43</td><td class="num">$2.59</td>
-              <td>短剧剧情高光</td>
-              <td>竖屏 · Rewarded Video · 81秒 · 长版</td>
-              <td>长剧情承接型，依靠连续情节与高光片段维持转化。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-            <tr>
-              <td class="num">2</td>
-              <td class="mono">vbYG7Le4NKvSAcG5</td>
-              <td class="num">$271.37</td>
-              <td class="num">$1.48</td><td class="num">$2.59</td>
-              <td>短剧剧情高光</td>
-              <td>竖屏 · Interstitial · 62秒 · 长版</td>
-              <td>长剧情承接型，依靠连续情节与高光片段维持转化。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-            <tr>
-              <td class="num">3</td>
-              <td class="mono">D3Jsp1tQ5jzklyAw</td>
-              <td class="num">$105.87</td>
-              <td class="num">$1.39</td><td class="num">$2.59</td>
-              <td>AIGC短剧剧情高光</td>
-              <td>竖屏 · Interstitial · 15秒 · 短版</td>
-              <td>竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-          </table>
-        </section>
-        <section class="pine-country">
-          <h3>🇮🇩 IDN / 1340
-            <span>国家均值 $0.19 · Pine整体 CPI <b class="chg-up">+50.6%</b> · DNU占比 0.0%</span>
-          </h3>
-          <div class="pine-summary-title"><strong>IDN / 1340（国家均值 0.19；Pine整体 CPI +50.6%）</strong></div>
-          <div class="pine-event-list">
-            <div class="pine-event-line">
-              <strong>tt_d2_retention_user：</strong>Pine CPI 0.21，周环比
-              <span class="chg-up">+50.6%</span>；
-              事件均值 0.15，国家均值 0.19，高于国家均值，建议减少测试量或暂停
-            </div></div>
-          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
-          <table class="pine-creative-table">
-            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
-                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
-            
-            <tr>
-              <td class="num">1</td>
-              <td class="mono">VyaX3JonMbdrds87</td>
-              <td class="num">$6.53</td>
-              <td class="num">$0.11</td><td class="num">$0.19</td>
-              <td>短剧复用剪辑</td>
-              <td>方屏 · Interstitial · 26秒 · 短版</td>
-              <td>竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-            <tr>
-              <td class="num">2</td>
-              <td class="mono">rbQZeqC0reJ08ThV</td>
-              <td class="num">$5.74</td>
-              <td class="num">$0.14</td><td class="num">$0.19</td>
-              <td>短剧复用剪辑</td>
-              <td>方屏 · Instream Video · 32秒 · 长版</td>
-              <td>方屏短剪型，兼顾多版位覆盖，信息表达更集中。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-            <tr>
-              <td class="num">3</td>
-              <td class="mono">OO6QBQ0EcJ5mqNL4</td>
-              <td class="num">$3.92</td>
-              <td class="num">$0.10</td><td class="num">$0.19</td>
-              <td>短剧复用剪辑</td>
-              <td>方屏 · Native · 未知时长 · 长版</td>
-              <td>方屏短剪型，兼顾多版位覆盖，信息表达更集中。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-          </table>
-        </section>
-        <section class="pine-country">
-          <h3>🇧🇷 BRA / 1340
-            <span>国家均值 $0.49 · Pine整体 CPI <b class="chg-up">+38.7%</b> · DNU占比 0.0%</span>
-          </h3>
-          <div class="pine-summary-title"><strong>BRA / 1340（国家均值 0.49；Pine整体 CPI +38.7%）</strong></div>
-          <div class="pine-event-list">
-            <div class="pine-event-line">
-              <strong>tt_d2_retention_user：</strong>Pine CPI 0.40，周环比
-              <span class="chg-up">+38.7%</span>；
-              事件均值 0.40，国家均值 0.49，与国家均值接近，建议限制放量并观察
-            </div></div>
-          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
-          <table class="pine-creative-table">
-            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
-                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
-            
-            <tr>
-              <td class="num">1</td>
-              <td class="mono">kMAmw7G7MMKI6zCm</td>
-              <td class="num">$17.08</td>
-              <td class="num">$0.24</td><td class="num">$0.49</td>
-              <td>短剧视频</td>
-              <td>竖屏 · Rewarded Video · 16秒 · 短版</td>
-              <td>竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-            <tr>
-              <td class="num">2</td>
-              <td class="mono">a3uTUBnEKWt1BW9d</td>
-              <td class="num">$15.55</td>
-              <td class="num">$0.28</td><td class="num">$0.49</td>
-              <td>短剧视频</td>
-              <td>竖屏 · Interstitial · 28秒 · 短版</td>
-              <td>竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-            <tr>
-              <td class="num">3</td>
-              <td class="mono">XQx0SOs3bBKtXLCS</td>
-              <td class="num">$10.60</td>
-              <td class="num">$0.31</td><td class="num">$0.49</td>
-              <td>短剧视频</td>
-              <td>竖屏 · Interstitial · 20秒 · 短版</td>
-              <td>竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。</td>
-              <td>优先保留并复用同类结构</td>
-            </tr>
-          </table>
-        </section>
+    <div class="table-title" style="margin-top:24px;"><span class="icon icon-creative">C</span>头部创意截图与题材分析</div>
+    <div class="pine-grid">
+        <article class="pine-creative-card">
+          <img src="assets/pine/aywxs25fmzAwg0Yg.jpg" alt="aywxs25fmzAwg0Yg 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>🇧🇷 BRA / 1233</strong></div>
+            <div class="pine-theme">古装爱情 / 权谋</div>
+            <div class="pine-id">aywxs25fmzAwg0Yg</div>
+            <div class="pine-card-metrics"><span>消耗 $1,318</span><span>CPI $4.64</span></div>
+            <div class="pine-style">62秒 · 竖屏 · Interstitial</div>
+            <div class="pine-analysis">古装人物关系与权力冲突驱动，依靠连续剧情和人物悬念承接转化。</div>
+            <div class="pine-group" title="TT-BR-SceneUG_drama_video_aigc_PineReuse_highlight_0625-9x16_ACO">Group: ZodwBXPGNcjzV2kI</div>
+          </div>
+        </article>
+        <article class="pine-creative-card">
+          <img src="assets/pine/ma88z2gzdORZIXQU.jpg" alt="ma88z2gzdORZIXQU 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>🇧🇷 BRA / 1233</strong></div>
+            <div class="pine-theme">AIGC荒诞喜剧</div>
+            <div class="pine-id">ma88z2gzdORZIXQU</div>
+            <div class="pine-card-metrics"><span>消耗 $664</span><span>CPI $5.07</span></div>
+            <div class="pine-style">13秒 · 竖屏 · Interstitial</div>
+            <div class="pine-analysis">拟人水果与夸张冲突形成强视觉钩子，但当前成本高于BRA头部剧情素材。</div>
+            <div class="pine-group" title="TT-BR-SceneUG_drama-跨国流转-0731_ACO_pinedrama">Group: RYJwVIFci8gwxTgN</div>
+          </div>
+        </article>
+        <article class="pine-creative-card">
+          <img src="assets/pine/aKYAUijfFXaa7L3m.jpg" alt="aKYAUijfFXaa7L3m 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>🇧🇷 BRA / 1233</strong><span class="pine-new">NEW</span></div>
+            <div class="pine-theme">现代爱情 / 情侣冲突</div>
+            <div class="pine-id">aKYAUijfFXaa7L3m</div>
+            <div class="pine-card-metrics"><span>消耗 $407</span><span>CPI $3.31</span></div>
+            <div class="pine-style">28秒 · 方屏 · Instream Video</div>
+            <div class="pine-analysis">情侣争执开场叠加产品解锁演示，是本批新素材中成本表现最好的头部创意。</div>
+            <div class="pine-group" title="TT-BR-shortplay-SceneUG_drama-pinetop-Q3M8W1_ACO_pinedrama">Group: kCCwqHNzalUgRLmK</div>
+          </div>
+        </article>
+        <article class="pine-creative-card">
+          <img src="assets/pine/LY1pRrABpZgBMBrD.jpg" alt="LY1pRrABpZgBMBrD 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>🇲🇽 MEX / 1233</strong></div>
+            <div class="pine-theme">豪门家庭 / 情感救赎</div>
+            <div class="pine-id">LY1pRrABpZgBMBrD</div>
+            <div class="pine-card-metrics"><span>消耗 $1,718</span><span>CPI $1.59</span></div>
+            <div class="pine-style">62秒 · 竖屏 · Interstitial</div>
+            <div class="pine-analysis">受伤女主、男主救助及豪门家庭冲突构成连续悬念，量级与成本兼优。</div>
+            <div class="pine-group" title="TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO">Group: No7XIDbYEv9fTts0</div>
+          </div>
+        </article>
+        <article class="pine-creative-card">
+          <img src="assets/pine/HAV6jBMtVO81Z5hA.jpg" alt="HAV6jBMtVO81Z5hA 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>🇲🇽 MEX / 1233</strong></div>
+            <div class="pine-theme">婚恋 / 身份反转</div>
+            <div class="pine-id">HAV6jBMtVO81Z5hA</div>
+            <div class="pine-card-metrics"><span>消耗 $643</span><span>CPI $1.34</span></div>
+            <div class="pine-style">81秒 · 竖屏 · Interstitial</div>
+            <div class="pine-analysis">婚恋关系、家庭对峙和身份揭露推动剧情，是当前截图样本中成本最低的1233素材。</div>
+            <div class="pine-group" title="TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO">Group: No7XIDbYEv9fTts0</div>
+          </div>
+        </article>
+        <article class="pine-creative-card">
+          <img src="assets/pine/QPc7zweDmThHpjbu.jpg" alt="QPc7zweDmThHpjbu 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>🇮🇩 IDN / 1180</strong></div>
+            <div class="pine-theme">弃女 / 女性复仇</div>
+            <div class="pine-id">QPc7zweDmThHpjbu</div>
+            <div class="pine-card-metrics"><span>消耗 $1,362</span><span>CPI $4.71</span></div>
+            <div class="pine-style">32秒 · 方屏 · Interstitial</div>
+            <div class="pine-analysis">女性受害与身份冲突形成快速情绪钩子，方屏版本兼顾多类版位。</div>
+            <div class="pine-group" title="ID_TT_Shortplay-PineReuse-CPM-video-1x1-26Q3M7W1_ACO">Group: BK0hIxI2YMgNtQus</div>
+          </div>
+        </article>
+        <article class="pine-creative-card">
+          <img src="assets/pine/NJHdgnbYvpSc4RKT.jpg" alt="NJHdgnbYvpSc4RKT 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>🇮🇩 IDN / 1180</strong></div>
+            <div class="pine-theme">婆媳 / 家庭伦理</div>
+            <div class="pine-id">NJHdgnbYvpSc4RKT</div>
+            <div class="pine-card-metrics"><span>消耗 $1,314</span><span>CPI $4.94</span></div>
+            <div class="pine-style">60秒 · 竖屏 · Interstitial</div>
+            <div class="pine-analysis">婆媳、私生子与家族冲突叠加，属于女性向家庭伦理长剧情。</div>
+            <div class="pine-group" title="ID_TT_Shortplay-PineReuse-CPM-video-9x16-26Q3M7W1_ACO">Group: YSQwWYsgwpof4IPa</div>
+          </div>
+        </article>
+        <article class="pine-creative-card">
+          <img src="assets/pine/K5tUiqkMkQWJOCKm.jpg" alt="K5tUiqkMkQWJOCKm 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>🇮🇩 IDN / 1340</strong></div>
+            <div class="pine-theme">豪门家庭 / 女性逆袭</div>
+            <div class="pine-id">K5tUiqkMkQWJOCKm</div>
+            <div class="pine-card-metrics"><span>消耗 $85</span><span>CPI $0.21</span></div>
+            <div class="pine-style">29秒 · 方屏 · Interstitial</div>
+            <div class="pine-analysis">豪门争执与女性反击构成短钩子，成本突出但当前绝对消耗较小。</div>
+            <div class="pine-group" title="ID_Lite_TT_Shortplay-PineReuse-CPM-video-1x1-26Q3M7W1_ACO">Group: AdYLPXYWAFPHY6SY</div>
+          </div>
+        </article></div>
   </div>
 </div>
 

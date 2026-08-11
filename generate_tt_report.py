@@ -44210,6 +44210,87 @@ def render_weekly_summary(d):
 </section>"""
 
 
+PINE_CREATIVE_SNAPSHOT = {
+    "period": "2026-08-04 ~ 2026-08-11",
+    "note": "8月11日为未完结日",
+    "creatives": [
+        {
+            "country": "BRA", "app_code": "1233", "flag": "🇧🇷",
+            "creative_id": "aywxs25fmzAwg0Yg", "creative_group_id": "ZodwBXPGNcjzV2kI",
+            "creative_group_name": "TT-BR-SceneUG_drama_video_aigc_PineReuse_highlight_0625-9x16_ACO",
+            "spend": 1317.99, "cpi": 4.64, "theme": "古装爱情 / 权谋",
+            "style": "62秒 · 竖屏 · Interstitial",
+            "analysis": "古装人物关系与权力冲突驱动，依靠连续剧情和人物悬念承接转化。",
+            "image": "assets/pine/aywxs25fmzAwg0Yg.jpg",
+        },
+        {
+            "country": "BRA", "app_code": "1233", "flag": "🇧🇷",
+            "creative_id": "ma88z2gzdORZIXQU", "creative_group_id": "RYJwVIFci8gwxTgN",
+            "creative_group_name": "TT-BR-SceneUG_drama-跨国流转-0731_ACO_pinedrama",
+            "spend": 663.55, "cpi": 5.07, "theme": "AIGC荒诞喜剧",
+            "style": "13秒 · 竖屏 · Interstitial",
+            "analysis": "拟人水果与夸张冲突形成强视觉钩子，但当前成本高于BRA头部剧情素材。",
+            "image": "assets/pine/ma88z2gzdORZIXQU.jpg",
+        },
+        {
+            "country": "BRA", "app_code": "1233", "flag": "🇧🇷",
+            "creative_id": "aKYAUijfFXaa7L3m", "creative_group_id": "kCCwqHNzalUgRLmK",
+            "creative_group_name": "TT-BR-shortplay-SceneUG_drama-pinetop-Q3M8W1_ACO_pinedrama",
+            "spend": 407.21, "cpi": 3.31, "theme": "现代爱情 / 情侣冲突",
+            "style": "28秒 · 方屏 · Instream Video",
+            "analysis": "情侣争执开场叠加产品解锁演示，是本批新素材中成本表现最好的头部创意。",
+            "image": "assets/pine/aKYAUijfFXaa7L3m.jpg",
+            "is_new": True,
+        },
+        {
+            "country": "MEX", "app_code": "1233", "flag": "🇲🇽",
+            "creative_id": "LY1pRrABpZgBMBrD", "creative_group_id": "No7XIDbYEv9fTts0",
+            "creative_group_name": "TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO",
+            "spend": 1718.06, "cpi": 1.59, "theme": "豪门家庭 / 情感救赎",
+            "style": "62秒 · 竖屏 · Interstitial",
+            "analysis": "受伤女主、男主救助及豪门家庭冲突构成连续悬念，量级与成本兼优。",
+            "image": "assets/pine/LY1pRrABpZgBMBrD.jpg",
+        },
+        {
+            "country": "MEX", "app_code": "1233", "flag": "🇲🇽",
+            "creative_id": "HAV6jBMtVO81Z5hA", "creative_group_id": "No7XIDbYEv9fTts0",
+            "creative_group_name": "TT-MX-shortplay-SceneUG_drama-PineReuse-highlights-9x16-26Q3M7W1_ACO",
+            "spend": 643.45, "cpi": 1.34, "theme": "婚恋 / 身份反转",
+            "style": "81秒 · 竖屏 · Interstitial",
+            "analysis": "婚恋关系、家庭对峙和身份揭露推动剧情，是当前截图样本中成本最低的1233素材。",
+            "image": "assets/pine/HAV6jBMtVO81Z5hA.jpg",
+        },
+        {
+            "country": "IDN", "app_code": "1180", "flag": "🇮🇩",
+            "creative_id": "QPc7zweDmThHpjbu", "creative_group_id": "BK0hIxI2YMgNtQus",
+            "creative_group_name": "ID_TT_Shortplay-PineReuse-CPM-video-1x1-26Q3M7W1_ACO",
+            "spend": 1361.53, "cpi": 4.71, "theme": "弃女 / 女性复仇",
+            "style": "32秒 · 方屏 · Interstitial",
+            "analysis": "女性受害与身份冲突形成快速情绪钩子，方屏版本兼顾多类版位。",
+            "image": "assets/pine/QPc7zweDmThHpjbu.jpg",
+        },
+        {
+            "country": "IDN", "app_code": "1180", "flag": "🇮🇩",
+            "creative_id": "NJHdgnbYvpSc4RKT", "creative_group_id": "YSQwWYsgwpof4IPa",
+            "creative_group_name": "ID_TT_Shortplay-PineReuse-CPM-video-9x16-26Q3M7W1_ACO",
+            "spend": 1314.18, "cpi": 4.94, "theme": "婆媳 / 家庭伦理",
+            "style": "60秒 · 竖屏 · Interstitial",
+            "analysis": "婆媳、私生子与家族冲突叠加，属于女性向家庭伦理长剧情。",
+            "image": "assets/pine/NJHdgnbYvpSc4RKT.jpg",
+        },
+        {
+            "country": "IDN", "app_code": "1340", "flag": "🇮🇩",
+            "creative_id": "K5tUiqkMkQWJOCKm", "creative_group_id": "AdYLPXYWAFPHY6SY",
+            "creative_group_name": "ID_Lite_TT_Shortplay-PineReuse-CPM-video-1x1-26Q3M7W1_ACO",
+            "spend": 85.32, "cpi": 0.21, "theme": "豪门家庭 / 女性逆袭",
+            "style": "29秒 · 方屏 · Interstitial",
+            "analysis": "豪门争执与女性反击构成短钩子，成本突出但当前绝对消耗较小。",
+            "image": "assets/pine/K5tUiqkMkQWJOCKm.jpg",
+        },
+    ],
+}
+
+
 def render_pine_drama_tab(pine):
     countries = pine.get("countries", []) if pine else []
     if not countries:
@@ -44220,7 +44301,6 @@ def render_pine_drama_tab(pine):
 </div>"""
 
     overview_rows = ""
-    detail_blocks = ""
     for c in countries:
         pine_dnu = f"{c['pine_dnu']:,.0f}" if c.get("pine_dnu") is not None else "—"
         country_dnu = f"{c['country_dnu']:,.0f}" if c.get("country_dnu") is not None else "—"
@@ -44235,50 +44315,22 @@ def render_pine_drama_tab(pine):
           <td class="num {chg_class(c.get('pine_cpi_chg'))}">{chg_str(c.get('pine_cpi_chg'))}</td><td class="num">{country_avg}</td>
         </tr>"""
 
-        event_lines = ""
-        for e in c.get("events", []):
-            curr_cpi = f"{e['curr_cpi']:.2f}" if e.get("curr_cpi") is not None else "—"
-            event_avg = f"{e['event_avg_cpi']:.2f}" if e.get("event_avg_cpi") is not None else "—"
-            event_lines += f"""
-            <div class="pine-event-line">
-              <strong>{html_escape(e['name'])}：</strong>Pine CPI {curr_cpi}，周环比
-              <span class="{chg_class(e.get('wow_cpi_pct'))}">{chg_str(e.get('wow_cpi_pct'))}</span>；
-              事件均值 {event_avg}，国家均值 {country_avg.replace('$','')}，{html_escape(e.get('recommendation', ''))}
-            </div>"""
-
-        creative_rows = ""
-        for cr in c.get("top_creatives", []):
-            curr_cpi = f"${cr['curr_cpi']:.2f}" if cr.get("curr_cpi") is not None else "—"
-            avg_cpi = f"${cr['country_avg_cpi']:.2f}" if cr.get("country_avg_cpi") is not None else "—"
-            creative_rows += f"""
-            <tr>
-              <td class="num">{cr.get('rank', '')}</td>
-              <td class="mono">{html_escape(cr.get('creative_id', ''))}</td>
-              <td class="num">${cr.get('curr_spend', 0):,.2f}</td>
-              <td class="num">{curr_cpi}</td><td class="num">{avg_cpi}</td>
-              <td>{html_escape(cr.get('content_type', ''))}</td>
-              <td>{html_escape(cr.get('style', ''))}</td>
-              <td>{html_escape(cr.get('interpretation', ''))}</td>
-              <td>{html_escape(cr.get('recommendation', ''))}</td>
-            </tr>"""
-        if not creative_rows:
-            creative_rows = '<tr><td colspan="9" style="text-align:center;color:#94a3b8;">没有CPI低于国家均值的有效单创意</td></tr>'
-
-        pine_chg = chg_str(c.get("pine_cpi_chg"))
-        detail_blocks += f"""
-        <section class="pine-country">
-          <h3>{c['flag']} {html_escape(c['country'])} / {html_escape(c['app_code'])}
-            <span>国家均值 {country_avg} · Pine整体 CPI <b class="{chg_class(c.get('pine_cpi_chg'))}">{pine_chg}</b> · DNU占比 {dnu_share}</span>
-          </h3>
-          <div class="pine-summary-title"><strong>{html_escape(c['country'])} / {html_escape(c['app_code'])}（国家均值 {country_avg.replace('$','')}；Pine整体 CPI {pine_chg}）</strong></div>
-          <div class="pine-event-list">{event_lines}</div>
-          <div class="table-title"><span class="icon icon-creative">C</span>CPI低于国家均值的单创意 · 按消耗TOP3</div>
-          <table class="pine-creative-table">
-            <tr><th>排名</th><th>Creative ID</th><th>本期消耗</th><th>创意CPI</th><th>国家均值</th>
-                <th>内容类型</th><th>时长/样式</th><th>创意解析</th><th>建议</th></tr>
-            {creative_rows}
-          </table>
-        </section>"""
+    creative_cards = ""
+    for cr in PINE_CREATIVE_SNAPSHOT["creatives"]:
+        new_badge = '<span class="pine-new">NEW</span>' if cr.get("is_new") else ""
+        creative_cards += f"""
+        <article class="pine-creative-card">
+          <img src="{html_escape(cr['image'])}" alt="{html_escape(cr['creative_id'])} 创意截图" loading="lazy">
+          <div class="pine-card-body">
+            <div class="pine-card-head"><strong>{cr['flag']} {html_escape(cr['country'])} / {html_escape(cr['app_code'])}</strong>{new_badge}</div>
+            <div class="pine-theme">{html_escape(cr['theme'])}</div>
+            <div class="pine-id">{html_escape(cr['creative_id'])}</div>
+            <div class="pine-card-metrics"><span>消耗 ${cr['spend']:,.0f}</span><span>CPI ${cr['cpi']:.2f}</span></div>
+            <div class="pine-style">{html_escape(cr['style'])}</div>
+            <div class="pine-analysis">{html_escape(cr['analysis'])}</div>
+            <div class="pine-group" title="{html_escape(cr['creative_group_name'])}">Group: {html_escape(cr['creative_group_id'])}</div>
+          </div>
+        </article>"""
 
     return f"""
 <div id="pine_drama" class="tab-content">
@@ -44287,29 +44339,35 @@ def render_pine_drama_tab(pine):
     .pine-note {{ background:#eff6ff;border-left:4px solid #2563eb;padding:10px 14px;margin-bottom:16px;color:#334155;line-height:1.5; }}
     .pine-overview {{ margin-bottom:20px; }}
     .pine-overview .num,.pine-creative-table .num {{ text-align:right;font-variant-numeric:tabular-nums; }}
-    .pine-country {{ border-top:1px solid #e2e8f0;padding:18px 0 22px; }}
-    .pine-country h3 {{ display:flex;align-items:center;gap:10px;font-size:16px;margin-bottom:10px;color:#1e293b; }}
-    .pine-country h3 span {{ margin-left:auto;font-size:12px;font-weight:400;color:#64748b; }}
-    .pine-summary-title {{ background:#f8fafc;border-left:3px solid #6366f1;padding:9px 12px;margin-bottom:8px; }}
-    .pine-event-list {{ padding:2px 2px 12px; }}
-    .pine-event-line {{ padding:7px 10px;border-bottom:1px dashed #e2e8f0;line-height:1.55; }}
-    .pine-event-line:last-child {{ border-bottom:0; }}
-    .pine-creative-table .mono {{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px; }}
-    .pine-creative-table td {{ vertical-align:top;line-height:1.45; }}
+    .pine-grid {{ display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:10px; }}
+    .pine-creative-card {{ border:1px solid #dbe2ea;border-radius:8px;overflow:hidden;background:white;min-width:0; }}
+    .pine-creative-card img {{ width:100%;aspect-ratio:1/1;object-fit:contain;background:#f8fafc;display:block; }}
+    .pine-card-body {{ padding:12px 13px 14px; }}
+    .pine-card-head {{ display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#334155; }}
+    .pine-new {{ background:#dcfce7;color:#166534;border-radius:4px;padding:2px 6px;font-size:9px;font-weight:800; }}
+    .pine-theme {{ font-size:16px;font-weight:750;color:#111827;margin:7px 0 4px; }}
+    .pine-id,.pine-group {{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#64748b;overflow-wrap:anywhere; }}
+    .pine-card-metrics {{ display:flex;gap:8px;margin:10px 0 7px; }}
+    .pine-card-metrics span {{ background:#f1f5f9;border-radius:4px;padding:4px 7px;font-size:11px;font-weight:700;color:#334155; }}
+    .pine-style {{ font-size:11px;color:#475569;margin-bottom:7px; }}
+    .pine-analysis {{ font-size:12px;line-height:1.55;color:#334155;min-height:56px; }}
+    .pine-group {{ border-top:1px solid #eef2f7;margin-top:9px;padding-top:8px; }}
+    @media(max-width:680px) {{ .pine-grid {{ grid-template-columns:1fr; }} .pine-overview {{ display:block;overflow-x:auto; }} }}
   </style>
   <div class="product-header">
     <span class="product-id-badge">PINE</span><h2>PineDrama素材分析</h2>
     <span style="margin-left:auto;font-size:12px;color:#64748b;">PineReuse素材专项</span>
   </div>
   <div class="pine-wrap">
-    <div class="pine-note">DNU占比仅按campaign name包含pinereuse计算；没有对应campaign时留空。{html_escape(pine.get('content_method', ''))}</div>
-    <div class="table-title"><span class="icon icon-bench">D</span>分国家Pine DNU占比与整体表现</div>
+    <div class="pine-note">国家数据使用正式周报周期；不再拆分国家下的事件成本。头部创意快照：{PINE_CREATIVE_SNAPSHOT['period']}（{PINE_CREATIVE_SNAPSHOT['note']}），题材基于实际视频画面解析。</div>
+    <div class="table-title"><span class="icon icon-bench">D</span>国家维度Pine整体表现</div>
     <table class="pine-overview">
       <tr><th>国家</th><th>App</th><th>OS</th><th>Pine DNU</th><th>国家整体DNU</th><th>DNU占比</th>
           <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家均值CPI</th></tr>
       {overview_rows}
     </table>
-    {detail_blocks}
+    <div class="table-title" style="margin-top:24px;"><span class="icon icon-creative">C</span>头部创意截图与题材分析</div>
+    <div class="pine-grid">{creative_cards}</div>
   </div>
 </div>"""
 
@@ -44601,7 +44659,7 @@ def main():
     repo = str(REPO_DIR)
     period = REPORT_DATA["period_curr"].replace(" ", "").replace("~", "-")
     msg = f"report: {period} CPI归因报告"
-    subprocess.run(["git", "-C", repo, "add", "index.html", "generate_tt_report.py"], check=True)
+    subprocess.run(["git", "-C", repo, "add", "index.html", "generate_tt_report.py", "assets/pine"], check=True)
     r = subprocess.run(["git", "-C", repo, "commit", "-m", msg], capture_output=True, text=True)
     commit_output = (r.stdout or "") + (r.stderr or "")
     if "nothing to commit" in commit_output:
