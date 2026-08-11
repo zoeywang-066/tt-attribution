@@ -80,6 +80,7 @@
 
 - PineDrama Tab 只保留两类信息：国家维度整体表现、头部单创意分析。
 - 不再输出“国家 × 投放事件”的 Pine 成本拆解和事件级优化结论。
+- Pine campaign 口径包含 campaign name 中的 `pinereuse` 和 `pine_test`。
 - 国家维度展示 Pine DNU、国家整体 DNU、DNU 占比、Pine 消耗、Pine CPI、周环比和国家均值 CPI。
 - 头部创意按消耗排序，展示 Creative ID、creative group、消耗、CPI、截图、题材、时长、画幅和版位。
 - 题材必须读取实际图片或视频素材后判断；仅凭 creative group 名称推断时必须明确标记为“命名推断”。
