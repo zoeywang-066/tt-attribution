@@ -954,7 +954,7 @@
     </div>
     <div class="tab-group">
       <div class="tab-group-label">素材专项</div>
-      <div class="tab-btns"><button class="tab-btn" id="btn-pine_drama" onclick="switchTab('pine_drama')">PineDrama素材分析 <span class="badge ok">5</span></button></div>
+      <div class="tab-btns"><button class="tab-btn" id="btn-pine_drama" onclick="switchTab('pine_drama')">PineDrama素材分析 <span class="badge ok">4</span></button></div>
     </div>
 </div>
 
@@ -13927,6 +13927,18 @@
     .pine-style { font-size:11px;color:#475569;margin-bottom:7px; }
     .pine-analysis { font-size:12px;line-height:1.55;color:#334155;min-height:56px; }
     .pine-group { border-top:1px solid #eef2f7;margin-top:9px;padding-top:8px; }
+    .pine-country-detail { border-top:1px solid #e2e8f0;padding:15px 0 5px; }
+    .pine-country-title { display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px;color:#334155;font-size:13px; }
+    .pine-country-title span { color:#64748b;font-size:11px;white-space:nowrap; }
+    .pine-type-block { margin:9px 0 14px; }
+    .pine-type-title { display:inline-block;border-radius:4px;padding:3px 7px;font-size:10px;font-weight:800;margin-bottom:6px; }
+    .pine-type-title.test { background:#fff7ed;color:#c2410c; }
+    .pine-type-title.reuse { background:#ecfdf5;color:#047857; }
+    .pine-campaign-table { table-layout:fixed;width:100%; }
+    .pine-campaign-table th:first-child,.pine-campaign-table td:first-child { width:40%; }
+    .pine-campaign-table th:last-child,.pine-campaign-table td:last-child { width:22%; }
+    .pine-campaign-name { overflow-wrap:anywhere;line-height:1.45; }
+    .pine-action { white-space:normal;line-height:1.45;color:#334155; }
     @media(max-width:680px) { .pine-grid { grid-template-columns:1fr; } .pine-overview { display:block;overflow-x:auto; } }
   </style>
   <div class="product-header">
@@ -13934,7 +13946,7 @@
     <span style="margin-left:auto;font-size:12px;color:#64748b;">Pine专项（pinereuse + pine_test）</span>
   </div>
   <div class="pine-wrap">
-    <div class="pine-note">国家数据包含campaign name中的pinereuse和pine_test，使用正式周报周期；不再拆分国家下的事件成本。头部创意快照：2026-08-04 ~ 2026-08-11（8月11日为未完结日），题材基于实际视频画面解析。</div>
+    <div class="pine-note">国家数据仅统计campaign name中的pinereuse和pine_test，使用正式周报周期；分campaign明细将Pine Test与Pine Reuse分开。头部创意快照：2026-08-04 ~ 2026-08-11（8月11日为未完结日），题材基于实际视频画面解析。</div>
     <div class="table-title"><span class="icon icon-bench">D</span>国家维度Pine整体表现</div>
     <table class="pine-overview">
       <tr><th>国家</th><th>App</th><th>OS</th><th>Pine DNU</th><th>国家整体DNU</th><th>DNU占比</th>
@@ -13943,34 +13955,136 @@
         <tr>
           <td>🇮🇩 IDN</td><td>1180</td><td>Android</td>
           <td class="num">1,804</td><td class="num">5,081</td><td class="num">35.5%</td>
-          <td class="num">$17,582</td><td class="num">$4.80</td>
-          <td class="num chg-up">+99.2%</td><td class="num">$5.38</td>
+          <td class="num">$8,650</td><td class="num">$5.09</td>
+          <td class="num chg-up">+88.7%</td><td class="num">$4.80</td>
         </tr>
         <tr>
           <td>🇧🇷 BRA</td><td>1233</td><td>Android</td>
           <td class="num">1,108</td><td class="num">17,583</td><td class="num">6.3%</td>
-          <td class="num">$14,386</td><td class="num">$4.55</td>
-          <td class="num chg-down">-2.6%</td><td class="num">$4.90</td>
+          <td class="num">$5,157</td><td class="num">$4.69</td>
+          <td class="num chg-flat">—</td><td class="num">$4.17</td>
         </tr>
         <tr>
           <td>🇲🇽 MEX</td><td>1233</td><td>Android</td>
           <td class="num">1,531</td><td class="num">11,985</td><td class="num">12.8%</td>
-          <td class="num">$7,379</td><td class="num">$1.59</td>
-          <td class="num chg-down">-8.4%</td><td class="num">$2.59</td>
-        </tr>
-        <tr>
-          <td>🇮🇩 IDN</td><td>1340</td><td>Android</td>
-          <td class="num">—</td><td class="num">17,026</td><td class="num">0.0%</td>
-          <td class="num">$605</td><td class="num">$0.21</td>
-          <td class="num chg-up">+50.6%</td><td class="num">$0.19</td>
+          <td class="num">$3,529</td><td class="num">$1.47</td>
+          <td class="num chg-down">-7.2%</td><td class="num">$1.54</td>
         </tr>
         <tr>
           <td>🇧🇷 BRA</td><td>1340</td><td>Android</td>
           <td class="num">—</td><td class="num">996</td><td class="num">0.0%</td>
           <td class="num">$170</td><td class="num">$0.40</td>
-          <td class="num chg-up">+38.7%</td><td class="num">$0.49</td>
+          <td class="num chg-up">+38.7%</td><td class="num">$0.33</td>
         </tr>
     </table>
+    <div class="table-title" style="margin-top:24px;"><span class="icon icon-campaign">C</span>分Campaign表现与建议</div>
+    
+        <section class="pine-country-detail">
+          <div class="pine-country-title"><strong>🇮🇩 IDN / 1180 / Android</strong><span>国家CPI $4.80</span></div>
+          
+            <div class="pine-type-block">
+              <div class="pine-type-title test">Pine Test</div>
+              <table class="pine-campaign-table">
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                
+                <tr>
+                  <td class="pine-campaign-name">Bytedance_1180_ID_Android_20260625_Moloco_UserAcquisition_ af_bs_conversion_rt_pine_test</td>
+                  <td class="num">$194</td>
+                  <td class="num">$4.61</td>
+                  <td class="num chg-up">+46.8%</td>
+                  <td class="num">$4.80</td>
+                  <td class="pine-action">成本环比明显上涨，限制放量并观察</td>
+                </tr>
+              </table>
+            </div>
+            <div class="pine-type-block">
+              <div class="pine-type-title reuse">Pine Reuse</div>
+              <table class="pine-campaign-table">
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                
+                <tr>
+                  <td class="pine-campaign-name">Bytedance_1180_ID_Android_20260702_Moloco_UserAcquisition_d2_rr_user_rt_pinereuse</td>
+                  <td class="num">$8,457</td>
+                  <td class="num">$5.10</td>
+                  <td class="num chg-up">+89.8%</td>
+                  <td class="num">$4.80</td>
+                  <td class="pine-action">成本环比明显上涨，限制放量并观察</td>
+                </tr>
+              </table>
+            </div>
+        </section>
+        <section class="pine-country-detail">
+          <div class="pine-country-title"><strong>🇧🇷 BRA / 1233 / Android</strong><span>国家CPI $4.17</span></div>
+          
+            <div class="pine-type-block">
+              <div class="pine-type-title test">Pine Test</div>
+              <table class="pine-campaign-table">
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                
+                <tr>
+                  <td class="pine-campaign-name">Bytedance_1233_BR_AND_20260803 _UserAcquisition_retention_pine_test</td>
+                  <td class="num">$1,532</td>
+                  <td class="num">$5.36</td>
+                  <td class="num chg-flat">—</td>
+                  <td class="num">$4.17</td>
+                  <td class="pine-action">新投成本高于国家均值，暂不放量并优化</td>
+                </tr>
+              </table>
+            </div>
+            <div class="pine-type-block">
+              <div class="pine-type-title reuse">Pine Reuse</div>
+              <table class="pine-campaign-table">
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                
+                <tr>
+                  <td class="pine-campaign-name">Bytedance_1233_BR_AND_20260803_UserAcquisition_d2_rr_user_rt_pinereuse</td>
+                  <td class="num">$3,625</td>
+                  <td class="num">$4.46</td>
+                  <td class="num chg-flat">—</td>
+                  <td class="num">$4.17</td>
+                  <td class="pine-action">新投成本接近国家均值，保持预算观察</td>
+                </tr>
+              </table>
+            </div>
+        </section>
+        <section class="pine-country-detail">
+          <div class="pine-country-title"><strong>🇲🇽 MEX / 1233 / Android</strong><span>国家CPI $1.54</span></div>
+          
+            <div class="pine-type-block">
+              <div class="pine-type-title reuse">Pine Reuse</div>
+              <table class="pine-campaign-table">
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                
+                <tr>
+                  <td class="pine-campaign-name">Bytedance_1233_MX_Android_20260703_Moloco_UserAcquisition_2d_rr_user_pinereuse</td>
+                  <td class="num">$3,529</td>
+                  <td class="num">$1.47</td>
+                  <td class="num chg-down">-7.2%</td>
+                  <td class="num">$1.54</td>
+                  <td class="pine-action">成本可控，维持预算继续测试</td>
+                </tr>
+              </table>
+            </div>
+        </section>
+        <section class="pine-country-detail">
+          <div class="pine-country-title"><strong>🇧🇷 BRA / 1340 / Android</strong><span>国家CPI $0.33</span></div>
+          
+            <div class="pine-type-block">
+              <div class="pine-type-title reuse">Pine Reuse</div>
+              <table class="pine-campaign-table">
+                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>建议</th></tr>
+                
+                <tr>
+                  <td class="pine-campaign-name">Bytedance_1340_BR_Android_0402_Moloco_TikTokLite CPA_tt_d2_retention_user_pinereuse</td>
+                  <td class="num">$170</td>
+                  <td class="num">$0.40</td>
+                  <td class="num chg-up">+38.7%</td>
+                  <td class="num">$0.33</td>
+                  <td class="pine-action">成本明显高于国家均值，建议降量或暂停优化</td>
+                </tr>
+              </table>
+            </div>
+        </section>
     <div class="table-title" style="margin-top:24px;"><span class="icon icon-creative">C</span>头部创意截图与题材分析</div>
     <div class="pine-grid">
         <article class="pine-creative-card">

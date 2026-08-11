@@ -82,6 +82,7 @@
 - 不再输出“国家 × 投放事件”的 Pine 成本拆解和事件级优化结论。
 - Pine campaign 口径包含 campaign name 中的 `pinereuse` 和 `pine_test`。
 - 国家维度展示 Pine DNU、国家整体 DNU、DNU 占比、Pine 消耗、Pine CPI、周环比和国家均值 CPI。
+- 分 campaign 明细必须将 `Pine Test` 与 `Pine Reuse` 分组展示，不得混排；展示消耗、Pine CPI、CPI环比、同口径国家CPI和放量/调整建议。
 - 头部创意按消耗排序，展示 Creative ID、creative group、消耗、CPI、截图、题材、时长、画幅和版位。
 - 题材必须读取实际图片或视频素材后判断；仅凭 creative group 名称推断时必须明确标记为“命名推断”。
 - 头部创意可使用最新素材快照，但必须单独标注统计日期，并提示未完结日；不得与正式周报完整周期混写。
