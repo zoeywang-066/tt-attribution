@@ -13948,10 +13948,10 @@
     <span style="margin-left:auto;font-size:12px;color:#64748b;">Pine专项（pinereuse + pine_test）</span>
   </div>
   <div class="pine-wrap">
-    <div class="pine-note">国家数据仅统计campaign name中的pinereuse和pine_test。Pine CPI与国家CPI优先使用BI CPI；BI CPI缺失时使用Moloco Spend ÷ DNU，DNU也缺失则留空。分campaign明细将Pine Test与Pine Reuse分开。创意层无BI DNU，因此不展示创意CPI。</div>
+    <div class="pine-note">DNU严格读取BI的client_dnu并按周期直接求和，不加权：Pine DNU为Pine Test与Pine Reuse campaign的BI DNU之和，国家DNU为该国家全部campaign的BI DNU之和。Pine CPI与国家CPI优先使用BI CPI；BI CPI缺失时使用Moloco Spend ÷ BI DNU，BI DNU也缺失则留空。</div>
     <div class="table-title"><span class="icon icon-bench">D</span>国家维度Pine整体表现</div>
     <table class="pine-overview">
-      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine DNU</th><th>国家整体DNU</th><th>DNU占比</th>
+      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine BI DNU</th><th>国家 BI DNU</th><th>DNU占比</th>
           <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家CPI</th></tr>
       
         <tr>
@@ -13987,11 +13987,12 @@
             <div class="pine-type-block">
               <div class="pine-type-title test">Pine Test</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1180_ID_Android_20260625_Moloco_UserAcquisition_ af_bs_conversion_rt_pine_test</td>
                   <td class="num">$194</td>
+                  <td class="num">47</td>
                   <td class="num">$4.12</td>
                   <td class="num chg-up">+27.3%</td>
                   <td class="num">$4.56</td>
@@ -14003,11 +14004,12 @@
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1180_ID_Android_20260702_Moloco_UserAcquisition_d2_rr_user_rt_pinereuse</td>
                   <td class="num">$8,457</td>
+                  <td class="num">1,757</td>
                   <td class="num">$4.81</td>
                   <td class="num chg-up">+122.6%</td>
                   <td class="num">$4.56</td>
@@ -14023,11 +14025,12 @@
             <div class="pine-type-block">
               <div class="pine-type-title test">Pine Test</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_BR_AND_20260803 _UserAcquisition_retention_pine_test</td>
                   <td class="num">$1,532</td>
+                  <td class="num">297</td>
                   <td class="num">$5.16</td>
                   <td class="num chg-flat">—</td>
                   <td class="num">$4.24</td>
@@ -14039,11 +14042,12 @@
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_BR_AND_20260803_UserAcquisition_d2_rr_user_rt_pinereuse</td>
                   <td class="num">$3,625</td>
+                  <td class="num">811</td>
                   <td class="num">$4.47</td>
                   <td class="num chg-flat">—</td>
                   <td class="num">$4.24</td>
@@ -14059,11 +14063,12 @@
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_MX_Android_20260703_Moloco_UserAcquisition_2d_rr_user_pinereuse</td>
                   <td class="num">$3,529</td>
+                  <td class="num">1,531</td>
                   <td class="num">$2.31</td>
                   <td class="num chg-down">-1.0%</td>
                   <td class="num">$2.30</td>
@@ -14079,11 +14084,12 @@
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1340_BR_Android_0402_Moloco_TikTokLite CPA_tt_d2_retention_user_pinereuse</td>
                   <td class="num">$170</td>
+                  <td class="num">—</td>
                   <td class="num">—</td>
                   <td class="num chg-flat">—</td>
                   <td class="num">$0.38</td>

@@ -84,6 +84,7 @@
 - 国家维度展示 Pine DNU、国家整体 DNU、DNU 占比、Pine 消耗、Pine CPI、周环比和国家均值 CPI。
 - 分 campaign 明细必须将 `Pine Test` 与 `Pine Reuse` 分组展示，不得混排；展示消耗、Pine CPI、CPI环比、同口径国家CPI和放量/调整建议。
 - Pine整体、分campaign和国家CPI均优先使用BI CPI；BI CPI完全缺失时使用 `Moloco Spend ÷ DNU`，DNU也缺失时留空，不得回退到Moloco installs CPI。
+- Pine DNU、分campaign DNU和国家DNU严格使用Sandbox BI的 `client_dnu` 按周期直接求和，不加权；不得使用Moloco installs替代。
 - 创意层没有BI DNU时不展示CPI，只保留消耗、截图和题材解析。
 - PineDrama Tab 的国家名称不展示国旗图标。
 - 头部创意按消耗排序，展示 Creative ID、creative group、消耗、CPI、截图、题材、时长、画幅和版位。

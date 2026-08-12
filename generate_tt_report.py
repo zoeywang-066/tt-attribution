@@ -44176,10 +44176,12 @@ def render_pine_drama_tab(pine):
             for row in rows:
                 curr_cpi = f"${row['curr_cpi']:.2f}" if row.get("curr_cpi") is not None else "—"
                 row_country_cpi = f"${row['country_cpi']:.2f}" if row.get("country_cpi") is not None else "—"
+                curr_dnu = f"{row['curr_dnu']:,.0f}" if row.get("curr_dnu") is not None else "—"
                 detail_rows += f"""
                 <tr>
                   <td class="pine-campaign-name">{html_escape(row['campaign_name'])}</td>
                   <td class="num">${row.get('curr_spend', 0):,.0f}</td>
+                  <td class="num">{curr_dnu}</td>
                   <td class="num">{curr_cpi}</td>
                   <td class="num {chg_class(row.get('cpi_chg'))}">{chg_str(row.get('cpi_chg'))}</td>
                   <td class="num">{row_country_cpi}</td>
@@ -44191,7 +44193,7 @@ def render_pine_drama_tab(pine):
             <div class="pine-type-block">
               <div class="pine-type-title {type_class}">{pine_type}</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
                 {detail_rows}
               </table>
             </div>"""
@@ -44259,10 +44261,10 @@ def render_pine_drama_tab(pine):
     <span style="margin-left:auto;font-size:12px;color:#64748b;">Pine专项（pinereuse + pine_test）</span>
   </div>
   <div class="pine-wrap">
-    <div class="pine-note">国家数据仅统计campaign name中的pinereuse和pine_test。Pine CPI与国家CPI优先使用BI CPI；BI CPI缺失时使用Moloco Spend ÷ DNU，DNU也缺失则留空。分campaign明细将Pine Test与Pine Reuse分开。创意层无BI DNU，因此不展示创意CPI。</div>
+    <div class="pine-note">DNU严格读取BI的client_dnu并按周期直接求和，不加权：Pine DNU为Pine Test与Pine Reuse campaign的BI DNU之和，国家DNU为该国家全部campaign的BI DNU之和。Pine CPI与国家CPI优先使用BI CPI；BI CPI缺失时使用Moloco Spend ÷ BI DNU，BI DNU也缺失则留空。</div>
     <div class="table-title"><span class="icon icon-bench">D</span>国家维度Pine整体表现</div>
     <table class="pine-overview">
-      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine DNU</th><th>国家整体DNU</th><th>DNU占比</th>
+      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine BI DNU</th><th>国家 BI DNU</th><th>DNU占比</th>
           <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家CPI</th></tr>
       {overview_rows}
     </table>
