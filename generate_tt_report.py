@@ -48790,7 +48790,7 @@ def render_country_block(c):
         campaigns_html = f"""
         <div class="table-title"><span class="icon icon-creative">C</span>Campaign 明细</div>
         <table>
-          <tr><th>Campaign</th><th>CPI 上期</th><th>CPI 本期</th><th>CPI 变化</th>
+          <tr><th>Campaign</th><th>Moloco CPI 上期</th><th>Moloco CPI 本期</th><th>Moloco CPI 变化</th>
               <th>CPM 变化</th><th>IPM 变化</th><th>类型</th></tr>
           {rows}
         </table>"""
