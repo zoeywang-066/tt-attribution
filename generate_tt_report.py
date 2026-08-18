@@ -48269,6 +48269,7 @@ REPORT_DATA = {'period_curr': '2026-08-09 ~ 2026-08-15',
                                'curr_pine_cpi': 5.2548,
                                'pine_cpi_source': 'BI CPI',
                                'pine_cpi_chg': 10.2,
+                               'recommendation': '成本环比上涨但仍低于国家均值，维持预算观察、暂不扩量',
                                'pine_dnu': 1373.0,
                                'country_dnu': 4253.0,
                                'pine_dnu_share': 32.28,
@@ -48362,6 +48363,7 @@ REPORT_DATA = {'period_curr': '2026-08-09 ~ 2026-08-15',
                                'curr_pine_cpi': 4.1677,
                                'pine_cpi_source': 'BI CPI',
                                'pine_cpi_chg': -9.89,
+                               'recommendation': '成本接近国家均值，维持预算观察',
                                'pine_dnu': 2346.0,
                                'country_dnu': 17372.0,
                                'pine_dnu_share': 13.5,
@@ -48458,6 +48460,7 @@ REPORT_DATA = {'period_curr': '2026-08-09 ~ 2026-08-15',
                                'curr_pine_cpi': 2.4851,
                                'pine_cpi_source': 'BI CPI',
                                'pine_cpi_chg': 7.95,
+                               'recommendation': '成本环比上涨但仍低于国家均值，维持预算观察、暂不扩量',
                                'pine_dnu': 1420.0,
                                'country_dnu': 9970.0,
                                'pine_dnu_share': 14.24,
@@ -48537,6 +48540,7 @@ REPORT_DATA = {'period_curr': '2026-08-09 ~ 2026-08-15',
                                'curr_pine_cpi': 0.7638,
                                'pine_cpi_source': 'BI CPI',
                                'pine_cpi_chg': 51.49,
+                               'recommendation': '成本明显高于国家均值，建议降量或暂停优化',
                                'pine_dnu': 1766.0,
                                'country_dnu': 6506.0,
                                'pine_dnu_share': 27.14,
@@ -48605,7 +48609,83 @@ REPORT_DATA = {'period_curr': '2026-08-09 ~ 2026-08-15',
                                                   'style': '竖屏 · Native · 19秒 · 短版',
                                                   'interpretation': '竖屏剧情切片，贴近短视频消费习惯，适合持续复用测试。',
                                                   'recommendation': '低于国家均值，建议持续测试'}]}],
-                'content_method': 'Pine口径包含campaign name中的pinereuse和pine_test；仅保留国家整体表现与头部单创意，不再输出国家分事件成本。'}}
+                'content_method': '国家Pine整体 = 该国家全部Pine Test campaign + 全部Pine Reuse campaign；国家整体BI '
+                                  'CPI统计该国家全部campaign。'}}
+
+
+def validate_pine_consistency(data):
+    """发布前校验Pine国家汇总与分campaign明细使用同一范围和BI口径。"""
+    errors = []
+
+    def close_enough(left, right, tolerance):
+        return left is not None and right is not None and abs(float(left) - float(right)) <= tolerance
+
+    def check_recommendation(scope, curr_cpi, prev_cpi, country_cpi, recommendation):
+        text = recommendation or ""
+        if curr_cpi is not None and country_cpi is not None:
+            if curr_cpi <= country_cpi and "高于国家均值" in text:
+                errors.append(f"{scope}: CPI低于国家均值，但结论写为高于国家均值")
+            if curr_cpi > country_cpi and "低于国家均值" in text:
+                errors.append(f"{scope}: CPI高于国家均值，但结论写为低于国家均值")
+        if curr_cpi is not None and prev_cpi not in (None, 0):
+            is_up = curr_cpi > prev_cpi
+            if is_up and "未恶化" in text:
+                errors.append(f"{scope}: CPI环比上涨，但结论写为未恶化")
+            if not is_up and "环比上涨" in text:
+                errors.append(f"{scope}: CPI环比未上涨，但结论写为环比上涨")
+
+    countries = (data.get("pine_drama") or {}).get("countries", [])
+    for country in countries:
+        label = f"{country.get('country')}/{country.get('app_code')}/{country.get('os')}"
+        campaigns = country.get("campaigns", [])
+        if not campaigns:
+            continue
+
+        campaign_spend = sum(float(row.get("curr_spend") or 0) for row in campaigns)
+        if not close_enough(country.get("curr_pine_spend"), campaign_spend, 0.05):
+            errors.append(
+                f"{label}: Pine消耗 {country.get('curr_pine_spend')} != 分campaign合计 {campaign_spend:.2f}"
+            )
+
+        curr_dnus = [row.get("curr_dnu") for row in campaigns]
+        if country.get("pine_dnu") is not None and all(value is not None for value in curr_dnus):
+            campaign_dnu = sum(float(value) for value in curr_dnus)
+            if not close_enough(country.get("pine_dnu"), campaign_dnu, 0.1):
+                errors.append(
+                    f"{label}: Pine DNU {country.get('pine_dnu')} != 分campaign合计 {campaign_dnu:.0f}"
+                )
+            if campaign_dnu > 0 and all(row.get("curr_cpi") is not None for row in campaigns):
+                weighted_cpi = sum(float(row["curr_cpi"]) * float(row["curr_dnu"]) for row in campaigns) / campaign_dnu
+                if not close_enough(country.get("curr_pine_cpi"), weighted_cpi, 0.01):
+                    errors.append(
+                        f"{label}: Pine CPI {country.get('curr_pine_cpi')} != 分campaign BI DNU汇总 {weighted_cpi:.4f}"
+                    )
+
+        for campaign in campaigns:
+            scope = f"{label} · {campaign.get('campaign_name')}"
+            if not close_enough(campaign.get("country_cpi"), country.get("country_avg_cpi"), 0.01):
+                errors.append(
+                    f"{scope}: 引用国家CPI {campaign.get('country_cpi')} != 国家整体BI CPI {country.get('country_avg_cpi')}"
+                )
+            check_recommendation(
+                scope,
+                campaign.get("curr_cpi"),
+                campaign.get("prev_cpi"),
+                campaign.get("country_cpi"),
+                campaign.get("recommendation"),
+            )
+        check_recommendation(
+            f"{label} · Pine整体",
+            country.get("curr_pine_cpi"),
+            country.get("prev_pine_cpi"),
+            country.get("country_avg_cpi"),
+            country.get("recommendation"),
+        )
+
+    if errors:
+        raise ValueError("Pine数据一致性校验失败:\n- " + "\n- ".join(errors))
+    print(f"✓ Pine一致性校验通过: {len(countries)}个国家")
+
 
 def chg_class(v):
     if v is None: return "chg-flat"
@@ -49325,12 +49405,14 @@ def render_pine_drama_tab(pine):
         country_avg = f"${c['country_avg_cpi']:.2f}" if c.get("country_avg_cpi") is not None else "—"
         pine_source = html_escape(c.get("pine_cpi_source", "—"))
         country_source = html_escape(c.get("country_cpi_source", "—"))
+        overall_recommendation = html_escape(c.get("recommendation", "—"))
         overview_rows += f"""
         <tr>
           <td>{html_escape(c['country'])}</td><td>{html_escape(c['app_code'])}</td><td>{html_escape(c['os'])}</td>
           <td class="num">{pine_dnu}</td><td class="num">{country_dnu}</td><td class="num">{dnu_share}</td>
           <td class="num">${c.get('curr_pine_spend', 0):,.0f}</td><td class="num">{curr_pine_cpi}<small class="pine-source">{pine_source}</small></td>
           <td class="num {chg_class(c.get('pine_cpi_chg'))}">{chg_str(c.get('pine_cpi_chg'))}</td><td class="num">{country_avg}<small class="pine-source">{country_source}</small></td>
+          <td class="pine-action">{overall_recommendation}</td>
         </tr>"""
 
     campaign_sections = ""
@@ -49369,13 +49451,13 @@ def render_pine_drama_tab(pine):
             <div class="pine-type-block">
               <div class="pine-type-title {type_class}">{pine_type}</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine BI CPI</th><th>Pine CPI环比</th><th>国家整体BI CPI</th><th>CPI来源</th><th>建议</th></tr>
                 {detail_rows}
               </table>
             </div>"""
         campaign_sections += f"""
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>{html_escape(c['country'])} / {html_escape(c['app_code'])} / {html_escape(c['os'])}</strong><span>国家CPI {country_cpi}</span></div>
+          <div class="pine-country-title"><strong>{html_escape(c['country'])} / {html_escape(c['app_code'])} / {html_escape(c['os'])}</strong><span>国家整体BI CPI {country_cpi}</span></div>
           {group_tables}
         </section>"""
 
@@ -49437,11 +49519,11 @@ def render_pine_drama_tab(pine):
     <span style="margin-left:auto;font-size:12px;color:#64748b;">Pine专项（pinereuse + pine_test）</span>
   </div>
   <div class="pine-wrap">
-    <div class="pine-note">DNU严格读取BI的client_dnu并按周期直接求和，不加权：Pine DNU为Pine Test与Pine Reuse campaign的BI DNU之和，国家DNU为该国家全部campaign的BI DNU之和。Pine CPI与国家CPI优先使用BI CPI；BI CPI缺失时使用Moloco Spend ÷ BI DNU，BI DNU也缺失则留空。</div>
-    <div class="table-title"><span class="icon icon-bench">D</span>国家维度Pine整体表现</div>
+    <div class="pine-note">国家Pine整体 = 该国家全部Pine Test campaign + 全部Pine Reuse campaign：Pine消耗与Pine BI DNU分别直接求和，Pine BI CPI按BI DNU汇总。国家整体BI CPI和国家BI DNU统计该国家、App、OS下的全部Moloco campaign，不限制Pine。Pine DNU占比 = Pine BI DNU ÷ 国家全部campaign BI DNU；BI CPI缺失时使用Moloco Spend ÷ BI DNU，BI DNU也缺失则留空。</div>
+    <div class="table-title"><span class="icon icon-bench">D</span>国家整体与Pine专项表现</div>
     <table class="pine-overview">
-      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine BI DNU</th><th>国家 BI DNU</th><th>DNU占比</th>
-          <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家CPI</th></tr>
+      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine BI DNU（仅Pine）</th><th>国家BI DNU（全部campaign）</th><th>Pine DNU占比</th>
+          <th>Pine消耗（仅Pine）</th><th>Pine BI CPI</th><th>Pine CPI周环比</th><th>国家整体BI CPI</th><th>整体判断</th></tr>
       {overview_rows}
     </table>
     <div class="table-title" style="margin-top:24px;"><span class="icon icon-campaign">C</span>分Campaign表现与建议</div>
@@ -49731,6 +49813,7 @@ function copyText() {{
 
 
 def main():
+    validate_pine_consistency(REPORT_DATA)
     html = generate_html(REPORT_DATA)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)

@@ -16888,46 +16888,50 @@
     <span style="margin-left:auto;font-size:12px;color:#64748b;">Pine专项（pinereuse + pine_test）</span>
   </div>
   <div class="pine-wrap">
-    <div class="pine-note">DNU严格读取BI的client_dnu并按周期直接求和，不加权：Pine DNU为Pine Test与Pine Reuse campaign的BI DNU之和，国家DNU为该国家全部campaign的BI DNU之和。Pine CPI与国家CPI优先使用BI CPI；BI CPI缺失时使用Moloco Spend ÷ BI DNU，BI DNU也缺失则留空。</div>
-    <div class="table-title"><span class="icon icon-bench">D</span>国家维度Pine整体表现</div>
+    <div class="pine-note">国家Pine整体 = 该国家全部Pine Test campaign + 全部Pine Reuse campaign：Pine消耗与Pine BI DNU分别直接求和，Pine BI CPI按BI DNU汇总。国家整体BI CPI和国家BI DNU统计该国家、App、OS下的全部Moloco campaign，不限制Pine。Pine DNU占比 = Pine BI DNU ÷ 国家全部campaign BI DNU；BI CPI缺失时使用Moloco Spend ÷ BI DNU，BI DNU也缺失则留空。</div>
+    <div class="table-title"><span class="icon icon-bench">D</span>国家整体与Pine专项表现</div>
     <table class="pine-overview">
-      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine BI DNU</th><th>国家 BI DNU</th><th>DNU占比</th>
-          <th>Pine消耗</th><th>Pine CPI</th><th>Pine CPI周环比</th><th>国家CPI</th></tr>
+      <tr><th>国家</th><th>App</th><th>OS</th><th>Pine BI DNU（仅Pine）</th><th>国家BI DNU（全部campaign）</th><th>Pine DNU占比</th>
+          <th>Pine消耗（仅Pine）</th><th>Pine BI CPI</th><th>Pine CPI周环比</th><th>国家整体BI CPI</th><th>整体判断</th></tr>
       
         <tr>
           <td>IDN</td><td>1180</td><td>Android</td>
           <td class="num">1,373</td><td class="num">4,253</td><td class="num">32.3%</td>
           <td class="num">$7,215</td><td class="num">$5.25<small class="pine-source">BI CPI</small></td>
           <td class="num chg-up">+10.2%</td><td class="num">$5.26<small class="pine-source">BI CPI</small></td>
+          <td class="pine-action">成本环比上涨但仍低于国家均值，维持预算观察、暂不扩量</td>
         </tr>
         <tr>
           <td>BRA</td><td>1233</td><td>Android</td>
           <td class="num">2,346</td><td class="num">17,372</td><td class="num">13.5%</td>
           <td class="num">$9,778</td><td class="num">$4.17<small class="pine-source">BI CPI</small></td>
           <td class="num chg-down">-9.9%</td><td class="num">$4.05<small class="pine-source">BI CPI</small></td>
+          <td class="pine-action">成本接近国家均值，维持预算观察</td>
         </tr>
         <tr>
           <td>MEX</td><td>1233</td><td>Android</td>
           <td class="num">1,420</td><td class="num">9,970</td><td class="num">14.2%</td>
           <td class="num">$3,529</td><td class="num">$2.49<small class="pine-source">BI CPI</small></td>
           <td class="num chg-up">+8.0%</td><td class="num">$2.56<small class="pine-source">BI CPI</small></td>
+          <td class="pine-action">成本环比上涨但仍低于国家均值，维持预算观察、暂不扩量</td>
         </tr>
         <tr>
           <td>BRA</td><td>1340</td><td>Android</td>
           <td class="num">1,766</td><td class="num">6,506</td><td class="num">27.1%</td>
           <td class="num">$1,349</td><td class="num">$0.76<small class="pine-source">BI CPI</small></td>
           <td class="num chg-up">+51.5%</td><td class="num">$0.52<small class="pine-source">BI CPI</small></td>
+          <td class="pine-action">成本明显高于国家均值，建议降量或暂停优化</td>
         </tr>
     </table>
     <div class="table-title" style="margin-top:24px;"><span class="icon icon-campaign">C</span>分Campaign表现与建议</div>
     
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>IDN / 1180 / Android</strong><span>国家CPI $5.26</span></div>
+          <div class="pine-country-title"><strong>IDN / 1180 / Android</strong><span>国家整体BI CPI $5.26</span></div>
           
             <div class="pine-type-block">
               <div class="pine-type-title test">Pine Test</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine BI CPI</th><th>Pine CPI环比</th><th>国家整体BI CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1180_ID_Android_20260625_Moloco_UserAcquisition_ af_bs_conversion_rt_pine_test</td>
@@ -16944,7 +16948,7 @@
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine BI CPI</th><th>Pine CPI环比</th><th>国家整体BI CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1180_ID_Android_20260702_Moloco_UserAcquisition_d2_rr_user_rt_pinereuse</td>
@@ -16960,12 +16964,12 @@
             </div>
         </section>
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>BRA / 1233 / Android</strong><span>国家CPI $4.05</span></div>
+          <div class="pine-country-title"><strong>BRA / 1233 / Android</strong><span>国家整体BI CPI $4.05</span></div>
           
             <div class="pine-type-block">
               <div class="pine-type-title test">Pine Test</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine BI CPI</th><th>Pine CPI环比</th><th>国家整体BI CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_BR_AND_20260803 _UserAcquisition_retention_pine_test</td>
@@ -16982,7 +16986,7 @@
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine BI CPI</th><th>Pine CPI环比</th><th>国家整体BI CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_BR_AND_20260803_UserAcquisition_d2_rr_user_rt_pinereuse</td>
@@ -16998,12 +17002,12 @@
             </div>
         </section>
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>MEX / 1233 / Android</strong><span>国家CPI $2.56</span></div>
+          <div class="pine-country-title"><strong>MEX / 1233 / Android</strong><span>国家整体BI CPI $2.56</span></div>
           
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine BI CPI</th><th>Pine CPI环比</th><th>国家整体BI CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1233_MX_Android_20260703_Moloco_UserAcquisition_2d_rr_user_pinereuse</td>
@@ -17019,12 +17023,12 @@
             </div>
         </section>
         <section class="pine-country-detail">
-          <div class="pine-country-title"><strong>BRA / 1340 / Android</strong><span>国家CPI $0.52</span></div>
+          <div class="pine-country-title"><strong>BRA / 1340 / Android</strong><span>国家整体BI CPI $0.52</span></div>
           
             <div class="pine-type-block">
               <div class="pine-type-title reuse">Pine Reuse</div>
               <table class="pine-campaign-table">
-                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine CPI</th><th>CPI环比</th><th>国家CPI</th><th>CPI来源</th><th>建议</th></tr>
+                <tr><th>Campaign</th><th>本期消耗</th><th>BI DNU</th><th>Pine BI CPI</th><th>Pine CPI环比</th><th>国家整体BI CPI</th><th>CPI来源</th><th>建议</th></tr>
                 
                 <tr>
                   <td class="pine-campaign-name">Bytedance_1340_BR_Android_0402_Moloco_TikTokLite CPA_tt_d2_retention_user_pinereuse</td>
