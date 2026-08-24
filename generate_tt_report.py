@@ -50960,80 +50960,6 @@ REPORT_DATA = {'period_curr': '2026-08-16 ~ 2026-08-22',
                 'content_method': '国家Pine整体 = 该国家全部Pine Test campaign + 全部Pine Reuse campaign；国家整体BI '
                                   'CPI统计该国家全部campaign。'}}
 
-def validate_pine_consistency(data):
-    """发布前校验Pine国家汇总与分campaign明细使用同一范围和BI口径。"""
-    errors = []
-
-    def close_enough(left, right, tolerance):
-        return left is not None and right is not None and abs(float(left) - float(right)) <= tolerance
-
-    def check_recommendation(scope, curr_cpi, prev_cpi, country_cpi, recommendation):
-        text = recommendation or ""
-        if curr_cpi is not None and country_cpi is not None:
-            if curr_cpi <= country_cpi and "高于国家均值" in text:
-                errors.append(f"{scope}: CPI低于国家均值，但结论写为高于国家均值")
-            if curr_cpi > country_cpi and "低于国家均值" in text:
-                errors.append(f"{scope}: CPI高于国家均值，但结论写为低于国家均值")
-        if curr_cpi is not None and prev_cpi not in (None, 0):
-            is_up = curr_cpi > prev_cpi
-            if is_up and "未恶化" in text:
-                errors.append(f"{scope}: CPI环比上涨，但结论写为未恶化")
-            if not is_up and "环比上涨" in text:
-                errors.append(f"{scope}: CPI环比未上涨，但结论写为环比上涨")
-
-    countries = (data.get("pine_drama") or {}).get("countries", [])
-    for country in countries:
-        label = f"{country.get('country')}/{country.get('app_code')}/{country.get('os')}"
-        campaigns = country.get("campaigns", [])
-        if not campaigns:
-            continue
-
-        campaign_spend = sum(float(row.get("curr_spend") or 0) for row in campaigns)
-        if not close_enough(country.get("curr_pine_spend"), campaign_spend, 0.05):
-            errors.append(
-                f"{label}: Pine消耗 {country.get('curr_pine_spend')} != 分campaign合计 {campaign_spend:.2f}"
-            )
-
-        curr_dnus = [row.get("curr_dnu") for row in campaigns]
-        if country.get("pine_dnu") is not None and all(value is not None for value in curr_dnus):
-            campaign_dnu = sum(float(value) for value in curr_dnus)
-            if not close_enough(country.get("pine_dnu"), campaign_dnu, 0.1):
-                errors.append(
-                    f"{label}: Pine DNU {country.get('pine_dnu')} != 分campaign合计 {campaign_dnu:.0f}"
-                )
-            if campaign_dnu > 0 and all(row.get("curr_cpi") is not None for row in campaigns):
-                weighted_cpi = sum(float(row["curr_cpi"]) * float(row["curr_dnu"]) for row in campaigns) / campaign_dnu
-                if not close_enough(country.get("curr_pine_cpi"), weighted_cpi, 0.01):
-                    errors.append(
-                        f"{label}: Pine CPI {country.get('curr_pine_cpi')} != 分campaign BI DNU汇总 {weighted_cpi:.4f}"
-                    )
-
-        for campaign in campaigns:
-            scope = f"{label} · {campaign.get('campaign_name')}"
-            if not close_enough(campaign.get("country_cpi"), country.get("country_avg_cpi"), 0.01):
-                errors.append(
-                    f"{scope}: 引用国家CPI {campaign.get('country_cpi')} != 国家整体BI CPI {country.get('country_avg_cpi')}"
-                )
-            check_recommendation(
-                scope,
-                campaign.get("curr_cpi"),
-                campaign.get("prev_cpi"),
-                campaign.get("country_cpi"),
-                campaign.get("recommendation"),
-            )
-        check_recommendation(
-            f"{label} · Pine整体",
-            country.get("curr_pine_cpi"),
-            country.get("prev_pine_cpi"),
-            country.get("country_avg_cpi"),
-            country.get("recommendation"),
-        )
-
-    if errors:
-        raise ValueError("Pine数据一致性校验失败:\n- " + "\n- ".join(errors))
-    print(f"✓ Pine一致性校验通过: {len(countries)}个国家")
-
-
 def chg_class(v):
     if v is None: return "chg-flat"
     if v > 0: return "chg-up"
@@ -52157,6 +52083,80 @@ function copyText() {{
 </script>
 </body>
 </html>"""
+
+
+def validate_pine_consistency(data):
+    """发布前校验Pine国家汇总与分campaign明细使用同一范围和BI口径。"""
+    errors = []
+
+    def close_enough(left, right, tolerance):
+        return left is not None and right is not None and abs(float(left) - float(right)) <= tolerance
+
+    def check_recommendation(scope, curr_cpi, prev_cpi, country_cpi, recommendation):
+        text = recommendation or ""
+        if curr_cpi is not None and country_cpi is not None:
+            if curr_cpi <= country_cpi and "高于国家均值" in text:
+                errors.append(f"{scope}: CPI低于国家均值，但结论写为高于国家均值")
+            if curr_cpi > country_cpi and "低于国家均值" in text:
+                errors.append(f"{scope}: CPI高于国家均值，但结论写为低于国家均值")
+        if curr_cpi is not None and prev_cpi not in (None, 0):
+            is_up = curr_cpi > prev_cpi
+            if is_up and "未恶化" in text:
+                errors.append(f"{scope}: CPI环比上涨，但结论写为未恶化")
+            if not is_up and "环比上涨" in text:
+                errors.append(f"{scope}: CPI环比未上涨，但结论写为环比上涨")
+
+    countries = (data.get("pine_drama") or {}).get("countries", [])
+    for country in countries:
+        label = f"{country.get('country')}/{country.get('app_code')}/{country.get('os')}"
+        campaigns = country.get("campaigns", [])
+        if not campaigns:
+            continue
+
+        campaign_spend = sum(float(row.get("curr_spend") or 0) for row in campaigns)
+        if not close_enough(country.get("curr_pine_spend"), campaign_spend, 0.05):
+            errors.append(
+                f"{label}: Pine消耗 {country.get('curr_pine_spend')} != 分campaign合计 {campaign_spend:.2f}"
+            )
+
+        curr_dnus = [row.get("curr_dnu") for row in campaigns]
+        if country.get("pine_dnu") is not None and all(value is not None for value in curr_dnus):
+            campaign_dnu = sum(float(value) for value in curr_dnus)
+            if not close_enough(country.get("pine_dnu"), campaign_dnu, 0.1):
+                errors.append(
+                    f"{label}: Pine DNU {country.get('pine_dnu')} != 分campaign合计 {campaign_dnu:.0f}"
+                )
+            if campaign_dnu > 0 and all(row.get("curr_cpi") is not None for row in campaigns):
+                weighted_cpi = sum(float(row["curr_cpi"]) * float(row["curr_dnu"]) for row in campaigns) / campaign_dnu
+                if not close_enough(country.get("curr_pine_cpi"), weighted_cpi, 0.01):
+                    errors.append(
+                        f"{label}: Pine CPI {country.get('curr_pine_cpi')} != 分campaign BI DNU汇总 {weighted_cpi:.4f}"
+                    )
+
+        for campaign in campaigns:
+            scope = f"{label} · {campaign.get('campaign_name')}"
+            if not close_enough(campaign.get("country_cpi"), country.get("country_avg_cpi"), 0.01):
+                errors.append(
+                    f"{scope}: 引用国家CPI {campaign.get('country_cpi')} != 国家整体BI CPI {country.get('country_avg_cpi')}"
+                )
+            check_recommendation(
+                scope,
+                campaign.get("curr_cpi"),
+                campaign.get("prev_cpi"),
+                campaign.get("country_cpi"),
+                campaign.get("recommendation"),
+            )
+        check_recommendation(
+            f"{label} · Pine整体",
+            country.get("curr_pine_cpi"),
+            country.get("prev_pine_cpi"),
+            country.get("country_avg_cpi"),
+            country.get("recommendation"),
+        )
+
+    if errors:
+        raise ValueError("Pine数据一致性校验失败:\n- " + "\n- ".join(errors))
+    print(f"✓ Pine一致性校验通过: {len(countries)}个国家")
 
 
 def main():
