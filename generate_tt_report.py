@@ -6,6 +6,7 @@ TikTok 投放数据 CPI 归因报告生成器
 """
 
 import subprocess
+import re
 from pathlib import Path
 
 REPO_DIR = Path(__file__).parent
@@ -43379,6 +43380,68 @@ def summary_driver(c):
     return max(candidates, key=lambda x: x[1])[0]
 
 
+def validate_weekly_summary_consistency(d):
+    """Ensure summary metrics and narratives come from the same country snapshot."""
+    errors = []
+    cpi_pattern = re.compile(r"(?:周期内|BI )CPI(上涨|下降)\s*([0-9.]+)%")
+    dnu_pattern = re.compile(r"本周DNU(上涨|下降)\s*([0-9.]+)%")
+
+    def close_enough(left, right, tolerance=0.11):
+        if left is None or right is None:
+            return left is None and right is None
+        return abs(float(left) - float(right)) <= tolerance
+
+    for acc in d["accounts"]:
+        for prod in acc["products"]:
+            details = {c.get("code"): c for c in prod.get("countries", [])}
+            for summary_country in summary_country_rows(prod):
+                code = summary_country.get("code")
+                detail = details.get(code)
+                scope = f"{prod['key']} · {code}"
+                if detail is None:
+                    errors.append(f"{scope}: 首页触发国家缺少详情数据")
+                    continue
+
+                for field in ("cpi_chg", "prev_cpi", "curr_cpi", "prev_dnu", "curr_dnu"):
+                    if not close_enough(summary_country.get(field), detail.get(field)):
+                        errors.append(
+                            f"{scope}: {field} 首页={summary_country.get(field)} 详情={detail.get(field)}"
+                        )
+
+                conclusion = detail.get("conclusion", "")
+                cpi_match = cpi_pattern.search(conclusion)
+                cpi_chg = detail.get("cpi_chg")
+                if cpi_chg is not None and abs(cpi_chg) >= 10:
+                    if not cpi_match:
+                        errors.append(f"{scope}: 归因结论缺少国家CPI涨跌幅")
+                    else:
+                        narrative_cpi = float(cpi_match.group(2)) * (
+                            1 if cpi_match.group(1) == "上涨" else -1
+                        )
+                        if not close_enough(cpi_chg, narrative_cpi):
+                            errors.append(
+                                f"{scope}: CPI指标={cpi_chg:.1f}% 结论={narrative_cpi:.1f}%"
+                            )
+
+                dnu_match = dnu_pattern.search(conclusion)
+                dnu_chg = country_dnu_chg(detail)
+                if dnu_chg is not None and abs(dnu_chg) >= 10:
+                    if not dnu_match:
+                        errors.append(f"{scope}: 归因结论缺少DNU涨跌幅")
+                    else:
+                        narrative_dnu = float(dnu_match.group(2)) * (
+                            1 if dnu_match.group(1) == "上涨" else -1
+                        )
+                        if not close_enough(dnu_chg, narrative_dnu):
+                            errors.append(
+                                f"{scope}: DNU指标={dnu_chg:.1f}% 结论={narrative_dnu:.1f}%"
+                            )
+
+    if errors:
+        raise ValueError("周报首页数据一致性校验失败:\n- " + "\n- ".join(errors))
+    print("✓ 周报首页指标与归因结论一致性校验通过")
+
+
 def render_weekly_summary(d):
     red_total = yellow_total = segment_total = 0
     blocks = ""
@@ -43386,6 +43449,7 @@ def render_weekly_summary(d):
     for acc in d["accounts"]:
         for prod in acc["products"]:
             rows_data = summary_country_rows(prod)
+            detail_by_code = {c.get("code"): c for c in prod.get("countries", [])}
             all_segments = prod.get("all_countries") or prod.get("countries", [])
             segment_total += sum(
                 1 for c in all_segments
@@ -43407,6 +43471,7 @@ def render_weekly_summary(d):
 
             rows = ""
             for c in rows_data:
+                detail = detail_by_code.get(c.get("code"), c)
                 cpi_chg = c.get("cpi_chg") or 0
                 dnu_chg = country_dnu_chg(c)
                 trigger_parts = []
@@ -43437,7 +43502,7 @@ def render_weekly_summary(d):
           <td class="num">{fmt_summary_pct(c.get('ctr_chg'))}</td>
           <td class="num">{fmt_summary_pct(i2c_chg)}</td>
           <td class="num">{curr_cpi_s}</td>
-          <td class="summary-sentence">{html_escape(c.get('conclusion', ''))}</td>
+          <td class="summary-sentence">{html_escape(detail.get('conclusion', ''))}</td>
         </tr>"""
 
             product_label = prod.get("name") or prod["label"]
@@ -44119,6 +44184,7 @@ def validate_pine_consistency(data):
 
 
 def main():
+    validate_weekly_summary_consistency(REPORT_DATA)
     validate_pine_consistency(REPORT_DATA)
     html = generate_html(REPORT_DATA)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
