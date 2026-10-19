@@ -76,17 +76,13 @@
 - 历史双周报页面不再刷新或调整。
 - 每个归因详情块必须先展示“结论 + 主要原因判断”，然后才展示明细表。
 
-## PineDrama 素材专项
+## PineDrama 投放表现
 
-- PineDrama Tab 只保留两类信息：国家维度整体表现、头部单创意分析。
+- PineDrama Tab 只保留国家维度整体表现和分 campaign 表现。自 2026-10-19 起停止更新并移除创意分析、历史素材截图和题材卡片。
 - 不再输出“国家 × 投放事件”的 Pine 成本拆解和事件级优化结论。
 - Pine campaign 口径包含 campaign name 中的 `pinereuse` 和 `pine_test`。
 - 国家维度展示 Pine DNU、国家整体 DNU、DNU 占比、Pine 消耗、Pine CPI、周环比和国家均值 CPI。
 - 分 campaign 明细必须将 `Pine Test` 与 `Pine Reuse` 分组展示，不得混排；展示消耗、Pine CPI、CPI环比、同口径国家CPI和放量/调整建议。
 - Pine整体、分campaign和国家CPI均优先使用BI CPI；BI CPI完全缺失时使用 `Moloco Spend ÷ DNU`，DNU也缺失时留空，不得回退到Moloco installs CPI。
 - Pine DNU、分campaign DNU和国家DNU严格使用Sandbox BI的 `client_dnu` 按周期直接求和，不加权；不得使用Moloco installs替代。
-- 创意层没有BI DNU时不展示CPI，只保留消耗、截图和题材解析。
 - PineDrama Tab 的国家名称不展示国旗图标。
-- 头部创意按消耗排序，展示 Creative ID、creative group、消耗、CPI、截图、题材、时长、画幅和版位。
-- 题材必须读取实际图片或视频素材后判断；仅凭 creative group 名称推断时必须明确标记为“命名推断”。
-- 头部创意可使用最新素材快照，但必须单独标注统计日期，并提示未完结日；不得与正式周报完整周期混写。
