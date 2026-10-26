@@ -12933,6 +12933,39 @@ def is_country_triggered(c):
         or (dnu_chg is not None and abs(dnu_chg) >= 10)
     )
 
+def attribution_summary(country):
+    """统一首页与详情归因文案，数值取自当前分组的结构化数据。"""
+    dnu = country_dnu_chg(country)
+    cpi = country.get("cpi_chg")
+    original = country.get("conclusion", "")
+    if not country.get("prev_spend") or cpi is None:
+        # 新开投放或不可比周期沿用明确的数据边界说明。
+        return original.split("后续优化动作：")[0]
+    if dnu is not None and abs(dnu) >= 10:
+        trend = "上涨" if dnu > 0 else "下降"
+        driver = re.search(r"主要受([^；]+)影响", original)
+        driver_text = driver.group(1) if driver else "消耗与CPI共同变化"
+        intro = f"本周DNU{trend}主要受{driver_text}影响"
+    else:
+        intro = f"本周CPI{'上涨' if cpi >= 0 else '下降'}"
+    events, publishers = country.get("events", []), country.get("publishers", [])
+    event = events[0] if events else None
+    publisher = publishers[0] if publishers else None
+    names, details = [], []
+    if event:
+        names.append(f"{event['name']}事件")
+        details.append(f"{event['name']}事件消耗占比 {event['curr_share']:.1f}%、Moloco CPI {chg_str(event.get('cpi_chg'))}")
+    if publisher:
+        names.append(f"{publisher['name']}媒体")
+        details.append(f"媒体侧 {publisher['name']} 消耗占比 {publisher['curr_share']:.1f}%、CPI {chg_str(publisher.get('cpi_chg'))}")
+    if not names:
+        return intro + "；暂无可比事件与媒体明细。"
+    result = intro + "；其中Moloco侧主要归因于" + "及".join(names) + "的成本与流量结构变化；细分数据如下：" + "；".join(details) + "。"
+    if country.get("metric_divergence"):
+        result += "BI与Moloco口径走势或幅度分化，上述明细仅解释Moloco侧变化。"
+    return result
+
+
 def render_country_block(c):
     media = c["media_pct"]
     creative = c["creative_pct"]
@@ -13061,7 +13094,7 @@ def render_country_block(c):
       {publishers_html}
       {formats_html}
     </div>
-    <div class="conclusion"><strong>结论：</strong>{c['conclusion']}</div>
+    <div class="conclusion"><strong>结论：</strong>{html_escape(attribution_summary(c))}</div>
   </div>"""
 
 
@@ -13439,7 +13472,7 @@ def render_weekly_summary(d):
           <td class="num">{fmt_summary_pct(c.get('ctr_chg'))}</td>
           <td class="num">{fmt_summary_pct(i2c_chg)}</td>
           <td class="num">{curr_cpi_s}</td>
-          <td class="summary-sentence">{html_escape(detail.get('conclusion', ''))}</td>
+          <td class="summary-sentence">{html_escape(attribution_summary(detail))}</td>
         </tr>"""
 
             product_label = prod.get("name") or prod["label"]
