@@ -76,13 +76,7 @@
 - 历史双周报页面不再刷新或调整。
 - 每个归因详情块必须先展示“结论 + 主要原因判断”，然后才展示明细表。
 
-## PineDrama 投放表现
+## Pine 专项
 
-- PineDrama Tab 只保留国家维度整体表现和分 campaign 表现。自 2026-10-19 起停止更新并移除创意分析、历史素材截图和题材卡片。
-- 不再输出“国家 × 投放事件”的 Pine 成本拆解和事件级优化结论。
-- Pine campaign 口径包含 campaign name 中的 `pinereuse` 和 `pine_test`。
-- 国家维度展示 Pine DNU、国家整体 DNU、DNU 占比、Pine 消耗、Pine CPI、周环比和国家均值 CPI。
-- 分 campaign 明细必须将 `Pine Test` 与 `Pine Reuse` 分组展示，不得混排；展示消耗、Pine CPI、CPI环比、同口径国家CPI和放量/调整建议。
-- Pine整体、分campaign和国家CPI均优先使用BI CPI；BI CPI完全缺失时使用 `Moloco Spend ÷ DNU`，DNU也缺失时留空，不得回退到Moloco installs CPI。
-- Pine DNU、分campaign DNU和国家DNU严格使用Sandbox BI的 `client_dnu` 按周期直接求和，不加权；不得使用Moloco installs替代。
-- PineDrama Tab 的国家名称不展示国旗图标。
+- 自 2026-11-02 起移除整个 Pine 专项，包括国家汇总、分 campaign 表现及创意内容，后续不再查询或生成专项数据。
+- 常规 TT 汇总仍保持原有账户及 campaign 范围。
